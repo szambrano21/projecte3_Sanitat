@@ -17,12 +17,16 @@
         <div>
             <h2>Datos generales</h2>
             <div>
-                <label for="dni">Name:</label><br>
-                <input type="text" id="dni" name="dni">
+                <label for="dni">Fecha:</label><br>
+                <input type="date" id="date" name="date">
             </div>        
             <div>
-                <label for="dni">Name:</label><br>
-                <input type="text" id="dni" name="dni">
+                <label for="asignacionCama">Asignación de cama:</label><br>
+                <input type="text" id="asignacionCama" name="asignacionCama">
+            </div>
+            <div>
+                <label for="asignacionCama">Asignación de cama:</label><br>
+                <input type="text" id="asignacionCama" name="asignacionCama">
             </div>        
         </div>
         <div>
