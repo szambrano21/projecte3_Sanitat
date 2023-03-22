@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,8 @@
     <title>Formulari paciente</title>
 </head>
 <body>
-    
-    <form action="/form_name.php">
+
+    <form action="proba.php">
         <div>
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name">
