@@ -43,10 +43,9 @@
             <input type="text" id="mail" name="mail">
         </div>
         <div>
-            <label for="direccion">Correo electronico:</label><br>
-            <input type="text" id="mail" name="mail">
+            <label for="direccion">direccion:</label><br>
+            <input type="text" id="direccion" name="direccion">
         </div>
-
         <div>
             <label for="persona_contacto">Persona de contacto:</label><br>
             <input type="text" id="persona_contacto" name="persona_contacto">
