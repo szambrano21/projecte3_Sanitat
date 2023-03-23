@@ -64,8 +64,11 @@ if(!empty($_POST)){
             <input placeholder="password" type="password" name="password" id="password">
             <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
         </label>
-        <div>
-            <a href="" class="link">Remember me</a>
+        <div class="container_link">
+            <div class="check_remember">
+                <input type="checkbox" name="guardar" id="guardar">
+                <a href="" class="link">Remember me</a>
+            </div>
             <a href="" class="link">Forgot your password?</a>
         </div>
         <br>

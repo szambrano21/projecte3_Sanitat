@@ -187,9 +187,23 @@ table td{
     color: #1e3a29;
 }
 
+.login .container_link{
+    display: flex;
+    justify-content: space-around;
+}
+
+.check_remember{
+    display: flex;
+}
+
+input[type="checkbox"]:checked {
+    background-color: red;
+  }
+  
+
 .login .link{
     color: #1e3a29;
-    margin-bottom: 15px;
+    font-size: 12px;
 }
 
 .login .button {
