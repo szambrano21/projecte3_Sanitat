@@ -160,8 +160,17 @@ table td{
     box-shadow: 0 2px 2px 0 #00000057;
 }
 
-.usuario_arriba{
+.container_usuario{
     margin-top: -50px;
+    margin-bottom: 50px;
+}
+
+.usuario_arriba{
+    background-color: #D15E1D;
+    padding: 15px;
+    color: #FFF;
+    border-radius: 30px;
+    font-size: 2em;
 }
 
 .login label input {

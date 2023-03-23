@@ -52,7 +52,9 @@ if(!empty($_POST)){
 
 <div class="container_login">
     <form class="login" action="login.php" id="formulario" method="post">
-    <i class="fa-solid fa-user usuario_arriba"></i>
+    <div class="container_usuario">
+        <i class="fa-solid fa-user usuario_arriba"></i>
+    </div>
         <label for="username">  
             <i class="fa-solid fa-user"></i>
             <input placeholder="username" type="text" name="username" id="username">
@@ -62,8 +64,10 @@ if(!empty($_POST)){
             <input placeholder="password" type="password" name="password" id="password">
             <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
         </label>
-
-        <a href="" class="link">Forgot your password?</a>
+        <div>
+            <a href="" class="link">Remember me</a>
+            <a href="" class="link">Forgot your password?</a>
+        </div>
         <br>
         <input type="submit" value="LOGIN" class="button">
     </form>

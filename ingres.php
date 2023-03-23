@@ -33,8 +33,9 @@
                     <option value="programat">Programat</option>
                     <option value="altre">Altres</option>
                 </select>
-                <textarea class="altres"></textarea>
-
+                <span>
+                    <textarea class="altres"></textarea>
+                </span>
             </div>
             <div>
                 <label for="motiuIngres">Motiu d'ingres/ Diagnostic:</label><br>
@@ -65,7 +66,7 @@
                 </div>
             </div>
             <div>
-                <label for="habitsToxics">Hàbits tòxics:s:</label><br>
+                <label for="habitsToxics">Hàbits tòxics:</label><br>
                 <input type="text" id="habitsToxics" name="habitsToxics">
             </div>
             <div>
