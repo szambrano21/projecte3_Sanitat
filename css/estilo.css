@@ -135,7 +135,7 @@ table td{
     background: #ffffff61;
     text-align: center;
     padding: 20px 25px;
-    box-shadow: 0 5px 10px #1e3a29;
+    box-shadow: 0 1px 2px #1e3a29;
     border-radius: 25px;
 }
 
@@ -163,14 +163,18 @@ table td{
 .container_usuario{
     margin-top: -50px;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .usuario_arriba{
+    width: 86px;
     background-color: #D15E1D;
-    padding: 15px;
+    padding: 20px;
     color: #FFF;
-    border-radius: 30px;
-    font-size: 2em;
+    border-radius: 75px;
+    font-size: 3em;
 }
 
 .login label input {
@@ -190,26 +194,30 @@ table td{
 .login .container_link{
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .check_remember{
     display: flex;
 }
 
-input[type="checkbox"]:checked {
-    background-color: red;
-  }
+.check_remember input[type="checkbox"]{
+    accent-color: #D15E1D;
+    margin-right: 2px;
+    width: 16px;
+    height: 16px;
+}
   
 
 .login .link{
-    color: #1e3a29;
+    color: #D15E1D;
     font-size: 12px;
 }
 
 .login .button {
     color: #fff;
     border: none;
-    background-color: #D15E1D;
+    background-color: #d15f1db8;
     border-radius: 25px;
     padding: 10px 15px;
     cursor: pointer;

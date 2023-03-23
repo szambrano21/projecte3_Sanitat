@@ -51,7 +51,7 @@ if(!empty($_POST)){
 <body>
 
 <div class="container_login">
-    <form class="login" action="login.php" id="formulario" method="post">
+    <form class="login" action="index.php" id="formulario" method="post">
     <div class="container_usuario">
         <i class="fa-solid fa-user usuario_arriba"></i>
     </div>
