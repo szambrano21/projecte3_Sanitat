@@ -52,7 +52,7 @@ if(!empty($_POST)){
 
 <div class="container_login">
     <form class="login" action="login.php" id="formulario" method="post">
-        <h1 class="title">Log in</h1>
+    <i class="fa-solid fa-user usuario_arriba"></i>
         <label for="username">  
             <i class="fa-solid fa-user"></i>
             <input placeholder="username" type="text" name="username" id="username">
@@ -62,9 +62,10 @@ if(!empty($_POST)){
             <input placeholder="password" type="password" name="password" id="password">
             <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
         </label>
+
         <a href="" class="link">Forgot your password?</a>
         <br>
-        <input type="submit" value="Iniciar sesión" class="button">
+        <input type="submit" value="LOGIN" class="button">
     </form>
 </div>
     <script src="login.js"></script>

@@ -122,19 +122,21 @@ table td{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, rgba(24, 70, 189, 1), rgba(13, 131, 240, 0.46), rgba(70, 112, 220, 0.85));
+    background: linear-gradient(rgb(28 64 157 / 54%) 0%, rgb(70 112 220 / 8%) 100%);
 }
 
 /* Esta clase login es el form */
 
 .login {
+    width: 100%;
+    max-width: 320px;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: #ffffff61;
     text-align: center;
     padding: 20px 25px;
-    box-shadow: 0;
     box-shadow: 0 5px 10px #1e3a29;
+    border-radius: 25px;
 }
 
 .login .title {
@@ -146,21 +148,30 @@ table td{
 
 .login label {
     margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login label .fa-solid {
-    font-size: 20px;
-    color: #6ebe8d;
-    margin-right: 10px;
+    color: #FFF;
+    background-color: #D15E1D;
+    padding: 8px;
+    box-shadow: 0 2px 2px 0 #00000057;
+}
+
+.usuario_arriba{
+    margin-top: -50px;
 }
 
 .login label input {
     outline: none;
     border: none;
     color: #072020;
-    border-bottom: solid 1px #6ebe8d;
-    padding: 0 5px;
+    padding: 5px;
     font-size: 18px;
+    box-shadow: 0 2px 2px 0 #00000057;
+
 }
 
 .login label input::placeholder {
@@ -175,10 +186,10 @@ table td{
 .login .button {
     color: #fff;
     border: none;
-    background: linear-gradient(to right, #6ebe8d, #70c5c2);
+    background-color: #D15E1D;
+    border-radius: 25px;
     padding: 10px 15px;
     cursor: pointer;
     font-size: 20px;
     text-decoration: none;
-
 }

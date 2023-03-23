@@ -23,41 +23,41 @@
             <input type="text" id="nHC" name="nHC"><br><br>
         </div>
         <div>
-            <label for="nombre_complet">Nombre completo:</label><br>
-            <input type="text" id="nombre_complet" name="nombre_complet"><br><br>
+            <label for="nom_complet">Nombre completo:</label><br>
+            <input type="text" id="nom_complet" name="nom_complet"><br><br>
         </div>
         <div>
-            <label for="data_nacimiento">Data de nacimiento:</label><br>
-            <input type="text" id="data_nacimiento" name="data_nacimiento"><br><br>
+            <label for="data_naixement">Data de nacimiento:</label><br>
+            <input type="text" id="data_naixement" name="data_naixement"><br><br>
         </div>
         <div>
-            <label for="sexo">Sexo:</label><br>
-            <input type="text" id="sexo" name="sexo"><br><br>
+            <label for="sexe">Sexo:</label><br>
+            <input type="text" id="sexe" name="sexe">
         </div>
         <div>
-            <label for="telefono">Telefono:</label><br>
-            <input type="text" id="telefono" name="telefono">
+            <label for="telefon">Telefon:</label><br>
+            <input type="text" id="telefon" name="telefon">
         </div>                        
         <div>
             <label for="mail">Correo electronico:</label><br>
             <input type="text" id="mail" name="mail">
         </div>
         <div>
-            <label for="direccion">direccion:</label><br>
-            <input type="text" id="direccion" name="direccion">
+            <label for="direccio">direccio:</label><br>
+            <input type="text" id="direccio" name="direccio">
         </div>
         <div>
-            <label for="persona_contacto">Persona de contacto:</label><br>
-            <input type="text" id="persona_contacto" name="persona_contacto">
+            <label for="personaContacte">Persona de contacte:</label><br>
+            <input type="text" id="personaContacte" name="personaContacte">
         </div>
         
         <div>
-            <label for="telefono_personaContacto">Telefono de la persona de contacto:</label><br>
-            <input type="text" id="telefono_personaContacto" name="telefono_personaContacto">
+            <label for="telefon_personaContacto">Telefon de la persona de contacto:</label><br>
+            <input type="text" id="telefon_personaContacto" name="telefon_personaContacto">
         </div>
 
         <div>
-            <label for="relacioPersonaContacte">Relacion de la persona de contacto:</label><br>
+            <label for="relacioPersonaContacte">Relaci de la persona de contacto:</label><br>
             <input type="text" id="relacioPersonaContacte" name="relacioPersonaContacte">
         </div>
 
