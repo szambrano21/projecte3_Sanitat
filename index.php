@@ -4,7 +4,7 @@ $alert = '';
 
 session_start();
 if(!empty($_SESSION['activo'])){
-    header("location: index.php");
+    header("location: inicial.php");
 }else{
 
 
@@ -12,11 +12,13 @@ if(!empty($_POST)){
     if(empty($_POST["username"]) || empty($_POST["password"]) ) {
         $alert = "INGRESA TU USUARIO Y CONTRASEÑA";
     }else{
-        include_once('connexiosaraismabbdd.php');
+        include_once('connexiobbddsanitat.php');
         $user = mysqli_real_escape_string($conexion, $_POST["username"]);
-        $pass = md5(mysqli_real_escape_string($conexion, $_POST["password"]));
+        $pass = mysqli_real_escape_string($conexion, $_POST["password"]);
 
-        $query = mysqli_query($conexion, "SELECT * FROM tusuario WHERE NombreUsuario = '$user' AND Password = '$pass' ");
+/*        $pass = md5(mysqli_real_escape_string($conexion, $_POST["password"]));
+*/
+        $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE nomUsuari = '$user' AND Password = '$pass' ");
         $resultado = mysqli_num_rows($query);
 
         if($resultado > 0){
@@ -24,11 +26,11 @@ if(!empty($_POST)){
             session_start();
             $_SESSION['activo'] = true;
             $_SESSION['DNI'] = $row['DNI'];
-            $_SESSION['nombre'] = $row['NombreUsuario']; 
+            $_SESSION['nombre'] = $row['nomUsuari']; 
             $_SESSION['tipo'] = $row['Tipo']; 
 
 
-            header("location: index.php");
+            header("location: inicial.php");
 
 
         }else{
@@ -52,9 +54,9 @@ if(!empty($_POST)){
 
 <div class="container_login">
     <form class="login" action="index.php" id="formulario" method="post">
-    <div class="container_usuario">
-        <i class="fa-solid fa-user usuario_arriba"></i>
-    </div>
+        <div class="container_usuario">
+            <i class="fa-solid fa-user usuario_arriba"></i>
+        </div>
         <label for="username">  
             <i class="fa-solid fa-user"></i>
             <input placeholder="username" type="text" name="username" id="username">
@@ -62,8 +64,9 @@ if(!empty($_POST)){
         <label>
             <i class="fa-solid fa-lock"></i>
             <input placeholder="password" type="password" name="password" id="password">
-            <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
         </label>
+        <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
+
         <div class="container_link">
             <div class="check_remember">
                 <input type="checkbox" name="guardar" id="guardar">
