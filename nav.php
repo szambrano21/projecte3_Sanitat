@@ -38,9 +38,9 @@
     </div> -->
 <div class="menu">
     <ul>
-        <li><span href="#Logo">LOGOTIPO</span></li>
-        <li><a class="active" href="#home">DASHBOARD</a></li>
-        <li><a href="#news">Gestió d'usuaris</a></li>
-        <li><a href="#contact">Gestió de pacients</a></li>
+        <li><span href="inicial.php">LOGOTIPO</span></li>
+        <li><a class="active" href="inicial.php">DASHBOARD</a></li>
+        <li><a href="pacientes.php">Pacientes</a></li>
     </ul>
 </div>
+

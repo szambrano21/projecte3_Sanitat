@@ -7,7 +7,10 @@
     <?php include_once("header.php"); ?>
 
 
-    <br>
 
+    <div class="container_general">
+
+<p>hola</p>
+    </div>
 </body>
 </html>
