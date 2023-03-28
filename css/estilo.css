@@ -8,7 +8,6 @@
 }
 
 body{
-    display: flex;
     background-color: #F5F5F5;
 }
 
@@ -264,10 +263,8 @@ table td{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 100%;
-    max-width: 200px;
+    width: 200px;
     background-color: #01161E;
-    position: fixed;
     height: 100vh;
     overflow: auto;
 }
@@ -281,7 +278,7 @@ table td{
 
 .menu li a ,.menu li span{
     display: block;
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -295,7 +292,7 @@ table td{
 }
 
 .menu li span{
-    padding: 12px 8px 50px 16px;
+    padding: 12px 8px 50px 8px;
     cursor: default;
 }
 
@@ -322,8 +319,8 @@ table td{
 
 .container_general{
     display: flex;
-    width: 80%;
-    background-color: red;
+    justify-content: center;
+    width: 100%;
 }
 
 .container_menu{

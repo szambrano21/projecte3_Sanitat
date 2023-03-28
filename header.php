@@ -7,9 +7,6 @@ if(empty($_SESSION['activo'])){
     <header>
         <div class="container_general_menu">
             <?php include_once("nav.php") ;?>
-            
-
-
         </div>
     </header>
     
