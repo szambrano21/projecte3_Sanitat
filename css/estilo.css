@@ -261,12 +261,24 @@ table td{
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    position: fixed;
     margin: 0;
     padding: 0;
     width: 200px;
     background-color: #01161E;
     height: 100vh;
     overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .menu ul{
+        width: 100%;
+        height: initial;
+    }
+    .menu{
+        display: block;
+        max-width: initial;
+    }
 }
 
 .menu li{
@@ -313,13 +325,23 @@ table td{
 
 /* PAGINA PACIENTES */
 
-/* .container_general_menu{
-    display: flex;
-} */
+.espacio_arriba{
+    padding-top: 100px;
+}
 
 .container_general{
     width: 100%;
-    padding: 0 40px;
+    padding: 0 40px 0 240px;
+}
+
+@media screen and (max-width: 700px) {
+    .container_general{
+        padding: 0;
+    }
+
+    .espacio_arriba{
+        padding-top: 200px;
+    }
 }
 
 .container_paciente{

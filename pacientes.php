@@ -7,6 +7,14 @@
     body{
         display: flex;
     }
+
+    @media screen and (max-width: 700px) {
+        body{
+        display: initial;
+    }
+
+}
+
     
 </style>
 </head>
@@ -16,7 +24,7 @@
     <!-- container_general - no tocar -->
 
     <div class="container_general">
-        <div style="padding-top: 100px"></div>
+        <div class="espacio_arriba"></div>
         <div class="container_paciente">
             <ul>
                 <li>12345678Z</li>
