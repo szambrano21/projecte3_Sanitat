@@ -299,8 +299,8 @@ table td{
 .menu li a.active {
     width: 100%;
     max-width: 80%;
-    background-color: #4CAF50;
-    color: black;
+    background-color: #D15E1D;
+    color: white;
     border-radius: 10px;
 }
 
@@ -313,18 +313,53 @@ table td{
 
 /* PAGINA PACIENTES */
 
-.container_general_menu{
+/* .container_general_menu{
     display: flex;
-}
+} */
 
 .container_general{
-    display: flex;
-    justify-content: center;
     width: 100%;
+    padding: 0 40px;
 }
 
-.container_menu{
+.container_paciente{
+    display: grid;
+    width: 100%;
+    background-color: #124559;
+    border: 2px solid black;
+    /* height: 600px; */
+    justify-items: center;
+    grid-gap: 20px;
+    padding: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+.container_paciente ul{
+    background-color: #D9D9D9;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 300px;
+    height: calc(150px + 1vw);
+    padding: 15px;
+}
+
+.container_paciente ul li:first-child{
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    font-weight: bold;
+}
+
+.container_paciente ul li:nth-child(2){
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    font-weight: bold;
 }

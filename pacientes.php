@@ -16,23 +16,40 @@
     <!-- container_general - no tocar -->
 
     <div class="container_general">
+        <div style="padding-top: 100px"></div>
+        <div class="container_paciente">
+            <ul>
+                <li>12345678Z</li>
+                <li>Laura Ramirez MHC</li>
+            </ul>
+            <ul>
+                <li>12345678Z</li>
+                <li>Laura Ramirez MHC</li>
+            </ul>
+            <ul>
+                <li>12345678Z</li>
+                <li>Laura Ramirez MHC</li>
+            </ul>
+
+            <ul>
+                <li>12345678Z</li>
+                <li>Laura Ramirez MHC</li>
+            </ul>
+            <ul>
+                <li>12345678Z</li>
+                <li>Laura Ramirez MHC</li>
+            </ul>
+            <ul>
+                <li>12345678Z</li>
+                <li>Laura Ramirez MHC</li>
+            </ul>
+        </div>
         
-
-    <div>
-        
-    </div>
-    
-
-
         <div style="display: flex">
             <li><h1><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
             <li><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
         </div>
-
-
-
-
-
+        
     </div>
 </body>
 </html>
