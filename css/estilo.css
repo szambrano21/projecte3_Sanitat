@@ -427,3 +427,35 @@ hr{
     border: 1px solid #85929e;
     border-radius: 5px;
 }
+
+/* PAGINA INGRES USUARIS */
+
+.container_ingres{
+    width: 100%;
+    margin: auto;
+    max-width: 550px;
+    padding: 20px;
+}
+
+.container_ingres form{
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 50px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+}
+
+.container_ingres label{
+    display: block;
+    font-size: 12pt;
+    margin: 15px auto 5px auto;
+}
+
+.container_ingres input, .container_ingres select{
+    display: block;
+    width: 100%;
+    font-size: 11pt;
+    padding: 5px;
+    border: 1px solid #85929e;
+    border-radius: 5px;
+}
