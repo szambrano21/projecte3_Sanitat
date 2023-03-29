@@ -7,6 +7,11 @@
     font-family: "Roboto", sans-serif;
 }
 
+body{
+    background-color: #F5F5F5;
+}
+
+/* TABLAS NORMALES RESPONSIVE */
 table{
     border-collapse: collapse;
     font-size: 16px;
@@ -41,7 +46,7 @@ table td{
 
 .form_busqueda{
     display: flex;
-    float: right;
+    float: left;
     background-color: initial;
     padding: 10px;
     border-radius: 4px;
@@ -135,7 +140,7 @@ table td{
     background: #ffffff61;
     text-align: center;
     padding: 20px 25px;
-    box-shadow: 0 5px 10px #1e3a29;
+    box-shadow: 0 1px 2px #1e3a29;
     border-radius: 25px;
 }
 
@@ -163,14 +168,18 @@ table td{
 .container_usuario{
     margin-top: -50px;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .usuario_arriba{
+    width: 86px;
     background-color: #D15E1D;
-    padding: 15px;
+    padding: 20px;
     color: #FFF;
-    border-radius: 30px;
-    font-size: 2em;
+    border-radius: 75px;
+    font-size: 3em;
 }
 
 .login label input {
@@ -190,29 +199,189 @@ table td{
 .login .container_link{
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .check_remember{
     display: flex;
 }
 
-input[type="checkbox"]:checked {
-    background-color: red;
-  }
+.check_remember input[type="checkbox"]{
+    accent-color: #D15E1D;
+    margin-left: 2px;
+    width: 16px;
+    height: 16px;
+}
   
 
 .login .link{
-    color: #1e3a29;
+    color: #D15E1D;
     font-size: 12px;
 }
 
 .login .button {
     color: #fff;
     border: none;
-    background-color: #D15E1D;
+    background-color: #d15f1db8;
     border-radius: 25px;
     padding: 10px 15px;
     cursor: pointer;
     font-size: 20px;
     text-decoration: none;
+}
+
+/* MENU DE NAVEGACION */
+
+.container_menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header{
+    background-color: #F5F5F5;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+    height: 75px;
+    padding: 20px 0;
+}
+
+.header a{
+    cursor: default;
+}
+
+.menu{
+    display: flex;
+    width: 100%;
+    max-width: 200px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #01161E;
+    height: 100vh;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .menu ul{
+        width: 100%;
+        height: initial;
+    }
+    .menu{
+        display: block;
+        max-width: initial;
+    }
+}
+
+.menu li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li a ,.menu li span{
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.menu li a{
+    width: 100%;
+    max-width: 80%;
+    padding: 12px 8px 12px 16px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.menu li span{
+    padding: 12px 8px 50px 8px;
+    cursor: default;
+}
+
+.menu li a.active {
+    width: 100%;
+    max-width: 80%;
+    background-color: #D15E1D;
+    color: white;
+    border-radius: 10px;
+}
+
+.menu li a:hover:not(.active) {
+    background-color: #d7d7d75e;
+    color: black;
+}
+
+
+
+/* PAGINA PACIENTES */
+
+.espacio_arriba{
+    padding-top: 100px;
+}
+
+.container_general{
+    width: 100%;
+    padding: 0 40px 0 240px;
+}
+
+@media screen and (max-width: 700px) {
+    .container_general{
+        padding: 0;
+    }
+
+    .espacio_arriba{
+        padding-top: 200px;
+    }
+}
+
+.container_paciente{
+    display: grid;
+    width: 100%;
+    background-color: #124559;
+    border: 2px solid black;
+    /* height: 600px; */
+    justify-items: center;
+    grid-gap: 20px;
+    padding: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+.container_paciente ul{
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    height: calc(150px + 1vw);
+    padding: 15px;
+}
+
+.container_paciente ul li:first-child{
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    font-weight: bold;
+}
+
+.container_paciente ul li:nth-child(2){
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    font-weight: bold;
 }

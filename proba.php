@@ -9,17 +9,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/validate_ingres.js"></script>
     <title>Formulari paciente</title>
 </head>
 <body>
 
     <form action="proba.php">
         <div>
-            <label for="dni">Name:</label><br>
+            <label for="dni">DNI:</label><br>
             <input type="text" id="dni" name="dni">
         </div>
         <div>
-            <label for="nHC">Apellido:</label><br>
+            <label for="nHC">nHC:</label><br>
             <input type="text" id="nHC" name="nHC"><br><br>
         </div>
         <div>
@@ -28,7 +29,7 @@
         </div>
         <div>
             <label for="data_naixement">Data de nacimiento:</label><br>
-            <input type="text" id="data_naixement" name="data_naixement"><br><br>
+            <input type="date" id="data_naixement" name="data_naixement"><br><br>
         </div>
         <div>
             <label for="sexe">Sexo:</label><br>
@@ -43,7 +44,7 @@
             <input type="text" id="mail" name="mail">
         </div>
         <div>
-            <label for="direccio">direccio:</label><br>
+            <label for="direccio">Direccio:</label><br>
             <input type="text" id="direccio" name="direccio">
         </div>
         <div>
@@ -57,7 +58,7 @@
         </div>
 
         <div>
-            <label for="relacioPersonaContacte">Relaci de la persona de contacto:</label><br>
+            <label for="relacioPersonaContacte">Relació de la persona de contacto:</label><br>
             <input type="text" id="relacioPersonaContacte" name="relacioPersonaContacte">
         </div>
 
