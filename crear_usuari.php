@@ -37,7 +37,8 @@ if(!empty($_POST)){
 <html lang="es">
 <head>
 <?php include_once("scripts.php"); ?>
-
+<script src="js/validate_user.js"></script>
+<link rel="stylesheet" href="css/validate.css">
 <style>
     body{
         display: flex;
@@ -78,8 +79,8 @@ if(!empty($_POST)){
             <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9">
 
 
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" placeholder="Contraseña">
+            <label for="password">Contrasenya</label>
+            <input type="password" name="password" id="password" placeholder="Contrasenya">
 
 
             <label for="tipo">Tipus Usuari:</label>
