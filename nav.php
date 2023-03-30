@@ -40,7 +40,13 @@
     <ul>
         <li><span href="inicial.php">LOGOTIPO</span></li>
         <li><a class="active" href="inicial.php">DASHBOARD</a></li>
+        <li><a href="#">Usuarios</a></li>
         <li><a href="pacientes.php">Pacientes</a></li>
+            
+        <div style="display: flex">
+            <li><h1 style="color: white"><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
+            <li><a style="color: white" class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
+        </div>
     </ul>
 </div>
 
