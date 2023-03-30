@@ -21,6 +21,8 @@ $(document).ready(function() {
             dni : {
                 required: true,
                 dni:true,
+                minlength: 9,
+                maxlength: 9
             },
             password: { 
                 required:true, 
@@ -33,8 +35,8 @@ $(document).ready(function() {
               minlength: "El nom a de tenir com a minim 2 caracters"
             },
             dni: {
-                
                 required: "Introdueix el DNI",
+                minlength: "Introdueix 9 caracters"
             },
             password : {
                 required: "Introdueix la contrasenya"
