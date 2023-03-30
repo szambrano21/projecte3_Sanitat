@@ -52,11 +52,7 @@
                 <li>Laura Ramirez MHC</li>
             </ul>
         </div>
-        
-        <div style="display: flex">
-            <li><h1><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
-            <li><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
-        </div>
+
         
     </div>
 </body>
