@@ -15,20 +15,21 @@
 
 }
 
-    
 </style>
 </head>
 
 <body>
-<?php 
-    include_once("header.php");
-    if($_SESSION['tipo'] != 'admin'){
-        header("location: inicial.php");
-    }
+    <?php 
+        include_once("header.php");
+        if($_SESSION['tipo'] != 'admin'){
+            header("location: inicial.php");
+        }
     
     ?>
     <div class="container_general">
-        <div class="container_ingres.php">
+        <div class="container_ingres">
+            <h1>INGRES DEL PACIENT</h1>
+            <hr>
             <form action="ingres.php">
                 <div>
                     <h2>Dades generals</h2>
@@ -121,6 +122,9 @@
 
             </form>
         </div>
-    </div> 
+    </div>
 </body>
 </html>
+
+
+

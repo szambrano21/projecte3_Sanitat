@@ -18,7 +18,7 @@
     
 </style>
 </head>
-<body>
+
 <body>
     <?php 
     include_once("header.php");
