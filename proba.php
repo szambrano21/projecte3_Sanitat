@@ -1,32 +1,22 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="js/validate_ingres.js"></script>
-    <title>Formulari paciente</title>
-    <?php include_once("scripts.php"); ?>
+<?php include_once("scripts.php"); ?>
 
-    <style>
-        body{
-            display: flex;
-        }
-
-        @media screen and (max-width: 700px) {
-            body{
-            display: initial;
-        }
-
+<style>
+    body{
+        display: flex;
     }
 
-        
-    </style>
+    @media screen and (max-width: 700px) {
+        body{
+        display: initial;
+    }
+
+}
+
+    
+</style>
 </head>
 <body>
 <body>
