@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
 <?php include_once("scripts.php"); ?>
 <?php
 include_once('connexiobbddsanitat.php');
 
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
 <style>
     body{
-        display: flex;
+        /*display: flex;*/
     }
 
     @media screen and (max-width: 700px) {
@@ -57,12 +58,19 @@ include_once('connexiobbddsanitat.php');
         ?>
         <div class="container_general">
         <div class="espacio_arriba"></div>
-        <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
-            <div class="field" id="searchform">
-                <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca un nombre.." />
-                <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+        <div class="container_arriba">
+            <div class="container_buscar">
+            <!--<h1>LISTADO DE USUARIOS</h1>-->
+                <a href="crear_usuario.php" class="btn_nuevo"><i class="fa-solid fa-user-plus"></i>&nbsp Añadir nuevo</a>
             </div>
-        </form>
+        
+            <form action="pacientes.php" class="form_container"  method="get" name="formu">
+                <div class="field" id="searchform">
+                    <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca un nombre.." />
+                    <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                </div>
+            </form>
+        </div>
         <br>
         <?php
         echo '    
