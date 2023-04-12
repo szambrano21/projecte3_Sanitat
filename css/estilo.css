@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: #F5F5F5;
+    background-color: #F1F1F1;
 }
 
 /* TABLAS NORMALES RESPONSIVE */
@@ -384,4 +384,110 @@ table td{
     justify-content: center;
     height: 100%;
     font-weight: bold;
+}
+
+
+/* PAGINA CREAR USUARI */
+
+
+.container_registrar{
+    width: 100%;
+    margin: auto;
+    max-width: 550px;
+    padding: 20px;
+}
+
+hr{
+    display: block;
+    border: 0;
+    background-color: #ccc;
+    height: 1px;
+    margin: 10px 0;
+}
+
+.container_registrar form{
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 50px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+}
+
+.container_registrar label{
+    display: block;
+    font-size: 12pt;
+    margin: 15px auto 5px auto;
+}
+
+.container_registrar input, .container_registrar select{
+    display: block;
+    width: 100%;
+    font-size: 11pt;
+    padding: 5px;
+    border: 1px solid #85929e;
+    border-radius: 5px;
+}
+
+/* PAGINA INGRES USUARIS */
+
+.container_ingres{
+    width: 100%;
+    margin: auto;
+    max-width: 550px;
+    padding: 20px;
+}
+
+.container_ingres form{
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 50px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+}
+
+.container_ingres label{
+    display: block;
+    font-size: 12pt;
+    margin: 15px auto 5px auto;
+}
+
+.container_ingres input, .container_ingres select{
+    display: block;
+    width: 100%;
+    font-size: 11pt;
+    padding: 5px;
+    border: 1px solid #85929e;
+    border-radius: 5px;
+}
+
+/* PAGINA PROBA */
+
+.container_proba{
+    width: 100%;
+    margin: auto;
+    max-width: 550px;
+    padding: 20px;
+}
+
+.container_proba form{
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 50px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+}
+
+.container_proba label{
+    display: block;
+    font-size: 12pt;
+    margin: 15px auto 5px auto;
+}
+
+.container_proba input, .container_proba select{
+    display: block;
+    width: 100%;
+    font-size: 11pt;
+    padding: 5px;
+    border: 1px solid #85929e;
+    border-radius: 5px;
 }
