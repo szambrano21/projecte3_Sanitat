@@ -48,7 +48,7 @@ include_once('connexiobbddsanitat.php');
 
 /* PAGINADOR */
 
-$sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tusuario");
+$sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tusuaris");
 
 $resultado_registro = mysqli_fetch_assoc($sql_registro);
 $total_registro = $resultado_registro['total_registro'];
@@ -64,7 +64,7 @@ if(empty($_GET['pagina'])){
 $desde = ($pagina -1) * $por_pagina;
 $total_paginas = ceil($total_registro / $por_pagina);
 
-$sql = mysqli_query($conexion, "SELECT * FROM tusuario ORDER BY NombreUsuario ASC LIMIT $desde,$por_pagina
+$sql = mysqli_query($conexion, "SELECT * FROM tusuaris ORDER BY nomUsuari ASC LIMIT $desde,$por_pagina
 ");
 
 $resultado = mysqli_num_rows($sql);
@@ -95,32 +95,22 @@ if($resultado > 0){
     echo"
 
     <tr>
-        <td>Daniela</td>
-        <td>Medilla Pantene</td>
-        <td>Odontología</td>
-        <td>12345678Z</td>
+        <td>$nomUsuari</td>
+        <td>$cognomUsuari</td>
+        <td>$dni</td>
+        <td>$telefono</td>
         <td>
-          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
+          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>";
+
+          if($dni != $_SESSION['DNI']){
+            echo"
             <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-            </td>
-        </tr>
-
-    <tr>
-      <td>$dni</td>
-      <td>$nombreUsuario</td>
-      <td>$tipo</td>
-      <td>
-        <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
-        ";
-
-        if($dni != $_SESSION['DNI']){
-          echo"
-          |
-          <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-          </td>
+          ";
+        }
+        echo "
+        </td>
         </tr>
         ";
-      }
 
 
     }
@@ -156,64 +146,11 @@ if ($pagina < $total_paginas) {
 
 <?php
 
-
-
-
-
-
 mysqli_close($conexion); //cierra la BBDD
 
 ?>
 
 
-<br>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-      
-
-        <tr>
-        <td>Daniela</td>
-        <td>Medilla Pantene</td>
-        <td>Odontología</td>
-        <td>12345678Z</td>
-        <td>
-          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
-            <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-            </td>
-        </tr>
-
-        <tr>
-        <td>Daniela</td>
-        <td>Medilla Pantene</td>
-        <td>Odontología</td>
-        <td>12345678Z</td>
-        <td>
-          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
-            <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-            </td>
-        </tr>
-
-        <tr>
-        <td>Daniela</td>
-        <td>Medilla Pantene</td>
-        <td>Odontología</td>
-        <td>12345678Z</td>
-        <td>
-          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
-            <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-            </td>
-        </tr>
-        
 
     </div>
 
