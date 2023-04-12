@@ -330,6 +330,10 @@ table td{
 }
 
 .container_general{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 0 40px 0 240px;
 }

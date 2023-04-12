@@ -55,7 +55,7 @@ include_once('connexiobbddsanitat.php');
     if($resultado > 0){
 
         ?>
-        <div class="container_general">
+        <div class="container_general" style="display: initial;">
         <div class="espacio_arriba"></div>
         <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
             <div class="field" id="searchform">
