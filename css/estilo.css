@@ -376,11 +376,10 @@ table td:last-child{
     width: 100%;
     background-color: #124559;
     border: 2px solid black;
-    /* height: 600px; */
     justify-items: center;
     grid-gap: 20px;
     padding: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 

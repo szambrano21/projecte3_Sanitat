@@ -1,10 +1,51 @@
 <style>
-    .container_paciente{
-        box-sizing: border-box;
-    }
+    /* .tabla_paciente {
+        display: inline-block;
+        width: 100%;
+        background-color: #124559;
+        border: 2px solid black;
+        justify-items: center;
+        grid-gap: 20px;
+        padding: 40px; 
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    } */
 
     .btn {
-        flex:80%;
+        display: inline-block;
+        text-align: center;
+        flex: 100%;
+        width: 320px;
+        padding: 20px;
+        border: none;
+        margin: 20px;
+        border-radius: 25px;
+    }
+
+    #dades {
+        background: #2C59CD;
+    }
+
+    #constants {
+        background: #38CD2C;
+    }
+
+    #respiratori {
+        background: #9A30CC;
+    }
+
+    #menjars {
+        background: #C12222 ;
+    }
+
+    .tabla_paciente i {
+        font-size: 100px;
+    }
+
+    h2 {
+        color: white;
+        padding: 10px 0 0 0;
+        font-size: 20px;
+        text-transform: uppercase;
     }
 </style>
 <!DOCTYPE html>
@@ -21,37 +62,79 @@
 <body>
     <?php include_once("header.php") ?>
     <div class="container_general">
-        <div class="container_paciente">
-            <div class="btn" id="dades">
-                <div class="info_cont">
-                    <h2>Dades</h2>
-                </div>
-            </div>
-            <div class="btn" id="dades">
-                <div class="info_cont">
+        <div class="container_paciente tabla_paciente">
+            <button class="btn" id="dades">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>dades</h2>
+                </span>
+            </button>
+            <button class="btn" id="constants">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
                     <h2>Constants</h2>
-                </div>
-            </div>
-            <div class="btn" id="dades">
-                <div class="info_cont">
-                    <h2>Dades</h2>
-                </div>
-            </div>
-            <div class="btn" id="dades">
-                <div class="info_cont">
-                    <h2>Dades</h2>
-                </div>
-            </div>
-            <div class="btn" id="dades">
-                <div class="info_cont">
-                    <h2>Dades</h2>
-                </div>
-            </div>
-            <div class="btn" id="dades">
-                <div class="info_cont">
-                    <h2>Dades</h2>
-                </div>
-            </div>
+                </span>
+            </button>
+            <button class="btn" id="respiratori">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Respiratòries</h2>
+                </span>
+            </button>
+            <button class="btn" id="menjars">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Menjars</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Eliminació</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Moure</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>prototipo</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>prototipo</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Prototipo</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Prototipo</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Prototipo</h2>
+                </span>
+            </button>
+            <button class="btn" id="prototipo">
+                <span>
+                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <h2>Prototipo</h2>
+                </span>
+            </button>
         </div>
     </div>
 </body>
