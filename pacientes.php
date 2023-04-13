@@ -56,7 +56,7 @@ include_once('connexiobbddsanitat.php');
     if($resultado > 0){
 
         ?>
-        <div class="container_general" style="display: initial;">
+        <div class="container_general" >
         <div class="espacio_arriba"></div>
         <div class="container_arriba">
             <div class="container_buscar">

@@ -99,24 +99,72 @@
                 <div>
                     <h2>Necessitats respiratòries</h2>
                     <div>
-                        <label for="dni">Name:</label><br>
-                        <input type="text" id="dni" name="dni">
+                        <label for="res/min">Resp/min:</label><br>
+                        <input type="text" id="res/min" name="res/min">
                     </div>        
                     <div>
-                        <label for="dni">Name:</label><br>
-                        <input type="text" id="dni" name="dni">
+                        <label for="tos">Tos:</label><br>
+                        <input type="text" id="tos" name="tos">
+                    </div>
+                    <div>
+                        <label for="expectoracio">Espectoriació:</label><br>
+                        <input type="text" id="expectoracio" name="expectoracio">
+                    </div>
+                    <div>
+                        <label for="oxigenoterapia">Oxigenoteràpia:</label><br>
+                        <input type="text" id="oxigenoterapia" name="oxigenoterapia">
+                    </div>
+                    <div>
+                        <label for="colorPell">Coloració a la pell:</label><br>
+                        <input type="text" id="colorPell" name="colorPell">
+                    </div>
+                    <div>
+                        <label for="observacions">Observacions:</label><br>
+                        <textarea id="observacions" name="observacions"> </textarea>
                     </div>        
                 </div>
                 <div>
                     <h2>Necessitats de menjar i beguda</h2>
                     <div>
-                        <label for="dni">Name:</label><br>
-                        <input type="text" id="dni" name="dni">
+                        <label for="pes">Pes:</label><br>
+                        <input type="text" id="pes" name="pes">
                     </div>        
                     <div>
-                        <label for="dni">Name:</label><br>
-                        <input type="text" id="dni" name="dni">
-                    </div>        
+                        <label for="talla">Talla:</label><br>
+                        <input type="text" id="talla" name="talla">
+                    </div>
+                    <div>
+                        <label for="dietaHabitual">dietaHabitual:</label><br>
+                        <input type="text" id="dietaHabitual" name="dietaHabitual">
+                    </div>
+                    <div>
+                        <label for="mida">Talla:</label><br>
+                        <input type="text" id="mida" name="mida">
+                    </div>
+                    <div>
+                        <label for="alimentsNoGrassos">Aliments no grats</label><br>
+                        <input type="text" id="alimentsNoGrassos" name="alimentsNoGrassos">
+                    </div>
+                    <div>
+                        <label for="intolerancia">Intolerancia a:</label><br>
+                        <input type="text" id="intolerancia" name="intolerancia">
+                    </div> 
+                    <div>
+                        <label for="protesisDental">Pròtesi dental</label><br>
+                        <input type="text" id="protesisDental" name="protesisDental">
+                    </div>
+                    <div>
+                        <label for="necessitatsAjudes">Necessitats d'ajuda</label><br>
+                        <input type="text" id="necessitatsAjudes" name="necessitatsAjudes">
+                    </div>
+                    <div>
+                        <label for="inapetenciaAnorexia">Inapetència i/o anorèxia</label><br>
+                        <input type="text" id="inapetenciaAnorexia" name="inapetenciaAnorexia">
+                    </div>
+                    <div>
+                        <label for="observacions">Observacions</label><br>
+                        <textarea id="observacions" name="observacions"> </textarea>
+                    </div> 
                 </div>
                 <input type="submit" value="Submit">
 
