@@ -19,6 +19,7 @@
         border: none;
         margin: 20px;
         border-radius: 25px;
+        cursor: pointer;
     }
 
     #dades {
@@ -39,6 +40,7 @@
 
     .tabla_paciente i {
         font-size: 100px;
+        color: #ffffff;
     }
 
     h2 {
@@ -65,73 +67,73 @@
         <div class="container_paciente tabla_paciente">
             <button class="btn" id="dades">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>dades</h2>
                 </span>
             </button>
             <button class="btn" id="constants">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-heart-pulse"></i>
                     <h2>Constants</h2>
                 </span>
             </button>
             <button class="btn" id="respiratori">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-lungs"></i>
                     <h2>Respiratòries</h2>
                 </span>
             </button>
             <button class="btn" id="menjars">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Menjars</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Eliminació</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Moure</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-medical"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
