@@ -26,14 +26,14 @@
         }
     
     ?>
-    <div class="container_general">
+    <div class="container_general hero" >
         <div class="container_ingres">
             <h1>INGRES DEL PACIENT</h1>
             <hr>
             <form action="ingres.php">
                 <div>
                     <h2>Dades generals</h2>
-                    <div>
+                    <div  class="input-group">
                         <label for="date">Data d'ingres:</label><br>
                         <input type="date" id="date" name="date">
                     </div>        
