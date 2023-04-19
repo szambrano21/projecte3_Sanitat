@@ -1,20 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("nav").style.left = "0px";
+  /* JavaScript */
+  const btn_menu = document.querySelector('#btn_menu');
+  const menu = document.querySelector('.menu');
+  
+  btn_menu.addEventListener('click', () => {
+    menu.classList.toggle('active');
   });
   
-  document.getElementById("btn_menu").addEventListener("click", mostrar_menu);
-  document.getElementById("back_menu").addEventListener("click", ocultar_menu);
+  back_menu.addEventListener('click', () => {
+    menu.classList.remove('active');
+  });
   
-  var nav = document.getElementById("nav");
-  var background_menu = document.getElementById("back_menu");
+  // Agregamos estas líneas de código para cerrar el menú cuando se hace clic en una opción del menú
+  const links = document.querySelectorAll('#menu-nav li a');
   
-  function mostrar_menu() {
-    nav.style.left = "0px";
-    background_menu.style.display = "block";
-  }
-  
-  function ocultar_menu() {
-    nav.style.left = "-250px";
-    background_menu.style.display = "none";
-  }
-  
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+    });
+  });

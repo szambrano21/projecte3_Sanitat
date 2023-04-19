@@ -255,11 +255,6 @@ table td:last-child{
 
 /* MENU DE NAVEGACION */
 
-.container_menu{
-    display: flex;
-    justify-content: space-between;
-}
-
 .header{
     background-color: #F5F5F5;
     display: flex;
@@ -278,6 +273,12 @@ table td:last-child{
     display: flex;
     width: 100%;
     max-width: 200px;
+    flex-direction: column;
+    background-color: #01161E;
+}
+
+.menu_nav{
+    z-index: 9;    
 }
 
 .menu ul {
@@ -291,17 +292,6 @@ table td:last-child{
     background-color: #01161E;
     height: 100vh;
     overflow: auto;
-}
-
-@media screen and (max-width: 700px) {
-    .menu ul{
-        width: 100%;
-        height: initial;
-    }
-    .menu{
-        display: block;
-        max-width: initial;
-    }
 }
 
 .menu li{
@@ -343,6 +333,96 @@ table td:last-child{
     background-color: #d7d7d75e;
     color: black;
 }
+
+/* CSS */
+.menu #btn_menu {
+    display: none;
+  }
+  
+  @media screen and (max-width: 450px) {
+    .menu ul{
+      width: 100%;
+      height: initial;
+    }
+    
+    .menu{
+      max-width: initial;
+      transition: all 300ms;
+    }
+  
+    .container_menu{
+      line-height: inherit;
+    }
+  
+    .container_menu #selected:hover {
+      color: white;
+      background-color: green;
+    }
+  
+
+  
+    .menu #btn_menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 24px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 300ms;
+      color: white;
+      margin: 10px;
+    }
+  
+    .menu #btn_menu span {
+      display: block;
+      width: 40px;
+      height: 4px;
+      background: #fff;
+      margin-bottom: 8px;
+      transition: all 300ms;
+    }
+  
+    .menu #btn_menu.active span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .menu #btn_menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .menu #btn_menu.active span:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  
+    .menu #btn_menu:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  
+    /* Agregamos estas líneas de código para mostrar y ocultar el menú */
+    .menu.active #btn_menu {
+        background: none;
+        position: fixed;
+        z-index: 10;
+    }
+  
+    .menu.active #btn_menu span {
+      background-color: black;
+    }
+  
+    .menu.active ul {
+      display: block;
+    }
+  
+    .menu ul {
+      display: none;
+    }
+  }
+  
+
+  
 
 
 
@@ -517,3 +597,7 @@ hr{
     border: 1px solid #85929e;
     border-radius: 5px;
 }
+
+
+ 
+
