@@ -339,7 +339,14 @@ table td:last-child{
     display: none;
   }
   
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 800px) {
+
+.container_general{
+    padding: 0;
+    height: initial;
+    
+}
+
     .menu ul{
       width: 100%;
       height: initial;
@@ -358,9 +365,7 @@ table td:last-child{
       color: white;
       background-color: green;
     }
-  
 
-  
     .menu #btn_menu {
       display: flex;
       align-items: center;
@@ -434,14 +439,15 @@ table td:last-child{
 
 .container_general{
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0 40px 0 240px;
+    flex-direction: column;
 }
 
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 800px) {
     .container_general{
         padding: 0;
     }
