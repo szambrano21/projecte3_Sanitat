@@ -3,23 +3,7 @@
 include_once('connexiobbddsanitat.php');
 
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
 
-<style>
-    body{
-        /*display: flex;*/
-    }
-
-    @media screen and (max-width: 700px) {
-        body{
-        display: initial;
-    }
-
-}
-
-</style>
 </head>
 <body>
 
@@ -56,7 +40,7 @@ include_once('connexiobbddsanitat.php');
     if($resultado > 0){
 
         ?>
-        <div class="container_general" >
+        <div class="container_general">
         <div class="espacio_arriba"></div>
         <div class="container_arriba">
             <div class="container_buscar">
