@@ -697,6 +697,25 @@ div.pagination li a:hover:not(.pagina-actual) {
     margin: 0px 10px 20px 0px;
     position: relative;
   }
+
+  .checkbox {
+    padding: 0px;
+    border: solid black;
+    margin: 0px;
+    /* width: 4%; */
+    width: 5%;
+  }
+  .input-group-check{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+    font-size: 15px;
+  }
+  
   input,
   textarea {
     width: 100%;
@@ -707,7 +726,7 @@ div.pagination li a:hover:not(.pagina-actual) {
     background: transparent;
     font-size: 15px;
   }
-  label {
+  .labelForm {
     height: 100%;
     position: absolute;
     left: 0;
@@ -717,7 +736,8 @@ div.pagination li a:hover:not(.pagina-actual) {
     cursor: text;
     transition: 0.2s;
   }
-  button {
+
+  .buttonSubmit {
     padding: 10px 0;
     color: #fff;
     outline: none;
@@ -741,4 +761,3 @@ div.pagination li a:hover:not(.pagina-actual) {
   .row .input-group {
     flex-basis: 48%;
   }
-  
