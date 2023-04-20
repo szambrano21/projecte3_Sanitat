@@ -29,7 +29,7 @@ include_once('connexiobbddsanitat.php');
   
     $desde = ($pagina -1) * $por_pagina;
     $total_paginas = ceil($total_registro / $por_pagina);
-    $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina
+    $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom,DNI ASC LIMIT $desde,$por_pagina
     ");
 
     /*$sql = mysqli_query($conexion, "SELECT nom, nHc FROM tdades 

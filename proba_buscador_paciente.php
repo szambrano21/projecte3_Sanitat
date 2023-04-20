@@ -44,8 +44,13 @@ include_once('connexiobbddsanitat.php');
 
   /* PAGINADOR */
 
-  $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades 
-  WHERE nom LIKE '%$busqueda%'");
+  $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro
+  FROM tdades 
+  WHERE dni 
+  LIKE '%$busqueda%'
+  OR nom
+  LIKE '%$busqueda%'
+  ");
 
   $resultado_registro = mysqli_fetch_assoc($sql_registro);
   $total_registro = $resultado_registro['total_registro'];
@@ -61,11 +66,21 @@ include_once('connexiobbddsanitat.php');
   $desde = ($pagina -1) * $por_pagina;
   $total_paginas = ceil($total_registro / $por_pagina);
 
-  $sql = mysqli_query($conexion, "SELECT * FROM tdades 
-  WHERE nom LIKE '%$busqueda%'
-  ORDER BY nom ASC LIMIT $desde,$por_pagina 
+
+
+  $sql = mysqli_query($conexion, "SELECT * FROM tdades
+  WHERE DNI 
+  LIKE '%$busqueda%' OR nom LIKE '%$busqueda%' 
+  ORDER BY DNI, nom
+  ASC LIMIT $desde,$por_pagina
   ");
-  
+
+/*  
+  $sql = mysqli_query($conexion, "SELECT * FROM tdades 
+  WHERE DNI LIKE '%$busqueda%'
+  ORDER BY DNI ASC LIMIT $desde,$por_pagina 
+  ");
+  */
   $resultado= mysqli_num_rows($sql);
 
   if($resultado > 0){
@@ -79,14 +94,16 @@ include_once('connexiobbddsanitat.php');
 
       $nom = $row['nom'];
       $nHc = $row['nHc'];
-  
+      $DNI = $row['DNI'];
 
 ?>
     
         <ul>
             <li><?php echo"$nHc" ?></li>
+            <li><?php echo"$DNI" ?></li>
             <li><?php echo"$nom" ?></li>
         </ul>
+        
 
               <?php
 
