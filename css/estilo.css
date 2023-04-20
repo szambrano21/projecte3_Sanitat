@@ -346,32 +346,12 @@ table td:last-child{
     display: none;
   }
   
-  @media screen and (max-width: 800px) {
 
-.container_general{
-    padding: 0;
-    height: initial;
-    
-}
-
-    .menu ul{
-      width: 100%;
-      height: initial;
-    }
-    
     .menu{
       max-width: initial;
       transition: all 300ms;
     }
-  
-    .container_menu{
-      line-height: inherit;
-    }
-  
-    .container_menu #selected:hover {
-      color: white;
-      background-color: green;
-    }
+
 
     .menu #btn_menu {
       display: flex;
@@ -431,17 +411,13 @@ table td:last-child{
     .menu ul {
       display: none;
     }
-  }
   
-
-  
-
 
 
 /* PAGINA PACIENTES */
 
 .espacio_arriba{
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
 .container_general{
@@ -489,7 +465,8 @@ table td:last-child{
     justify-items: center;
     grid-gap: 20px;
     padding: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 
@@ -594,6 +571,51 @@ hr{
     padding: 5px;
     border: 1px solid #85929e;
     border-radius: 5px;
+}
+
+/*PAGINA TABLA PACIENTES*/
+.btn {
+    display: inline-block;
+    text-align: center;
+    width: calc(100% - 20px);
+    padding: 20px;
+    border: none;
+    margin: 20px;
+    border-radius: 25px;
+    /* max-width: 185px; */
+    cursor: pointer;
+}
+
+#dades {
+    background: #2C59CD;
+}
+
+#constants {
+    background: #38CD2C;
+}
+
+#respiratori {
+    background: #9A30CC;
+}
+
+#info_usuari {
+    background-color: #e38827;
+}
+
+#menjars {
+    background: #C12222;
+}
+
+.btn i {
+    font-size: 75px;
+    color: #ffffff;
+}
+
+h2 {
+    color: white;
+    padding: 10px 0 0 0;
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
 /* PAGINA PROBA */

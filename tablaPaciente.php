@@ -1,53 +1,16 @@
 <style>
-    /* .tabla_paciente {
-        display: inline-block;
-        width: 100%;
-        background-color: #124559;
-        border: 2px solid black;
-        justify-items: center;
-        grid-gap: 20px;
-        padding: 40px; 
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    } */
-
-    .btn {
-        display: inline-block;
-        text-align: center;
-        flex: 100%;
-        width: 320px;
-        padding: 20px;
-        border: none;
-        margin: 20px;
-        border-radius: 25px;
-        cursor: pointer;
+    #info_paciente {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 10px;
+        width: 98%;
     }
 
-    #dades {
-        background: #2C59CD;
-    }
-
-    #constants {
-        background: #38CD2C;
-    }
-
-    #respiratori {
-        background: #9A30CC;
-    }
-
-    #menjars {
-        background: #C12222 ;
-    }
-
-    .tabla_paciente i {
-        font-size: 100px;
-        color: #ffffff;
-    }
-
-    h2 {
-        color: white;
-        padding: 10px 0 0 0;
-        font-size: 20px;
-        text-transform: uppercase;
+    #info_usuari {
+        background-color: #cda22c;
     }
 </style>
 <!DOCTYPE html>
@@ -63,9 +26,19 @@
 
 <body>
     <?php include_once("header.php") ?>
-    <div class="container_general">
-        <div class="container_paciente tabla_paciente">
-            <button class="btn" id="dades">
+    <div class="container_general"><br><br>
+        <div id="info_paciente">
+            <h4>Rosa Moreno Blanco</h4>
+            <p><b>Num. HC: </b>I936498704213</p>
+        </div>
+        <div class="container_paciente">
+            <button class="btn" id="info_usuari">
+                <span>
+                    <i class="fa-solid fa-user"></i>
+                    <h2>Informació</h2>
+                </span>
+            </button>
+            <button class="btn" id="dades" onclick="window.location.href='pacientes.php'">
                 <span>
                     <i class="fa-solid fa-file-medical"></i>
                     <h2>dades</h2>
@@ -85,59 +58,54 @@
             </button>
             <button class="btn" id="menjars">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-utensils"></i>
                     <h2>Menjars</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
-                    <h2>Eliminació</h2>
+                    <i class="fa-solid fa-file"></i>
+                    <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
-                    <h2>Moure</h2>
-                </span>
-            </button>
-            <button class="btn" id="prototipo">
-                <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-file"></i>
                     <h2>prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-file"></i>
                     <h2>prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-file"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-file"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-file"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
                 <span>
-                    <i class="fa-solid fa-file-medical"></i>
+                    <i class="fa-solid fa-file"></i>
                     <h2>Prototipo</h2>
                 </span>
             </button>
         </div>
+        <div class="espacio_arriba"></div>
     </div>
 </body>
 
