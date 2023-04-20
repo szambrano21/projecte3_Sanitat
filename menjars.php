@@ -26,6 +26,7 @@
         }
     
     ?>
+    <!--
     <div class="hero">
       <form>    
         <h2>Necessitats de menjar i beguda</h2>
@@ -72,7 +73,7 @@
         </div>
 
         
-        <!--
+        
         <div class="input-group">
             <label>Necessitat d'ajut:</label>
             <div class="input-group-check">
@@ -87,7 +88,6 @@
             </div>
         <div>
 
-    -->
         <div class="row">
             <div>
                 <label>Necessitat d'ajut</label>
@@ -123,8 +123,8 @@
 
 
 
+    -->
 
-    <!--
 <div class="container_general">
     <div class="container_ingres">
     <h1>MENJARS</h1>
@@ -133,44 +133,58 @@
             <div>
             <h2>Necessitats de menjar i beguda</h2>
                     <div>
-                        <label for="pes">Pes:</label><br>
-                        <input type="text" id="pes" name="pes">
+                        <label class="labelForm" for="pes"><i class="fa-solid fa-weight-scale"></i> Pes</label>
+                        <input type="text" id="pes" name="pes" />
                     </div>        
                     <div>
-                        <label for="talla">Talla:</label><br>
+                        <label class="labelForm" for="talla"><i class="fa-solid fa-ruler-vertical"></i> talla</label>
                         <input type="text" id="talla" name="talla">
                     </div>
                     <div>
-                        <label for="dietaHabitual">dietaHabitual:</label><br>
+                        <label class="labelForm" for="dietaHabitual"><i class="fa-solid fa-utensils"></i> Dieta Habitual</label>
                         <input type="text" id="dietaHabitual" name="dietaHabitual">
                     </div>
                     <div>
-                        <label for="mida">Mida:</label><br>
+                    <label class="labelForm" for="mida"><i class="fa-solid fa-ruler-vertical"></i> talla</label>
                         <input type="text" id="mida" name="mida">
+                        
                     </div>
                     <div>
-                        <label for="alimentsNoGrassos">Aliments no grats</label><br>
-                        <input type="text" id="alimentsNoGrassos" name="alimentsNoGrassos">
+                        <label class="labelForm" for="dietaHabitual"><i class="fa-solid fa-utensils"></i> Dieta Habitual</label>
+                        <input type="text" id="dietaHabitual" name="dietaHabitual" >
+			
                     </div>
                     <div>
-                        <label for="intolerancia">Intolerancia a:</label><br>
-                        <input type="text" id="intolerancia" name="intolerancia">
+                        <label class="labelForm" for="alimentsNoGrassos"><i class="fa-solid fa-bowl-food"></i> Aliments no grats</label>
+                        <input type="text" id="alimentsNoGrassos" name="alimentsNoGrassos" >
+            
                     </div> 
                     <div>
-                        <label for="protesisDental">Pròtesi dental</label><br>
-                        <input type="text" id="protesisDental" name="protesisDental">
+                        <label>protesis Dental</label>
+                        <div class="input-group-check">
+                            <input type="checkbox" class="checkbox" id="protesisDental" name ="protesisDental" value="protesisDental"  required>SI
+                            <input type="checkbox" class="checkbox" id="protesisDental" name ="protesisDental" value="protesisDental"  required>NO
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label>Necessitat d'ajut:</label>
+                        <div class="input-group-check">
+                            <input type="checkbox" name="protesisDental" value="dificultat"> Total
+                            <input type="checkbox" name="protesisDental" value="dificultat"> Parcial
+                            <input type="checkbox" name="protesisDental" value="dificultat"> Independent
+                        </div>
                     </div>
                     <div>
-                        <label for="necessitatsAjudes">Necessitats d'ajuda</label><br>
-                        <input type="text" id="necessitatsAjudes" name="necessitatsAjudes">
+                        <label>Inapetència i/o anorèxia</label>
+                        <div class="input-group-check">
+                            <input type="checkbox" name="inapetenciaAnorexia" value="si"> Si
+                            <input type="checkbox" name="inapetenciaAnorexia" value="no"> No
+                        </div>
                     </div>
                     <div>
-                        <label for="inapetenciaAnorexia">Inapetència i/o anorèxia</label><br>
-                        <input type="text" id="inapetenciaAnorexia" name="inapetenciaAnorexia">
-                    </div>
-                    <div>
-                        <label for="observacions">Observacions</label><br>
-                        <textarea id="observacions" name="observacions"> </textarea>
+                        <label class="labelForm" for="observacions"><i class="fas fa-comments"></i> Observacions</label>
+                        <textarea id="observacions" name="observacions"  ></textarea>
                     </div> 
             </div>
             

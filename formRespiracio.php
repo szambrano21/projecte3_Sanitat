@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div>
-                <label>Expectoracio</label>
+                <label>Expectoració</label>
                 <div class="input-group-check">
                     <input style="margin: 5px;" type="checkbox" name="dificultat" value="Masticacion"> Masticacion
                     <input style="margin: 5px;" type="checkbox" name="dificultat" value="Deglucio"> Deglucio

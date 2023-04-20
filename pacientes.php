@@ -19,7 +19,7 @@ include_once('connexiobbddsanitat.php');
     $resultado_registro = mysqli_fetch_assoc($sql_registro);
     $total_registro = $resultado_registro['total_registro'];
   
-    $por_pagina = 6;
+    $por_pagina = 4;
   
     if(empty($_GET['pagina'])){
       $pagina = 1;
@@ -48,7 +48,7 @@ include_once('connexiobbddsanitat.php');
                 <a href="crear_usuario.php" class="btn_nuevo"><i class="fa-solid fa-user-plus"></i>&nbsp Añadir nuevo</a>
             </div>
         
-            <form action="pacientes.php" class="form_container"  method="get" name="formu">
+            <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
                 <div class="field" id="searchform">
                     <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca un nombre.." />
                     <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>

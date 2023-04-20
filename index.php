@@ -27,6 +27,7 @@ if(!empty($_POST)){
             $_SESSION['activo'] = true;
             $_SESSION['DNI'] = $row['DNI'];
             $_SESSION['nombre'] = $row['nomUsuari']; 
+            
             $_SESSION['tipo'] = $row['tipo']; 
 
 

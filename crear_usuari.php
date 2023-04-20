@@ -1,4 +1,7 @@
 <?php
+
+include_once('connexiobbddsanitat.php');
+
 if(!empty($_POST)){
     $alert="";
     if(empty($_POST["nombre"]) || empty($_POST["dni"]) || empty($_POST["password"]) || empty($_POST["tipo"])){
@@ -8,19 +11,21 @@ if(!empty($_POST)){
 
         $nombre = $_POST["nombre"];
         $dni = $_POST["dni"];
+        $cognom = $_POST["cognomUsuari"];
+        $telefono = $_POST["telefono"];
         $pass = md5($_POST["password"]);
         $tipo = $_POST["tipo"];
 
 
-        $query = mysqli_query($conexion,"SELECT * FROM tusuario WHERE DNI = '$dni'");
+        $query = mysqli_query($conexion,"SELECT * FROM tusuaris WHERE DNI = '$dni'");
         $resultado = mysqli_fetch_assoc($query);
 
         if($resultado > 0){
             $alert="<p class='msg_error'>El usuario ya existe</p>";
         }else{
 
-            $query_insertar = mysqli_query($conexion, "INSERT INTO tusuario (DNI, Tipo, NombreUsuario, Password)
-            VALUES('$dni','$tipo','$nombre','$pass')");
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tusuaris (DNI, tipo, nomUsuari, cognomUsuari, telefono, Password)
+            VALUES('$dni','$tipo','$nombre',' $cognom ',' $telefono ','$pass')");
 
             if($query_insertar){
                 $alert="<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
@@ -74,10 +79,14 @@ if(!empty($_POST)){
             <label for="nombre">Nom</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
 
+            <label for="cognomUsuari">Cognom Usuari</label>
+            <input type="text" name="cognomUsuari" id="cognomUsuari" placeholder="cognomUsuari" minlength="9" maxlength="9">
 
             <label for="dni">DNI</label>
             <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9">
 
+            <label for="telefono">telefono</label>
+            <input type="text" name="telefono" id="telefono" placeholder="telefono" minlength="9" maxlength="9">
 
             <label for="password">Contrasenya</label>
             <input type="password" name="password" id="password" placeholder="Contrasenya">
