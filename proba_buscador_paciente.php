@@ -1,47 +1,51 @@
 
-<?php require("header.php")?>
-<title>LISTADO</title>
+<?php include_once("scripts.php"); ?>
+<?php
+include_once('connexiobbddsanitat.php');
+
+?>
+
 </head>
-<!--php require("nav.php")?-->
-
-<!--php
-include_once('connexiosaraismabbdd.php');
-
-?-->
-
-    <div style="margin-top: 100px">
-        <h2 style="text-align: center">PROTEINAS</h2>
-    </div>
-<br>
+<body>
+<?php include_once("header.php"); ?>
 <?php
 
  $busqueda = strtolower($_REQUEST['busqueda']);
 
  if(empty($busqueda)){
-  header("location: proteinas.php");
+  header("location: pacientes.php");
  }
 
 
 ?>
 <!-- BARRA DE NAVEGACION -->
 
-<form action="buscar_proteinas.php" class="form_container"  method="get" name="formu">
+<div class="container_general">
+            <div class="espacio_arriba"></div>
+            <div class="container_arriba">
+                <div class="container_buscar">
+                <!--<h1>LISTADO DE USUARIOS</h1>-->
+                    <a href="crear_usuario.php" class="btn_nuevo"><i class="fa-solid fa-user-plus"></i>&nbsp Añadir nuevo</a>
+                </div>
+            
+                <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
+                    <div class="field" id="searchform">
+                        <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca un nombre.." />
+                        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                    </div>
+                </form>
+            </div>
+            <br>
 
-<div class="field" id="searchform">
-  <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca una proteina" value="<?php echo $busqueda; ?>"/>
-  <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-</div>
-</form>
 
 
-<div class='containerProteinas'> 
 
 <?php
 
   /* PAGINADOR */
 
-  $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tproteinas 
-  WHERE Nombre LIKE '%$busqueda%'");
+  $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades 
+  WHERE nom LIKE '%$busqueda%'");
 
   $resultado_registro = mysqli_fetch_assoc($sql_registro);
   $total_registro = $resultado_registro['total_registro'];
@@ -57,68 +61,51 @@ include_once('connexiosaraismabbdd.php');
   $desde = ($pagina -1) * $por_pagina;
   $total_paginas = ceil($total_registro / $por_pagina);
 
-  $sql = mysqli_query($conexion, "SELECT * FROM tproteinas 
-  WHERE Nombre LIKE '%$busqueda%'
-  ORDER BY Nombre ASC LIMIT $desde,$por_pagina 
+  $sql = mysqli_query($conexion, "SELECT * FROM tdades 
+  WHERE nom LIKE '%$busqueda%'
+  ORDER BY nom ASC LIMIT $desde,$por_pagina 
   ");
   
   $resultado= mysqli_num_rows($sql);
 
   if($resultado > 0){
 
+    ?>
+
+    <?php
+    echo '    
+    <div class="container_paciente">';
     while ($row = mysqli_fetch_assoc($sql)) {
 
-      $id_proteina = $row["IDProteina"];
-      $nombre = $row["Nombre"];
-      $codigoApp = $row["CodigoApp"];
-      $fecha = $row["Fecha"];
-      $nombreFichero = $row["NombreFichero"];
-      $tipoFichero = $row["TipoFichero"];
-      $especie = $row["Especie"];
-      $metodo = $row["Metodo"];
-      $resolucion = $row["Resolucion"];
+      $nom = $row['nom'];
+      $nHc = $row['nHc'];
   
 
 ?>
-
-      <div class='containerColProteinas'> 
-          <div class='container_Superior'>
-              <div class='nombreProteina'>
-                  <p> CodeApp: <?php echo"$codigoApp" ?> | Fecha: <?php echo"$fecha" ?> | Nombre: <?php echo"$nombre" ?> </p>
-              </div>
+    
+        <ul>
+            <li><?php echo"$nHc" ?></li>
+            <li><?php echo"$nom" ?></li>
+        </ul>
 
               <?php
 
                 if(!empty($_SESSION['tipo'])){
                     $admin = ($_SESSION['tipo'] == 'admin') ? true : false;
                     if($admin === true){
-                      echo '
-                      <div class="iconos">
-                      <button style="border: 0; background-color: #f0f8ff00" type="submit" name="accion" value="editar"><img class="icon_Editar" src="https://img.icons8.com/pastel-glyph/64/null/edit--v1.png"></button>
-                      <a href="eliminar_proteina.php?id_proteina='.$id_proteina.'"><img class="icon_Eliminar" src="https://img.icons8.com/ios-filled/256/delete.png"></a>
-                      </div>';
+                      
                     }
                   }
                 
                 ?>
 
 
-          </div>
-          <div class='item'> 
-              <img src='img/proteinas/proteina-1.png'>
-              <div class='container_info'>
-              <p>Identificador: <?php echo"$id_proteina" ?> </p>
-                <p>Nombre de fichero: <?php echo"$nombreFichero" ?> </p>
-                <p>Tipo de fichero: <?php echo"$tipoFichero" ?> </p>
-                <p>Especie: <?php echo"$especie" ?> </p>
-                <p>Método: <?php echo"$metodo" ?> </p>
-                <p>Resolución: <?php echo"$resolucion" ?> </p>
-            </div>
-          </div> 
-      </div>
+          
+
       
       <?php
       }
+      echo "</div></div>";
     }
     else 
 {
@@ -163,5 +150,3 @@ mysqli_close($conexion); //cierra la BBDD
 
 <br>
 
-
-<?php require("footer.php")?>
