@@ -465,6 +465,7 @@ table td:last-child{
     justify-items: center;
     grid-gap: 20px;
     padding: 40px;
+    border-radius: 10px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
@@ -573,7 +574,45 @@ hr{
 }
 
 /*PAGINA TABLA PACIENTES*/
+.btn {
+    display: inline-block;
+    text-align: center;
+    flex: 100%;
+    width: calc(100% - 20px);
+    padding: 20px;
+    border: none;
+    margin: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
 
+#dades {
+    background: #2C59CD;
+}
+
+#constants {
+    background: #38CD2C;
+}
+
+#respiratori {
+    background: #9A30CC;
+}
+
+#menjars {
+    background: #C12222;
+}
+
+.btn i {
+    font-size: 100px;
+    color: #ffffff;
+}
+
+h2 {
+    color: white;
+    padding: 10px 0 0 0;
+    font-size: 20px;
+    text-transform: uppercase;
+}
 
 /* PAGINA PROBA */
 
