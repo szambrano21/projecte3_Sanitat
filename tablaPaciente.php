@@ -1,3 +1,18 @@
+<style>
+    #info_paciente {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 10px;
+        width: 98%;
+    }
+
+    #info_usuari {
+        background-color: #cda22c;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +27,17 @@
 <body>
     <?php include_once("header.php") ?>
     <div class="container_general"><br><br>
+        <div id="info_paciente">
+            <h4>Rosa Moreno Blanco</h4>
+            <p><b>Num. HC: </b>I936498704213</p>
+        </div>
         <div class="container_paciente">
+            <button class="btn" id="info_usuari">
+                <span>
+                    <i class="fa-solid fa-user"></i>
+                    <h2>Informació</h2>
+                </span>
+            </button>
             <button class="btn" id="dades" onclick="window.location.href='pacientes.php'">
                 <span>
                     <i class="fa-solid fa-file-medical"></i>
@@ -35,12 +60,6 @@
                 <span>
                     <i class="fa-solid fa-utensils"></i>
                     <h2>Menjars</h2>
-                </span>
-            </button>
-            <button class="btn" id="prototipo">
-                <span>
-                    <i class="fa-solid fa-file"></i>
-                    <h2>Prototipo</h2>
                 </span>
             </button>
             <button class="btn" id="prototipo">
