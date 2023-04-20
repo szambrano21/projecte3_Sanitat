@@ -434,7 +434,7 @@ table td:last-child{
 /* PAGINA PACIENTES */
 
 .espacio_arriba{
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
 .container_general{
@@ -465,7 +465,7 @@ table td:last-child{
     justify-items: center;
     grid-gap: 20px;
     padding: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 
@@ -571,6 +571,9 @@ hr{
     border: 1px solid #85929e;
     border-radius: 5px;
 }
+
+/*PAGINA TABLA PACIENTES*/
+
 
 /* PAGINA PROBA */
 

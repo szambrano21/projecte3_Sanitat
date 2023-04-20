@@ -1,4 +1,5 @@
 <style>
+
     /* .tabla_paciente {
         display: inline-block;
         width: 100%;
@@ -6,15 +7,19 @@
         border: 2px solid black;
         justify-items: center;
         grid-gap: 20px;
-        padding: 40px; 
+        padding: 40px;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     } */
+
+    #tabla_paciente {
+        border-radius: 20px;
+    }
 
     .btn {
         display: inline-block;
         text-align: center;
         flex: 100%;
-        width: 320px;
+        width: calc(100% - 20px);
         padding: 20px;
         border: none;
         margin: 20px;
@@ -35,10 +40,10 @@
     }
 
     #menjars {
-        background: #C12222 ;
+        background: #C12222;
     }
 
-    .tabla_paciente i {
+    .btn i {
         font-size: 100px;
         color: #ffffff;
     }
@@ -63,8 +68,8 @@
 
 <body>
     <?php include_once("header.php") ?>
-    <div class="container_general">
-        <div class="container_paciente tabla_paciente">
+    <div class="container_general"><br><br>
+        <div class="container_paciente" id="tabla_paciente">
             <button class="btn" id="dades">
                 <span>
                     <i class="fa-solid fa-file-medical"></i>
@@ -138,6 +143,7 @@
                 </span>
             </button>
         </div>
+        <div class="espacio_arriba"></div>
     </div>
 </body>
 
