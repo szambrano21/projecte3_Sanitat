@@ -4,7 +4,6 @@
 <?php include_once("scripts.php"); ?>
 <?php
 include_once('connexiobbddsanitat.php');
-
 ?>
 
 </head>
@@ -21,19 +20,27 @@ include_once('connexiobbddsanitat.php');
 
     $resultado_registro = mysqli_fetch_assoc($sql_registro);
     $total_registro = $resultado_registro['total_registro'];
-  
+
     $por_pagina = 6;
-  
+
     if(empty($_GET['pagina'])){
       $pagina = 1;
     }else{
       $pagina = $_GET['pagina'];
     }
-  
+
     $desde = ($pagina -1) * $por_pagina;
-    $total_paginas = ceil($total_registro / $por_pagina);
-    $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina
-    ");
+
+    if ($total_registro <= $por_pagina) {
+        // Si no hay suficientes registros para requerir paginación, muestra todos los registros
+        $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC");
+    } else {
+        $total_paginas = ceil($total_registro / $por_pagina);
+        // Establece la cantidad de páginas en 5, aunque estén vacías
+        $total_paginas = 5;
+        
+        $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina");
+    }
 
     /*$sql = mysqli_query($conexion, "SELECT nom, nHc FROM tdades 
     ");*/
@@ -45,13 +52,41 @@ include_once('connexiobbddsanitat.php');
         ?>
         <div class="container_general">
         <div class="espacio_arriba"></div>
-        <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
-            <div class="field" id="searchform">
-                <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca un nombre.." />
-                <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+            <div class="anadir_busca">
+                <a href="">AÑADIR NUEVO</a>
+
+                <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
+                    <div class="field" id="searchform">
+                        <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+                        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                    </div>
+                </form>
             </div>
-        </form>
         <br>
+
+            <?php if ($total_registro > $por_pagina) { ?>
+                <div class="pagination">
+                    <?php
+                    $salas = array("Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5");
+                    
+                    // Muestra un botón para cada sala
+                    foreach ($salas as $sala) {
+                        if ($sala == "sala" . $pagina) {
+                            echo "<li><a class='pagina-actual'>$sala</a></li>";
+                        } else {
+                            echo "<li><a href='?pagina=".substr($sala, -1)."'";
+                            if(substr($sala, -1) == $pagina) {
+                                echo " class='pagina_actual'";
+                            }
+                            echo ">$sala</a></li>";
+                        }
+                    }
+                    
+                    ?>
+                </div>
+
+            <?php } ?>
+
         <?php
         echo '    
         <div class="container_paciente">';
@@ -60,7 +95,7 @@ include_once('connexiobbddsanitat.php');
             $nom = $row['nom'];
             $nHc = $row['nHc'];
         
-    ?>
+        ?>
 
             <ul>
                 <li><?php echo"$nHc" ?></li>
@@ -77,29 +112,7 @@ include_once('connexiobbddsanitat.php');
         echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
     }
 
-    ?>
 
-    <div class="pagination">
-    <?php
-        if ($pagina > 1) {
-            echo "<li><a href='?pagina=".($pagina-1)."'>Anterior</a></li>";
-        }
-
-        for ($i = 1; $i <= $total_paginas; $i++) {
-            if ($i == $pagina) {
-            echo "<li><a class='pagina-actual'>$i</a></li>";
-            } else {
-            echo "<li><a href='?pagina=$i'>$i</a></li>";
-            }
-        }
-
-        if ($pagina < $total_paginas) {
-            echo "<li><a href='?pagina=".($pagina+1)."'>Siguiente</a></li>";
-        }
-    ?>
-    </div>
-
-    <?php
         mysqli_close($conexion); //cierra la BBDD
     ?>
 
