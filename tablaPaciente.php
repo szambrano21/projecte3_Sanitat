@@ -32,7 +32,7 @@
             <p><b>Num. HC: </b>I936498704213</p>
         </div>
         <div class="container_paciente">
-            <button class="btn" id="info_usuari">
+            <button class="btn" id="info_usuari" onclick="window.location.href='infoDades.php'">
                 <span>
                     <i class="fa-solid fa-user"></i>
                     <h2>Informació</h2>
