@@ -50,8 +50,8 @@
                         <li><a href="tablaPaciente.php">Tabla Pacientes</a></li>
 
                         <div style="display: flex">
-            <li><h1 style="color: white"><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
-            <li><a style="color: white" class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
+            <li><h1><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
+            <li><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
         </div>
 
                     </ul>
