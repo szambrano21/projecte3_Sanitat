@@ -448,7 +448,7 @@ table td:last-child{
     flex-direction: column;
 }
 .container_activo{
-    padding: 0 0 0 200px;
+    padding: 50px 0 0 200px;
 }
 
 .container_arriba{
@@ -469,15 +469,14 @@ table td:last-child{
 }
 
 
+<<<<<<< HEAD
 @media screen and (max-width: 700px) {
     .container_general{
         padding: 0;
     }
+=======
+>>>>>>> 05a289318c29d3f23b6399a85d1d663be5683d26
 
-    .espacio_arriba{
-        padding-top: 200px;
-    }
-}
 
 .container_paciente{
     display: grid;
