@@ -441,19 +441,11 @@ table td:last-child{
     flex-direction: column;
 }
 .container_activo{
-    padding: 0 0 0 200px;
+    padding: 50px 0 0 200px;
 }
 
 
-@media screen and (max-width: 800px) {
-    .container_general{
-        padding: 0;
-    }
 
-    .espacio_arriba{
-        padding-top: 200px;
-    }
-}
 
 .container_paciente{
     display: grid;
