@@ -470,8 +470,6 @@ table td:last-child{
 
  /* eliminar usuario */
 
-<<<<<<< HEAD
-=======
  .eliminar_Usuario{
     text-align: center;
 }
@@ -491,7 +489,6 @@ table td:last-child{
     font-size: 15px;
     margin: 15px;
 }
->>>>>>> branchSara
 
 
 .container_paciente{
