@@ -136,18 +136,18 @@
                         <label class="labelForm" for="pes"><i class="fa-solid fa-weight-scale"></i> Pes</label>
                         <input type="text" id="pes" name="pes" />
                     </div>        
+                    <!--
                     <div>
                         <label class="labelForm" for="talla"><i class="fa-solid fa-ruler-vertical"></i> talla</label>
                         <input type="text" id="talla" name="talla">
-                    </div>
+                    </div>-->
                     <div>
                         <label class="labelForm" for="dietaHabitual"><i class="fa-solid fa-utensils"></i> Dieta Habitual</label>
                         <input type="text" id="dietaHabitual" name="dietaHabitual">
                     </div>
                     <div>
-                    <label class="labelForm" for="mida"><i class="fa-solid fa-ruler-vertical"></i> talla</label>
+                        <label class="labelForm" for="mida"><i class="fa-solid fa-ruler-vertical"></i> talla</label>
                         <input type="text" id="mida" name="mida">
-                        
                     </div>
                     <div>
                         <label class="labelForm" for="dietaHabitual"><i class="fa-solid fa-utensils"></i> Dieta Habitual</label>
@@ -170,9 +170,9 @@
                     <div>
                         <label>Necessitat d'ajut:</label>
                         <div class="input-group-check">
-                            <input type="checkbox" name="protesisDental" value="dificultat"> Total
-                            <input type="checkbox" name="protesisDental" value="dificultat"> Parcial
-                            <input type="checkbox" name="protesisDental" value="dificultat"> Independent
+                            <input type="checkbox" name="necessitatsAjudes" value="dificultat"> Total
+                            <input type="checkbox" name="necessitatsAjudes" value="dificultat"> Parcial
+                            <input type="checkbox" name="necessitatsAjudes" value="dificultat"> Independent
                         </div>
                     </div>
                     <div>

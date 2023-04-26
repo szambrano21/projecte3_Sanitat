@@ -710,6 +710,30 @@ div.pagination li a:hover:not(.pagina-actual) {
     background: transparent;
     font-size: 15px;
   }
+
+
+  /* eliminar usuario */
+
+  .eliminar_Usuario{
+    text-align: center;
+}
+
+  .btn_cancel{
+    background-color: #42b343;
+}
+.btn_cancel, .btn_ok{
+    width: 120px;
+    background-color: #00799b;
+    color: #FFF;
+    border: 0;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 15px;
+}
+
 /*
 .hero {
     width: 100%;

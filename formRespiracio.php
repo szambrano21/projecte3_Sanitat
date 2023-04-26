@@ -26,6 +26,9 @@
         }
     
     ?>
+
+
+<!--
     <div class="hero">
       <form>    
         <h2>Necessitats de respirar</h2>
@@ -113,7 +116,7 @@
             </div>
         <div>
 
-    -->
+    -----------------
 
         <div class="input-group">
             <textarea id="observacions" rows="8" required></textarea>
@@ -126,8 +129,7 @@
 
 
 
-
-    <!--
+    -->
 <div class="container_general">
     <div class="container_ingres">
     <h1>MENJARS</h1>
@@ -136,12 +138,13 @@
             <div>
             <h2>Necessitats de menjar i beguda</h2>
                     <div>
-                        <label for="pes">Pes:</label><br>
-                        <input type="text" id="pes" name="pes">
+                        <label class="labelForm" for="res/min"><i class="fa-solid fa-weight-scale"></i> Resp/min</label>
+                        <input type="text" id="res/min" name="res/min" required />
+                        
                     </div>        
                     <div>
-                        <label for="talla">Talla:</label><br>
-                        <input type="text" id="talla" name="talla">
+                        <label class="labelForm" for="talla"><i class="fa-solid fa-ruler-vertical"></i> talla</label>
+                        <input type="text" id="talla" required>
                     </div>
                     <div>
                         <label for="dietaHabitual">dietaHabitual:</label><br>
@@ -181,4 +184,3 @@
         </form>
     </div>
 </div>
-    -->
