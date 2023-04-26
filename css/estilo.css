@@ -131,10 +131,6 @@ table td:last-child{
   width: 100%;
   max-width: 1200px;
   flex-direction: row;
-<<<<<<< HEAD
-
-=======
->>>>>>> 115a6aa8b2670f4394ebac5333b4839f2c69e4cd
 }
 
 .field>input[type=text]{
