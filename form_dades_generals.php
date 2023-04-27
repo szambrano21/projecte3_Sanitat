@@ -27,7 +27,7 @@
     <div class="container_general">
         <div class="container_paciente">
             <div class="form_container">
-                <h1>Nuevo paciente</h1>
+                <h1>Nuevo ingreso</h1>
                 <form>
                     <div>
                         <label for="nom">Nom:</label>
