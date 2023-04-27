@@ -112,7 +112,7 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 </div>
 
   
-<div class="pagination">
+<div class="paginationUser">
 <?php
 if ($pagina > 1) {
   echo "<li><a href='?pagina=".($pagina-1)."'>Anterior</a></li>";
