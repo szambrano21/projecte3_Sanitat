@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: #EFF7FF;
+    background-color: #F2F0F8;
 }
 
 /* TABLAS NORMALES RESPONSIVE */
@@ -316,7 +316,7 @@ table td:last-child{
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #D7F3FF;
+    background-color: #FFF;
     height: 100vh;
     overflow: auto;
 }
@@ -436,9 +436,9 @@ table td:last-child{
 
 /* PAGINA PACIENTES */
 
-.espacio_arriba{
+/* .espacio_arriba{
     padding-top: 70px;
-}
+} */
 
 .container_general{
     display: flex;
@@ -446,6 +446,7 @@ table td:last-child{
     align-items: center;
     width: 100%;
     flex-direction: column;
+    padding: 20px;
 }
 .container_activo{
     padding: 50px 0 0 200px;
@@ -494,7 +495,7 @@ table td:last-child{
 .container_paciente{
     display: grid;
     width: 100%;
-    background-color: #D7F3FF;
+    background-color: #FFF;
     justify-items: center;
     grid-gap: 20px;
     padding: 40px;
