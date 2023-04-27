@@ -247,7 +247,7 @@ html, body {
   display: flex;
   position: relative;
   height: 700px;
-  width: 350px;
+  width: 380;
   background: #1F354A;
   border-radius: 4px;
   box-sizing: border-box;
@@ -401,8 +401,8 @@ html, body {
 .container .content .page .grid .card-verticle {
   display: flex;
   position: relative;
-  height: 480px;
-  width: 300px;
+  height: 622px;
+  width: 463px;
   box-sizing: border-box;
   margin: 0 20px 0 0;
   flex-direction: column;
@@ -412,8 +412,8 @@ html, body {
 .container .content .page .grid .card-verticle .card-small {
   display: flex;
   position: relative;
-  height: 230px;
-  width: 300px;
+  /* height: 230px; */
+  width: 500px;
   background: #1F354A;
   border-radius: 4px;
   box-sizing: border-box;
