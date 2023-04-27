@@ -446,10 +446,20 @@ table td:last-child{
     align-items: center;
     width: 100%;
     flex-direction: column;
+    padding: 0 20px 0 20px;
 }
+
 .container_activo{
     padding: 70px 20px 0 220px;
 }
+
+@media screen and (max-width: 650px) {
+    .container_activo {
+      padding: 70px 20px 0 20px;
+    }
+  }
+  
+
 
 .container_arriba{
     display: flex;
@@ -509,31 +519,25 @@ table td:last-child{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 300px;
-    height: calc(150px + 1vw);
+    /* height: calc(150px + 1vw); */
     padding: 15px;
 }
 
-.container_paciente ul li:first-child{
-    padding: 15px;
-    width: 100%;
-    text-align: center;
-    background-color: #F2F0F8;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.container_paciente ul li:nth-child(2){
-    display: flex;
-    align-items: center;
+.container_paciente ul li{
     padding: 10px;
     width: 100%;
-    justify-content: center;
-    height: 100%;
+    text-align: center;
     font-weight: bold;
-    background-color: #F2F0F8;
 }
+
+.container_paciente ul p{
+    background: #F2F0F8;
+    padding: 10px;
+}
+
 
 
 /* PAGINA CREAR USUARI */
