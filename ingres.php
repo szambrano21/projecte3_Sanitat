@@ -37,22 +37,24 @@
                         <label for="date">Data d'ingres:</label><br>
                         <input type="date" id="date" name="date">
                     </div>        
-                    <div>
-                        <label for="asignacioCama">Asignación de cama:</label><br>
-                        <input type="text" id="asignacioCama" name="asignacioCama">
-                    </div>
-                    <div>
-                        <label for="procedencia" class="procedencia">Procedencia</label>
-                        <select class="style_procedencia" name="procedencia" id="procedencia">
-                            <option selected>Selecciona una opcion</option>
-                            <option value="trasllat">Trasllat</option>
-                            <option value="urgencies">Urgencies</option>
-                            <option value="programat">Programat</option>
-                            <option value="altre">Altres</option>
-                        </select>
-                        <span>
-                            <textarea class="altres"></textarea>
-                        </span>
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="procedencia" class="procedencia">Procedencia</label>
+                            <select class="style_procedencia" name="procedencia" id="procedencia">
+                                <option selected>Selecciona una opcion</option>
+                                <option value="trasllat">Trasllat</option>
+                                <option value="urgencies">Urgencies</option>
+                                <option value="programat">Programat</option>
+                                <option value="altre">Altres</option>
+                            </select>
+                            <span>
+                                <textarea class="altres">se usa javascript</textarea>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <label for="asignacioCama">Asignación de cama:</label>
+                            <input type="text" id="asignacioCama" name="asignacioCama">
+                        </div>
                     </div>
                     <div>
                         <label for="motiuIngres">Motiu d'ingres/ Diagnostic:</label><br>
@@ -63,31 +65,29 @@
                         <input type="text" id="tractamentIngres" name="tractamentIngres">
                     </div>              
 
-                    <div>
-                        <p>Alergies:</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="">
-                            <label class="form-check-label" for="">
-                                SI
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
-                            <label class="form-check-label" for="">
-                                NO
-                            </label>
-                        </div>
-                        <div>
-                            <label for="tipus">Tipus:</label><br>
-                            <input type="text" id="tipus" name="tipus">
-                        </div>
+                    <div class="row">
+                            <p>al·lèrgies</p>
+                            <div class="form-check">
+                                <label>SI</label>
+                                <input class="form-check-input" type="checkbox" value="" id="Alergies">
+                            </div>
+                            <div class="form-check">
+                                <label>NO</label>   
+                                <input class="form-check-input" type="checkbox" value="" id="Alergies" checked>
+                            </div>
+                            <div>
+                                <label for="tipus">Tipus:</label>
+                                <input type="text" id="Alergies" name="Alergies">
+                            </div>
+                        
                     </div>
                     <div>
-                        <label for="habitsToxics">Hàbits tòxics:</label><br>
-                        <input type="text" id="habitsToxics" name="habitsToxics">
+                        <label for="habitsToxics">TABACO:</label><br>
+                        <input type="checkbox" id="habitsToxics" name="tabaco">
+
                     </div>
                     <div>
-                        <label for="antecedentsPatologics">Hàbits tòxics:</label><br>
+                        <label for="antecedentsPatologics">Antecedents Patologicss:</label><br>
                         <input type="text" id="antecedentsPatologics" name="antecedentsPatologics">
                     </div>
                     <div>
@@ -96,7 +96,7 @@
                     </div>
 
                 </div>
-                <div>
+                <!-- <div>
                     <h2>Necessitats respiratòries</h2>
                     <div>
                         <label for="res/min">Resp/min:</label><br>
@@ -122,8 +122,8 @@
                         <label for="observacions">Observacions:</label><br>
                         <textarea id="observacions" name="observacions"> </textarea>
                     </div>        
-                </div>
-                <div>
+                </div> -->
+                <!-- <div>
                     <h2>Necessitats de menjar i beguda</h2>
                     <div>
                         <label for="pes">Pes:</label><br>
@@ -165,7 +165,7 @@
                         <label for="observacions">Observacions</label><br>
                         <textarea id="observacions" name="observacions"> </textarea>
                     </div> 
-                </div>
+                </div> -->
                 <input type="submit" value="Submit">
 
             </form>
@@ -174,5 +174,34 @@
 </body>
 </html>
 
+<!-- 
 
-
+<section class="content">
+	<ul class="list">
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox" checked>
+              tabaco
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox">
+            Item 2
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox">
+            Item 3
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox">
+            Item 4
+      </label>
+    </li>
+  </ul>
+</section>
+-->

@@ -26,6 +26,98 @@ include_once('connexiobbddsanitat.php');
         </div>
       </div> -->
       <div class="grid">
+      <div class="card-verticle">
+          <div class="card-small">
+            <span class="title">
+              Active Users
+            </span>
+            <h2 class="text">12</h2>
+            <div class="graph">
+              <div class="bar" data-day="sunday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="monday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="tuesday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="wednesday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="thursday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="friday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="saturday">
+                <div class="bar-content"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-small">
+            <span class="title">
+              Modificación de datos
+            </span>
+            <div class="body">
+                <p>
+                    <a class="link_editar" href="editar_usuario.php?DNI=$dni">EDITAR</a>
+                </p>
+            </div>
+            <div class="body">
+                <p>
+                    <a class="link_eliminar" href="eliminar_usuario.php?DNI=$dni">ELIMINAR</a>
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-verticle">
+          <div class="card-small">
+            <span class="title">
+              Active Users
+            </span>
+            <h2 class="text">12</h2>
+            <div class="graph">
+              <div class="bar" data-day="sunday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="monday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="tuesday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="wednesday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="thursday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="friday">
+                <div class="bar-content"></div>
+              </div>
+              <div class="bar" data-day="saturday">
+                <div class="bar-content"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-small">
+            <span class="title">
+              Modificación de datos
+            </span>
+            <div class="body">
+                <p>
+                    <a class="link_editar" href="editar_usuario.php?DNI=$dni">EDITAR</a>
+                </p>
+            </div>
+            <div class="body">
+                <p>
+                    <a class="link_eliminar" href="eliminar_usuario.php?DNI=$dni">ELIMINAR</a>
+                </p>
+            </div>
+          </div>
+        </div>  
         <div class="card">
           <div class="head">
             <span class="icon">
@@ -45,40 +137,40 @@ include_once('connexiobbddsanitat.php');
             if($resultado > 0){
 
                 $row = mysqli_fetch_assoc($sql);
-                    $fecha = $row["dataIngres"];
-                    $assignacioLlit  = $row["assignacioLlit"];
-                    $assignacioSala = $row["assignacioSala"];
-                    $motiuIngres = $row["motiuIngres"];
-                    $tractamentDomiciliari = $row["tractamentDomiciliari"];
-                    $allergies = $row["allergies"];
-                    $habitsToxics = $row["habitsToxics"];
-                    $antecendentsPatologics = $row["antecendentsPatologics"];
-                    $entornFamiliar = $row["entornFamiliar"];
-                    $procedencia = $row["procedencia"];
+                    $alimentsNoGrassos = $row["alimentsNoGrassos"];
+                    $necessitatsAjudes  = $row["necessitatsAjudes"];
+                    $inapetenciaAnorexia = $row["inapetenciaAnorexia"];
+                    $mida = $row["mida"];
+                    $pes = $row["pes"];
+                    $allergies = $row["protesisDental"];
+                    $intolerancia = $row["intolerancia"];
+                    $dietaHabitual = $row["dietaHabitual"];
+                    $expectoracio = $row["expectoracio"];
+                    $id = $row["id"];
 
                     ?>
                     <div class="body">
                         <h2>Data/Hora d'ingres</h2>
                         <p>
-                        <?php $fecha;?>
+                        <?php $alimentsNoGrassos;?>
                         </p>
                     </div>
                     <div class="body">
                         <h2>Assignació de Llit</h2>
                         <p>
-                        <?php echo $assignacioLlit;?>
+                        <?php echo $necessitatsAjudes;?>
                         </p>
                     </div>
                     <div class="body">
                         <h2>Assignació de Sala</h2>
                         <p>
-                        <?php echo $assignacioSala;?>
+                        <?php echo $inapetenciaAnorexia;?>
                         </p>
                     </div>
                     <div class="body">
                         <h2>Procedència: </h2>
                         <p>
-                        <?php echo $procedencia;?>
+                        <?php echo $pes;?>
                         </p>
                     </div>
                     <div class="body">
@@ -110,6 +202,8 @@ include_once('connexiobbddsanitat.php');
             </div>
           </div>
         </div>
+
+
         <div class="card">
           <div class="head">
             <span class="icon">
@@ -161,52 +255,7 @@ include_once('connexiobbddsanitat.php');
             </div>
           </div>
         </div>
-        <div class="card-verticle">
-          <div class="card-small">
-            <span class="title">
-              Active Users
-            </span>
-            <h2 class="text">12</h2>
-            <div class="graph">
-              <div class="bar" data-day="sunday">
-                <div class="bar-content"></div>
-              </div>
-              <div class="bar" data-day="monday">
-                <div class="bar-content"></div>
-              </div>
-              <div class="bar" data-day="tuesday">
-                <div class="bar-content"></div>
-              </div>
-              <div class="bar" data-day="wednesday">
-                <div class="bar-content"></div>
-              </div>
-              <div class="bar" data-day="thursday">
-                <div class="bar-content"></div>
-              </div>
-              <div class="bar" data-day="friday">
-                <div class="bar-content"></div>
-              </div>
-              <div class="bar" data-day="saturday">
-                <div class="bar-content"></div>
-              </div>
-            </div>
-          </div>
-          <div class="card-small">
-            <span class="title">
-              Modificación de datos
-            </span>
-            <div class="body">
-                <p>
-                    <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
-                </p>
-            </div>
-            <div class="body">
-                <p>
-                    <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>
-                </p>
-            </div>
-          </div>
-        </div>
+
       </div>
       <div class="stats">
         
