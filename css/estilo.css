@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: #EFF7FF;
+    background-color: #F2F0F8;
 }
 
 /* TABLAS NORMALES RESPONSIVE */
@@ -316,7 +316,7 @@ table td:last-child{
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #D7F3FF;
+    background-color: #FFF;
     height: 100vh;
     overflow: auto;
 }
@@ -436,9 +436,9 @@ table td:last-child{
 
 /* PAGINA PACIENTES */
 
-.espacio_arriba{
+/* .espacio_arriba{
     padding-top: 70px;
-}
+} */
 
 .container_general{
     display: flex;
@@ -446,10 +446,20 @@ table td:last-child{
     align-items: center;
     width: 100%;
     flex-direction: column;
+    padding: 0 20px 0 20px;
 }
+
 .container_activo{
-    padding: 50px 0 0 200px;
+    padding: 70px 20px 0 220px;
 }
+
+@media screen and (max-width: 650px) {
+    .container_activo {
+      padding: 70px 20px 0 20px;
+    }
+  }
+  
+
 
 .container_arriba{
     display: flex;
@@ -494,7 +504,7 @@ table td:last-child{
 .container_paciente{
     display: grid;
     width: 100%;
-    background-color: #D7F3FF;
+    background-color: #FFF;
     justify-items: center;
     grid-gap: 20px;
     padding: 40px;
@@ -509,31 +519,25 @@ table td:last-child{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 300px;
-    height: calc(150px + 1vw);
+    /* height: calc(150px + 1vw); */
     padding: 15px;
 }
 
-.container_paciente ul li:first-child{
-    padding: 15px;
-    width: 100%;
-    text-align: center;
-    background-color: #F2F0F8;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.container_paciente ul li:nth-child(2){
-    display: flex;
-    align-items: center;
+.container_paciente ul li{
     padding: 10px;
     width: 100%;
-    justify-content: center;
-    height: 100%;
+    text-align: center;
     font-weight: bold;
-    background-color: #F2F0F8;
 }
+
+.container_paciente ul p{
+    background: #F2F0F8;
+    padding: 10px;
+}
+
 
 
 /* PAGINA CREAR USUARI */
@@ -686,50 +690,75 @@ h2 {
     border-radius: 5px;
 }
 
-/* PAGINATION  */
+/****************** ESTILO PAGINACION ******************/
+
+div.paginationUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.paginationUser li {
+    display: inline;
+}
+
+div.paginationUser li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.paginationUser li:first-child a {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.paginationUser li:last-child a {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div.paginationUser li a.pagina-actual {
+    background-color: #62B6B7;
+    color: white;
+}
+
+
+
+div.paginationUser li a:hover:not(.pagina-actual) {
+    background-color: #ddd;
+    color: black;
+}
+
 
 .pagination{
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
- 
+
+.pagination li{
+    width: 100%;
+}
+
 .pagination a{
     display: flex;
-    padding: 2px 30px;
     background-color: #6C8DAB;
     cursor: pointer;
     color: black;
     font-weight: bold;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 10px 0;
 }
 
 .pagination .pagina_actual {
     background-color: #1F354A;
     color: white;
 
-}
-
-/****************** ESTILO PAGINACION ******************/
-
-div.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px 0px 15px 0px;
-}
-
-div.pagination li {
-    display: inline;
-}
-
-div.pagination li a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    background-color: white;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
 }
 
 .pagination li:first-child a {

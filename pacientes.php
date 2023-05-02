@@ -18,7 +18,7 @@ include_once('connexiobbddsanitat.php');
     $resultado_registro = mysqli_fetch_assoc($sql_registro);
     $total_registro = $resultado_registro['total_registro'];
 
-    $por_pagina = 6;
+    $por_pagina = 15;
 
     if(empty($_GET['pagina'])){
       $pagina = 1;
@@ -88,21 +88,36 @@ include_once('connexiobbddsanitat.php');
         echo '    
         <div class="container_paciente">';
     
+        //Contador para llevar la cuenta de la cantidad de pacientes
+        $counter = 0;
         while ($row = mysqli_fetch_assoc($sql)) {
             $nom = $row['nom'];
             $nHc = $row['nHc'];
-        
-        ?>
 
-            <ul>
-                <li><?php echo"$nHc" ?></li>
-                <li><?php echo"$nom" ?></li>
-            </ul>
+            // Si es la primera persona del par, abrimos un <li>
+            if ($counter % 2 == 0) {
+                echo '<ul>';
+            }
 
-
-
-    <?php
+            // Imprimimos los datos de la persona actual
+            echo "<li><p>$nom</p>";
+            echo "<p>$nHc</p></li>";
+            
+            // Si es la segunda persona del par, cerramos el <li>
+            if ($counter % 2 != 0) {
+                echo '</li></ul>';
+            }
+            
+            $counter++;
+            
         }
+
+        // Si quedó una persona sin pareja, cerramos el último <li> para evitar errores de HTML
+        if ($counter % 2 != 0) {
+            echo '</li></ul>';
+        }
+        
+
         echo "</div></div>";
     }
     else{
