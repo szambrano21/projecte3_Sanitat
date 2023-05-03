@@ -11,6 +11,56 @@ body{
     background-color: #F2F0F8;
 }
 
+/* DASHBOARD */
+
+.containerPanelControl{
+    width: 100%;
+}
+
+.container_general .navegacion{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    color: black;
+}
+
+.container_general h1{
+    width: 100%;
+}
+
+.container_general .navegacion a{
+    color: black;
+}
+
+.container_general .navegacion p{
+    color: #00000085;
+}
+
+.containerPanelControl h1{
+    width: 100%;
+    background-color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: blue;
+}
+
+.panel{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.panel a{
+    color: #1F354A;
+    width: 100%;
+    padding: 20px 0;
+    background-color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
 /* TABLAS NORMALES RESPONSIVE */
 table{
     border-collapse: separate;
