@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <?php include_once("scripts.php"); ?>
+    <?php include_once("../scripts.php"); ?>
 
     <style>
         body {
@@ -20,21 +21,19 @@
 
 <body>
     <?php
-    include_once("header.php");
-    // if($_SESSION['tipo'] != 'admin'){
-    //     header("location: inicial.php");
-    // }
+    include_once("../header.php");
+    if ($_SESSION['tipo'] != 'admin') {
+        header("location: inicial.php");
+    }
 
     ?>
-
-
 
     <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
     <div class="container_general">
         <div class="container_ingres">
             <h1>CONSTANTS</h1>
             <hr>
-            <form action="menjars.php">
+            <form action="">
                 <div>
                     <h2>Pressa de constants</h2>
                     <div>
@@ -97,52 +96,3 @@
             </form>
         </div>
     </div>
-
-
-
-    <!-- 
------------GRAFICO EXAMPLE---------
--- Incluye la librería de Chart.js --
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
--- Crea un elemento canvas para mostrar el gráfico --
-<canvas id="grafico"></canvas>
-$PAS_NORMAL = 120;
-$PAD_NORMAL = 80;
-$PAS_MAX = 140;
-$PAD_MAX = 90;
-$PAS_MIN = 90;
-$PAD_MIN = 60;
-
-<script>
-  var ctx = document.getElementById('grafico').getContext('2d');
-  var chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: <?php echo json_encode($labels); ?>,
-          datasets: [
-              {
-                  label: 'PAS',
-                  data: <?php echo json_encode($data_pas); ?>,
-                  borderColor: 'rgba(255, 99, 132, 1)',
-                  borderWidth: 1,
-                  pointRadius: 0,
-                  yAxisID: 'y-axis-1'
-              },
-              {
-                  label: 'PAD',
-                  data: <?php echo json_encode($data_pad); ?>,
-                  borderColor: 'rgba(54, 162, 235, 1)',
-                  borderWidth: 1,
-                  pointRadius: 0,
-                  yAxisID: 'y-axis-2'
-              },
-              {
-                  label: 'PAS normal',
-                  data: <?php echo json_encode(array_fill(0, count($data_pas), $PAS_NORMAL)); ?>,
-                  borderDash: [5,5],
-                  borderColor: 'rgba(0,0,0,0.5)',
-                  borderWidth: 1,
-                  pointRadius:
-
--->

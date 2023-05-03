@@ -86,8 +86,9 @@ table td:last-child{
 /* BUSCADOR */
 
 .form_container{
-    width: 100%;
-    max-width: 500px;
+    /* width:  70%; */
+    /* max-width: 800px; */
+    padding: 20px;
 }
 
 .form_busqueda{
