@@ -202,7 +202,7 @@ if($resultado > 0) {
         <div class="card-verticle">
           <div class="card-small">
             <span class="title">
-              Active Users
+              Active Constants
             </span>
             <h2 class="text">12</h2>
             <div class="chart-container">
@@ -241,7 +241,7 @@ if($resultado > 0) {
                     ticks: {
                         beginAtZero: true
                     }
-                    }]
+                    }],
                 }
                 }
             });
