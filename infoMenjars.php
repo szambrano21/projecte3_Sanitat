@@ -13,7 +13,7 @@ include_once('connexiobbddsanitat.php');
     if($_SESSION['tipo'] != 'admin'){
       header("location: inicial.php");
     }
-     ?>
+     ?> 
 
 
 <div class="container container_general " >
@@ -28,31 +28,98 @@ include_once('connexiobbddsanitat.php');
       <div class="grid">
       <div class="card-verticle">
           <div class="card-small">
-            <span class="title">
+          <?php
+            $sql = mysqli_query($conexion, "SELECT * FROM tmenjars");
+            $resultado = mysqli_num_rows($sql);
+            if($resultado > 0){
+
+                $row = mysqli_fetch_assoc($sql);
+                    $alimentsNoGrassos = $row["alimentsNoGrassos"];
+                    $necessitatsAjudes  = $row["necessitatsAjudes"];
+                    $inapetenciaAnorexia = $row["inapetenciaAnorexia"];
+                    $mida = $row["mida"];
+                    $pes = $row["pes"];
+                    $allergies = $row["protesisDental"];
+                    $intolerancia = $row["intolerancia"];
+                    $dietaHabitual = $row["dietaHabitual"];
+                    $expectoracio = $row["expectoracio"];
+                    // $id = $row["id"];
+
+                    ?>
+                    <div class="body">
+                        <h2>Aliments no grassos</h2>
+                        <p>
+                        <?php $alimentsNoGrassos;?>
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>Necessitats d'ajudes</h3>
+                        <p>
+                        <?php $necessitatsAjudes;?>
+                        s
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>Inapetencia anorexia</h3>
+                        <p>
+                        <?php $inapetenciaAnorexia;?>
+                        
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>mida</h3>
+                        <p>
+                        <?php $mida;?>
+                        
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>pes</h3>
+                        <p>
+                        <?php $pes;?>
+                        
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>protesisDental</h3>
+                        <p>
+                        <?php $protesisDental;?>
+                        
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>intolerancia</h3>
+                        <p>
+                        <?php $intolerancia;?>
+                        
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>dietaHabitual</h3>
+                        <p>
+                        <?php $dietaHabitual;?>
+                        
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h3>expectoracio</h3>
+                        <p>
+                        <?php $expectoracio;?>
+                        
+                        </p>
+                    </div>
+                    
+            <!-- <span class="title">
               Active Users
             </span>
             <h2 class="text">12</h2>
             <div class="body">
               a
-            </div>
+            </div> -->
+            <?php
+            }
+                    ?>
           </div>
-          <div class="card-small">
-            <span class="title">
-              Modificación de datos
-            </span>
-            <div class="body">
-                <p>
-                    <a class="link_editar" href="editar_usuario.php?DNI=$dni">EDITAR</a>
-                </p>
-            </div>
-            <div class="body">
-                <p>
-                    <a class="link_eliminar" href="eliminar_usuario.php?DNI=$dni">ELIMINAR</a>
-                </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-verticle">
           <div class="card-small">
             <span class="title">
               Active Users
@@ -82,6 +149,30 @@ include_once('connexiobbddsanitat.php');
               </div>
             </div>
           </div>
+          <!-- <div class="card-small">
+            <span class="title">
+              Modificación de datos
+            </span>
+            <div class="body">
+                <p>
+                    <a class="link_editar" href="editar_usuario.php?DNI=$dni">EDITAR</a>
+                </p>
+            </div>
+            <div class="body">
+                <p>
+                    <a class="link_eliminar" href="eliminar_usuario.php?DNI=$dni">ELIMINAR</a>
+                </p>
+            </div>
+          </div> -->
+        </div>
+        <div class="card-verticle">
+          <!-- <div class="card-small">
+            <span class="title">
+              Active Users
+            </span>
+            <h2 class="text">12</h2>
+            a
+          </div> -->
           <div class="card-small">
             <span class="title">
               Modificación de datos
