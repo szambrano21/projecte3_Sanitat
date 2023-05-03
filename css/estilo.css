@@ -21,21 +21,22 @@ table{
 
 table th{
     text-align: center;
-    padding: 5px 10px;
-    background-color: #D15E1D;
+    padding: 8px 10px;
+    background-color: #1F354A;
     color: white;
 }
 
 table tr:nth-child(even){
-    background-color: #FFF5F0;;
+    background-color: #6ea2d22f;
 }
 
 table tr:nth-child(odd){
-    background-color: #E4CDC0;
+    background-color: #FFFFFF;
 }
 
 table td{
     text-align: center;
+    padding: 10px;
 }
 
 
@@ -43,13 +44,17 @@ table td:last-child{
     width: 100%;
     background-color: #F1F1F1;
     display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 }
 
 .link_editar{
     color: white;
     margin: 0 2px;
     height: 100%;
-    padding: 5px 10px;
+    padding: 10px;
     width: 100%;
     background-color: #0876DC;
     border: 1px solid #2980D0;
@@ -57,13 +62,50 @@ table td:last-child{
 
 .link_eliminar{
     color: white;
-    padding: 5px 10px;
+    padding: 10px;
     margin: 0 2px;
     background-color: #DB2020;
     border: 1px solid #CE392F;
     width: 100%;
 
 }
+
+/* RESPONSIVE TABLAS */
+
+@media screen and (max-width: 1000px) {
+
+    table td:last-child {
+        padding: 10px;
+        background-color: initial;
+        justify-content: initial;
+    }
+
+    .link_editar, .link_eliminar{
+        max-width: 160px;
+        padding: 3px;
+    }
+
+    .tablas_usuarios tr{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tablas_usuarios thead{
+        display: none;
+    }
+
+    .tablas_usuarios td[titulo]{
+        display: flex;
+    }
+    .tablas_usuarios td[titulo]::before{
+        content: attr(titulo);
+        padding: 0 10px 0 0;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+}
+
 
 /* ANADIR NUEVO */
 

@@ -22,7 +22,6 @@ include_once('connexiobbddsanitat.php');
 
     <!-- container_general - no tocar -->
     <div class="container_general">
-    <div class="espacio_arriba"></div>
 
     <!-- BARRA DE NAVEGACION -->
 
@@ -61,14 +60,17 @@ if($resultado > 0){
 
   echo "
 
-  <table>
-    <tr>
-        <th>NOMBRE</th>
-        <th>APELLIDOS</th>
-        <th>SALA ASIGNADA</th>
-        <th>DNI</th>
-        <th>ACCIONES</th>
-    </tr>
+  <table class='tablas_usuarios'>
+    <thead>
+      <tr>
+          <th>NOMBRE</th>
+          <th>APELLIDOS</th>
+          <th>DNI</th>
+          <th>TELEFONO</th>
+          <th>ACCIONES</th>
+      </tr>
+    </thead>
+
   ";
   
   while ($row = mysqli_fetch_assoc($sql)) {
@@ -83,21 +85,21 @@ if($resultado > 0){
     echo"
 
     <tr>
-        <td>$nomUsuari</td>
-        <td>$cognomUsuari</td>
-        <td>$dni</td>
-        <td>$telefono</td>
-        <td>
+        <td titulo='NOMBRE:'>$nomUsuari</td>
+        <td titulo='APELLIDOS:'>$cognomUsuari</td>
+        <td titulo='DNI:'>$dni</td>
+        <td titulo='TELEFONO:'>$telefono</td>
+        <td titulo='ACCIONES:'>
           <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>";
 
-          if($dni != $_SESSION['DNI']){
-            echo"
-            <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-          ";
-        }
-        echo "
+            if($dni != $_SESSION['DNI']){
+              echo"
+              <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
+            ";
+          }
+          echo "
         </td>
-        </tr>
+      </tr>
         ";
 
 
