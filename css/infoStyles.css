@@ -164,7 +164,7 @@ html, body {
   width: auto;
   height: 100%;
   flex-grow: 1;
-  background: #D7F3FF;
+  /* background: #D7F3FF; */
   box-sizing: border-box;
   z-index: 1;
 }
