@@ -12,7 +12,7 @@
 
     /* CREAMOS UN ARRAY CON EL NOMBRE DE LAS TABLAS, PARA DESPUES CON UN FOREACH IR PASANDO DE TABLA A TABLA MIENTRAS CONTAMOS LA FILA DE CADA UNO DE ESTOS */
 
-    $tablas = array('tusuaris', 'tdades');
+    $tablas = array('tusuaris', 'tdades', 'tingres');
     $conteos = array();
 
     foreach ($tablas as $tabla) {
@@ -45,11 +45,18 @@
                             <span><?php echo $conteos['tusuaris']; ?></span>
                         </p>
                     </a>
-                    <a href="listado_proteinas.php">
+                    <a href="#.php">
                         <i class="fa-solid fa-dna"></i>
                         <p>
                             <b>PACIENTES (DATOS)</b><br>
                             <span><?php echo $conteos['tdades']; ?></span>
+                        </p>
+                    </a>
+                    <a href="#.php">
+                        <i class="fa-solid fa-dna"></i>
+                        <p>
+                            <b>INGRESADOS</b><br>
+                            <span><?php echo $conteos['tingres']; ?></span>
                         </p>
                     </a>
 
