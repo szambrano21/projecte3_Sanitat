@@ -22,6 +22,8 @@ include_once('connexiobbddsanitat.php');
 
     <!-- container_general - no tocar -->
     <div class="container_general">
+    <div class="second_container">
+
 
     <!-- BARRA DE NAVEGACION -->
 
@@ -133,6 +135,7 @@ if ($pagina < $total_paginas) {
 }
 ?>
 </div>
+    </div>
 
 <?php
 

@@ -26,7 +26,10 @@
 
 <body>
     <?php include_once("header.php") ?>
-    <div class="container_general"><br><br>
+    <div class="container_general">
+    <div class="second_container">
+    
+    <br><br>
         <div id="info_paciente">
             <h4>Rosa Moreno Blanco</h4>
             <p><b>Num. HC: </b>I936498704213</p>
@@ -105,6 +108,7 @@
                 </span>
             </button>
         </div>
+    </div>
         <div class="espacio_arriba"></div>
     </div>
 </body>

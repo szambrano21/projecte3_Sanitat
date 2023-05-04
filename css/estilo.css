@@ -454,14 +454,14 @@ table td:last-child{
 }
 
 /* CSS */
-.menu #btn_menu {
-    display: none;
-  }
-  
+    .menu #btn_menu {
+        display: none;
+    }
 
     .menu{
       max-width: initial;
       transition: all 300ms;
+      background-color: white;
     }
 
 
@@ -538,16 +538,23 @@ table td:last-child{
     align-items: center;
     width: 100%;
     flex-direction: column;
-    padding: 0 20px 0 20px;
+}
+
+.second_container{
+    width: 100%;
+    padding: 20px;
+    background: #F2F0F8;
 }
 
 .container_activo{
-    padding: 70px 20px 0 220px;
+    padding: 70px 0 0 200px;
+    background: white;
+    width: 100%;
 }
 
 @media screen and (max-width: 650px) {
     .container_activo {
-      padding: 70px 20px 0 20px;
+      padding: 70px 0 0 0;
     }
 
     .anadir_busca{

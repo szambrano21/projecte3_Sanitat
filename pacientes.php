@@ -48,6 +48,8 @@ include_once('connexiobbddsanitat.php');
 
         ?>
         <div class="container_general">
+        <div class="second_container">
+
         <div class="espacio_arriba"></div>
             <div class="anadir_busca">
                 <a href="">AÑADIR NUEVO</a>
@@ -118,7 +120,7 @@ include_once('connexiobbddsanitat.php');
         }
         
 
-        echo "</div></div>";
+        echo "</div></div></div>";
     }
     else{
         echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";

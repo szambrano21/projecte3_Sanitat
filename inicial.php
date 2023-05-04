@@ -24,37 +24,38 @@
 
     ?>
 
-    <br>
 
     <div class="container_general">
-        <h1>BIENVENIDO</h1>
-        <div class="navegacion">
-            <a href="inicial.php">Home ></a>&nbsp<p>DASHBOARD</p>
-        </div>
-        <div class="containerPanelControl">
-            <div>
-                <h1>PANEL DE CONTROL</h1>
+
+        <div class="second_container">
+            <h1>BIENVENIDO</h1>
+            <div class="navegacion">
+                <a href="inicial.php">Home ></a>&nbsp<p>DASHBOARD</p>
             </div>
-            <div class="panel">
+            <div class="containerPanelControl">
+                <div>
+                    <h1>PANEL DE CONTROL</h1>
+                </div>
+                <div class="panel">
 
-                <a href="listado_usuarios.php">
-                    <i class="fa-solid fa-users"></i>
-                    <p>
-                        <b>USUARIOS</b><br>
-                        <span><?php echo $conteos['tusuaris']; ?></span>
-                    </p>
-                </a>
-                <a href="listado_proteinas.php">
-                    <i class="fa-solid fa-dna"></i>
-                    <p>
-                        <b>PACIENTES (DATOS)</b><br>
-                        <span><?php echo $conteos['tdades']; ?></span>
-                    </p>
-                </a>
+                    <a href="listado_usuarios.php">
+                        <i class="fa-solid fa-users"></i>
+                        <p>
+                            <b>USUARIOS</b><br>
+                            <span><?php echo $conteos['tusuaris']; ?></span>
+                        </p>
+                    </a>
+                    <a href="listado_proteinas.php">
+                        <i class="fa-solid fa-dna"></i>
+                        <p>
+                            <b>PACIENTES (DATOS)</b><br>
+                            <span><?php echo $conteos['tdades']; ?></span>
+                        </p>
+                    </a>
 
+                </div>
             </div>
         </div>
-
     </div>
     <?php
     // if ($_SESSION['tipo'] == 'admin') {
