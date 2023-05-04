@@ -61,10 +61,12 @@ if(!empty($_POST)){
         <label for="username">  
             <i class="fa-solid fa-user"></i>
             <input placeholder="username" type="text" name="username" id="username">
+            <span>admin</span>
         </label>
         <label>
             <i class="fa-solid fa-lock"></i>
             <input placeholder="password" type="password" name="password" id="password">
+        <span>admin</span>
         </label>
         <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
 
