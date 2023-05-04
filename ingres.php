@@ -1,3 +1,44 @@
+<?php
+
+include_once('connexiobbddsanitat.php');
+
+if(!empty($_POST)){
+    $alert="";
+    if(empty($_POST["procedencia"]) || empty($_POST["assignacioLlit "]) || empty($_POST["assignacioSala"]) || empty($_POST["motiuIngres"]) || empty($_POST["dataIngres"])
+    || empty($_POST["tractamentDomiciliari"]) || empty($_POST["allergies"]) || empty($_POST["habitsToxics"]) || empty($_POST["antecendentsPatologics"]) || empty($_POST["entornFamiliar"]) || empty($_POST["ID"]) ){
+
+        $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
+    }else{
+
+        $procedencia = $_POST["procedencia"];
+        $assignacioLlit = $_POST["assignacioLlit"];
+        $assignacioSala = $_POST["assignacioSala"];
+        $motiuIngres = $_POST["motiuIngres"];
+        $dataIngres = $_POST["dataIngres"];
+        $tractamentDomiciliari = $_POST["tractamentDomiciliari"];
+        $allergies = $_POST["allergies"];
+        $habitsToxics = $_POST["habitsToxics"];
+        $antecendentsPatologics = $_POST["antecendentsPatologics"];
+        $entornFamiliar = $_POST["entornFamiliar"];        
+        $ID = $_POST["ID"];
+
+
+        // $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
+        // $resultado = mysqli_fetch_assoc($query);
+
+        
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (procedencia, assignacioLlit, assignacioSala, motiuIngres, dataIngres, tractamentDomiciliari,allergies,habitsToxics,antecendentsPatologics,entornFamiliar,ID)
+            VALUES('$procedencia','$assignacioLlit','$assignacioSala',' $motiuIngres ',' $dataIngres ','$tractamentDomiciliari','$allergies','$habitsToxics','$antecendentsPatologics','$entornFamiliar','$ID')");
+
+            if($query_insertar){
+                $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+            }else{
+                $alert="<p class='msg_error'>Error al crear el usuario</p>";
+            }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -166,6 +207,7 @@
                         <textarea id="observacions" name="observacions"> </textarea>
                     </div> 
                 </div> -->
+                <input type="hidden" id="ID" name="ID" value="1">
                 <input type="submit" value="Submit">
 
             </form>

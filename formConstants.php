@@ -1,3 +1,45 @@
+<?php
+
+include_once('connexiobbddsanitat.php');
+
+if(!empty($_POST)){
+    $alert="";
+    if(empty($_POST["temperatura"]) || empty($_POST["presioArterial"]) || empty($_POST["pols"]) || empty($_POST["glucemia"]) || empty($_POST["saturacioO2"])
+    || empty($_POST["EVN"]) || empty($_POST["reavaluacioDolor"]) || empty($_POST["hemoglobina"]) || empty($_POST["disfagiaLiquida"]) || empty($_POST["disfagiaSolids"]) || empty($_POST["ID_ingreso "]) ){
+
+        $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
+    }else{
+
+        $temperatura = $_POST["temperatura"];
+        $presioArterial = $_POST["presioArterial"];
+        $pols = $_POST["pols"];
+        $glucemia = $_POST["glucemia"];
+        $saturacioO2 = ($_POST["saturacioO2"]);
+        $EVN = $_POST["EVN"];
+        $reavaluacioDolor = $_POST["reavaluacioDolor"];
+        $hemoglobina = $_POST["hemoglobina"];
+        $disfagiaLiquida = $_POST["disfagiaLiquida"];
+        $disfagiaSolids = $_POST["disfagiaSolids"];        
+        $idIngreso = $_POST["ID_ingreso"];
+        $ID_const  = $_POST["ID_const"];
+
+
+        // $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
+        // $resultado = mysqli_fetch_assoc($query);
+
+        
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
+            VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
+
+            if($query_insertar){
+                $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+            }else{
+                $alert="<p class='msg_error'>Error al crear el usuario</p>";
+            }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -34,7 +76,7 @@
         <div class="container_ingres">
             <h1>CONSTANTS</h1>
             <hr>
-            <form action="menjars.php">
+            <form action="formConstants.php">
                 <div>
                     <h2>Pressa de constants</h2>
                     <div>
@@ -62,8 +104,8 @@
                     <div>
                         <label>EVN</label>
                         <div class="input-group-check">
-                            <input type="checkbox" class="checkbox" id="EVN" name="EVN" value="si" required>SI
-                            <input type="checkbox" class="checkbox" id="EVN" name="EVN" value="no" required>NO
+                            <input type="checkbox" class="checkbox" id="EVN" name="EVN" value="si" >SI
+                            <input type="checkbox" class="checkbox" id="EVN" name="EVN" value="no" >NO
                         </div>
                     </div>
 
@@ -91,8 +133,9 @@
                         <label class="labelForm" for="disfagiaSolids"><i class="fa-solid fa-bowl-food"></i> Disfagia solids</label>
                         <input type="text" id="disfagiaSolids" name="disfagiaSolids">
                     </div>
+
                 </div>
-                <input type="hidden" id="id" name="id" value="<?php echo $row['Id']; ?>">
+                <input type="hidden" id="idIngreso" name="idIngreso" value="1">
                 <input type="submit" value="Submit">
             </form>
         </div>
@@ -119,11 +162,11 @@ $PAD_MIN = 60;
   var chart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: <?php echo json_encode($labels); ?>,
+          labels: <?php //echo json_encode($labels); ?>,
           datasets: [
               {
                   label: 'PAS',
-                  data: <?php echo json_encode($data_pas); ?>,
+                  data: <?php // echo json_encode($data_pas); ?>,
                   borderColor: 'rgba(255, 99, 132, 1)',
                   borderWidth: 1,
                   pointRadius: 0,
@@ -131,7 +174,7 @@ $PAD_MIN = 60;
               },
               {
                   label: 'PAD',
-                  data: <?php echo json_encode($data_pad); ?>,
+                  data: <?php //echo json_encode($data_pad); ?>,
                   borderColor: 'rgba(54, 162, 235, 1)',
                   borderWidth: 1,
                   pointRadius: 0,
@@ -139,7 +182,7 @@ $PAD_MIN = 60;
               },
               {
                   label: 'PAS normal',
-                  data: <?php echo json_encode(array_fill(0, count($data_pas), $PAS_NORMAL)); ?>,
+                  data: <?php //echo json_encode(array_fill(0, count($data_pas), $PAS_NORMAL)); ?>,
                   borderDash: [5,5],
                   borderColor: 'rgba(0,0,0,0.5)',
                   borderWidth: 1,
