@@ -431,7 +431,7 @@ table td:last-child{
     align-items: center;
 }
 
-.menu li a ,.menu li span{
+.menu li a{
     display: block;
     color: black;
     text-decoration: none;
@@ -471,9 +471,15 @@ table td:last-child{
     margin-bottom: 10px;
 }
 
-.menu li span{
-    padding: 12px 8px 50px 8px;
-    cursor: default;
+
+
+.logotipo{
+    height: 50px;
+    padding: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
 .menu li a.active {
@@ -938,7 +944,7 @@ div.pagination li a.pagina-actual {
 
 
 div.pagination li a:hover:not(.pagina-actual) {
-    background-color: #ddd;
+    background-color: #d4d9ef;
     color: black;
 }
 
