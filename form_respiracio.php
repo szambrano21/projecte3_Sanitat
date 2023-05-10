@@ -38,12 +38,18 @@
                     <label for="personal-account"><input id="personal-account" type="radio" name="account-type" class="inline" /> Si</label>
                     <label for="business-account"><input id="business-account" type="radio" name="account-type" class="inline" /> No</label>
                 </div>
-                <!-- </fieldset>
-                <fieldset> -->
             </fieldset>
             <fieldset class="textarea_section">
                 <label for="Disfagia liquida"> Observacions: <textarea></textarea></label>
             </fieldset>
+            <div class="hora_dia">
+                <input type="radio" name="hora" id="dia">
+                <label for="dia">dia</label>
+                <input type="radio" name="hora" id="tarda">
+                <label for="tarda">tarda</label>
+                <input type="radio" name="hora" id="nit">
+                <label for="nit">nit</label>
+            </div>
             <input type="submit" value="Submit" />
         </form>
     </div>

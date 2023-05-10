@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 62d51e52d7860dfc5909ed2305c280d15745452f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,30 +18,38 @@
                 <label for="mida"><i class="fa-solid fa-ruler-horizontal"></i> Mida (cm): <input id="mida" name="mida" type="text" /></label>
             </fieldset>
             <fieldset>
-                <label for="dieta_habitual"><i class="fa-solid fa-bowl-food"></i> Dieta habitual:<input id="dieta_habitual" name="dieta_habitual" type="text" /></label>
-                <label for="aliments-no-grassos"><i class="fa-solid fa-wheat-awn"></i> Aliments no grassos: <input id="aliments-no-grassos" name="aliments-no-grassos" type="text" /></label>
+                <label for="dietaHabitual"><i class="fa-solid fa-bowl-food"></i> Dieta habitual:<input id="dietaHabitual" name="dietaHabitual" type="text" /></label>
+                <label for="alimentsNoGrassos"><i class="fa-solid fa-wheat-awn"></i> Aliments no grassos: <input id="alimentsNoGrassos" name="alimentsNoGrassos" type="text" /></label>
             </fieldset>
             <fieldset>
                 <label for="intolerancia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Intolerancia:<input id="intolerancia" name="intolerancia" type="text" /></label>
             </fieldset>
             <fieldset class="radio_input_section">
-                <div><i class="fa-solid fa-handshake-angle"></i>
+                <div class="input_conjunto"><i class="fa-solid fa-handshake-angle"></i>
                     Necessitat d'ajut: <br>
-                    <label for="necessitat-ajut-total"><input id="necessitat-ajut-total" type="radio" name="necessitat-ajut" class="inline" value="total"/> Total</label>
-                    <label for="necessitat-ajut"><input id="necessitat-ajut-parcial" type="radio" name="necessitat-ajut" class="inline" value="parcial"/> Parcial</label>
-                    <label for="necessitat-ajut"><input id="necessitat-ajut-independent" type="radio" name="necessitat-ajut" class="inline" value="independent"/> Independent</label>
+                    <label for="necessitatsAjudes-total"><input id="necessitatsAjudes-total" type="radio" name="necessitatsAjudes" class="inline" value="total" /> Total</label>
+                    <label for="necessitatsAjudes-parcial"><input id="necessitatsAjudes-parcial" type="radio" name="necessitatsAjudes" class="inline" value="parcial" /> Parcial</label>
+                    <label for="necessitatsAjudes-independent"><input id="necessitatsAjudes-independent" type="radio" name="necessitatsAjudes" class="inline" value="independent" /> Independent</label>
                 </div>
-                <div><i class="fa-sharp fa-solid fa-icicles"></i>
+                <div class="input_conjunto"><i class="fa-sharp fa-solid fa-icicles"></i>
                     Inapetència i/o anorèxia: <br>
-                    <label for="anorexia-1"><input id="anorexia-1" type="radio" name="anorexia" class="inline" value="1"/> Si</label>
-                    <label for="anorexia-0"><input id="anorexia-0" type="radio" name="anorexia" class="inline" value="0"/> No</label>
+                    <label for="inapetenciaAnorexia-1"><input id="inapetenciaAnorexia-1" type="radio" name="inapetenciaAnorexia" class="inline" value="1" /> Si</label>
+                    <label for="inapetenciaAnorexia-0"><input id="inapetenciaAnorexia-0" type="radio" name="inapetenciaAnorexia" class="inline" value="0" /> No</label>
                 </div>
-                <div><i class="fa-sharp fa-solid fa-teeth-open"></i>
+                <div class="input_conjunto"><i class="fa-sharp fa-solid fa-teeth-open"></i>
                     Protesis dental: <br>
-                    <label for="protesis-dental-1"><input id="protesis-dental-1" type="radio" name="protesis-dental" class="inline" value="1"/> Si</label>
-                    <label for="protesis-dental-0"><input id="protesis-dental-0" type="radio" name="protesis-dental" class="inline" value="0"/> No</label>
+                    <label for="protesisDental-1"><input id="protesisDental-1" type="radio" name="protesisDental" class="inline" value="1" /> Si</label>
+                    <label for="protesisDental-0"><input id="protesisDental-0" type="radio" name="protesisDental" class="inline" value="0" /> No</label>
                 </div>
             </fieldset>
+            <div class="hora_dia">
+                <input type="radio" name="hora" id="dia">
+                <label for="dia">dia</label>
+                <input type="radio" name="hora" id="tarda">
+                <label for="tarda">tarda</label>
+                <input type="radio" name="hora" id="nit">
+                <label for="nit">nit</label>
+            </div>
             <input type="submit" value="Submit" />
         </form>
     </div>
