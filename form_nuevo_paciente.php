@@ -1,15 +1,3 @@
-<style>
-    .form_container form {
-        width: 100%;
-        background-color: lightcyan;
-        padding: 60px;
-    }
-
-    .form_container h1 {
-        align-items: center;
-        text-align: center;
-    }
-</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +14,7 @@
     <?php include_once("header.php") ?>
     <div class="container_general">
         <div class="container_paciente">
-            <div class="form_container">
+            <div class="form_dades_container">
                 <h1>Nuevo paciente</h1>
                 <form>
                     <div>

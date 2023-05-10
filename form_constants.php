@@ -1,5 +1,5 @@
 <style>
-    .form_container {
+    .form_dades_container {
         margin: 0 auto 30px auto;
         width: 96%;
         max-width: 1000px;
@@ -11,15 +11,15 @@
         font-size: 18px;
     }
 
-    h1,
-    p {
+    .form_dades_container h1,
+    .form_dades_container p {
         margin: 0.5em auto 1em auto;
         text-align: center;
         padding-bottom: 0.5em;
         border-bottom: 1px solid #dadbee;
     }
 
-    form {
+    .form_dades_container form {
         max-width: 800px;
         min-width: 300px;
         margin: auto;
@@ -30,7 +30,7 @@
         align-items: center;
     }
 
-    fieldset {
+    .form_dades_container fieldset {
         margin: auto;
         border: none;
         display: flex;
@@ -40,46 +40,46 @@
         align-content: space-around;
     }
 
-    label {
+    .form_dades_container label {
         margin: 0.5rem 0;
         width: 45%;
     }
 
-    input,
-    textarea,
-    select {
+    .form_dades_container input,
+    .form_dades_container textarea,
+    .form_dades_container select {
         margin: 10px 0 0 0;
         width: 100%;
         min-height: 2em;
         font-size: 1.2rem;
     }
 
-    input,
-    textarea {
+    .form_dades_container input,
+    .form_dades_container textarea {
         background-color: #0a0a23;
         border: 1px solid #0a0a23;
         color: #ffffff;
         padding: 0.5rem;
     }
 
-    input[type="radio"] {
+    .form_dades_container input[type="radio"] {
         height: 3em;
     }
 
-    .radio_input_section fieldset {
+    .form_dades_container .radio_input_section fieldset {
         display: inline-block;
         margin: 10px 15px 0 0;
         width: 30%;
         margin: 0.5rem 0;
     }
 
-    .inline {
+    .form_dades_container .inline {
         width: unset;
         margin: 0 0 0 0.5em;
         vertical-align: middle;
     }
 
-    input[type="submit"] {
+    .form_dades_container input[type="submit"] {
         display: flex;
         width: calc(40% - 0.5vw);
         margin: 2em auto 0 auto;
@@ -91,55 +91,55 @@
         border-color: white;
     }
 
-    .radio_input_section label {
+    .form_dades_container .radio_input_section label {
         margin: 0 15px 0 0;
     }
 
-    .radio_label {
+    .form_dades_container .radio_label {
         width: 45%;
         margin: 0.5em;
     }
 
-    .radio_input_section {
+    .form_dades_container .radio_input_section {
         margin: 2em;
     }
 
-    input[type="file"] {
+    .form_dades_container input[type="file"] {
         padding: 1px 2px;
     }
 
-    textarea {
+    .form_dades_container textarea {
         resize: none;
         height: 15vh;
     }
 
-    .textarea_section label {
+    .form_dades_container .textarea_section label {
         width: 100%;
     }
 
     /* Estilos para dispositivos móviles */
     @media only screen and (max-width: 750px) {
-        label {
+        .form_dades_container label {
             width: 80%;
         }
 
-        .radio_input_section label {
+        .form_dades_container .radio_input_section label {
             margin: 0 15px 0 0;
         }
 
-        .radio_input_section {
+        .form_dades_container .radio_input_section {
             align-content: flex-start;
         }
 
-        fieldset {
+        .form_dades_container fieldset {
             flex-direction: column;
         }
 
-        .radio_input_section {
+        .form_dades_container .radio_input_section {
             width: 80%;
         }
 
-        .radio_label {
+        .form_dades_container .radio_label {
             width: 80%;
             display: flex;
             margin: 0.5em;
@@ -149,7 +149,7 @@
             justify-content: flex-start;
         }
 
-        input[type="radio"] {
+        .form_dades_container input[type="radio"] {
             height: 0;
         }
     }
@@ -166,36 +166,36 @@
     include_once("header.php");
 
     ?>
-    <div class="form_container">
+    <div class="form_dades_container">
         <h1>CONSTANTS</h1>
         <form method="post" action='https://register-demo.freecodecamp.org'>
             <fieldset>
                 <label for="temperatura"><i class="fa-solid fa-weight-scale"></i> Temperatura (ºC): <input id="temperatura" name="temperatura" type="number" /></label>
-                <label for="pulsacions"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pulsacions" name="pulsacions" type="number" /></label>
+                <label for="pols"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pols" name="pols" type="number" /></label>
             </fieldset>
             <fieldset>
-                <label for="presio_arterial"><i class="fa-sharp fa-solid fa-heart-pulse"></i> Pressió arterial (mm Hg):<input id="presio_arterial" name="presio_arterial" type="text" /></label>
+                <label for="presioArterial"><i class="fa-sharp fa-solid fa-heart-pulse"></i> Pressió arterial (mm Hg):<input id="presioArterial" name="presioArterial" type="text" /></label>
                 <label for="glucemia"><i class="fa-solid fa-eye-dropper"></i> Glucemia (mg/dL): <input id="glucemia" name="glucemia" type="number" /></label>
             </fieldset>
             <fieldset>
-                <label for="saturacio"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacio" name="saturacio" type="number" /></label>
+                <label for="saturacioO2"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacioO2" name="saturacioO2" type="number" /></label>
             </fieldset>
             <fieldset class="radio_input_section">
                 <div>
                     EVN: <br>
-                    <label for="evn"><input id="evn-1" type="radio" name="evn" class="inline" value="1" /> Si</label>
-                    <label for="evn"><input id="evn-0" type="radio" name="evn" class="inline" value="0"/> No</label>
+                    <label for="evn"><input id="evn-1" type="radio" name="evn" class="inline" value="si" /> Si</label>
+                    <label for="evn"><input id="evn-0" type="radio" name="evn" class="inline" value="no" /> No</label>
                 </div>
                 <div>
                     Reavaluacio dolor: <br>
-                    <label for="reavaluacio-dolor"><input id="reavaluacio-dolor-total" type="radio" name="reavaluacio-dolor" class="inline" value="total"/> Total</label>
-                    <label for="business-account"><input id="reavaluacio-dolor-parcial" type="radio" name="reavaluacio-dolor" class="inline" value="parcial"/> Parcial</label>
-                    <label for="business-account"><input id="reavaluacio-dolor-independent" type="radio" name="reavaluacio-dolor" class="inline" value="independent"/> Independent</label>
+                    <label for="reavaluacio-dolor"><input id="reavaluacio-dolor-total" type="radio" name="reavaluacio-dolor" class="inline" value="total" /> Total</label>
+                    <label for="business-account"><input id="reavaluacio-dolor-parcial" type="radio" name="reavaluacio-dolor" class="inline" value="parcial" /> Parcial</label>
+                    <label for="business-account"><input id="reavaluacio-dolor-independent" type="radio" name="reavaluacio-dolor" class="inline" value="independent" /> Independent</label>
                 </div>
                 <div>
                     Hemoglobina: <br>
-                    <label for="hemoglobina"><input id="hemoglobina-1" type="radio" name="hemoglobina" class="inline" value="1"/> Si</label>
-                    <label for="hemoglobina"><input id="hemoglobina-0" type="radio" name="hemoglobina" class="inline" value="0"/> No</label>
+                    <label for="hemoglobina"><input id="hemoglobina-1" type="radio" name="hemoglobina" class="inline" value="1" /> Si</label>
+                    <label for="hemoglobina"><input id="hemoglobina-0" type="radio" name="hemoglobina" class="inline" value="0" /> No</label>
                 </div>
             </fieldset>
             <fieldset>
