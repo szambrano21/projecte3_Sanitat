@@ -2,6 +2,7 @@
 
 include_once('connexiobbddsanitat.php');
 
+
 if(!empty($_POST)){
     $alert="";
     if(empty($_POST["procedencia"]) || empty($_POST["assignacioLlit "]) || empty($_POST["assignacioSala"]) || empty($_POST["motiuIngres"]) || empty($_POST["dataIngres"])
@@ -22,19 +23,46 @@ if(!empty($_POST)){
         $entornFamiliar = $_POST["entornFamiliar"];        
         $ID = $_POST["ID"];
 
+        $query = mysqli_query($conexion,"SELECT * FROM tingres WHERE ID = '$ID '");
+        $resultado = mysqli_fetch_assoc($query);
+
+
+
         
-         $query = mysqli_query($conexion,"SELECT * FROM tingres WHERE nHc = '$nHc'");
-         $resultado = mysqli_fetch_assoc($query);
-         $_SESSION['ID_ingreso'] =  $row['ID'];
-        
-            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (procedencia, assignacioLlit, assignacioSala, motiuIngres, dataIngres, tractamentDomiciliari,allergies,habitsToxics,antecendentsPatologics,entornFamiliar,ID)
-            VALUES('$procedencia','$assignacioLlit','$assignacioSala',' $motiuIngres ',' $dataIngres ','$tractamentDomiciliari','$allergies','$habitsToxics','$antecendentsPatologics','$entornFamiliar','$ID')");
+        if($resultado > 0){
             
-            if($query_insertar){
-                $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+            
+            $alert="<p class='msg_error'>El usuario ya existe</p>";
+        }else{
+
+
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tingres (procedencia, assignacioLlit , assignacioSala, motiuIngres,
+            dataIngres, tractamentDomiciliari, allergies, habitsToxics, antecendentsPatologics, entornFamiliar,ID,nHc )
+            VALUES('$procedencia','$assignacioLlit','$assignacioSala','$motiuIngres','$dataIngres', '$tractamentDomiciliari', '$allergies',
+            '$habitsToxics', '$antecendentsPatologics','$entornFamiliar', '$ID', '$nHc' )");
+
+
+            if($query_insertar ){
+                $alert="<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
+                if($_SESSION['activo'] == true){
+                    $_SESSION['nHc'] = $_POST['nHc'];
+                }
             }else{
                 $alert="<p class='msg_error'>Error al crear el usuario</p>";
             }
+        }
+        
+        
+        //  $_SESSION['ID_ingreso'] =  $row['ID'];
+        
+        //     $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (procedencia, assignacioLlit, assignacioSala, motiuIngres, dataIngres, tractamentDomiciliari,allergies,habitsToxics,antecendentsPatologics,entornFamiliar,ID)
+        //     VALUES('$procedencia','$assignacioLlit','$assignacioSala',' $motiuIngres ',' $dataIngres ','$tractamentDomiciliari','$allergies','$habitsToxics','$antecendentsPatologics','$entornFamiliar','$ID')");
+            
+        //     if($query_insertar){
+        //         $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+        //     }else{
+        //         $alert="<p class='msg_error'>Error al crear el usuario</p>";
+        //     }
     }
 }
 
@@ -135,7 +163,10 @@ if(!empty($_POST)){
                         <label for="entornFamiliar">Entor Familiar:</label><br>
                         <input type="text" id="entornFamiliar" name="entornFamiliar">
                     </div>
-
+                    <div>
+                        <label for="entornFamiliar">Entor Familiar:</label><br>
+                        <input type="text" id="entornFamiliar" name="entornFamiliar">
+                    </div>
                 </div>
                 <!-- <div>
                     <h2>Necessitats respiratòries</h2>
@@ -207,6 +238,7 @@ if(!empty($_POST)){
                         <textarea id="observacions" name="observacions"> </textarea>
                     </div> 
                 </div> -->
+                
                 <input type="hidden" id="ID" name="ID" value="1">
                 <input type="submit" value="Submit">
 
