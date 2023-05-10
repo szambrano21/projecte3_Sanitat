@@ -133,7 +133,7 @@ if(!empty($_POST)){
                     <label for="relacioContacte">Relación con la Persona de Contacto:</label>
                     <input type="text" name="relacioContacte" id="relacioContacte" ><br>
 
-                    <input type="submit" value="Enviar">
+                    <input type="submit" value="Enviar" >
                 </form>
             </div>
         </div>

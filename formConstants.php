@@ -2,57 +2,61 @@
 
 include_once('connexiobbddsanitat.php');
 
-if(!empty($_POST)){
-    $alert="";
-    if(empty($_POST["temperatura"]) || empty($_POST["presioArterial"]) || empty($_POST["pols"]) || empty($_POST["glucemia"]) || empty($_POST["saturacioO2"])
-    || empty($_POST["EVN"]) || empty($_POST["reavaluacioDolor"]) || empty($_POST["hemoglobina"]) || empty($_POST["disfagiaLiquida"]) || empty($_POST["disfagiaSolids"]) || empty($_POST["ID_ingreso "]) ){
+if(!empty($_SESSION['activo'])){
+    header("location: inicial.php");
 
-        $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
-    }else{
+}else{
 
-        $temperatura = $_POST["temperatura"];
-        $presioArterial = $_POST["presioArterial"];
-        $pols = $_POST["pols"];
-        $glucemia = $_POST["glucemia"];
-        $saturacioO2 = $_POST["saturacioO2"];
-        $EVN = $_POST["EVN"];
-        $reavaluacioDolor = $_POST["reavaluacioDolor"];
-        $hemoglobina = $_POST["hemoglobina"];
-        $disfagiaLiquida = $_POST["disfagiaLiquida"];
-        $disfagiaSolids = $_POST["disfagiaSolids"];        
-        $idIngreso = $_POST["ID_ingreso"];
-        $ID_const  = $_POST["ID_const"];
+    if(!empty($_POST)){
+        $alert="";
+        if(empty($_POST["temperatura"]) || empty($_POST["presioArterial"]) || empty($_POST["pols"]) || empty($_POST["glucemia"]) || empty($_POST["saturacioO2"])
+        || empty($_POST["EVN"]) || empty($_POST["reavaluacioDolor"]) || empty($_POST["hemoglobina"]) || empty($_POST["disfagiaLiquida"]) || empty($_POST["disfagiaSolids"]) || empty($_POST["ID_ingreso "]) ){
 
-
-        $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
-        $resultado = mysqli_fetch_assoc($query);
-       
-
-        if($resultado > 0){
-            $alert="<p class='msg_error'>El usuario ya existe</p>";
+            $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
         }else{
 
-            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
-            VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
+            $temperatura = $_POST["temperatura"];
+            $presioArterial = $_POST["presioArterial"];
+            $pols = $_POST["pols"];
+            $glucemia = $_POST["glucemia"];
+            $saturacioO2 = $_POST["saturacioO2"];
+            $EVN = $_POST["EVN"];
+            $reavaluacioDolor = $_POST["reavaluacioDolor"];
+            $hemoglobina = $_POST["hemoglobina"];
+            $disfagiaLiquida = $_POST["disfagiaLiquida"];
+            $disfagiaSolids = $_POST["disfagiaSolids"];        
+            $ID_const  = $_POST["ID_const"];
+            $idIngreso = $_POST["ID_ingreso"];
 
-            if($query_insertar){
-                $alert="<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
+            $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
+            $resultado = mysqli_fetch_assoc($query);
+            
+
+            if($resultado > 0){
+                $alert="<p class='msg_error'>El usuario ya existe</p>";
             }else{
-                $alert="<p class='msg_error'>Error al crear el usuario</p>";
-            }
-        }
-        
-            // $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
-            // VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
 
-            // if($query_insertar){
-            //     $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
-            // }else{
-            //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
-            // }
+                $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
+                VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
+
+                if($query_insertar){
+                    $alert="<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
+                }else{
+                    $alert="<p class='msg_error'>Error al crear el usuario</p>";
+                }
+            }
+            
+                // $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
+                // VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
+
+                // if($query_insertar){
+                //     $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+                // }else{
+                //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
+                // }
+        }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -90,7 +94,8 @@ if(!empty($_POST)){
         <div class="container_ingres">
             <h1>CONSTANTS</h1>
             <hr>
-            <form action="procesar_formulario.php" method="post">
+            <form action="" method="post">
+                <p><?php echo $_SESSION['nHc']?> </p>
                 <label for="temperatura">Temperatura:</label>
                 <input type="text" name="temperatura" id="temperatura" ><br>
 
@@ -125,8 +130,9 @@ if(!empty($_POST)){
                 <input type="text" name="ID_ingreso" id="ID_ingreso" required><br> -->
 
                 <!-- <input id="prodId" name="prodId" type="hidden" value="<?php echo $nHc ;?>"> -->
-
-                <input type="submit" value="Enviar">
+                
+                href='eliminar_usuario.php?DNI=$dni'
+                <input type="submit"  value="Enviar">
             </form>
         </div>
     </div>
