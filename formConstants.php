@@ -14,7 +14,7 @@ if(!empty($_POST)){
         $presioArterial = $_POST["presioArterial"];
         $pols = $_POST["pols"];
         $glucemia = $_POST["glucemia"];
-        $saturacioO2 = ($_POST["saturacioO2"]);
+        $saturacioO2 = $_POST["saturacioO2"];
         $EVN = $_POST["EVN"];
         $reavaluacioDolor = $_POST["reavaluacioDolor"];
         $hemoglobina = $_POST["hemoglobina"];
@@ -24,18 +24,32 @@ if(!empty($_POST)){
         $ID_const  = $_POST["ID_const"];
 
 
-        // $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
-        // $resultado = mysqli_fetch_assoc($query);
+        $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
+        $resultado = mysqli_fetch_assoc($query);
+       
 
-        
+        if($resultado > 0){
+            $alert="<p class='msg_error'>El usuario ya existe</p>";
+        }else{
+
             $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
             VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
 
             if($query_insertar){
-                $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+                $alert="<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
             }else{
                 $alert="<p class='msg_error'>Error al crear el usuario</p>";
             }
+        }
+        
+            // $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
+            // VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
+
+            // if($query_insertar){
+            //     $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+            // }else{
+            //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
+            // }
     }
 }
 
@@ -76,7 +90,7 @@ if(!empty($_POST)){
         <div class="container_ingres">
             <h1>CONSTANTS</h1>
             <hr>
-            <form action="formConstants.php">
+            <form action="" id="validate" method="post" >
                 <div>
                     <h2>Pressa de constants</h2>
                     <div>

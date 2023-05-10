@@ -42,7 +42,7 @@ include_once('connexiobbddsanitat.php');
             $resultado = mysqli_num_rows($sql);
 
 
-            if($resultado > 0){
+            
 
                 $row = mysqli_fetch_assoc($sql);
                     $fecha = $row["dataIngres"];
@@ -97,7 +97,7 @@ include_once('connexiobbddsanitat.php');
 
                     <?php
 
-                }
+                
 
         ?>
           <div class="footer">

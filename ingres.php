@@ -9,7 +9,7 @@ if(!empty($_POST)){
 
         $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
     }else{
-
+       
         $procedencia = $_POST["procedencia"];
         $assignacioLlit = $_POST["assignacioLlit"];
         $assignacioSala = $_POST["assignacioSala"];
@@ -22,14 +22,14 @@ if(!empty($_POST)){
         $entornFamiliar = $_POST["entornFamiliar"];        
         $ID = $_POST["ID"];
 
-
-        // $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
-        // $resultado = mysqli_fetch_assoc($query);
-
+        
+         $query = mysqli_query($conexion,"SELECT * FROM tingres WHERE nHc = '$nHc'");
+         $resultado = mysqli_fetch_assoc($query);
+         $_SESSION['ID_ingreso'] =  $row['ID'];
         
             $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (procedencia, assignacioLlit, assignacioSala, motiuIngres, dataIngres, tractamentDomiciliari,allergies,habitsToxics,antecendentsPatologics,entornFamiliar,ID)
             VALUES('$procedencia','$assignacioLlit','$assignacioSala',' $motiuIngres ',' $dataIngres ','$tractamentDomiciliari','$allergies','$habitsToxics','$antecendentsPatologics','$entornFamiliar','$ID')");
-
+            
             if($query_insertar){
                 $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
             }else{
