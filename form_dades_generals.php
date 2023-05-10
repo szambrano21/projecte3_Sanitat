@@ -24,7 +24,7 @@
 
 <body>
     <?php include_once("header.php") ?>
-    <div class="container_general">
+    <div class="form_dades_container">
         <div class="container_paciente">
             <div class="form_container">
                 <h1>Nuevo ingreso</h1>

@@ -1,46 +1,3 @@
-<?php
-
-$alert = '';
-
-
-if(!empty($_SESSION['activo'])){
-    header("location: inicial.php");
-}else{
-
-
-if(!empty($_POST)){
-    if(empty($_POST["nom"]) || empty($_POST["cognom"]) || empty($_POST["DNI"]) || empty($_POST["nHc"]) || empty($_POST["dataNaixement"]) || empty($_POST["sexe"])  || empty($_POST["telefon"]) 
-    || empty($_POST["mail"])  || empty($_POST["direccio"]) || empty($_POST["personaContacte	"])  || empty($_POST["telefonPersonsaContacte"])
-    || empty($_POST["relacioContacte"])
-    )  
-    {
-        $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
-    }else{
-        include_once('connexiobbddsanitat.php');
-        $nHc = mysqli_real_escape_string($conexion, $_POST["nHc"]);
-        
-
-/*        $pass = md5(mysqli_real_escape_string($conexion, $_POST["password"]));
-*/
-        $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE nHc = '$nHc'");
-        $resultado = mysqli_num_rows($query);
-    }
-}
-}
-
-?>
-<style>
-    .form_container form {
-        width: 100%;
-        background-color: lightcyan;
-        padding: 60px;
-    }
-
-    .form_container h1 {
-        align-items: center;
-        text-align: center;
-    }
-</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +14,7 @@ if(!empty($_POST)){
     <?php include_once("header.php") ?>
     <div class="container_general">
         <div class="container_paciente">
-            <div class="form_container">
+            <div class="form_dades_container">
                 <h1>Nuevo paciente</h1>
                 <form>
                     <div>
