@@ -11,21 +11,50 @@ if(!empty($_SESSION['activo'])){
 
 if(!empty($_POST)){
     if(empty($_POST["nom"]) || empty($_POST["cognom"]) || empty($_POST["DNI"]) || empty($_POST["nHc"]) || empty($_POST["dataNaixement"]) || empty($_POST["sexe"])  || empty($_POST["telefon"]) 
-    || empty($_POST["mail"])  || empty($_POST["direccio"]) || empty($_POST["personaContacte	"])  || empty($_POST["telefonPersonsaContacte"])
+    || empty($_POST["mail"])  || empty($_POST["direccio"]) || empty($_POST["personaContacte"])  || empty($_POST["telefonPersonsaContacte"])
     || empty($_POST["relacioContacte"])
     )  
     {
         $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
     }else{
         include_once('connexiobbddsanitat.php');
-        $nHc = mysqli_real_escape_string($conexion, $_POST["nHc"]);
-        
+        // $nHc = mysqli_real_escape_string($conexion, $_POST["nHc"]);
+        $nom = $_POST["nom"];
+        $cognom = $_POST["cognom"];
+        $DNI = $_POST["DNI"];
+        $nHc = $_POST["nHc"];
+        $dataNaixement = $_POST["dataNaixement"];
+        $sexe = $_POST["sexe"];
+        $telefon = $_POST["telefon"];
+        $mail = $_POST["mail"];
+        $direccio = $_POST["direccio"];
+        $personaContacte = $_POST["personaContacte"];
+        $telefonPersonsaContacte = $_POST["telefonPersonsaContacte"];
+        $relacioContacte = $_POST["relacioContacte"];
 
-/*        $pass = md5(mysqli_real_escape_string($conexion, $_POST["password"]));
-*/
-        $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE nHc = '$nHc'");
+        $_SESSION['nHc'] = $nHc;
+
+        $query = mysqli_query($conexion, "SELECT * FROM tdades WHERE nHc = '$nHc'");
         $resultado = mysqli_num_rows($query);
-        $_SESSION['nHc'] == $nHc;
+        
+        if($resultado > 0){
+            $alert="<p class='msg_error'>El paciente ya existe</p>";
+        }else{
+
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tdades (nom,cognom,DNI,nHc,dataNaixament,sexe,telefon,mail,direccio,personaContacte,telefonPersonsaContacte,relacioContacte)
+            VALUES ('$DNI', '$nom', '$cognom', '$nHc', '$dataNaixement', '$sexe','$telefon', '$mail', '$direccio', '$personaContacte', '$telefonPersonsaContacte', '$relacioContacte')");
+
+// INSERT INTO `tdades` (`nom`, `cognom`, `DNI`, `nHc`, `dataNaixament`, `sexe`, `telefon`, `mail`, `direccio`, `personaContacte`, `telefonPersonsaContacte`, `s`) 
+// VALUES ('aaaaaaaaa', 'aaaaa', '3946798S', 'aaadeww2112', '1', 'a', '111', 'sa', 'wwww', 'wwww', '23321', 'wwq');
+
+
+            if($query_insertar){
+                $alert="<p class='msg_correcto'>El paciente ha sido creado correctamente</p>";
+            }else{
+                $alert="<p class='msg_error'>Error al crear al paciente</p>";
+            }
+        }
+
     }
 }
 }
@@ -61,70 +90,48 @@ if(!empty($_POST)){
         <div class="container_paciente">
             <div class="form_dades_container">
                 <h1>Nuevo paciente</h1>
-                <form>
-                    <div>
-                        <label for="nom">Nom:</label>
-                        <input type="text" id="nom" name="nom"><br><br>
-                    </div>
+                <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
 
-                    <div>
-                        <label for="cognoms">Cognoms:</label>
-                        <input type="text" id="cognoms" name="cognoms"><br><br>
-                    </div>
+                <form action="" id="validate" method="post">
+                    <label for="nom">Nombre:</label>
+                    <input type="text" name="nom" id="nom" ><br>
 
-                    <div>
-                        <label for="num-hc">Num. HC:</label>
-                        <input type="text" id="num-hc" name="num-hc"><br><br>
-                    </div>
+                    <label for="cognom">Apellido:</label>
+                    <input type="text" name="cognom" id="cognom" ><br>
 
-                    <div>
-                        <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni"><br><br>
-                    </div>
+                    <label for="DNI">DNI:</label>
+                    <input type="text" name="DNI" id="DNI" ><br>
 
-                    <div>
-                        <label for="data-naixement">Data de naixement:</label>
-                        <input type="date" id="data-naixement" name="data-naixement"><br><br>
-                    </div>
+                    <label for="nHc">Número de Historia Clínica:</label>
+                    <input type="text" name="nHc" id="nHc" ><br>
 
-                    <div>
-                        <label for="sexo">Sexe:</label>
-                        <select id="sexo" name="sexo">
-                            <option value="" selected>Select</option>
-                            <option value="hombre">Home</option>
-                            <option value="mujer">Dona</option>
-                        </select><br><br>
-                    </div>
+                    <label for="dataNaixement">Fecha de Nacimiento:</label>
+                    <input type="date" name="dataNaixement" id="dataNaixement" ><br>
 
-                    <div>
-                        <label for="telefon">Telèfon:</label>
-                        <input type="tel" id="telefon" name="telefon"><br><br>
-                    </div>
+                    <label for="sexe">Sexo:</label>
+                    <select name="sexe" id="sexe" >
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                    </select><br>
+                    
+                    <label for="telefon">Teléfono:</label>
+                    <input type="text" name="telefon" id="telefon"><br>
 
-                    <div>
-                        <label for="mail">Correu electrònic:</label>
-                        <input type="email" id="mail" name="mail"><br><br>
-                    </div>
+                    <label for="mail">Correo Electrónico:</label>
+                    <input type="email" name="mail" id="mail" ><br>
 
-                    <div>
-                        <label for="direccio">Direcció:</label>
-                        <input type="text" id="direccio" name="direccio"><br><br>
-                    </div>
+                    <label for="direccio">Dirección:</label>
+                    <input type="text" name="direccio" id="direccio" ><br>
 
-                    <div>
-                        <label for="contacte">Persona de contacte:</label>
-                        <input type="text" id="contacte" name="contacte"><br><br>
-                    </div>
+                    <label for="personaContacte">Persona de Contacto:</label>
+                    <input type="text" name="personaContacte" id="personaContacte"><br>
 
-                    <div>
-                        <label for="telefon-contacte">Telèfon de persona de contacte:</label>
-                        <input type="tel" id="telefon-contacte" name="telefon-contacte"><br><br>
-                    </div>
+                    <label for="telefonPersonsaContacte">Teléfono de Contacto:</label>
+                    <input type="tel" name="telefonPersonsaContacte" id="telefonPersonsaContacte" ><br>
 
-                    <div>
-                        <label for="relacio-contacte">Relació amb la persona de contacte:</label>
-                        <input type="text" id="relacio-contacte" name="relacio-contacte"><br><br>
-                    </div>
+                    <label for="relacioContacte">Relación con la Persona de Contacto:</label>
+                    <input type="text" name="relacioContacte" id="relacioContacte" ><br>
 
                     <input type="submit" value="Enviar">
                 </form>

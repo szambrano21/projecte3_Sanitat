@@ -90,67 +90,43 @@ if(!empty($_POST)){
         <div class="container_ingres">
             <h1>CONSTANTS</h1>
             <hr>
-            <form action="" id="validate" method="post" >
-                <div>
-                    <h2>Pressa de constants</h2>
-                    <div>
-                        <label class="labelForm" for="temperatura"><i class="fa-solid fa-weight-scale"></i> Temperatura</label>
-                        <input type="text" id="temperatura" name="temperatura" />
-                    </div>
-                    <div>
-                        <label class="labelForm" for="presioArterial"><i class="fa-solid fa-ruler-vertical"></i> Pressio Arterial</label>
-                        <input type="text" id="presioArterial" name="presioArterial">
-                    </div>
-                    <div>
-                        <label class="labelForm" for="pols"><i class="fa-solid fa-utensils"></i> Pols</label>
-                        <input type="text" id="pols" name="pols">
-                    </div>
-                    <div>
-                        <label class="labelForm" for="glucemia"><i class="fa-solid fa-ruler-vertical"></i> Glucemia</label>
-                        <input type="text" id="glucemia" name="glucemia">
-                    </div>
+            <form action="procesar_formulario.php" method="post">
+                <label for="temperatura">Temperatura:</label>
+                <input type="text" name="temperatura" id="temperatura" ><br>
 
-                    <div>
-                        <label class="labelForm" for="saturacioO2"><i class="fa-solid fa-bowl-food"></i> SaturacioO2</label>
-                        <input type="text" id="saturacioO2" name="saturacioO2">
-                    </div>
+                <label for="presioArterial">Presión Arterial:</label>
+                <input type="text" name="presioArterial" id="presioArterial" ><br>
 
-                    <div>
-                        <label>EVN</label>
-                        <div class="input-group-check">
-                            <input type="checkbox" class="checkbox" id="EVN" name="EVN" value="si" >SI
-                            <input type="checkbox" class="checkbox" id="EVN" name="EVN" value="no" >NO
-                        </div>
-                    </div>
+                <label for="pols">Pulso:</label>
+                <input type="text" name="pols" id="pols" ><br>
 
-                    <div>
-                        <label for="reavaluacioDolor">Reavaluacio dolor:</label>
-                        <div class="input-group-check">
-                            <input type="checkbox" name="reavaluacioDolor" value="dificultat"> Total
-                            <input type="checkbox" name="reavaluacioDolor" value="dificultat"> Parcial
-                            <input type="checkbox" name="reavaluacioDolor" value="dificultat"> Independent
-                        </div>
-                    </div>
-                    <div>
-                        <label>hemoglobina</label>
-                        <div class="input-group-check">
-                            <input type="checkbox" name="hemoglobina" value="si"> Si
-                            <input type="checkbox" name="hemoglobina" value="no"> No
-                        </div>
-                    </div>
+                <label for="glucemia">Glucemia:</label>
+                <input type="text" name="glucemia" id="glucemia" ><br>
 
-                    <div>
-                        <label class="labelForm" for="disfagiaLiquida"><i class="fa-solid fa-bowl-food"></i> Disfagia liquida</label>
-                        <input type="text" id="disfagiaLiquida" name="disfagiaLiquida">
-                    </div>
-                    <div>
-                        <label class="labelForm" for="disfagiaSolids"><i class="fa-solid fa-bowl-food"></i> Disfagia solids</label>
-                        <input type="text" id="disfagiaSolids" name="disfagiaSolids">
-                    </div>
+                <label for="saturacioO2">Saturación de Oxígeno:</label>
+                <input type="text" name="saturacioO2" id="saturacioO2" ><br>
 
-                </div>
-                <input type="hidden" id="idIngreso" name="idIngreso" value="1">
-                <input type="submit" value="Submit">
+                <label for="EVN">Escala Visual Numérica (EVN):</label>
+                <input type="text" name="EVN" id="EVN" ><br>
+
+                <label for="reavaluacioDolor">Reevaluación del Dolor:</label>
+                <input type="text" name="reavaluacioDolor" id="reavaluacioDolor" ><br>
+
+                <label for="hemoglobina">Hemoglobina:</label>
+                <input type="text" name="hemoglobina" id="hemoglobina" ><br>
+
+                <label for="disfagiaLiquida">Disfagia Líquida:</label>
+                <input type="text" name="disfagiaLiquida" id="disfagiaLiquida" ><br>
+
+                <label for="disfagiaSolids">Disfagia Sólidos:</label>
+                <input type="text" name="disfagiaSolids" id="disfagiaSolids" ><br>
+
+                <!-- <label for="ID_ingreso">ID de Ingreso:</label>
+                <input type="text" name="ID_ingreso" id="ID_ingreso" required><br> -->
+
+                <!-- <input id="prodId" name="prodId" type="hidden" value="<?php echo $nHc ;?>"> -->
+
+                <input type="submit" value="Enviar">
             </form>
         </div>
     </div>
