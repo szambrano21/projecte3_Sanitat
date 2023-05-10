@@ -224,8 +224,16 @@ if(!empty($_POST)){
 </head>
 
 <body>
+<<<<<<< HEAD
    
     <div class="form_container">
+=======
+    <?php
+    include_once("header.php");
+
+    ?>
+    <div class="form_dades_container">
+>>>>>>> 62d51e52d7860dfc5909ed2305c280d15745452f
         <h1>CONSTANTS</h1>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
         <form action="" id="validate" method="post" >
@@ -241,7 +249,7 @@ if(!empty($_POST)){
                 <label for="saturacioO2"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacio" name="saturacio" type="number" /></label>
             </fieldset>
             <fieldset class="radio_input_section">
-                <div>
+                <div class="input_conjunto">
                     EVN: <br>
                     <label for="evn"><input id="evn-1" type="radio" name="EVN" class="inline" value="1" /> Si</label>
                     <label for="evn"><input id="evn-0" type="radio" name="EVN" class="inline" value="0"/> No</label>
