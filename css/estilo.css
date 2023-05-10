@@ -941,11 +941,11 @@ div.paginationUser li a:hover:not(.pagina-actual) {
     justify-content: space-between;
 }
 
-.pagination li {
+.pagination button {
     width: 100%;
 }
 
-.pagination a {
+.pagination button {
     display: flex;
     background-color: #6C8DAB;
     cursor: pointer;
@@ -962,28 +962,25 @@ div.paginationUser li a:hover:not(.pagina-actual) {
 
 }
 
-.pagination li:first-child a {
+.pagination button:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-.pagination li:last-child a {
+.pagination button:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-div.pagination li a.pagina-actual {
-    background-color: #62B6B7;
+div.pagination button.pagina_actual {
+    background-color: #1F354A;
     color: white;
 }
 
-
-
-div.pagination li a:hover:not(.pagina-actual) {
-    background-color: #d4d9ef;
+div.pagination button:hover:not(.pagina-actual) {
+    background-color: #cee1f5;
     color: black;
 }
-
 
 /*pagina de formularios */
 

@@ -10,6 +10,8 @@ include_once('connexiobbddsanitat.php');
     include_once('connexiobbddsanitat.php');
 
     ?>
+    <script src="js/pacientes.js"></script>
+
     <title>Pacientes</title>
 </head>
 
@@ -72,62 +74,17 @@ include_once('connexiobbddsanitat.php');
                 </div>
                 <br>
 
-                <?php if ($total_registro > $por_pagina) { ?>
-                    <div class="pagination">
-                        <?php
-                        $salas = array("Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5");
+                <div class="pagination">
+                    <button class='pagina_actual' value="1">Sala 1</button>
+                    <button class='pagina' value="2">Sala 2</button>
+                    <button class='pagina' value="3">Sala 3</button>
+                    <button class='pagina' value="4">Sala 4</button>
+                    <button class='pagina' value="5">Sala 5</button>
+                </div>
 
-                        // Muestra un botón para cada sala
-                        foreach ($salas as $sala) {
-                            if ($sala == "sala" . $pagina) {
-                                echo "<li><a class='pagina-actual'>$sala</a></li>";
-                            } else {
-                                echo "<li><a href='?pagina=" . substr($sala, -1) . "'";
-                                if (substr($sala, -1) == $pagina) {
-                                    echo " class='pagina_actual'";
-                                }
-                                echo ">$sala</a></li>";
-                            }
-                        }
-
-                        ?>
-                    </div>
-
-                <?php } ?>
-
+                <div class="container_paciente" id="container_paciente"></div>
+            
             <?php
-            echo '    
-        <div class="container_paciente">';
-
-            //Contador para llevar la cuenta de la cantidad de pacientes
-            $counter = 0;
-            while ($row = mysqli_fetch_assoc($sql)) {
-                $nom = $row['nom'];
-                $nHc = $row['nHc'];
-
-                // Si es la primera persona del par, abrimos un <li>
-                if ($counter % 2 == 0) {
-                    echo '<ul>';
-                }
-
-                // Imprimimos los datos de la persona actual
-                echo "<li><p>$nom</p>";
-                echo "<p>$nHc</p></li>";
-
-                // Si es la segunda persona del par, cerramos el <li>
-                if ($counter % 2 != 0) {
-                    echo '</li></ul>';
-                }
-
-                $counter++;
-            }
-
-            // Si quedó una persona sin pareja, cerramos el último <li> para evitar errores de HTML
-            if ($counter % 2 != 0) {
-                echo '</li></ul>';
-            }
-
-
             echo "</div></div></div>";
         } else {
             echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
