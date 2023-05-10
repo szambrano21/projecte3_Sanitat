@@ -224,16 +224,8 @@ if(!empty($_POST)){
 </head>
 
 <body>
-<<<<<<< HEAD
    
     <div class="form_container">
-=======
-    <?php
-    include_once("header.php");
-
-    ?>
-    <div class="form_dades_container">
->>>>>>> 62d51e52d7860dfc5909ed2305c280d15745452f
         <h1>CONSTANTS</h1>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
         <form action="" id="validate" method="post" >
