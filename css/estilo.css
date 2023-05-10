@@ -7,36 +7,36 @@
     font-family: "Roboto", sans-serif;
 }
 
-body{
+body {
     background-color: #F2F0F8;
 }
 
 /* DASHBOARD */
 
-.containerPanelControl{
+.containerPanelControl {
     width: 100%;
 }
 
-.container_general .navegacion{
+.container_general .navegacion {
     display: flex;
     width: 100%;
     padding: 10px;
     color: black;
 }
 
-.container_general h1{
+.container_general h1 {
     width: 100%;
 }
 
-.container_general .navegacion a{
+.container_general .navegacion a {
     color: black;
 }
 
-.container_general .navegacion p{
+.container_general .navegacion p {
     color: #00000085;
 }
 
-.containerPanelControl h1{
+.containerPanelControl h1 {
     width: 100%;
     background-color: white;
     padding: 10px 15px;
@@ -45,53 +45,53 @@ body{
     color: blue;
 }
 
-.panel{
+.panel {
     display: flex;
     width: 100%;
     justify-content: space-between;
     margin: auto;
 }
 
-.panel a{
+.panel a {
     color: #1F354A;
     width: 100%;
     max-width: 400px;
     padding: 20px 0;
     background-color: white;
-    font-size: 20px;
+    font-size: calc(12px + 0.75vw);
     text-align: center;
 }
 
 /* TABLAS NORMALES RESPONSIVE */
-table{
+table {
     border-collapse: separate;
-    border-spacing:  4px;
+    border-spacing: 4px;
     font-size: 16px;
     width: 100%;
 }
 
-table th{
+table th {
     text-align: center;
     padding: 8px 10px;
     background-color: #1F354A;
     color: white;
 }
 
-table tr:nth-child(even){
+table tr:nth-child(even) {
     background-color: #6ea2d22f;
 }
 
-table tr:nth-child(odd){
+table tr:nth-child(odd) {
     background-color: #FFFFFF;
 }
 
-table td{
+table td {
     text-align: center;
     padding: 10px;
 }
 
 
-table td:last-child{
+table td:last-child {
     width: 100%;
     background-color: #F1F1F1;
     display: flex;
@@ -101,7 +101,7 @@ table td:last-child{
     align-items: center;
 }
 
-.link_editar{
+.link_editar {
     color: white;
     margin: 0 2px;
     height: 100%;
@@ -111,7 +111,7 @@ table td:last-child{
     border: 1px solid #2980D0;
 }
 
-.link_eliminar{
+.link_eliminar {
     color: white;
     padding: 10px;
     margin: 0 2px;
@@ -131,24 +131,26 @@ table td:last-child{
         justify-content: initial;
     }
 
-    .link_editar, .link_eliminar{
+    .link_editar,
+    .link_eliminar {
         max-width: 160px;
         padding: 3px;
     }
 
-    .tablas_usuarios tr{
+    .tablas_usuarios tr {
         display: flex;
         flex-direction: column;
     }
 
-    .tablas_usuarios thead{
+    .tablas_usuarios thead {
         display: none;
     }
 
-    .tablas_usuarios td[titulo]{
+    .tablas_usuarios td[titulo] {
         display: flex;
     }
-    .tablas_usuarios td[titulo]::before{
+
+    .tablas_usuarios td[titulo]::before {
         content: attr(titulo);
         padding: 0 10px 0 0;
         font-weight: bold;
@@ -160,7 +162,7 @@ table td:last-child{
 
 /* ANADIR NUEVO */
 
-.anadir_busca{
+.anadir_busca {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -168,7 +170,7 @@ table td:last-child{
 
 }
 
-.anadir_busca a{
+.anadir_busca a {
     padding: 10px 30px;
     color: black;
     border: 2px solid #1F354A;
@@ -178,24 +180,24 @@ table td:last-child{
 
 /* BUSCADOR */
 
-.form_container{
+.form_container {
     width: 100%;
     max-width: 500px;
 }
 
-.form_busqueda{
+.form_busqueda {
     display: flex;
     float: right;
     border-radius: 4px;
 }
 
-.form_busqueda .input_busqueda{
+.form_busqueda .input_busqueda {
     border-radius: 4px;
     border: 2px solid gray;
     width: 300px;
 }
 
-.form_busqueda .btn_busqueda{
+.form_busqueda .btn_busqueda {
     background-color: #439A97;
     color: #FFF;
     padding: 10px 20px;
@@ -205,11 +207,11 @@ table td:last-child{
     border-radius: 4px;
 }
 
-.container_buscar{
+.container_buscar {
     display: flex;
 }
 
-.container_busqueda{
+.container_busqueda {
     display: flex;
     width: 300px;
 }
@@ -218,42 +220,42 @@ table td:last-child{
 /* BARRA DE BUSQUEDA */
 
 .field {
-  display: flex;
-  position: relative;
-  margin: auto;
-  width: 100%;
-  max-width: 1200px;
-  flex-direction: row;
-}
-
-.field>input[type=text]{
-  display:block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.field button{
-  cursor: pointer;
+    display: flex;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: row;
 }
 
 .field>input[type=text] {
-  flex: 1;
-  padding: 0.6em;
-  background-color: #F2F0F8;
-  border: 2px solid #1F354A;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.field button {
+    cursor: pointer;
+}
+
+.field>input[type=text] {
+    flex: 1;
+    padding: 0.6em;
+    background-color: #F2F0F8;
+    border: 2px solid #1F354A;
 }
 
 .field>button {
-  padding:0.6em 0.8em;
-  background-color:#1F354A;
-  color:white;
-  border:none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding: 0.6em 0.8em;
+    background-color: #1F354A;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.iconSearch{
+.iconSearch {
     width: 22px;
     filter: invert(1);
 }
@@ -262,11 +264,12 @@ table td:last-child{
 .icono-cerrarsesion {
     width: 30px;
 }
+
 /* TERMINA ICONO CERRAR SESION*/
 
 /****************** PAGINA LOGIN  ******************/
 
-.container_login{
+.container_login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,7 +312,7 @@ table td:last-child{
     box-shadow: 0 2px 2px 0 #00000057;
 }
 
-.container_usuario{
+.container_usuario {
     margin-top: -50px;
     margin-bottom: 50px;
     display: flex;
@@ -317,7 +320,7 @@ table td:last-child{
     align-items: center;
 }
 
-.usuario_arriba{
+.usuario_arriba {
     width: 86px;
     background-color: #1F354A;
     border: 1px solid white;
@@ -341,25 +344,25 @@ table td:last-child{
     color: #1e3a29;
 }
 
-.login .container_link{
+.login .container_link {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.check_remember{
+.check_remember {
     display: flex;
 }
 
-.check_remember input[type="checkbox"]{
+.check_remember input[type="checkbox"] {
     accent-color: #1F354A;
     margin-left: 2px;
     width: 16px;
     height: 16px;
 }
-  
 
-.login .link{
+
+.login .link {
     color: #1F354A;
     font-size: 12px;
     display: flex;
@@ -381,7 +384,7 @@ table td:last-child{
 
 /* MENU DE NAVEGACION */
 
-.header{
+.header {
     background-color: #F5F5F5;
     display: flex;
     width: 100%;
@@ -391,12 +394,12 @@ table td:last-child{
     padding: 20px 0;
 }
 
-.header a{
+.header a {
     cursor: default;
 }
 
-.menu_nav{
-    z-index: 9;    
+.menu_nav {
+    z-index: 9;
 }
 
 .menu ul {
@@ -412,32 +415,33 @@ table td:last-child{
     overflow: auto;
 }
 
-.container_session{
+.container_session {
     display: flex;
     justify-content: flex-end;
     height: 70px;
     align-items: center;
+    padding-right: 10px;
 }
 
-.user_session{
+.user_session {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu_nav li{
+.menu_nav li {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu li a{
+.menu li a {
     display: block;
     color: black;
     text-decoration: none;
 }
 
-.menu_nav li a{
+.menu_nav li a {
     width: 100%;
     max-width: 80%;
     padding: 12px 8px 12px 16px;
@@ -446,17 +450,17 @@ table td:last-child{
     margin-bottom: 10px;
 }
 
-.user_session a{
+.user_session a {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 10px;
     border-radius: 10px;
     margin-bottom: initial;
-    
+
 }
 
-.salir{
+.salir {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -473,7 +477,7 @@ table td:last-child{
 
 
 
-.logotipo{
+.logotipo {
     height: 50px;
     padding: inherit;
     display: flex;
@@ -496,86 +500,86 @@ table td:last-child{
 }
 
 /* CSS */
-    .menu #btn_menu {
-        display: none;
-    }
+.menu #btn_menu {
+    display: none;
+}
 
-    .menu{
-        max-width: initial;
-        display: flex;
-        transition: all 300ms;
-        background-color: white;
-        align-items: center;
-        justify-content: space-between;
-    
-    }
+.menu {
+    max-width: initial;
+    display: flex;
+    transition: all 300ms;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+
+}
 
 
-    .menu #btn_menu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      font-size: 24px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 300ms;
-      color: black;
-      margin: 10px;
-    }
-  
-    .menu #btn_menu span {
-      display: block;
-      width: 40px;
-      height: 4px;
-      background: #fff;
-      margin-bottom: 8px;
-      transition: all 300ms;
-    }
-  
-    .menu #btn_menu.active span:first-child {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-  
-    .menu #btn_menu.active span:nth-child(2) {
-      opacity: 0;
-    }
-  
-    .menu #btn_menu.active span:last-child {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-  
-    .menu #btn_menu:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  
-    .menu.active{
-        flex-direction: column;
-        align-items: initial;
+.menu #btn_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+    color: black;
+    margin: 10px;
+}
 
-    }
+.menu #btn_menu span {
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    margin-bottom: 8px;
+    transition: all 300ms;
+}
 
-    /* Agregamos estas líneas de código para mostrar y ocultar el menú */
-    .menu.active #btn_menu {
-        background: none;
-        position: fixed;
-        z-index: 10;
-    }
-  
-    .menu.active #btn_menu span {
-      background-color: black;
-    }
-  
-    .menu.active ul {
-      display: block;
-    }
-  
-    .menu ul {
-      display: none;
-    }
-  
+.menu #btn_menu.active span:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu #btn_menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu #btn_menu.active span:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu #btn_menu:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.menu.active {
+    flex-direction: column;
+    align-items: initial;
+
+}
+
+/* Agregamos estas líneas de código para mostrar y ocultar el menú */
+.menu.active #btn_menu {
+    background: none;
+    position: fixed;
+    z-index: 10;
+}
+
+.menu.active #btn_menu span {
+    background-color: black;
+}
+
+.menu.active ul {
+    display: block;
+}
+
+.menu ul {
+    display: none;
+}
+
 
 
 /* PAGINA PACIENTES */
@@ -584,7 +588,7 @@ table td:last-child{
     padding-top: 70px;
 } */
 
-.container_general{
+.container_general {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -592,13 +596,13 @@ table td:last-child{
     flex-direction: column;
 }
 
-.second_container{
+.second_container {
     width: 100%;
     padding: 20px;
     background: #F2F0F8;
 }
 
-.container_activo{
+.container_activo {
     padding: 0 0 0 200px;
     background: white;
     width: 100%;
@@ -606,14 +610,14 @@ table td:last-child{
 
 @media screen and (max-width: 650px) {
     .container_activo {
-      padding: 0 0 0 0;
+        padding: 0 0 0 0;
     }
 
-    .anadir_busca{
+    .anadir_busca {
         flex-direction: column;
     }
 
-    .anadir_busca a{
+    .anadir_busca a {
         display: flex;
         width: 100%;
         align-items: center;
@@ -622,11 +626,11 @@ table td:last-child{
     }
 
 
-  }
-  
+}
 
 
-.container_arriba{
+
+.container_arriba {
     display: flex;
     width: 100%;
     align-items: center;
@@ -634,7 +638,7 @@ table td:last-child{
     justify-content: space-between;
 }
 
-.btn_nuevo{
+.btn_nuevo {
     display: flex;
     border: solid 2px #598392;
     /*background-color: #598392;*/
@@ -643,16 +647,18 @@ table td:last-child{
     border-radius: 4px;
 }
 
- /* eliminar usuario */
+/* eliminar usuario */
 
- .eliminar_Usuario{
+.eliminar_Usuario {
     text-align: center;
 }
 
-  .btn_cancel{
+.btn_cancel {
     background-color: #42b343;
 }
-.btn_cancel, .btn_ok{
+
+.btn_cancel,
+.btn_ok {
     width: 120px;
     background-color: #00799b;
     color: #FFF;
@@ -666,7 +672,7 @@ table td:last-child{
 }
 
 
-.container_paciente{
+.container_paciente {
     display: grid;
     width: 100%;
     background-color: #FFF;
@@ -679,7 +685,7 @@ table td:last-child{
 }
 
 
-.container_paciente ul{
+.container_paciente ul {
     background-color: #1F354A;
     display: flex;
     flex-direction: column;
@@ -691,14 +697,14 @@ table td:last-child{
     padding: 15px;
 }
 
-.container_paciente ul li{
+.container_paciente ul li {
     padding: 10px;
     width: 100%;
     text-align: center;
     font-weight: bold;
 }
 
-.container_paciente ul p{
+.container_paciente ul p {
     background: #F2F0F8;
     padding: 10px;
 }
@@ -708,14 +714,14 @@ table td:last-child{
 /* PAGINA CREAR USUARI */
 
 
-.container_registrar{
+.container_registrar {
     width: 100%;
     margin: auto;
     max-width: 550px;
     padding: 20px;
 }
 
-hr{
+hr {
     display: block;
     border: 0;
     background-color: #ccc;
@@ -723,7 +729,7 @@ hr{
     margin: 10px 0;
 }
 
-.container_registrar form{
+.container_registrar form {
     background-color: #fff;
     margin: auto;
     padding: 20px 50px;
@@ -731,13 +737,14 @@ hr{
     border-radius: 10px;
 }
 
-.container_registrar label{
+.container_registrar label {
     display: block;
     font-size: 12pt;
     margin: 15px auto 5px auto;
 }
 
-.container_registrar input, .container_registrar select{
+.container_registrar input,
+.container_registrar select {
     display: block;
     width: 100%;
     font-size: 11pt;
@@ -748,14 +755,14 @@ hr{
 
 /* PAGINA INGRES USUARIS */
 
-.container_ingres{
+.container_ingres {
     width: 100%;
     margin: auto;
     max-width: 550px;
     padding: 20px;
 }
 
-.container_ingres form{
+.container_ingres form {
     background-color: #fff;
     margin: auto;
     padding: 20px 50px;
@@ -763,13 +770,15 @@ hr{
     border-radius: 10px;
 }
 
-.container_ingres label{
+.container_ingres label {
     display: block;
     font-size: 12pt;
     margin: 15px auto 5px auto;
 }
 
-.container_ingres input, .container_ingres select, .container_ingres textarea{
+.container_ingres input,
+.container_ingres select,
+.container_ingres textarea {
     display: block;
     width: 100%;
     font-size: 11pt;
@@ -785,10 +794,21 @@ hr{
     width: calc(100% - 20px);
     padding: 20px;
     border: none;
-    margin: 20px;
+    /* margin: 20px; */
     border-radius: 25px;
-    /* max-width: 185px; */
+    max-width: 400px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 445px) {
+
+    .container_paciente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
 }
 
 #dades {
@@ -819,20 +839,20 @@ hr{
 h2 {
     color: white;
     padding: 10px 0 0 0;
-    font-size: 20px;
+    font-size: calc(12px + 0.75vw);
     text-transform: uppercase;
 }
 
 /* PAGINA PROBA */
 
-.container_proba{
+.container_proba {
     width: 100%;
     margin: auto;
     max-width: 550px;
     padding: 20px;
 }
 
-.container_proba form{
+.container_proba form {
     background-color: #fff;
     margin: auto;
     padding: 20px 50px;
@@ -840,13 +860,14 @@ h2 {
     border-radius: 10px;
 }
 
-.container_proba label{
+.container_proba label {
     display: block;
     font-size: 12pt;
     margin: 15px auto 5px auto;
 }
 
-.container_proba input, .container_proba select{
+.container_proba input,
+.container_proba select {
     display: block;
     width: 100%;
     font-size: 11pt;
@@ -899,17 +920,17 @@ div.paginationUser li a:hover:not(.pagina-actual) {
 }
 
 
-.pagination{
+.pagination {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
-.pagination li{
+.pagination li {
     width: 100%;
 }
 
-.pagination a{
+.pagination a {
     display: flex;
     background-color: #6C8DAB;
     cursor: pointer;
@@ -951,7 +972,7 @@ div.pagination li a:hover:not(.pagina-actual) {
 
 /*pagina de formularios */
 
-.input-group-check{
+.input-group-check {
     display: flex;
     width: 100%;
     padding: 10px;
@@ -960,17 +981,20 @@ div.pagination li a:hover:not(.pagina-actual) {
     color: black;
     background: transparent;
     font-size: 15px;
-  }
- /* eliminar usuario */
+}
 
-  .eliminar_Usuario{
+/* eliminar usuario */
+
+.eliminar_Usuario {
     text-align: center;
 }
 
-  .btn_cancel{
+.btn_cancel {
     background-color: #42b343;
 }
-.btn_cancel, .btn_ok{
+
+.btn_cancel,
+.btn_ok {
     width: 120px;
     background-color: #00799b;
     color: #FFF;
@@ -982,7 +1006,8 @@ div.pagination li a:hover:not(.pagina-actual) {
     font-size: 15px;
     margin: 15px;
 }
-  /*
+
+/*
 .hero {
     width: 100%;
     height: 100vh;
