@@ -986,7 +986,163 @@ div.pagination li a:hover:not(.pagina-actual) {
   .row .input-group {
     flex-basis: 48%;
   }
-  
+
+/****************** ESTILO FORMULARIO DATOS ******************/
+.form_dades_container {
+    margin: 0 auto 30px auto;
+    width: 96%;
+    max-width: 1000px;
+    height: auto;
+    background-color: #1b1b32;
+    color: #f5f6f7;
+    padding: 20px;
+    font-family: Tahoma;
+    font-size: 18px;
+}
+
+.form_dades_container h1,
+.form_dades_container p {
+    margin: 0.5em auto 1em auto;
+    text-align: center;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #dadbee;
+}
+
+.form_dades_container form {
+    max-width: 800px;
+    min-width: 300px;
+    margin: auto;
+    display: flex;
+    padding-bottom: 2em;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_dades_container fieldset {
+    margin: auto;
+    border: none;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.form_dades_container label {
+    margin: 0.5rem 0;
+    width: 45%;
+}
+
+.form_dades_container input,
+.form_dades_container textarea,
+.form_dades_container select {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+    font-size: 1.2rem;
+}
+
+.form_dades_container input,
+.form_dades_container textarea {
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+    padding: 0.5rem;
+}
+
+.form_dades_container input[type="radio"] {
+    height: 3em;
+}
+
+.form_dades_container .radio_input_section fieldset {
+    display: inline-block;
+    margin: 10px 15px 0 0;
+    width: 30%;
+    margin: 0.5rem 0;
+}
+
+.form_dades_container .inline {
+    width: unset;
+    margin: 0 0 0 0.5em;
+    vertical-align: middle;
+}
+
+.form_dades_container input[type="submit"] {
+    display: flex;
+    width: calc(40% - 0.5vw);
+    margin: 2em auto 0 auto;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #3b3b4f;
+    border-color: white;
+}
+
+.form_dades_container .radio_input_section label {
+    margin: 0 15px 0 0;
+}
+
+.form_dades_container .radio_label {
+    width: 45%;
+    margin: 0.5em;
+}
+
+.form_dades_container .radio_input_section {
+    margin: 2em;
+}
+
+.form_dades_container input[type="file"] {
+    padding: 1px 2px;
+}
+
+.form_dades_container textarea {
+    resize: none;
+    height: 15vh;
+}
+
+.form_dades_container .textarea_section label {
+    width: 100%;
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 750px) {
+    .form_dades_container label {
+        width: 80%;
+    }
+
+    .form_dades_container .radio_input_section label {
+        margin: 0 15px 0 0;
+    }
+
+    .form_dades_container .radio_input_section {
+        align-content: flex-start;
+    }
+
+    .form_dades_container fieldset {
+        flex-direction: column;
+    }
+
+    .form_dades_container .radio_input_section {
+        width: 80%;
+    }
+
+    .form_dades_container .radio_label {
+        width: 80%;
+        display: flex;
+        margin: 0.5em;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-start;
+    }
+
+    .form_dades_container input[type="radio"] {
+        height: 0;
+    }
+}
+
 /*
 .hero {
     width: 100%;
