@@ -1,9 +1,18 @@
-<?php include_once("scripts.php"); ?>
 <?php
 include_once('connexiobbddsanitat.php');
 ?>
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <?php include_once("scripts.php"); ?>
+    <?php
+    include_once('connexiobbddsanitat.php');
+
+    ?>
+    <title>Pacientes</title>
 </head>
+
 <body>
 
     <?php include_once("header.php"); ?>
@@ -20,13 +29,13 @@ include_once('connexiobbddsanitat.php');
 
     $por_pagina = 15;
 
-    if(empty($_GET['pagina'])){
-      $pagina = 1;
-    }else{
-      $pagina = $_GET['pagina'];
+    if (empty($_GET['pagina'])) {
+        $pagina = 1;
+    } else {
+        $pagina = $_GET['pagina'];
     }
 
-    $desde = ($pagina -1) * $por_pagina;
+    $desde = ($pagina - 1) * $por_pagina;
 
     if ($total_registro <= $por_pagina) {
         // Si no hay suficientes registros para requerir paginación, muestra todos los registros
@@ -35,102 +44,101 @@ include_once('connexiobbddsanitat.php');
         $total_paginas = ceil($total_registro / $por_pagina);
         // Establece la cantidad de páginas en 5, aunque estén vacías
         $total_paginas = 5;
-        
+
         $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina");
     }
 
     /*$sql = mysqli_query($conexion, "SELECT nom, nHc FROM tdades 
     ");*/
 
-    $resultado= mysqli_num_rows($sql);
+    $resultado = mysqli_num_rows($sql);
 
-    if($resultado > 0){
+    if ($resultado > 0) {
 
-        ?>
+    ?>
         <div class="container_general">
-        <div class="second_container">
+            <div class="second_container">
 
-        <div class="espacio_arriba"></div>
-            <div class="anadir_busca">
-                <a href="">AÑADIR NUEVO</a>
+                <div class="espacio_arriba"></div>
+                <div class="anadir_busca">
+                    <a href="">AÑADIR NUEVO</a>
 
-                <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
-                    <div class="field" id="searchform">
-                        <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
-                        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-                    </div>
-                </form>
-            </div>
-        <br>
-
-            <?php if ($total_registro > $por_pagina) { ?>
-                <div class="pagination">
-                    <?php
-                    $salas = array("Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5");
-                    
-                    // Muestra un botón para cada sala
-                    foreach ($salas as $sala) {
-                        if ($sala == "sala" . $pagina) {
-                            echo "<li><a class='pagina-actual'>$sala</a></li>";
-                        } else {
-                            echo "<li><a href='?pagina=".substr($sala, -1)."'";
-                            if(substr($sala, -1) == $pagina) {
-                                echo " class='pagina_actual'";
-                            }
-                            echo ">$sala</a></li>";
-                        }
-                    }
-                    
-                    ?>
+                    <form action="proba_buscador_paciente.php" class="form_container" method="get" name="formu">
+                        <div class="field" id="searchform">
+                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                        </div>
+                    </form>
                 </div>
+                <br>
 
-            <?php } ?>
+                <?php if ($total_registro > $por_pagina) { ?>
+                    <div class="pagination">
+                        <?php
+                        $salas = array("Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5");
 
-        <?php
-        echo '    
+                        // Muestra un botón para cada sala
+                        foreach ($salas as $sala) {
+                            if ($sala == "sala" . $pagina) {
+                                echo "<li><a class='pagina-actual'>$sala</a></li>";
+                            } else {
+                                echo "<li><a href='?pagina=" . substr($sala, -1) . "'";
+                                if (substr($sala, -1) == $pagina) {
+                                    echo " class='pagina_actual'";
+                                }
+                                echo ">$sala</a></li>";
+                            }
+                        }
+
+                        ?>
+                    </div>
+
+                <?php } ?>
+
+            <?php
+            echo '    
         <div class="container_paciente">';
-    
-        //Contador para llevar la cuenta de la cantidad de pacientes
-        $counter = 0;
-        while ($row = mysqli_fetch_assoc($sql)) {
-            $nom = $row['nom'];
-            $nHc = $row['nHc'];
 
-            // Si es la primera persona del par, abrimos un <li>
-            if ($counter % 2 == 0) {
-                echo '<ul>';
+            //Contador para llevar la cuenta de la cantidad de pacientes
+            $counter = 0;
+            while ($row = mysqli_fetch_assoc($sql)) {
+                $nom = $row['nom'];
+                $nHc = $row['nHc'];
+
+                // Si es la primera persona del par, abrimos un <li>
+                if ($counter % 2 == 0) {
+                    echo '<ul>';
+                }
+
+                // Imprimimos los datos de la persona actual
+                echo "<li><p>$nom</p>";
+                echo "<p>$nHc</p></li>";
+
+                // Si es la segunda persona del par, cerramos el <li>
+                if ($counter % 2 != 0) {
+                    echo '</li></ul>';
+                }
+
+                $counter++;
             }
 
-            // Imprimimos los datos de la persona actual
-            echo "<li><p>$nom</p>";
-            echo "<p>$nHc</p></li>";
-            
-            // Si es la segunda persona del par, cerramos el <li>
+            // Si quedó una persona sin pareja, cerramos el último <li> para evitar errores de HTML
             if ($counter % 2 != 0) {
                 echo '</li></ul>';
             }
-            
-            $counter++;
-            
-        }
 
-        // Si quedó una persona sin pareja, cerramos el último <li> para evitar errores de HTML
-        if ($counter % 2 != 0) {
-            echo '</li></ul>';
-        }
-        
 
-        echo "</div></div></div>";
-    }
-    else{
-        echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
-    }
+            echo "</div></div></div>";
+        } else {
+            echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
+        }
 
 
         mysqli_close($conexion); //cierra la BBDD
-    ?>
+            ?>
 
-</div>
+            </div>
 
 </body>
+
 </html>

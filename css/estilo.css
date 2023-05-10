@@ -788,6 +788,21 @@ hr {
 }
 
 /*PAGINA TABLA PACIENTES*/
+
+#info_paciente {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    width: 98%;
+}
+
+#info_usuari {
+    background-color: #cda22c;
+}
+
 .btn {
     display: inline-block;
     text-align: center;
@@ -802,7 +817,7 @@ hr {
 
 @media screen and (max-width: 445px) {
 
-    .container_paciente{
+    .container_paciente {
         display: flex;
         flex-direction: column;
         align-items: center;
