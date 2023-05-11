@@ -1,8 +1,19 @@
 <style>
     #print_section {
         background-color: white;
-        padding: 20px;
-        width: 45%;
+        padding: 10px 30px;
+    }
+
+    .form_row_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .left-section,
+    .right-section {
+        width: 48%;
+        min-width: 820px;
     }
 
     .line_section {
@@ -75,7 +86,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="html2pdf.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/pdfConv.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Informació pacient</title>
 </head>
@@ -84,127 +95,259 @@
 
     <div id="print_section">
         <h1>Valoració a l'ingrés</h1>
-        <div class="section">
-            <h3 class="title-3">Dades generals</h3>
-            <div class="box_container">
-                <div class="section_container">
-                    <label>Procedencia:</label>
-                    <label><input type="checkbox" name="procedencia" value="traslado"> Traslado</label>
-                    <label><input type="checkbox" name="procedencia" value="urgencias"> Urgencias</label>
-                    <label><input type="checkbox" name="procedencia" value="programado"> Programado</label>
-                    <label><input type="checkbox" name="procedencia" value="otro"> Otro</label>
-                    <label for="text_procedencia">
-                        <input type="text" name="text_procedencia" id="text_procedencia">
-                    </label>
-                </div>
-                <div class="section_container">
-                    <label>Motivo de ingreso:</label>
-                    <textarea name="motivo_ingreso"></textarea>
-                </div>
-                <div class="section_container">
-                    <label>Tratamiento domiciliario:</label>
-                    <textarea name="tratamiento_domiciliario"></textarea>
-                </div>
-            </div>
-
-            <div class="section_container">
-                <label>Alergias:</label>
-                <div>
-                    <label><input type="checkbox" name="alergias" value="si"> Sí</label>
-                    <label><input type="checkbox" name="alergias" value="no"> No</label>
-                </div>
-            </div>
-
-            <div class="checkbox_text_container">
-                <label>Hábitos tóxicos:</label>
-                <div>
-                    <label for="tabaco">Tabaco:</label>
-                    <label><input type="checkbox" name="tabaco" value="si"> Si</label>
-                    <label><input type="checkbox" name="tabaco" value="no"> No</label>
-                    <label for="text_tabaco"> Num. cig./dia:
-                        <input type="text" name="text_tabaco" id="text_tabaco">
-                    </label>
-                </div>
-                <div>
-                    <label for="alcohol">Alcohol:</label>
-                    <label><input type="checkbox" name="alcohol" value="si"> Si</label>
-                    <label><input type="checkbox" name="alcohol" value="no"> No</label>
-                    <label for="text_alcohol"> Cantidad:
-                        <input type="text" name="text_alcohol" id="text_alcohol">
-                    </label>
-                </div>
-                <div>
-                    <label for="drogas">Drogas:</label>
-                    <label><input type="checkbox" name="drogas" value="si"> Si</label>
-                    <label><input type="checkbox" name="drogas" value="no"> No</label>
-                    <label for="text_drogas"> Tipos:
-                        <input type="text" name="text_drogas" id="text_drogas">
-                    </label>
-                </div>
-                <div>
-                    <label for="historia_tox">historia toxicologica:</label>
-                    <label><input type="checkbox" name="historia_toxicologica" value="si"> Si</label>
-                    <label><input type="checkbox" name="historia_toxicologica" value="no"> No</label>
-                </div>
-                <div>
-                    <label>Antecedentes patológicos:</label>
-                    <textarea name="antecedentes_patologicos"></textarea>
-                </div>
-            </div>
-
-            <div class="section_container">
-                <label for="entorno_familiar">Entorno familiar:</label>
-                <div>
-                    <label><input type="checkbox" name="entorno_familiar" value="vive_solo"> Vive solo</label>
-                    <label><input type="checkbox" name="entorno_familiar" value="en_familia"> En familia</label>
-                    <label><input type="checkbox" name="entorno_familiar" value="residencia"> Residencia</label>
-                    <label><input type="checkbox" name="entorno_familiar" value="otros"> Otros</label>
-                </div>
-            </div>
-            <div class="section_container">
-                <div>
-                    <label for="persona_contacto">Persona de contacto:</label>
-                    <input type="text" name="persona_contacto">
-                    <label for="tel">Teléfono:</label>
-                    <input type="number" name="tel">
-                </div>
-            </div>
-        </div>
-        <div class="section" id="respirar">
-            <h3 class="title-3">Necessitat de respirar</h3>
-            <div class="box_container">
-                <div class="section_container">
-                    <label for="resp_min">Resp/min: <input type="text" class="short_ip" name="resp_min" id="resp_min"></label>
-                    <label for="fc">FC: <input type="text" class="short_ip" name="fc" id="fc"></label>
-                    <label for="ta">TA: <input type="text" class="short_ip" name="ta" id="ta"></label>
-                    <label><input type="checkbox" name="procedencia" value="eupnea"> Eupnea</label>
-                    <label><input type="checkbox" name="procedencia" value="disnea"> Disnea</label>
-                    <label><input type="checkbox" name="procedencia" value="ortopnea"> Ortopnea</label>
-                    <label><input type="checkbox" name="procedencia" value="taquipnea"> Taquipnea</label>
-                </div>
-                <div class="section_container">
-                    <div class="line_section">
-                        <label>Tos:</label>
-                        <label><input type="checkbox" name="tos" value="si"> Si</label>
-                        <label><input type="checkbox" name="tos" value="no"> No</label>
+        <div class="form_row_container">
+            <div class="left-section">
+                <div class="section">
+                    <h3 class="title-3">Dades generals</h3>
+                    <div class="box_container">
+                        <div class="section_container">
+                            <label>Procedencia:</label>
+                            <label><input type="checkbox" name="procedencia" value="traslado"> Traslado</label>
+                            <label><input type="checkbox" name="procedencia" value="urgencias"> Urgencias</label>
+                            <label><input type="checkbox" name="procedencia" value="programado"> Programado</label>
+                            <label><input type="checkbox" name="procedencia" value="otro"> Otro</label>
+                            <label for="text_procedencia">
+                                <input type="text" name="text_procedencia" id="text_procedencia">
+                            </label>
+                        </div>
+                        <div class="section_container">
+                            <label>Motivo de ingreso:</label>
+                            <textarea name="motivo_ingreso"></textarea>
+                        </div>
+                        <div class="section_container">
+                            <label>Tratamiento domiciliario:</label>
+                            <textarea name="tratamiento_domiciliario"></textarea>
+                        </div>
                     </div>
-                    <div class="line_section">
-                        <label>Especloració:</label>
-                        <label><input type="checkbox" name="especloracio" value="si"> Si</label>
-                        <label><input type="checkbox" name="especloracio" value="no"> No</label>
+
+                    <div class="section_container">
+                        <label>Alergias:</label>
+                        <div>
+                            <label><input type="checkbox" name="alergias" value="si"> Sí</label>
+                            <label><input type="checkbox" name="alergias" value="no"> No</label>
+                        </div>
                     </div>
-                    <div class="line_section">
-                        <label>Aspecte:</label>
-                        <input type="text" name="aspecte" id="aspecte">
+
+                    <div class="checkbox_text_container">
+                        <label>Hábitos tóxicos:</label>
+                        <div>
+                            <label for="tabaco">Tabaco:</label>
+                            <label><input type="checkbox" name="tabaco" value="si"> Si</label>
+                            <label><input type="checkbox" name="tabaco" value="no"> No</label>
+                            <label for="text_tabaco"> Num. cig./dia:
+                                <input type="text" name="text_tabaco" id="text_tabaco">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="alcohol">Alcohol:</label>
+                            <label><input type="checkbox" name="alcohol" value="si"> Si</label>
+                            <label><input type="checkbox" name="alcohol" value="no"> No</label>
+                            <label for="text_alcohol"> Cantidad:
+                                <input type="text" name="text_alcohol" id="text_alcohol">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="drogas">Drogas:</label>
+                            <label><input type="checkbox" name="drogas" value="si"> Si</label>
+                            <label><input type="checkbox" name="drogas" value="no"> No</label>
+                            <label for="text_drogas"> Tipos:
+                                <input type="text" name="text_drogas" id="text_drogas">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="historia_tox">historia toxicologica:</label>
+                            <label><input type="checkbox" name="historia_toxicologica" value="si"> Si</label>
+                            <label><input type="checkbox" name="historia_toxicologica" value="no"> No</label>
+                        </div>
+                        <div>
+                            <label>Antecedentes patológicos:</label>
+                            <textarea name="antecedentes_patologicos"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="section_container">
+                        <label for="entorno_familiar">Entorno familiar:</label>
+                        <div>
+                            <label><input type="checkbox" name="entorno_familiar" value="vive_solo"> Vive solo</label>
+                            <label><input type="checkbox" name="entorno_familiar" value="en_familia"> En familia</label>
+                            <label><input type="checkbox" name="entorno_familiar" value="residencia"> Residencia</label>
+                            <label><input type="checkbox" name="entorno_familiar" value="otros"> Otros</label>
+                        </div>
+                    </div>
+                    <div class="section_container">
+                        <div>
+                            <label for="persona_contacto">Persona de contacto:</label>
+                            <input type="text" name="persona_contacto">
+                            <label for="tel">Teléfono:</label>
+                            <input type="number" name="tel">
+                        </div>
                     </div>
                 </div>
-                <div class="section_container">
-                    <label>Motivo de ingreso:</label>
-                    <textarea name="motivo_ingreso"></textarea>
+
+                <div class="section" id="respirar">
+                    <h3 class="title-3">Necessitat de respirar</h3>
+                    <div class="box_container">
+                        <div class="section_container">
+                            <label for="resp_min">Resp/min: <input type="text" class="short_ip" name="resp_min" id="resp_min"></label>
+                            <label for="fc">FC: <input type="text" class="short_ip" name="fc" id="fc"></label>
+                            <label for="ta">TA: <input type="text" class="short_ip" name="ta" id="ta"></label>
+                            <label><input type="checkbox" name="procedencia" value="eupnea"> Eupnea</label>
+                            <label><input type="checkbox" name="procedencia" value="disnea"> Disnea</label>
+                            <label><input type="checkbox" name="procedencia" value="ortopnea"> Ortopnea</label>
+                            <label><input type="checkbox" name="procedencia" value="taquipnea"> Taquipnea</label>
+                        </div>
+                        <div class="section_container">
+                            <div class="line_section">
+                                <label>Tos:</label>
+                                <label><input type="checkbox" name="tos" value="si"> Si</label>
+                                <label><input type="checkbox" name="tos" value="no"> No</label>
+                            </div>
+                            <div class="line_section">
+                                <label>Especloració:</label>
+                                <label><input type="checkbox" name="especloracio" value="si"> Si</label>
+                                <label><input type="checkbox" name="especloracio" value="no"> No</label>
+                            </div>
+                            <div class="line_section">
+                                <label>Aspecte:</label>
+                                <input type="text" name="aspecte" id="aspecte">
+                            </div>
+                        </div>
+                        <div class="section_container">
+                            <label>Motivo de ingreso:</label>
+                            <textarea name="motivo_ingreso"></textarea>
+                        </div>
+                        <div class="section_container">
+                            <label>Tratamiento domiciliario:</label>
+                            <textarea name="tratamiento_domiciliario"></textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="section_container">
-                    <label>Tratamiento domiciliario:</label>
-                    <textarea name="tratamiento_domiciliario"></textarea>
+            </div>
+            <div class="right-section">
+                <div class="section">
+                    <h3 class="title-3">Dades generals</h3>
+                    <div class="box_container">
+                        <div class="section_container">
+                            <label>Procedencia:</label>
+                            <label><input type="checkbox" name="procedencia" value="traslado"> Traslado</label>
+                            <label><input type="checkbox" name="procedencia" value="urgencias"> Urgencias</label>
+                            <label><input type="checkbox" name="procedencia" value="programado"> Programado</label>
+                            <label><input type="checkbox" name="procedencia" value="otro"> Otro</label>
+                            <label for="text_procedencia">
+                                <input type="text" name="text_procedencia" id="text_procedencia">
+                            </label>
+                        </div>
+                        <div class="section_container">
+                            <label>Motivo de ingreso:</label>
+                            <textarea name="motivo_ingreso"></textarea>
+                        </div>
+                        <div class="section_container">
+                            <label>Tratamiento domiciliario:</label>
+                            <textarea name="tratamiento_domiciliario"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="section_container">
+                        <label>Alergias:</label>
+                        <div>
+                            <label><input type="checkbox" name="alergias" value="si"> Sí</label>
+                            <label><input type="checkbox" name="alergias" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="checkbox_text_container">
+                        <label>Hábitos tóxicos:</label>
+                        <div>
+                            <label for="tabaco">Tabaco:</label>
+                            <label><input type="checkbox" name="tabaco" value="si"> Si</label>
+                            <label><input type="checkbox" name="tabaco" value="no"> No</label>
+                            <label for="text_tabaco"> Num. cig./dia:
+                                <input type="text" name="text_tabaco" id="text_tabaco">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="alcohol">Alcohol:</label>
+                            <label><input type="checkbox" name="alcohol" value="si"> Si</label>
+                            <label><input type="checkbox" name="alcohol" value="no"> No</label>
+                            <label for="text_alcohol"> Cantidad:
+                                <input type="text" name="text_alcohol" id="text_alcohol">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="drogas">Drogas:</label>
+                            <label><input type="checkbox" name="drogas" value="si"> Si</label>
+                            <label><input type="checkbox" name="drogas" value="no"> No</label>
+                            <label for="text_drogas"> Tipos:
+                                <input type="text" name="text_drogas" id="text_drogas">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="historia_tox">historia toxicologica:</label>
+                            <label><input type="checkbox" name="historia_toxicologica" value="si"> Si</label>
+                            <label><input type="checkbox" name="historia_toxicologica" value="no"> No</label>
+                        </div>
+                        <div>
+                            <label>Antecedentes patológicos:</label>
+                            <textarea name="antecedentes_patologicos"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="section_container">
+                        <label for="entorno_familiar">Entorno familiar:</label>
+                        <div>
+                            <label><input type="checkbox" name="entorno_familiar" value="vive_solo"> Vive solo</label>
+                            <label><input type="checkbox" name="entorno_familiar" value="en_familia"> En familia</label>
+                            <label><input type="checkbox" name="entorno_familiar" value="residencia"> Residencia</label>
+                            <label><input type="checkbox" name="entorno_familiar" value="otros"> Otros</label>
+                        </div>
+                    </div>
+                    <div class="section_container">
+                        <div>
+                            <label for="persona_contacto">Persona de contacto:</label>
+                            <input type="text" name="persona_contacto">
+                            <label for="tel">Teléfono:</label>
+                            <input type="number" name="tel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="respirar">
+                    <h3 class="title-3">Necessitat de respirar</h3>
+                    <div class="box_container">
+                        <div class="section_container">
+                            <label for="resp_min">Resp/min: <input type="text" class="short_ip" name="resp_min" id="resp_min"></label>
+                            <label for="fc">FC: <input type="text" class="short_ip" name="fc" id="fc"></label>
+                            <label for="ta">TA: <input type="text" class="short_ip" name="ta" id="ta"></label>
+                            <label><input type="checkbox" name="procedencia" value="eupnea"> Eupnea</label>
+                            <label><input type="checkbox" name="procedencia" value="disnea"> Disnea</label>
+                            <label><input type="checkbox" name="procedencia" value="ortopnea"> Ortopnea</label>
+                            <label><input type="checkbox" name="procedencia" value="taquipnea"> Taquipnea</label>
+                        </div>
+                        <div class="section_container">
+                            <div class="line_section">
+                                <label>Tos:</label>
+                                <label><input type="checkbox" name="tos" value="si"> Si</label>
+                                <label><input type="checkbox" name="tos" value="no"> No</label>
+                            </div>
+                            <div class="line_section">
+                                <label>Especloració:</label>
+                                <label><input type="checkbox" name="especloracio" value="si"> Si</label>
+                                <label><input type="checkbox" name="especloracio" value="no"> No</label>
+                            </div>
+                            <div class="line_section">
+                                <label>Aspecte:</label>
+                                <input type="text" name="aspecte" id="aspecte">
+                            </div>
+                        </div>
+                        <div class="section_container">
+                            <label>Motivo de ingreso:</label>
+                            <textarea name="motivo_ingreso"></textarea>
+                        </div>
+                        <div class="section_container">
+                            <label>Tratamiento domiciliario:</label>
+                            <textarea name="tratamiento_domiciliario"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

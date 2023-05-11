@@ -12,7 +12,6 @@
 
 <body>
     <?php include_once("header.php") ?>
-    <!-- <div class="container_general"> -->
     <div class="form_dades_container">
         <h1>Nuevo paciente</h1>
         <hr>
@@ -69,22 +68,9 @@
                     <input type="text" id="relacio-contacte" name="relacio-contacte">
                 </label>
             </fieldset>
+            <input type="submit" value="Submit" class="submitForm">
         </form>
     </div>
-    <!-- </div> -->
-
-    <form>
-
-        <div>
-
-        </div>
-
-        <div>
-
-        </div>
-
-        <input type="submit" value="Enviar">
-    </form>
 
 </body>
 

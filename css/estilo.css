@@ -137,9 +137,8 @@ table td:last-child {
     font-size: 18px;
 }
 
-.form_dades_container h1,
-.form_dades_container p {
-    margin: 0.5em auto 1em auto;
+.form_dades_container h1 {
+    margin: 0.5em auto;
     text-align: center;
 }
 
