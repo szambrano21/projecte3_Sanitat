@@ -15,14 +15,34 @@ include_once('connexiobbddsanitat.php');
 </head>
 
 <body>
-    <?php include_once("header.php") ?>
+    <?php include_once("header.php");
+
+    /* Pillar los valores */
+    $nHc = $_GET['nHc'];
+
+    $sql = mysqli_query($conexion, "SELECT nHc, nom, cognom FROM tdades WHERE nHc = '$nHc'");
+
+    $resultado_sql = mysqli_num_rows($sql);
+
+    if ($resultado_sql == 0) {
+        header("location: inicial.php");
+    } else {
+        $option = '';
+        while ($row = mysqli_fetch_assoc($sql)) {
+
+            $nom = $row['nom'];
+            $cognom = $row['cognom'];
+        }
+    }
+
+    ?>
     <div class="container_general">
         <div class="second_container">
 
             <br><br>
             <div id="info_paciente">
-                <h4>Rosa Moreno Blanco</h4>
-                <p><b>Num. HC: </b>I936498704213</p>
+                <h4><?php echo $nom .' '. $cognom  ?></h4>
+                <p><b>Num. HC: </b><?php echo $nHc?></p>
             </div>
             <div class="container_paciente">
                 <button class="btn" id="info_usuari" onclick="window.location.href='infoDades.php'">

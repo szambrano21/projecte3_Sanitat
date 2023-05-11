@@ -10,6 +10,7 @@ include_once('connexiobbddsanitat.php');
   include_once('connexiobbddsanitat.php');
 
   ?>
+    <title>Pacientes</title>
 
 </head>
 

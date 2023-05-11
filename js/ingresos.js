@@ -54,14 +54,15 @@ $(document).ready(function () {
         tarjeta += '<ul>';
       }
 
-      tarjeta += '<li><p>' + paciente.nom + '</p>';
+      tarjeta += `<a href="tablaPaciente.php?nHc=${paciente.nHc}"><p> ${paciente.nom} ${paciente.cognom}</p>`;
+
       tarjeta += '<p>' + paciente.nHc + '</p>';
       tarjeta += '<p>' + paciente.assignacioLlit + '</p>';
 
 
       // Si es la segunda persona del par, cerramos el <ul>
       if (index % 2 !== 0 || index === ingresosFiltrados.length - 1) {
-        tarjeta += '</li></ul>';
+        tarjeta += '</a></ul>';
       }
     });
 
