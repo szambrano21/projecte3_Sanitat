@@ -697,16 +697,17 @@ table td:last-child {
     padding: 15px;
 }
 
-.container_paciente ul li {
+.container_paciente ul a {
     padding: 10px;
     width: 100%;
     text-align: center;
     font-weight: bold;
 }
 
-.container_paciente ul p {
+.container_paciente a p {
     background: #F2F0F8;
     padding: 10px;
+    color: black;
 }
 
 
