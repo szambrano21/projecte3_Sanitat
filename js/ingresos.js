@@ -1,20 +1,20 @@
 $(document).ready(function () {
 
-  // Array pacientes
-  let pacientes = [];
+  // Array ingresos
+  let ingresos = [];
 
   $.ajax({
-    url: "consultar_pacientes.php",
+    url: "consultar_ingresos.php",
     dataType: "json",
     success: function (data) {
       console.log(data);
 
-      pacientes = data;
+      ingresos = data;
 
       let tarjeta = "";
       $counter = 0;
 
-      // Código para crear las tarjetas HTML de los pacientes...
+      // Código para crear las tarjetas HTML de los ingresos...
 
       // Si quedó una persona sin pareja, cerramos el último <li> para evitar errores de HTML
       if ($counter % 2 != 0) {
@@ -28,7 +28,7 @@ $(document).ready(function () {
       // Agregar la clase "pagina_actual" al botón de la Sala 1
       $('.pagination button[value="1"]').addClass('pagina_actual');
 
-      // Mostrar los pacientes de la Sala 1 al iniciar la página
+      // Mostrar los ingresos de la Sala 1 al iniciar la página
       actualizarLista();
     },
     error: function (xhr, status, error) {
@@ -42,13 +42,13 @@ $(document).ready(function () {
     // Obtener el valor seleccionado del botón de la paginación
     let salaSeleccionada = $('.pagina_actual').val();
 
-    // Vaciar el contenedor de pacientes
+    // Vaciar el contenedor de ingresos
     $('#container_paciente').empty();
 
-    // Filtrar los pacientes por la sala seleccionada y crear nuevas tarjetas HTML para los pacientes que cumplen con el filtro
+    // Filtrar los ingresos por la sala seleccionada y crear nuevas tarjetas HTML para los ingresos que cumplen con el filtro
     let tarjeta = "";
-    let pacientesFiltrados = pacientes.filter(paciente => paciente.assignacioSala === salaSeleccionada);
-    pacientesFiltrados.forEach((paciente, index) => {
+    let ingresosFiltrados = ingresos.filter(paciente => paciente.assignacioSala === salaSeleccionada);
+    ingresosFiltrados.forEach((paciente, index) => {
       // Si es la primera persona del par, abrimos un <ul>
       if (index % 2 === 0) {
         tarjeta += '<ul>';
@@ -60,16 +60,16 @@ $(document).ready(function () {
 
 
       // Si es la segunda persona del par, cerramos el <ul>
-      if (index % 2 !== 0 || index === pacientesFiltrados.length - 1) {
+      if (index % 2 !== 0 || index === ingresosFiltrados.length - 1) {
         tarjeta += '</li></ul>';
       }
     });
 
-    // Agregar las nuevas tarjetas HTML al contenedor de pacientes
+    // Agregar las nuevas tarjetas HTML al contenedor de ingresos
     $('#container_paciente').append(tarjeta);
 
     // Actualizar la cuenta de resultados
-    $("#total_resultados").text(pacientesFiltrados.length);
+    $("#total_resultados").text(ingresosFiltrados.length);
   }
 
   // Actualizar la lista cada vez que se hace clic en un botón de la paginación
@@ -78,7 +78,7 @@ $(document).ready(function () {
     $('.pagination button').removeClass('pagina_actual');
     $(this).addClass('pagina_actual');
 
-    // Actualizar la lista de pacientes
+    // Actualizar la lista de ingresos
     actualizarLista();
   });
 

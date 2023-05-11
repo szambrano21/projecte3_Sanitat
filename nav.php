@@ -49,6 +49,7 @@
                         <li><span class="logotipo" href="inicial.php">LOGOTIPO</span></li>
                         <li><a class="active" href="inicial.php">DASHBOARD</a></li>
                         <li><a href="listadoUsuario.php">Usuarios</a></li>
+                        <li><a href="ingresos.php">Ingresos</a></li>
                         <li><a href="pacientes.php">Pacientes</a></li>
                         <li><a href="tablaPaciente.php">Tabla Pacientes</a></li>
 
