@@ -41,31 +41,33 @@ $(document).ready(function () {
   function actualizarLista() {
     // Obtener el valor seleccionado del botón de la paginación
     let salaSeleccionada = $('.pagina_actual').val();
-  
+
     // Vaciar el contenedor de pacientes
     $('#container_paciente').empty();
-  
+
     // Filtrar los pacientes por la sala seleccionada y crear nuevas tarjetas HTML para los pacientes que cumplen con el filtro
     let tarjeta = "";
-    let pacientesFiltrados = pacientes.filter(paciente => paciente.sala === salaSeleccionada);
+    let pacientesFiltrados = pacientes.filter(paciente => paciente.assignacioSala === salaSeleccionada);
     pacientesFiltrados.forEach((paciente, index) => {
       // Si es la primera persona del par, abrimos un <ul>
       if (index % 2 === 0) {
         tarjeta += '<ul>';
       }
-  
+
       tarjeta += '<li><p>' + paciente.nom + '</p>';
       tarjeta += '<p>' + paciente.nHc + '</p>';
-  
+      tarjeta += '<p>' + paciente.assignacioLlit + '</p>';
+
+
       // Si es la segunda persona del par, cerramos el <ul>
       if (index % 2 !== 0 || index === pacientesFiltrados.length - 1) {
         tarjeta += '</li></ul>';
       }
     });
-  
+
     // Agregar las nuevas tarjetas HTML al contenedor de pacientes
     $('#container_paciente').append(tarjeta);
-  
+
     // Actualizar la cuenta de resultados
     $("#total_resultados").text(pacientesFiltrados.length);
   }

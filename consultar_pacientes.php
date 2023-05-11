@@ -3,7 +3,13 @@
 include_once('connexiobbddsanitat.php');
 
 // Consultar los pacientes  en la base de datos
-$resultado = $conexion->query("SELECT * FROM tdades");
+
+
+$resultado = $conexion->query("SELECT *
+FROM tdades
+INNER JOIN tingres
+ON tdades.nHc = tingres.nHc;
+");
 if (!$resultado) {
   die("Error al consultar los pacientes en la base de datos: " . $conexion->error);
 }
