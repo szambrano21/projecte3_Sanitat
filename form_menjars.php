@@ -12,7 +12,7 @@
     ?>
     <div class="form_dades_container">
         <h1>MENJAR I BEURE</h1>
-        <form method="post" action='https://register-demo.freecodecamp.org'>
+        <form method="post" class="commom_form" action='https://register-demo.freecodecamp.org'>
             <fieldset>
                 <label for="pes"><i class="fa-solid fa-weight-scale"></i> Pes (kg): <input id="pes" name="pes" type="text" /></label>
                 <label for="mida"><i class="fa-solid fa-ruler-horizontal"></i> Mida (cm): <input id="mida" name="mida" type="text" /></label>
@@ -50,7 +50,7 @@
                 <input type="radio" name="hora" id="nit">
                 <label for="nit">nit</label>
             </div>
-            <input type="submit" value="Submit" />
+            <input class="submitForm" type="submit" value="Submit" />
         </form>
     </div>
 </body>

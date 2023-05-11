@@ -141,11 +141,9 @@ table td:last-child {
 .form_dades_container p {
     margin: 0.5em auto 1em auto;
     text-align: center;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid #dadbee;
 }
 
-.form_dades_container form {
+.form_dades_container .commom_form {
     max-width: 800px;
     min-width: 300px;
     margin: auto;
@@ -214,7 +212,7 @@ table td:last-child {
     vertical-align: middle;
 }
 
-.form_dades_container input[type="submit"] {
+.form_dades_container .submitForm {
     border-radius: 10px;
     display: flex;
     width: calc(50% - 0.5vw);
@@ -255,19 +253,22 @@ input[type="submit"]:hover {
 
 /* Estilos para el radio seleccionado - Dia */
 .hora_dia input[type="radio"]#dia:checked+label {
-    background-color: rgb(79, 175, 220);
+    box-shadow: 0px 0px 8px rgb(126, 186, 214);
+    background-color: rgb(126, 186, 214);
     color: #333;
 }
 
 /* Estilos para el radio seleccionado - Tarda */
 .hora_dia input[type="radio"]#tarda:checked+label {
-    background-color: orange;
+    box-shadow: 0px 0px 8px rgb(222, 166, 61);
+    background-color: rgb(222, 166, 61);
     color: #fff;
 }
 
 /* Estilos para el radio seleccionado - Nit */
 .hora_dia input[type="radio"]#nit:checked+label {
-    background-color: purple;
+    box-shadow: 0px 0px 8px rgb(118, 62, 192);
+    background-color: rgb(118, 62, 192);
     color: #fff;
 }
 
@@ -344,10 +345,6 @@ input[type="submit"]:hover {
         margin: 0 0 2em 0;
     }
 
-    /* .hora_dia label {
-        display: block;
-        margin-bottom: 10px;
-    } */
 }
 
 /* BARRA DE BUSQUEDA */
@@ -785,9 +782,9 @@ input[type="submit"]:hover {
 hr {
     display: block;
     border: 0;
-    background-color: #ccc;
+    background-color: #c5cee6b5;
     height: 1px;
-    margin: 10px 0;
+    margin: 10px 0 2em;
 }
 
 .container_registrar form {
@@ -1071,71 +1068,3 @@ div.pagination li a:hover:not(.pagina-actual) {
 .row .input-group {
     flex-basis: 48%;
 }
-
-
-
-/*
-.hero {
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), #74b5cb);
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  form {
-    width: 90%;
-    max-width: 600px;
-  }
-  
-
-  .checkbox {
-    padding: 0px;
-    border: solid black;
-    margin: 0px;
-    
-    width: 5%;
-  }
-
-  
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    outline: 0;
-    border: 1px solid #fff;
-    color: #fff;
-    background: transparent;
-    font-size: 15px;
-  }
-  .labelForm {
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 10px;
-    color: #fff;
-    cursor: text;
-    transition: 0.2s;
-  }
-
-  .buttonSubmit {
-    padding: 10px 0;
-    color: #fff;
-    outline: none;
-    background: transparent;
-    border: 1px solid #fff;
-    width: 100%;
-    cursor: pointer;
-  }
-  input:focus ~ label,
-  input:valid ~ label,
-  textarea:focus ~ label,
-  textarea:valid ~ label {
-    top: -35px;
-    font-size: 14px;
-  }
-
-*/

@@ -12,7 +12,7 @@
     ?>
     <div class="form_dades_container">
         <h1>Respiració</h1>
-        <form method="post" action='https://register-demo.freecodecamp.org'>
+        <form class="commom_form" method="post" action='https://register-demo.freecodecamp.org'>
             <fieldset>
                 <label for="first-name"><i class="fa-sharp fa-solid fa-lungs"></i> Resp / min: <input id="first-name" name="first-name" type="text" /></label>
                 <div class="input_conjunto"><i class="fa-solid fa-child"></i>
@@ -50,7 +50,7 @@
                 <input type="radio" name="hora" id="nit">
                 <label for="nit">nit</label>
             </div>
-            <input type="submit" value="Submit" />
+            <input class="submitForm" type="submit" value="Submit" />
         </form>
     </div>
 </body>

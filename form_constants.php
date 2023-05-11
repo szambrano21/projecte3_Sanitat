@@ -70,8 +70,9 @@ include_once("header.php");
 
     <div class="form_dades_container">
         <h1>CONSTANTS</h1>
+        <hr>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
-        <form action="" id="validate" method="post">
+        <form action="" id="validate" method="post" class="commom_form">
             <fieldset>
                 <label for="temperatura"><i class="fa-solid fa-weight-scale"></i> Temperatura (ºC): <input id="temperatura" name="temperatura" type="number" /></label>
                 <label for="pols"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pols" name="pols" type="number" /></label>
@@ -114,8 +115,9 @@ include_once("header.php");
                 <input type="radio" name="hora" id="nit">
                 <label for="nit">nit</label>
             </div>
+
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $_SESSION['ID_ingreso']; ?>"/>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="submitForm">
         </form>
     </div>
 </body>
