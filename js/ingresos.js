@@ -54,7 +54,7 @@ $(document).ready(function () {
         tarjeta += '<ul>';
       }
 
-      tarjeta += `<a href="tablaPaciente.php?nHc=${paciente.nHc}"><p> ${paciente.nom}</p>`;
+      tarjeta += `<a href="tablaPaciente.php?nHc=${paciente.nHc}"><p> ${paciente.nom} ${paciente.cognom}</p>`;
 
       tarjeta += '<p>' + paciente.nHc + '</p>';
       tarjeta += '<p>' + paciente.assignacioLlit + '</p>';
