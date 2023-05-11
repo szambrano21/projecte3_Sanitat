@@ -42,7 +42,7 @@ if(!empty($_POST)){
         }else{
 
             $query_insertar = mysqli_query($conexion, "INSERT INTO tdades (nom,cognom,DNI,nHc,dataNaixament,sexe,telefon,mail,direccio,personaContacte,telefonPersonsaContacte,relacioContacte)
-            VALUES ('$DNI', '$nom', '$cognom', '$nHc', '$dataNaixement', '$sexe','$telefon', '$mail', '$direccio', '$personaContacte', '$telefonPersonsaContacte', '$relacioContacte')");
+            VALUES ('$nom', '$cognom','$DNI', '$nHc', '$dataNaixement', '$sexe','$telefon', '$mail', '$direccio', '$personaContacte', '$telefonPersonsaContacte', '$relacioContacte')");
 
 // INSERT INTO `tdades` (`nom`, `cognom`, `DNI`, `nHc`, `dataNaixament`, `sexe`, `telefon`, `mail`, `direccio`, `personaContacte`, `telefonPersonsaContacte`, `s`) 
 // VALUES ('aaaaaaaaa', 'aaaaa', '3946798S', 'aaadeww2112', '1', 'a', '111', 'sa', 'wwww', 'wwww', '23321', 'wwq');

@@ -94,7 +94,7 @@ include_once('connexiobbddsanitat.php');
         <td titulo='DNI:'>$dni</td>
         <td titulo='TELEFONO:'>$telefono</td>
         <td titulo='ACCIONES:'>
-          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>";
+          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>";
 
           if ($dni != $_SESSION['DNI']) {
             echo "
