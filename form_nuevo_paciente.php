@@ -12,80 +12,81 @@
 
 <body>
     <?php include_once("header.php") ?>
-    <div class="container_general">
-        <div class="container_paciente">
-            <div class="form_dades_container">
-                <h1>Nuevo paciente</h1>
-                <form>
-                    <div>
-                        <label for="nom">Nom:</label>
-                        <input type="text" id="nom" name="nom"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="cognoms">Cognoms:</label>
-                        <input type="text" id="cognoms" name="cognoms"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="num-hc">Num. HC:</label>
-                        <input type="text" id="num-hc" name="num-hc"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="data-naixement">Data de naixement:</label>
-                        <input type="date" id="data-naixement" name="data-naixement"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="sexo">Sexe:</label>
-                        <select id="sexo" name="sexo">
-                            <option value="" selected>Select</option>
-                            <option value="hombre">Home</option>
-                            <option value="mujer">Dona</option>
-                        </select><br><br>
-                    </div>
-
-                    <div>
-                        <label for="telefon">Telèfon:</label>
-                        <input type="tel" id="telefon" name="telefon"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="mail">Correu electrònic:</label>
-                        <input type="email" id="mail" name="mail"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="direccio">Direcció:</label>
-                        <input type="text" id="direccio" name="direccio"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="contacte">Persona de contacte:</label>
-                        <input type="text" id="contacte" name="contacte"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="telefon-contacte">Telèfon de persona de contacte:</label>
-                        <input type="tel" id="telefon-contacte" name="telefon-contacte"><br><br>
-                    </div>
-
-                    <div>
-                        <label for="relacio-contacte">Relació amb la persona de contacte:</label>
-                        <input type="text" id="relacio-contacte" name="relacio-contacte"><br><br>
-                    </div>
-
-                    <input type="submit" value="Enviar">
-                </form>
-            </div>
-        </div>
+    <!-- <div class="container_general"> -->
+    <div class="form_dades_container">
+        <h1>Nuevo paciente</h1>
+        <hr>
+        <form action="" id="validate" method="post" class="commom_form">
+            <fieldset>
+                <label for="nom">Nom:
+                    <input type="text" id="nom" name="nom">
+                </label>
+                <label for="cognoms">Cognoms:
+                    <input type="text" id="cognoms" name="cognoms">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="num-hc">Num. HC:
+                    <input type="text" id="num-hc" name="num-hc">
+                </label>
+                <label for="data-naixement">Data de naixement:
+                    <input type="date" id="data-naixement" name="data-naixement">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="dni">DNI:
+                    <input type="text" id="dni" name="dni">
+                </label>
+                <label for="sexo">Sexe:
+                    <select id="sexo" name="sexo">
+                        <option value="" selected>Select</option>
+                        <option value="hombre">Home</option>
+                        <option value="mujer">Dona</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="telefon">Telèfon:
+                    <input type="tel" id="telefon" name="telefon">
+                </label>
+                <label for="mail">Correu electrònic:
+                    <input type="email" id="mail" name="mail">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="direccio">Direcció:
+                    <input type="text" id="direccio" name="direccio">
+                </label>
+                <label for="contacte">Persona de contacte:
+                    <input type="text" id="contacte" name="contacte">
+                </label>
+            </fieldset>
+        </form>
     </div>
+    <!-- </div> -->
+
+    <form>
+        <div>
+
+        </div>
+
+        <div>
+
+        </div>
+
+        <div>
+            <label for="telefon-contacte">Telèfon de persona de contacte:</label>
+            <input type="tel" id="telefon-contacte" name="telefon-contacte">
+        </div>
+
+        <div>
+            <label for="relacio-contacte">Relació amb la persona de contacte:</label>
+            <input type="text" id="relacio-contacte" name="relacio-contacte">
+        </div>
+
+        <input type="submit" value="Enviar">
+    </form>
+
 </body>
 
 </html>
