@@ -44,19 +44,6 @@ if (!empty($_POST)) {
 <head>
     <?php include_once("scripts.php"); ?>
     <script src="js/validate_user.js"></script>
-    <link rel="stylesheet" href="css/validate.css">
-    <style>
-        body {
-            display: flex;
-        }
-
-        @media screen and (max-width: 700px) {
-            body {
-                display: initial;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
@@ -68,45 +55,43 @@ if (!empty($_POST)) {
 
     ?>
 
+    <div class="form_dades_container">
+        <h1>CREAR USUARIO</h1>
+        <hr>
+        <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
+        <form action="" id="validate" method="post">
+            <fieldset>
+                <label for="nombre">Nom
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                </label>
+                <label for="cognomUsuari">Cognom Usuari
+                    <input type="text" name="cognomUsuari" id="cognomUsuari" placeholder="cognomUsuari" minlength="9" maxlength="9">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="dni">DNI
+                    <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9">
+                </label>
+                <label for="telefono">telefono
+                    <input type="text" name="telefono" id="telefono" placeholder="telefono" minlength="9" maxlength="9">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="password">Contrasenya
+                    <input type="password" name="password" id="password" placeholder="Contrasenya">
+                </label>
 
-    <div class="container_general">
-        <div class="form_dades_container">
-            <h1>CREAR USUARIO</h1>
-            <hr>
-            <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
-            <form action="" id="validate" method="post">
-                <fieldset>
-                    <label for="nombre">Nom
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                    </label>
-                    <label for="cognomUsuari">Cognom Usuari
-                        <input type="text" name="cognomUsuari" id="cognomUsuari" placeholder="cognomUsuari" minlength="9" maxlength="9">
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label for="dni">DNI
-                        <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9">
-                    </label>
-                    <label for="telefono">telefono
-                        <input type="text" name="telefono" id="telefono" placeholder="telefono" minlength="9" maxlength="9">
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label for="password">Contrasenya
-                        <input type="password" name="password" id="password" placeholder="Contrasenya">
-                    </label>
-
-                    <label for="tipo">Tipus Usuari:
-                        <select name="tipo" id="tipo">
-                            <option value="admin">admin</option>
-                            <option value="usuario">usuari</option>
-                        </select>
-                    </label>
-                </fieldset>
-                <input class="submitForm" type="submit" value="Crear usuario">
-            </form>
-        </div>
-        <div class="espacio_arriba"></div>
+                <label for="tipo">Tipus Usuari:
+                    <select name="tipo" id="tipo">
+                        <option value="admin">admin</option>
+                        <option value="usuario">usuari</option>
+                    </select>
+                </label>
+            </fieldset>
+            <input class="submitForm" type="submit" value="Crear usuario">
+        </form>
+    </div>
+    <!-- <div class="espacio_arriba"></div> -->
 </body>
 
 </html>
