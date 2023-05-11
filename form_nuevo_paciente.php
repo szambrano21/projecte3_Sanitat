@@ -61,27 +61,26 @@
                     <input type="text" id="contacte" name="contacte">
                 </label>
             </fieldset>
+            <fieldset>
+                <label for="telefon-contacte">Telèfon de persona de contacte:
+                    <input type="tel" id="telefon-contacte" name="telefon-contacte">
+                </label>
+                <label for="relacio-contacte">Relació amb la persona de contacte:
+                    <input type="text" id="relacio-contacte" name="relacio-contacte">
+                </label>
+            </fieldset>
         </form>
     </div>
     <!-- </div> -->
 
     <form>
-        <div>
-
-        </div>
 
         <div>
 
         </div>
 
         <div>
-            <label for="telefon-contacte">Telèfon de persona de contacte:</label>
-            <input type="tel" id="telefon-contacte" name="telefon-contacte">
-        </div>
 
-        <div>
-            <label for="relacio-contacte">Relació amb la persona de contacte:</label>
-            <input type="text" id="relacio-contacte" name="relacio-contacte">
         </div>
 
         <input type="submit" value="Enviar">
