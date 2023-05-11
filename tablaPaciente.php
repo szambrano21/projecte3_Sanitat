@@ -45,7 +45,7 @@ include_once('connexiobbddsanitat.php');
                 <p><b>Num. HC: </b><?php echo $nHc?></p>
             </div>
             <div class="container_paciente">
-                <button class="btn" id="info_usuari" onclick="window.location.href='infoDades.php'">
+                <button class="btn" id="info_usuari" onclick="window.location.href='infoDades.php?nHc=<?php echo $nHc;?>'">
                     <span>
                         <i class="fa-solid fa-user"></i>
                         <h2>Informació</h2>
