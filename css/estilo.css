@@ -7,57 +7,113 @@
     font-family: "Roboto", sans-serif;
 }
 
-body{
+body {
     background-color: #F2F0F8;
 }
 
+/* DASHBOARD */
+
+.containerPanelControl {
+    width: 100%;
+}
+
+.container_general .navegacion {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    color: black;
+}
+
+.container_general h1 {
+    width: 100%;
+}
+
+.container_general .navegacion a {
+    color: black;
+}
+
+.container_general .navegacion p {
+    color: #00000085;
+}
+
+.containerPanelControl h1 {
+    width: 100%;
+    background-color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: blue;
+}
+
+.panel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.panel a {
+    color: #1F354A;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px 0;
+    background-color: white;
+    font-size: calc(12px + 0.75vw);
+    text-align: center;
+}
+
 /* TABLAS NORMALES RESPONSIVE */
-table{
+table {
     border-collapse: separate;
-    border-spacing:  4px;
+    border-spacing: 4px;
     font-size: 16px;
     width: 100%;
 }
 
-table th{
+table th {
     text-align: center;
-    padding: 5px 10px;
-    background-color: #D15E1D;
+    padding: 8px 10px;
+    background-color: #1F354A;
     color: white;
 }
 
-table tr:nth-child(even){
-    background-color: #FFF5F0;;
+table tr:nth-child(even) {
+    background-color: #6ea2d22f;
 }
 
-table tr:nth-child(odd){
-    background-color: #E4CDC0;
+table tr:nth-child(odd) {
+    background-color: #FFFFFF;
 }
 
-table td{
+table td {
     text-align: center;
+    padding: 10px;
 }
 
 
-table td:last-child{
+table td:last-child {
     width: 100%;
     background-color: #F1F1F1;
     display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 }
 
-.link_editar{
+.link_editar {
     color: white;
     margin: 0 2px;
     height: 100%;
-    padding: 5px 10px;
+    padding: 10px;
     width: 100%;
     background-color: #0876DC;
     border: 1px solid #2980D0;
 }
 
-.link_eliminar{
+.link_eliminar {
     color: white;
-    padding: 5px 10px;
+    padding: 10px;
     margin: 0 2px;
     background-color: #DB2020;
     border: 1px solid #CE392F;
@@ -65,17 +121,56 @@ table td:last-child{
 
 }
 
+/* RESPONSIVE TABLAS */
+
+@media screen and (max-width: 1000px) {
+
+    table td:last-child {
+        padding: 10px;
+        background-color: initial;
+        justify-content: initial;
+    }
+
+    .link_editar,
+    .link_eliminar {
+        max-width: 160px;
+        padding: 3px;
+    }
+
+    .tablas_usuarios tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tablas_usuarios thead {
+        display: none;
+    }
+
+    .tablas_usuarios td[titulo] {
+        display: flex;
+    }
+
+    .tablas_usuarios td[titulo]::before {
+        content: attr(titulo);
+        padding: 0 10px 0 0;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+}
+
+
 /* ANADIR NUEVO */
 
-.anadir_busca{
+.anadir_busca {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+
 }
 
-.anadir_busca a{
+.anadir_busca a {
     padding: 10px 30px;
     color: black;
     border: 2px solid #1F354A;
@@ -85,25 +180,24 @@ table td:last-child{
 
 /* BUSCADOR */
 
-.form_container{
-    /* width:  70%; */
-    /* max-width: 800px; */
-    padding: 20px;
+.form_container {
+    width: 100%;
+    max-width: 500px;
 }
 
-.form_busqueda{
+.form_busqueda {
     display: flex;
     float: right;
     border-radius: 4px;
 }
 
-.form_busqueda .input_busqueda{
+.form_busqueda .input_busqueda {
     border-radius: 4px;
     border: 2px solid gray;
     width: 300px;
 }
 
-.form_busqueda .btn_busqueda{
+.form_busqueda .btn_busqueda {
     background-color: #439A97;
     color: #FFF;
     padding: 10px 20px;
@@ -113,11 +207,11 @@ table td:last-child{
     border-radius: 4px;
 }
 
-.container_buscar{
+.container_buscar {
     display: flex;
 }
 
-.container_busqueda{
+.container_busqueda {
     display: flex;
     width: 300px;
 }
@@ -280,42 +374,42 @@ table td:last-child{
 /* BARRA DE BUSQUEDA */
 
 .field {
-  display: flex;
-  position: relative;
-  margin: auto;
-  width: 100%;
-  max-width: 1200px;
-  flex-direction: row;
-}
-
-.field>input[type=text]{
-  display:block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.field button{
-  cursor: pointer;
+    display: flex;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: row;
 }
 
 .field>input[type=text] {
-  flex: 1;
-  padding: 0.6em;
-  background-color: #F2F0F8;
-  border: 2px solid #1F354A;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.field button {
+    cursor: pointer;
+}
+
+.field>input[type=text] {
+    flex: 1;
+    padding: 0.6em;
+    background-color: #F2F0F8;
+    border: 2px solid #1F354A;
 }
 
 .field>button {
-  padding:0.6em 0.8em;
-  background-color:#1F354A;
-  color:white;
-  border:none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding: 0.6em 0.8em;
+    background-color: #1F354A;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.iconSearch{
+.iconSearch {
     width: 22px;
     filter: invert(1);
 }
@@ -324,16 +418,17 @@ table td:last-child{
 .icono-cerrarsesion {
     width: 30px;
 }
+
 /* TERMINA ICONO CERRAR SESION*/
 
 /****************** PAGINA LOGIN  ******************/
 
-.container_login{
+.container_login {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(rgb(28 64 157 / 54%) 0%, rgb(70 112 220 / 8%) 100%);
+    background-color: #bdd0e3;
 }
 
 /* Esta clase login es el form */
@@ -366,12 +461,12 @@ table td:last-child{
 
 .login label .fa-solid {
     color: #FFF;
-    background-color: #D15E1D;
+    background-color: #1F354A;
     padding: 8px;
     box-shadow: 0 2px 2px 0 #00000057;
 }
 
-.container_usuario{
+.container_usuario {
     margin-top: -50px;
     margin-bottom: 50px;
     display: flex;
@@ -379,9 +474,10 @@ table td:last-child{
     align-items: center;
 }
 
-.usuario_arriba{
+.usuario_arriba {
     width: 86px;
-    background-color: #D15E1D;
+    background-color: #1F354A;
+    border: 1px solid white;
     padding: 20px;
     color: #FFF;
     border-radius: 75px;
@@ -402,33 +498,37 @@ table td:last-child{
     color: #1e3a29;
 }
 
-.login .container_link{
+.login .container_link {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.check_remember{
+.check_remember {
     display: flex;
 }
 
-.check_remember input[type="checkbox"]{
-    accent-color: #D15E1D;
+.check_remember input[type="checkbox"] {
+    accent-color: #1F354A;
     margin-left: 2px;
     width: 16px;
     height: 16px;
 }
-  
 
-.login .link{
-    color: #D15E1D;
+
+.login .link {
+    color: #1F354A;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
 }
 
 .login .button {
     color: #fff;
     border: none;
-    background-color: #d15f1db8;
+    background-color: #1F354A;
     border-radius: 25px;
     padding: 10px 15px;
     cursor: pointer;
@@ -438,7 +538,7 @@ table td:last-child{
 
 /* MENU DE NAVEGACION */
 
-.header{
+.header {
     background-color: #F5F5F5;
     display: flex;
     width: 100%;
@@ -448,19 +548,12 @@ table td:last-child{
     padding: 20px 0;
 }
 
-.header a{
+.header a {
     cursor: default;
 }
 
-.menu{
-    display: flex;
-    width: 100%;
-    max-width: 200px;
-    flex-direction: column;
-}
-
-.menu_nav{
-    z-index: 9;    
+.menu_nav {
+    z-index: 9;
 }
 
 .menu ul {
@@ -476,20 +569,33 @@ table td:last-child{
     overflow: auto;
 }
 
-.menu li{
-    width: 100%;
+.container_session {
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.user_session {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu li a ,.menu li span{
+.menu_nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li a {
     display: block;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
-.menu li a{
+.menu_nav li a {
     width: 100%;
     max-width: 80%;
     padding: 12px 8px 12px 16px;
@@ -498,9 +604,40 @@ table td:last-child{
     margin-bottom: 10px;
 }
 
-.menu li span{
-    padding: 12px 8px 50px 8px;
-    cursor: default;
+.user_session a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: initial;
+
+}
+
+.salir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: initial;
+    width: 100%;
+    max-width: 80%;
+    padding: 12px 8px 12px 16px;
+    color: #1F354A;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.logotipo {
+    height: 50px;
+    padding: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
 .menu li a.active {
@@ -519,74 +656,84 @@ table td:last-child{
 /* CSS */
 .menu #btn_menu {
     display: none;
-  }
-  
+}
 
-    .menu{
-      max-width: initial;
-      transition: all 300ms;
-    }
+.menu {
+    max-width: initial;
+    display: flex;
+    transition: all 300ms;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+
+}
 
 
-    .menu #btn_menu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      font-size: 24px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 300ms;
-      color: black;
-      margin: 10px;
-    }
-  
-    .menu #btn_menu span {
-      display: block;
-      width: 40px;
-      height: 4px;
-      background: #fff;
-      margin-bottom: 8px;
-      transition: all 300ms;
-    }
-  
-    .menu #btn_menu.active span:first-child {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-  
-    .menu #btn_menu.active span:nth-child(2) {
-      opacity: 0;
-    }
-  
-    .menu #btn_menu.active span:last-child {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-  
-    .menu #btn_menu:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  
-    /* Agregamos estas líneas de código para mostrar y ocultar el menú */
-    .menu.active #btn_menu {
-        background: none;
-        position: fixed;
-        z-index: 10;
-    }
-  
-    .menu.active #btn_menu span {
-      background-color: black;
-    }
-  
-    .menu.active ul {
-      display: block;
-    }
-  
-    .menu ul {
-      display: none;
-    }
-  
+.menu #btn_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+    color: black;
+    margin: 10px;
+}
+
+.menu #btn_menu span {
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    margin-bottom: 8px;
+    transition: all 300ms;
+}
+
+.menu #btn_menu.active span:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu #btn_menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu #btn_menu.active span:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu #btn_menu:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.menu.active {
+    flex-direction: column;
+    align-items: initial;
+
+}
+
+/* Agregamos estas líneas de código para mostrar y ocultar el menú */
+.menu.active #btn_menu {
+    background: none;
+    position: fixed;
+    z-index: 10;
+}
+
+.menu.active #btn_menu span {
+    background-color: black;
+}
+
+.menu.active ul {
+    display: block;
+}
+
+.menu ul {
+    display: none;
+}
+
 
 
 /* PAGINA PACIENTES */
@@ -595,28 +742,49 @@ table td:last-child{
     padding-top: 70px;
 } */
 
-.container_general{
+.container_general {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     flex-direction: column;
-    padding: 0 20px 0 20px;
 }
 
-.container_activo{
-    padding: 70px 20px 0 220px;
+.second_container {
+    width: 100%;
+    padding: 20px;
+    background: #F2F0F8;
+}
+
+.container_activo {
+    padding: 0 0 0 200px;
+    background: white;
+    width: 100%;
 }
 
 @media screen and (max-width: 650px) {
     .container_activo {
-      padding: 70px 20px 0 20px;
+        padding: 0 0 0 0;
     }
-  }
-  
+
+    .anadir_busca {
+        flex-direction: column;
+    }
+
+    .anadir_busca a {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
 
 
-.container_arriba{
+}
+
+
+
+.container_arriba {
     display: flex;
     width: 100%;
     align-items: center;
@@ -624,7 +792,7 @@ table td:last-child{
     justify-content: space-between;
 }
 
-.btn_nuevo{
+.btn_nuevo {
     display: flex;
     border: solid 2px #598392;
     /*background-color: #598392;*/
@@ -633,16 +801,18 @@ table td:last-child{
     border-radius: 4px;
 }
 
- /* eliminar usuario */
+/* eliminar usuario */
 
- .eliminar_Usuario{
+.eliminar_Usuario {
     text-align: center;
 }
 
-  .btn_cancel{
+.btn_cancel {
     background-color: #42b343;
 }
-.btn_cancel, .btn_ok{
+
+.btn_cancel,
+.btn_ok {
     width: 120px;
     background-color: #00799b;
     color: #FFF;
@@ -656,7 +826,7 @@ table td:last-child{
 }
 
 
-.container_paciente{
+.container_paciente {
     display: grid;
     width: 100%;
     background-color: #FFF;
@@ -669,7 +839,7 @@ table td:last-child{
 }
 
 
-.container_paciente ul{
+.container_paciente ul {
     background-color: #1F354A;
     display: flex;
     flex-direction: column;
@@ -681,14 +851,14 @@ table td:last-child{
     padding: 15px;
 }
 
-.container_paciente ul li{
+.container_paciente ul li {
     padding: 10px;
     width: 100%;
     text-align: center;
     font-weight: bold;
 }
 
-.container_paciente ul p{
+.container_paciente ul p {
     background: #F2F0F8;
     padding: 10px;
 }
@@ -698,14 +868,14 @@ table td:last-child{
 /* PAGINA CREAR USUARI */
 
 
-.container_registrar{
+.container_registrar {
     width: 100%;
     margin: auto;
     max-width: 550px;
     padding: 20px;
 }
 
-hr{
+hr {
     display: block;
     border: 0;
     background-color: #ccc;
@@ -713,7 +883,7 @@ hr{
     margin: 10px 0;
 }
 
-.container_registrar form{
+.container_registrar form {
     background-color: #fff;
     margin: auto;
     padding: 20px 50px;
@@ -721,13 +891,14 @@ hr{
     border-radius: 10px;
 }
 
-.container_registrar label{
+.container_registrar label {
     display: block;
     font-size: 12pt;
     margin: 15px auto 5px auto;
 }
 
-.container_registrar input, .container_registrar select{
+.container_registrar input,
+.container_registrar select {
     display: block;
     width: 100%;
     font-size: 11pt;
@@ -738,14 +909,14 @@ hr{
 
 /* PAGINA INGRES USUARIS */
 
-.container_ingres{
+.container_ingres {
     width: 100%;
     margin: auto;
     max-width: 550px;
     padding: 20px;
 }
 
-.container_ingres form{
+.container_ingres form {
     background-color: #fff;
     margin: auto;
     padding: 20px 50px;
@@ -753,13 +924,15 @@ hr{
     border-radius: 10px;
 }
 
-.container_ingres label{
+.container_ingres label {
     display: block;
     font-size: 12pt;
     margin: 15px auto 5px auto;
 }
 
-.container_ingres input, .container_ingres select, .container_ingres textarea{
+.container_ingres input,
+.container_ingres select,
+.container_ingres textarea {
     display: block;
     width: 100%;
     font-size: 11pt;
@@ -769,16 +942,42 @@ hr{
 }
 
 /*PAGINA TABLA PACIENTES*/
+
+#info_paciente {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    width: 98%;
+}
+
+#info_usuari {
+    background-color: #cda22c;
+}
+
 .btn {
     display: inline-block;
     text-align: center;
     width: calc(100% - 20px);
     padding: 20px;
     border: none;
-    margin: 20px;
+    /* margin: 20px; */
     border-radius: 25px;
-    /* max-width: 185px; */
+    max-width: 400px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 445px) {
+
+    .container_paciente {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
 }
 
 #dades {
@@ -809,20 +1008,20 @@ hr{
 h2 {
     color: white;
     padding: 10px 0 0 0;
-    font-size: 20px;
+    font-size: calc(12px + 0.75vw);
     text-transform: uppercase;
 }
 
 /* PAGINA PROBA */
 
-.container_proba{
+.container_proba {
     width: 100%;
     margin: auto;
     max-width: 550px;
     padding: 20px;
 }
 
-.container_proba form{
+.container_proba form {
     background-color: #fff;
     margin: auto;
     padding: 20px 50px;
@@ -830,13 +1029,14 @@ h2 {
     border-radius: 10px;
 }
 
-.container_proba label{
+.container_proba label {
     display: block;
     font-size: 12pt;
     margin: 15px auto 5px auto;
 }
 
-.container_proba input, .container_proba select{
+.container_proba input,
+.container_proba select {
     display: block;
     width: 100%;
     font-size: 11pt;
@@ -889,17 +1089,17 @@ div.paginationUser li a:hover:not(.pagina-actual) {
 }
 
 
-.pagination{
+.pagination {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
-.pagination li{
+.pagination button {
     width: 100%;
 }
 
-.pagination a{
+.pagination button {
     display: flex;
     background-color: #6C8DAB;
     cursor: pointer;
@@ -916,32 +1116,29 @@ div.paginationUser li a:hover:not(.pagina-actual) {
 
 }
 
-.pagination li:first-child a {
+.pagination button:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-.pagination li:last-child a {
+.pagination button:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-div.pagination li a.pagina-actual {
-    background-color: #62B6B7;
+div.pagination button.pagina_actual {
+    background-color: #1F354A;
     color: white;
 }
 
-
-
-div.pagination li a:hover:not(.pagina-actual) {
-    background-color: #ddd;
+div.pagination button:hover:not(.pagina-actual) {
+    background-color: #cee1f5;
     color: black;
 }
 
-
 /*pagina de formularios */
 
-.input-group-check{
+.input-group-check {
     display: flex;
     width: 100%;
     padding: 10px;
@@ -950,17 +1147,20 @@ div.pagination li a:hover:not(.pagina-actual) {
     color: black;
     background: transparent;
     font-size: 15px;
-  }
- /* eliminar usuario */
+}
 
-  .eliminar_Usuario{
+/* eliminar usuario */
+
+.eliminar_Usuario {
     text-align: center;
 }
 
-  .btn_cancel{
+.btn_cancel {
     background-color: #42b343;
 }
-.btn_cancel, .btn_ok{
+
+.btn_cancel,
+.btn_ok {
     width: 120px;
     background-color: #00799b;
     color: #FFF;
@@ -971,176 +1171,6 @@ div.pagination li a:hover:not(.pagina-actual) {
     cursor: pointer;
     font-size: 15px;
     margin: 15px;
-}
-
-.input-group {    
-    margin: 0px 10px 20px 0px;
-    position: relative;
-  }
-
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .row .input-group {
-    flex-basis: 48%;
-  }
-
-/****************** ESTILO FORMULARIO DATOS ******************/
-.form_dades_container {
-    margin: 0 auto 30px auto;
-    width: 96%;
-    max-width: 1000px;
-    height: auto;
-    background-color: #1b1b32;
-    color: #f5f6f7;
-    padding: 20px;
-    font-family: Tahoma;
-    font-size: 18px;
-}
-
-.form_dades_container h1,
-.form_dades_container p {
-    margin: 0.5em auto 1em auto;
-    text-align: center;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid #dadbee;
-}
-
-.form_dades_container form {
-    max-width: 800px;
-    min-width: 300px;
-    margin: auto;
-    display: flex;
-    padding-bottom: 2em;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form_dades_container fieldset {
-    margin: auto;
-    border: none;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-around;
-}
-
-.form_dades_container label {
-    margin: 0.5rem 0;
-    width: 45%;
-}
-
-.form_dades_container input,
-.form_dades_container textarea,
-.form_dades_container select {
-    margin: 10px 0 0 0;
-    width: 100%;
-    min-height: 2em;
-    font-size: 1.2rem;
-}
-
-.form_dades_container input,
-.form_dades_container textarea {
-    background-color: #0a0a23;
-    border: 1px solid #0a0a23;
-    color: #ffffff;
-    padding: 0.5rem;
-}
-
-.form_dades_container input[type="radio"] {
-    height: 3em;
-}
-
-.form_dades_container .radio_input_section fieldset {
-    display: inline-block;
-    margin: 10px 15px 0 0;
-    width: 30%;
-    margin: 0.5rem 0;
-}
-
-.form_dades_container .inline {
-    width: unset;
-    margin: 0 0 0 0.5em;
-    vertical-align: middle;
-}
-
-.form_dades_container input[type="submit"] {
-    display: flex;
-    width: calc(40% - 0.5vw);
-    margin: 2em auto 0 auto;
-    height: 2em;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    background-color: #3b3b4f;
-    border-color: white;
-}
-
-.form_dades_container .radio_input_section label {
-    margin: 0 15px 0 0;
-}
-
-.form_dades_container .radio_label {
-    width: 45%;
-    margin: 0.5em;
-}
-
-.form_dades_container .radio_input_section {
-    margin: 2em;
-}
-
-.form_dades_container input[type="file"] {
-    padding: 1px 2px;
-}
-
-.form_dades_container textarea {
-    resize: none;
-    height: 15vh;
-}
-
-.form_dades_container .textarea_section label {
-    width: 100%;
-}
-
-/* Estilos para dispositivos móviles */
-@media only screen and (max-width: 750px) {
-    .form_dades_container label {
-        width: 80%;
-    }
-
-    .form_dades_container .radio_input_section label {
-        margin: 0 15px 0 0;
-    }
-
-    .form_dades_container .radio_input_section {
-        align-content: flex-start;
-    }
-
-    .form_dades_container fieldset {
-        flex-direction: column;
-    }
-
-    .form_dades_container .radio_input_section {
-        width: 80%;
-    }
-
-    .form_dades_container .radio_label {
-        width: 80%;
-        display: flex;
-        margin: 0.5em;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-content: center;
-        justify-content: flex-start;
-    }
-
-    .form_dades_container input[type="radio"] {
-        height: 0;
-    }
 }
 
 /*
