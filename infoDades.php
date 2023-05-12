@@ -38,11 +38,13 @@ include_once('connexiobbddsanitat.php');
             </div>
           </div>
           <?php
-            $sql = mysqli_query($conexion, "SELECT * FROM tingres");
-            $resultado = mysqli_num_rows($sql);
+             $nHc = $_GET['nHc'];
+            $ $nHc = $_GET['nHc'];
+
+            $sql = mysqli_query($conexion, "SELECT * FROM tdades WHERE nHc = '$nHc'");
 
 
-            if($resultado > 0){
+            
 
                 $row = mysqli_fetch_assoc($sql);
                     $fecha = $row["dataIngres"];
@@ -97,7 +99,7 @@ include_once('connexiobbddsanitat.php');
 
                     <?php
 
-                }
+                
 
         ?>
           <div class="footer">

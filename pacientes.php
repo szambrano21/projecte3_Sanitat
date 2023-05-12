@@ -1,134 +1,150 @@
-<?php include_once("scripts.php"); ?>
 <?php
 include_once('connexiobbddsanitat.php');
 ?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <?php include_once("scripts.php"); ?>
+  <?php
+  include_once('connexiobbddsanitat.php');
+
+  ?>
+    <title>Pacientes</title>
 
 </head>
+
 <body>
+  <?php
+  include_once("header.php");
 
-    <?php include_once("header.php"); ?>
+  if ($_SESSION['tipo'] != 'admin') {
+    header("location: inicial.php");
+  }
+  ?>
 
-    <!-- container_general - no tocar -->
+  <!-- container_general - no tocar -->
+  <div class="container_general">
+    <div class="second_container">
+
+
+      <!-- BARRA DE NAVEGACION -->
+
+
+
+      <!-- ESPACIO -->
+
+
+
+      <?php
+
+      /* PAGINADOR */
+
+      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades");
+
+      $resultado_registro = mysqli_fetch_assoc($sql_registro);
+      $total_registro = $resultado_registro['total_registro'];
+
+      $por_pagina = 5;
+
+      if (empty($_GET['pagina'])) {
+        $pagina = 1;
+      } else {
+        $pagina = $_GET['pagina'];
+      }
+
+      $desde = ($pagina - 1) * $por_pagina;
+      $total_paginas = ceil($total_registro / $por_pagina);
+
+      $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina
+");
+
+      $resultado = mysqli_num_rows($sql);
+
+      if ($resultado > 0) {
+
+        echo "
+
+  <table class='tablas_usuarios'>
+    <thead>
+      <tr>
+          <th>NOMBRE</th>
+          <th>APELLIDOS</th>
+          <th>DNI</th>
+          <th>TELEFONO</th>
+          <th>ACCIONES</th>
+      </tr>
+    </thead>
+
+  ";
+
+        while ($row = mysqli_fetch_assoc($sql)) {
+
+          $nomPaciente = $row["nom"];
+          $cognomPaciente = $row["cognom"];
+          $dni = $row["DNI"];
+          $telefono = $row["telefon"];
+
+
+
+          echo "
+
+    <tr>
+        <td titulo='NOMBRE:'>$nomPaciente</td>
+        <td titulo='APELLIDOS:'>$cognomPaciente</td>
+        <td titulo='DNI:'>$dni</td>
+        <td titulo='TELEFONO:'>$telefono</td>
+        <td titulo='ACCIONES:'>
+          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>";
+
+          if ($dni != $_SESSION['DNI']) {
+            echo "
+              <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
+            ";
+          }
+          echo "
+        </td>
+      </tr>
+        ";
+        }
+      } else {
+        echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
+      }
+      ?>
+      </table>
+
+
+    <div class="paginationUser">
+      <?php
+      if ($pagina > 1) {
+        echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
+      }
+
+      for ($i = 1; $i <= $total_paginas; $i++) {
+        if ($i == $pagina) {
+          echo "<li><a class='pagina-actual'>$i</a></li>";
+        } else {
+          echo "<li><a href='?pagina=$i'>$i</a></li>";
+        }
+      }
+
+      if ($pagina < $total_paginas) {
+        echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
+      }
+      ?>
+    </div>
 
     <?php
 
-    /* PAGINADOR */
-    $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades");
+    mysqli_close($conexion); //cierra la BBDD
 
-    $resultado_registro = mysqli_fetch_assoc($sql_registro);
-    $total_registro = $resultado_registro['total_registro'];
-
-    $por_pagina = 15;
-
-    if(empty($_GET['pagina'])){
-      $pagina = 1;
-    }else{
-      $pagina = $_GET['pagina'];
-    }
-
-    $desde = ($pagina -1) * $por_pagina;
-
-    if ($total_registro <= $por_pagina) {
-        // Si no hay suficientes registros para requerir paginación, muestra todos los registros
-        $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC");
-    } else {
-        $total_paginas = ceil($total_registro / $por_pagina);
-        // Establece la cantidad de páginas en 5, aunque estén vacías
-        $total_paginas = 5;
-        
-        $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina");
-    }
-
-    /*$sql = mysqli_query($conexion, "SELECT nom, nHc FROM tdades 
-    ");*/
-
-    $resultado= mysqli_num_rows($sql);
-
-    if($resultado > 0){
-
-        ?>
-        <div class="container_general">
-        <div class="espacio_arriba"></div>
-            <div class="anadir_busca">
-                <a href="">AÑADIR NUEVO</a>
-
-                <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
-                    <div class="field" id="searchform">
-                        <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
-                        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-                    </div>
-                </form>
-            </div>
-        <br>
-
-            <?php if ($total_registro > $por_pagina) { ?>
-                <div class="pagination">
-                    <?php
-                    $salas = array("Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5");
-                    
-                    // Muestra un botón para cada sala
-                    foreach ($salas as $sala) {
-                        if ($sala == "sala" . $pagina) {
-                            echo "<li><a class='pagina-actual'>$sala</a></li>";
-                        } else {
-                            echo "<li><a href='?pagina=".substr($sala, -1)."'";
-                            if(substr($sala, -1) == $pagina) {
-                                echo " class='pagina_actual'";
-                            }
-                            echo ">$sala</a></li>";
-                        }
-                    }
-                    
-                    ?>
-                </div>
-
-            <?php } ?>
-
-        <?php
-        echo '    
-        <div class="container_paciente">';
-    
-        //Contador para llevar la cuenta de la cantidad de pacientes
-        $counter = 0;
-        while ($row = mysqli_fetch_assoc($sql)) {
-            $nom = $row['nom'];
-            $nHc = $row['nHc'];
-
-            // Si es la primera persona del par, abrimos un <li>
-            if ($counter % 2 == 0) {
-                echo '<ul>';
-            }
-
-            // Imprimimos los datos de la persona actual
-            echo "<li><p>$nom</p>";
-            echo "<p>$nHc</p></li>";
-            
-            // Si es la segunda persona del par, cerramos el <li>
-            if ($counter % 2 != 0) {
-                echo '</li></ul>';
-            }
-            
-            $counter++;
-            
-        }
-
-        // Si quedó una persona sin pareja, cerramos el último <li> para evitar errores de HTML
-        if ($counter % 2 != 0) {
-            echo '</li></ul>';
-        }
-        
-
-        echo "</div></div>";
-    }
-    else{
-        echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
-    }
-
-
-        mysqli_close($conexion); //cierra la BBDD
     ?>
 
-</div>
+
+
+  </div>
+  </div>
 
 </body>
+
 </html>

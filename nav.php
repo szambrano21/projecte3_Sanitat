@@ -40,19 +40,19 @@
 
             <div class="menu">
                 <i class="fas fa-bars" id="btn_menu"></i>
-
+                <div class="container_session">
+            <li class="user_session"><h1><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
+            <li class="user_session"><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
+        </div>
                     <ul class="menu_nav">
 
-                        <li><span href="inicial.php">LOGOTIPO</span></li>
+                        <li><span class="logotipo" href="inicial.php">LOGOTIPO</span></li>
                         <li><a class="active" href="inicial.php">DASHBOARD</a></li>
                         <li><a href="listadoUsuario.php">Usuarios</a></li>
+                        <li><a href="ingresos.php">Ingresos</a></li>
                         <li><a href="pacientes.php">Pacientes</a></li>
-                        <li><a href="tablaPaciente.php">Tabla Pacientes</a></li>
 
-                        <div style="display: flex">
-            <li><h1><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
-            <li><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
-        </div>
+
 
                     </ul>
 
