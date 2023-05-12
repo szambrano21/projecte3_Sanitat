@@ -1,3 +1,4 @@
+
 <style>
     .form_container {
         margin: 0 auto 30px auto;
@@ -154,6 +155,48 @@
         }
     }
 </style>
+<?php
+
+include_once('connexiobbddsanitat.php');
+
+if(!empty($_POST)){
+    $alert="";
+    if(empty($_POST["temperatura"]) || empty($_POST["presioArterial"]) || empty($_POST["pols"]) || empty($_POST["glucemia"]) || empty($_POST["saturacioO2"])
+    || empty($_POST["EVN"]) || empty($_POST["reavaluacioDolor"]) || empty($_POST["hemoglobina"]) || empty($_POST["disfagiaLiquida"]) || empty($_POST["disfagiaSolids"]) || empty($_POST["ID_ingreso "]) ){
+
+        $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
+    }else{
+
+        $temperatura = $_POST["temperatura"];
+        $presioArterial = $_POST["presioArterial"];
+        $pols = $_POST["pols"];
+        $glucemia = $_POST["glucemia"];
+        $saturacioO2 = ($_POST["saturacioO2"]);
+        $EVN = $_POST["EVN"];
+        $reavaluacioDolor = $_POST["reavaluacioDolor"];
+        $hemoglobina = $_POST["hemoglobina"];
+        $disfagiaLiquida = $_POST["disfagiaLiquida"];
+        $disfagiaSolids = $_POST["disfagiaSolids"];        
+        $idIngreso = $_POST["ID_ingreso"];
+        $ID_const  = $_POST["ID_const"];
+
+
+        // $query = mysqli_query($conexion,"SELECT * FROM tconstants WHERE ID_const = '$ID_const'");
+        // $resultado = mysqli_fetch_assoc($query);
+
+        
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
+            VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
+
+            if($query_insertar){
+                $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+            }else{
+                $alert="<p class='msg_error'>Error al crear el usuario</p>";
+            }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,11 +207,11 @@
 <body>
     <?php
     include_once("header.php");
-
     ?>
+    <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
     <div class="form_container">
         <h1>CONSTANTS</h1>
-        <form method="post" action='https://register-demo.freecodecamp.org'>
+        <form method="post" action='form_constants.php'>
             <fieldset>
                 <label for="temperatura"><i class="fa-solid fa-weight-scale"></i> Temperatura (ºC): <input id="temperatura" name="temperatura" type="number" /></label>
                 <label for="pulsacions"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pulsacions" name="pulsacions" type="number" /></label>
@@ -202,7 +245,8 @@
                 <label for="disfagia-liquida"> Disfagia líquida: <textarea name="disfagia-liquida" id="disfagia-liquida"></textarea></label>
                 <label for="disfagia-solida"> Disfagia sòlida: <textarea name="disfagia-solida" id="disfagia-solida"></textarea></label>
             </fieldset>
-            <input type="submit" value="Submit" />
+                <input type="hidden" id="idIngreso" name="idIngreso" value="1">
+                <input type="submit" value="Submit">
         </form>
     </div>
 </body>
