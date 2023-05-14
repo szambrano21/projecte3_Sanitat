@@ -32,7 +32,16 @@ include_once('connexiobbddsanitat.php');
 
 
       <!-- ESPACIO -->
+      <div class="anadir_busca">
+                    <a href="crear_usuari.php">AÑADIR NUEVO</a>
 
+                    <form action="buscadorUsuari.php" class="form_container" method="get" name="formu">
+                        <div class="field" id="searchform">
+                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                        </div>
+                    </form>
+                </div><br>
 
 
       <?php

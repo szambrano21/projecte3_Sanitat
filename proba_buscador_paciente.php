@@ -22,148 +22,134 @@ include_once('connexiobbddsanitat.php');
 
 <div class="container_general">
             <div class="espacio_arriba"></div>
-            <div class="container_arriba">
-                <div class="container_buscar">
-                <!--<h1>LISTADO DE USUARIOS</h1>-->
-                    <a href="crear_usuario.php" class="btn_nuevo"><i class="fa-solid fa-user-plus"></i>&nbsp Añadir nuevo</a>
+
+            <div class="container_general">
+            <div class="second_container">
+
+                <div class="espacio_arriba"></div>
+                <div class="anadir_busca">
+                    <a href="ingres.php">AÑADIR NUEVO</a>
+
+                    <form action="proba_buscador_paciente.php" class="form_container" method="get" name="formu">
+                        <div class="field" id="searchform">
+                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                        </div>
+                    </form>
                 </div>
-            
-                <form action="proba_buscador_paciente.php" class="form_container"  method="get" name="formu">
-                    <div class="field" id="searchform">
-                        <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca un nombre.." />
-                        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-                    </div>
-                </form>
-            </div>
-            <br>
-
-
-
+                <br>
+                <div class="pagination">
+                    <button class='pagina_actual' value="1">Sala 1</button>
+                    <button class='pagina' value="2">Sala 2</button>
+                    <button class='pagina' value="3">Sala 3</button>
+                    <button class='pagina' value="4">Sala 4</button>
+                    <button class='pagina' value="5">Sala 5</button>
+                </div>
 
 <?php
+            /* PAGINADOR */
+    $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades");
 
-  /* PAGINADOR */
+    $resultado_registro = mysqli_fetch_assoc($sql_registro);
+    $total_registro = $resultado_registro['total_registro'];
 
-  $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro
-  FROM tdades 
-  WHERE dni 
-  LIKE '%$busqueda%'
-  OR nom
-  LIKE '%$busqueda%'
-  ");
+    $por_pagina = 15;
 
-  $resultado_registro = mysqli_fetch_assoc($sql_registro);
-  $total_registro = $resultado_registro['total_registro'];
+    if (empty($_GET['pagina'])) {
+        $pagina = 1;
+    } else {
+        $pagina = $_GET['pagina'];
+    }
 
-  $por_pagina = 5;
+    $desde = ($pagina - 1) * $por_pagina;
 
-  if(empty($_GET['pagina'])){
-    $pagina = 1;
-  }else{
-    $pagina = $_GET['pagina'];
-  }
+    if ($total_registro <= $por_pagina) {
+        // Si no hay suficientes registros para requerir paginación, muestra todos los registros
+        // $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC");
+        $sql = mysqli_query($conexion, "SELECT * FROM tdades
+        WHERE DNI 
+        LIKE '%$busqueda%' OR nom LIKE '%$busqueda%' 
+        ORDER BY DNI, nom
+        ASC 
+        ");
+        
+    } else {
+        $total_paginas = ceil($total_registro / $por_pagina);
+        // Establece la cantidad de páginas en 5, aunque estén vacías
+        $total_paginas = 5;
 
-  $desde = ($pagina -1) * $por_pagina;
-  $total_paginas = ceil($total_registro / $por_pagina);
+
+        $sql = mysqli_query($conexion,"SELECT *
+        FROM tdades
+        INNER JOIN tingres
+        ON tdades.nHc = tingres.nHc;
+        WHERE tdades.DNI 
+        LIKE '%$busqueda%' OR tdades.nom LIKE '%$busqueda%' 
+        ORDER BY tdades.DNI, tdades.nom, tingres.assignacioLlit
+        ASC LIMIT $desde,$por_pagina"
+        );
+
+        // $sql = mysqli_query($conexion, "SELECT tdades.* , tingres.*
+        // FROM tdades
+        // JOIN tingres
+        // ON tdades.nHc = tingres.nHc 
+        // WHERE tdades.DNI LIKE '%A' OR tdades.nom LIKE '%A'
+        // ORDER BY tdades.DNI, tdades.nom ASC
+        // LIMIT $desde, $por_pagina
+        // ");
+
+        
+
+        // $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina");
+    }
+
+    /*$sql = mysqli_query($conexion, "SELECT nom, nHc FROM tdades 
+    ");*/
+
+    $resultado = mysqli_num_rows($sql);
+
+    if ($resultado > 0) {
+
+    ?>
+        <div class="container_paciente" id="container_paciente">
+        <?php
+
+    while ($row = mysqli_fetch_assoc($sql)) {
+      
+      $nom = $row['nom'];
+      $nHc = $row['nHc'];
+      $DNI = $row['DNI'];
+      $cognom = $row['cognom'];
+      $assignacioLlit  = $row['assignacioLlit'];
+    }
+    ?>
+               
+                <a href="tablaPaciente.php?nHc=<?php echo $nHc?>"><p> <?php echo $nom .$cognom ?></p>
+                <p> <?php echo $nHc ?></p>
+                <p><?php echo $assignacioLlit?></p>
+
+                </a>
+                </div>
+            
+            <?php
+            echo "</div></div></div>";
+        } else {
+            echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
+        }
 
 
+        mysqli_close($conexion); //cierra la BBDD
+            ?>
 
-  $sql = mysqli_query($conexion, "SELECT * FROM tdades
+            </div>
+
+</body>
+
+</html>
+
+<!--   $sql = mysqli_query($conexion, "SELECT * FROM tdades
   WHERE DNI 
   LIKE '%$busqueda%' OR nom LIKE '%$busqueda%' 
   ORDER BY DNI, nom
   ASC LIMIT $desde,$por_pagina
-  ");
-
-/*  
-  $sql = mysqli_query($conexion, "SELECT * FROM tdades 
-  WHERE DNI LIKE '%$busqueda%'
-  ORDER BY DNI ASC LIMIT $desde,$por_pagina 
-  ");
-  */
-  $resultado= mysqli_num_rows($sql);
-
-  if($resultado > 0){
-
-    ?>
-
-    <?php
-    echo '    
-    <div class="container_paciente">';
-    while ($row = mysqli_fetch_assoc($sql)) {
-
-      $nom = $row['nom'];
-      $nHc = $row['nHc'];
-      $DNI = $row['DNI'];
-
-?>
-    
-        <ul>
-            <li><?php echo"$nHc" ?></li>
-            <li><?php echo"$DNI" ?></li>
-            <li><?php echo"$nom" ?></li>
-        </ul>
-        
-
-              <?php
-
-                if(!empty($_SESSION['tipo'])){
-                    $admin = ($_SESSION['tipo'] == 'admin') ? true : false;
-                    if($admin === true){
-                      
-                    }
-                  }
-                
-                ?>
-
-
-          
-
-      
-      <?php
-      }
-      echo "</div></div>";
-    }
-    else 
-{
-  echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
-}
-    ?>
-    </div>
-
-
-    
-    <div class="pagination">
-  <?php
-  if ($pagina > 1) {
-    echo "<li><a href='?pagina=".($pagina-1)."&busqueda=".$busqueda."'>Anterior</a></li>";
-  }
-
-  for ($i = 1; $i <= $total_paginas; $i++) {
-    if ($i == $pagina) {
-      echo "<li><a class='pagina-actual'>$i</a></li>";
-    } else {
-      echo "<li><a href='?pagina=".$i."&busqueda=".$busqueda."'>$i</a></li>";
-    }
-  }
-
-  if ($pagina < $total_paginas) {
-    echo "<li><a href='?pagina=".($pagina+1)."&busqueda=".$busqueda."'>Siguiente</a></li>";
-  }
-  ?>
-</div>
-
-<?php
-
-
-  
-
-
-
-mysqli_close($conexion); //cierra la BBDD
-
-?>
-
-
-<br>
-
+  "); -->

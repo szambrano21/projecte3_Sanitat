@@ -114,7 +114,15 @@ if(!empty($_SESSION['activo'])){
                                 <input type="text" name="assignacioLlit" id="assignacioLlit">
                             </label>
                             <label for="assignacioSala">Asignació de Sala:
-                                <input type="text" name="assignacioSala" id="assignacioSala" >
+                                <select name="assignacioSala">
+                                    <option value="">--</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <!-- <input type="text" name="assignacioSala" id="assignacioSala" > -->
                             </label>
                         </fieldset>
                         <fieldset>
