@@ -92,28 +92,40 @@ if(!empty($_POST)){
                 <h1>Nuevo paciente</h1>
                 <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
 
-                <form action="" id="validate" method="post">
-                    <label for="nom">Nombre:</label>
-                    <input type="text" name="nom" id="nom" ><br>
-
-                    <label for="cognom">Apellido:</label>
-                    <input type="text" name="cognom" id="cognom" ><br>
+                <form action="" id="validate" method="post" class="commom_form">
+                <fieldset>
+                    <label for="nom">Nom:
+                        <input type="text" id="nom" name="nom">
+                    </label>
+                    <label for="cognom">Cognoms:
+                        <input type="text" id="cognom" name="cognom">
+                    </label>
+                </fieldset>
 
                     <label for="DNI">DNI:</label>
                     <input type="text" name="DNI" id="DNI" ><br>
 
-                    <label for="nHc">Número de Historia Clínica:</label>
-                    <input type="text" name="nHc" id="nHc" ><br>
+                <fieldset>
+                    <label for="nHc ">Num. HC:
+                        <input type="text" id="nHc " name="nHc ">
+                    </label>
+                    <label for="dataNaixament">Data de naixement:
+                        <input type="date" id="dataNaixament" name="dataNaixament">
+                    </label>
+                </fieldset>
 
-                    <label for="dataNaixement">Fecha de Nacimiento:</label>
-                    <input type="date" name="dataNaixement" id="dataNaixement" ><br>
-
-                    <label for="sexe">Sexo:</label>
-                    <select name="sexe" id="sexe" >
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="otro">Otro</option>
-                    </select><br>
+                <fieldset>
+                    <label for="DNI">DNI:
+                        <input type="text" id="DNI" name="DNI">
+                    </label>
+                    <label for="sexe">Sexe:
+                        <select id="sexe" name="sexe">
+                            <option value="" selected>Select</option>
+                            <option value="Home">Home</option>
+                            <option value="dona">Dona</option>
+                        </select>
+                    </label>
+                </fieldset>
                     
                     <label for="telefon">Teléfono:</label>
                     <input type="text" name="telefon" id="telefon"><br>
