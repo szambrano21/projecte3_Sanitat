@@ -130,47 +130,63 @@ while($row = mysqli_fetch_assoc($sql)){
                 <h1>Edita datos del paciente</h1>
                 <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
 
-                <form action="" id="validate" method="post">
-                    <label for="nom">Nombre:</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo $nom ?>"><br>
-
-                    <label for="cognom">Apellido:</label>
-                    <input type="text" name="cognom" id="cognom" value="<?php echo $cognom ?>"><br>
-
-                    <label for="DNI">DNI:</label>
-                    <input type="text" name="DNI" id="DNI" value="<?php echo $DNI ?>"><br>
-
-                    <label for="nHc">Número de Historia Clínica:</label>
-                    <input type="text" name="nHc" id="nHc" value="<?php echo $nHc ?>"><br>
-
-                    <label for="dataNaixament">Fecha de Nacimiento:</label>
-                    <input type="text" name="dataNaixament" id="dataNaixament" value="<?php echo $dataNaixament ?>"><br>
-
-                    <label for="sexe">Sexo:</label>
-                    <select name="sexe" id="sexe">
-                        <option value="masculino" <?php echo ($sexe == 'masculino') ? 'selected' : ''; ?>>Masculino</option>
-                        <option value="femenino" <?php echo ($sexe == 'femenino') ? 'selected' : ''; ?>>Femenino</option>
-                        <option value="otro" <?php echo ($sexe == 'otro') ? 'selected' : ''; ?>>Otro</option>
-                    </select><br>
+                <form action="" id="validate" method="post" class="commom_form">
+                    <fieldset>
+                        <label for="nom">Nom:
+                            <input type="text" name="nom" id="nom" value="<?php echo $nom ?>">
+                        </label>
+                        <label for="cognom">Cognoms:
+                            <input type="text" name="cognom" id="cognom" value="<?php echo $cognom ?>">
+                        </label>
+                    </fieldset>
                     
-                    <label for="telefon">Teléfono:</label>
-                    <input type="text" name="telefon" id="telefon" value="<?php echo $telefon ?>"><br>
+                    <fieldset>
 
-                    <label for="mail">Correo Electrónico:</label>
-                    <input type="text" name="mail" id="mail" value="<?php echo $mail ?>"><br>
+                        <label for="nHc">Número de Historia Clínica:
+                            <input type="text" name="nHc" id="nHc" value="<?php echo $nHc ?>">
+                        </label>
+                        <label for="dataNaixament">Fecha de Nacimiento:
+                            <input type="text" name="dataNaixament" id="dataNaixament" value="<?php echo $dataNaixament ?>">
+                        </label>    
+                    </fieldset>
+                        
+                    <fieldset>
+                        <label for="DNI">DNI:
+                            <input type="text" name="DNI" id="DNI" value="<?php echo $DNI ?>">
+                        </label>
+                        <label for="sexe">Sexo:
+                            <select name="sexe" id="sexe">
+                                <option value="masculino" <?php echo ($sexe == 'masculino') ? 'selected' : ''; ?>>Masculino</option>
+                                <option value="femenino" <?php echo ($sexe == 'femenino') ? 'selected' : ''; ?>>Femenino</option>
+                                <option value="otro" <?php echo ($sexe == 'otro') ? 'selected' : ''; ?>>Otro</option>
+                            </select>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="telefon">Teléfono:
+                            <input type="text" name="telefon" id="telefon" value="<?php echo $telefon ?>">
+                        </label>
+                        <label for="mail">Correo Electrónico:
+                            <input type="text" name="mail" id="mail" value="<?php echo $mail ?>">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="direccio">Dirección:
+                            <input type="text" name="direccio" id="direccio" value="<?php echo $direccio ?>"><br>
+                        </label>
+                        <label for="personaContacte">Persona de Contacto:
+                            <input type="text" name="personaContacte" id="personaContacte" value="<?php echo $personaContacte ?>"><br>
+                        </label>
+                    </fieldset>
 
-                    <label for="direccio">Dirección:</label>
-                    <input type="text" name="direccio" id="direccio" value="<?php echo $direccio ?>"><br>
-
-                    <label for="personaContacte">Persona de Contacto:</label>
-                    <input type="text" name="personaContacte" id="personaContacte" value="<?php echo $personaContacte ?>"><br>
-
-                    <label for="telefonPersonsaContacte">Teléfono de Contacto:</label>
-                    <input type="text" name="telefonPersonsaContacte" id="telefonPersonsaContacte" value="<?php echo $telefonPersonsaContacte ?>"><br>
-
-                    <label for="relacioContacte">Relación con la Persona de Contacto:</label>
-                    <input type="text" name="relacioContacte" id="relacioContacte" value="<?php echo $relacioContacte ?>"><br>
-
+                    <fieldset>
+                        <label for="telefonPersonsaContacte">Teléfono de Contacto:
+                            <input type="text" name="telefonPersonsaContacte" id="telefonPersonsaContacte" value="<?php echo $telefonPersonsaContacte ?>"><br>
+                        </label>
+                        <label for="relacioContacte">Relación con la Persona de Contacto:
+                            <input type="text" name="relacioContacte" id="relacioContacte" value="<?php echo $relacioContacte ?>"><br>
+                        </label>
+                    </fieldset>
                     <input type="submit" value="Enviar" >
                 </form>
             </div>
