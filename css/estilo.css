@@ -11,6 +11,57 @@ body {
     background-color: #F2F0F8;
 }
 
+/* DASHBOARD */
+
+.containerPanelControl {
+    width: 100%;
+}
+
+.container_general .navegacion {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    color: black;
+}
+
+.container_general h1 {
+    width: 100%;
+}
+
+.container_general .navegacion a {
+    color: black;
+}
+
+.container_general .navegacion p {
+    color: #00000085;
+}
+
+.containerPanelControl h1 {
+    width: 100%;
+    background-color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: blue;
+}
+
+.panel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.panel a {
+    color: #1F354A;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px 0;
+    background-color: white;
+    font-size: calc(12px + 0.75vw);
+    text-align: center;
+}
+
 /* TABLAS NORMALES RESPONSIVE */
 table {
     border-collapse: separate;
@@ -21,22 +72,22 @@ table {
 
 table th {
     text-align: center;
-    padding: 5px 10px;
-    background-color: #D15E1D;
+    padding: 8px 10px;
+    background-color: #1F354A;
     color: white;
 }
 
 table tr:nth-child(even) {
-    background-color: #FFF5F0;
-    ;
+    background-color: #6ea2d22f;
 }
 
 table tr:nth-child(odd) {
-    background-color: #E4CDC0;
+    background-color: #FFFFFF;
 }
 
 table td {
     text-align: center;
+    padding: 10px;
 }
 
 
@@ -44,13 +95,17 @@ table td:last-child {
     width: 100%;
     background-color: #F1F1F1;
     display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 }
 
 .link_editar {
     color: white;
     margin: 0 2px;
     height: 100%;
-    padding: 5px 10px;
+    padding: 10px;
     width: 100%;
     background-color: #0876DC;
     border: 1px solid #2980D0;
@@ -58,13 +113,52 @@ table td:last-child {
 
 .link_eliminar {
     color: white;
-    padding: 5px 10px;
+    padding: 10px;
     margin: 0 2px;
     background-color: #DB2020;
     border: 1px solid #CE392F;
     width: 100%;
 
 }
+
+/* RESPONSIVE TABLAS */
+
+@media screen and (max-width: 1000px) {
+
+    table td:last-child {
+        padding: 10px;
+        background-color: initial;
+        justify-content: initial;
+    }
+
+    .link_editar,
+    .link_eliminar {
+        max-width: 160px;
+        padding: 3px;
+    }
+
+    .tablas_usuarios tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tablas_usuarios thead {
+        display: none;
+    }
+
+    .tablas_usuarios td[titulo] {
+        display: flex;
+    }
+
+    .tablas_usuarios td[titulo]::before {
+        content: attr(titulo);
+        padding: 0 10px 0 0;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+}
+
 
 /* ANADIR NUEVO */
 
@@ -73,7 +167,7 @@ table td:last-child {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+
 }
 
 .anadir_busca a {
@@ -87,9 +181,8 @@ table td:last-child {
 /* BUSCADOR */
 
 .form_container {
-    /* width:  70%; */
-    /* max-width: 800px; */
-    padding: 20px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .form_busqueda {
@@ -123,6 +216,7 @@ table td:last-child {
     width: 300px;
 }
 
+/* FORMULARIO*/
 /* FORMULARIO */
 .form_dades_container {
     border-radius: 30px;
@@ -345,7 +439,6 @@ input[type="submit"]:hover {
     }
 
 }
-
 /* BARRA DE BUSQUEDA */
 
 .field {
@@ -403,7 +496,7 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(rgb(28 64 157 / 54%) 0%, rgb(70 112 220 / 8%) 100%);
+    background-color: #bdd0e3;
 }
 
 /* Esta clase login es el form */
@@ -436,7 +529,7 @@ input[type="submit"]:hover {
 
 .login label .fa-solid {
     color: #FFF;
-    background-color: #D15E1D;
+    background-color: #1F354A;
     padding: 8px;
     box-shadow: 0 2px 2px 0 #00000057;
 }
@@ -451,7 +544,8 @@ input[type="submit"]:hover {
 
 .usuario_arriba {
     width: 86px;
-    background-color: #D15E1D;
+    background-color: #1F354A;
+    border: 1px solid white;
     padding: 20px;
     color: #FFF;
     border-radius: 75px;
@@ -483,7 +577,7 @@ input[type="submit"]:hover {
 }
 
 .check_remember input[type="checkbox"] {
-    accent-color: #D15E1D;
+    accent-color: #1F354A;
     margin-left: 2px;
     width: 16px;
     height: 16px;
@@ -491,14 +585,18 @@ input[type="submit"]:hover {
 
 
 .login .link {
-    color: #D15E1D;
+    color: #1F354A;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
 }
 
 .login .button {
     color: #fff;
     border: none;
-    background-color: #d15f1db8;
+    background-color: #1F354A;
     border-radius: 25px;
     padding: 10px 15px;
     cursor: pointer;
@@ -522,13 +620,6 @@ input[type="submit"]:hover {
     cursor: default;
 }
 
-.menu {
-    display: flex;
-    width: 100%;
-    max-width: 200px;
-    flex-direction: column;
-}
-
 .menu_nav {
     z-index: 9;
 }
@@ -546,21 +637,33 @@ input[type="submit"]:hover {
     overflow: auto;
 }
 
-.menu li {
-    width: 100%;
+.container_session {
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.user_session {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu li a,
-.menu li span {
-    display: block;
-    color: white;
-    text-decoration: none;
+.menu_nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu li a {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.menu_nav li a {
     width: 100%;
     max-width: 80%;
     padding: 12px 8px 12px 16px;
@@ -569,9 +672,40 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-.menu li span {
-    padding: 12px 8px 50px 8px;
-    cursor: default;
+.user_session a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: initial;
+
+}
+
+.salir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: initial;
+    width: 100%;
+    max-width: 80%;
+    padding: 12px 8px 12px 16px;
+    color: #1F354A;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.logotipo {
+    height: 50px;
+    padding: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
 .menu li a.active {
@@ -592,10 +726,14 @@ input[type="submit"]:hover {
     display: none;
 }
 
-
 .menu {
     max-width: initial;
+    display: flex;
     transition: all 300ms;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
 
@@ -639,6 +777,12 @@ input[type="submit"]:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
+.menu.active {
+    flex-direction: column;
+    align-items: initial;
+
+}
+
 /* Agregamos estas líneas de código para mostrar y ocultar el menú */
 .menu.active #btn_menu {
     background: none;
@@ -672,17 +816,38 @@ input[type="submit"]:hover {
     align-items: center;
     width: 100%;
     flex-direction: column;
-    padding: 0 20px 0 20px;
+}
+
+.second_container {
+    width: 100%;
+    padding: 20px;
+    background: #F2F0F8;
 }
 
 .container_activo {
-    padding: 70px 20px 0 220px;
+    padding: 0 0 0 200px;
+    background: white;
+    width: 100%;
 }
 
 @media screen and (max-width: 650px) {
     .container_activo {
-        padding: 70px 20px 0 20px;
+        padding: 0 0 0 0;
     }
+
+    .anadir_busca {
+        flex-direction: column;
+    }
+
+    .anadir_busca a {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+
+
 }
 
 
@@ -754,16 +919,17 @@ input[type="submit"]:hover {
     padding: 15px;
 }
 
-.container_paciente ul li {
+.container_paciente ul a {
     padding: 10px;
     width: 100%;
     text-align: center;
     font-weight: bold;
 }
 
-.container_paciente ul p {
+.container_paciente a p {
     background: #F2F0F8;
     padding: 10px;
+    color: black;
 }
 
 
@@ -781,9 +947,9 @@ input[type="submit"]:hover {
 hr {
     display: block;
     border: 0;
-    background-color: #c5cee6b5;
+    background-color: #ccc;
     height: 1px;
-    margin: 10px 0 2em;
+    margin: 10px 0;
 }
 
 .container_registrar form {
@@ -845,16 +1011,42 @@ hr {
 }
 
 /*PAGINA TABLA PACIENTES*/
+
+#info_paciente {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    width: 98%;
+}
+
+#info_usuari {
+    background-color: #cda22c;
+}
+
 .btn {
     display: inline-block;
     text-align: center;
     width: calc(100% - 20px);
     padding: 20px;
     border: none;
-    margin: 20px;
+    /* margin: 20px; */
     border-radius: 25px;
-    /* max-width: 185px; */
+    max-width: 400px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 445px) {
+
+    .container_paciente {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
 }
 
 #dades {
@@ -885,7 +1077,7 @@ hr {
 h2 {
     color: white;
     padding: 10px 0 0 0;
-    font-size: 20px;
+    font-size: calc(12px + 0.75vw);
     text-transform: uppercase;
 }
 
@@ -972,11 +1164,11 @@ div.paginationUser li a:hover:not(.pagina-actual) {
     justify-content: space-between;
 }
 
-.pagination li {
+.pagination button {
     width: 100%;
 }
 
-.pagination a {
+.pagination button {
     display: flex;
     background-color: #6C8DAB;
     cursor: pointer;
@@ -993,28 +1185,25 @@ div.paginationUser li a:hover:not(.pagina-actual) {
 
 }
 
-.pagination li:first-child a {
+.pagination button:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-.pagination li:last-child a {
+.pagination button:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-div.pagination li a.pagina-actual {
-    background-color: #62B6B7;
+div.pagination button.pagina_actual {
+    background-color: #1F354A;
     color: white;
 }
 
-
-
-div.pagination li a:hover:not(.pagina-actual) {
-    background-color: #ddd;
+div.pagination button:hover:not(.pagina-actual) {
+    background-color: #cee1f5;
     color: black;
 }
-
 
 /*pagina de formularios */
 
@@ -1053,17 +1242,79 @@ div.pagination li a:hover:not(.pagina-actual) {
     margin: 15px;
 }
 
-.input-group {
+/*
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), #74b5cb);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  form {
+    width: 90%;
+    max-width: 600px;
+  }
+  .input-group {
+    
     margin: 0px 10px 20px 0px;
     position: relative;
-}
+  }
 
-.row {
+  .checkbox {
+    padding: 0px;
+    border: solid black;
+    margin: 0px;
+    
+    width: 5%;
+  }
+
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+    font-size: 15px;
+  }
+  .labelForm {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    color: #fff;
+    cursor: text;
+    transition: 0.2s;
+  }
+
+  .buttonSubmit {
+    padding: 10px 0;
+    color: #fff;
+    outline: none;
+    background: transparent;
+    border: 1px solid #fff;
+    width: 100%;
+    cursor: pointer;
+  }
+  input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label,
+  textarea:valid ~ label {
+    top: -35px;
+    font-size: 14px;
+  }
+  .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.row .input-group {
+  }
+  .row .input-group {
     flex-basis: 48%;
-}
+  }
+*/

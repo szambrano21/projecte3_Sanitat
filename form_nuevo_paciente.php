@@ -10,7 +10,7 @@ if(!empty($_SESSION['activo'])){
 
 
 if(!empty($_POST)){
-    if(empty($_POST["nom"]) || empty($_POST["cognom"]) || empty($_POST["DNI"]) || empty($_POST["nHc"]) || empty($_POST["dataNaixement"]) || empty($_POST["sexe"])  || empty($_POST["telefon"]) 
+    if(empty($_POST["nom"]) || empty($_POST["cognom"]) || empty($_POST["DNI"]) || empty($_POST["nHc"]) || empty($_POST["dataNaixament"]) || empty($_POST["sexe"])  || empty($_POST["telefon"]) 
     || empty($_POST["mail"])  || empty($_POST["direccio"]) || empty($_POST["personaContacte"])  || empty($_POST["telefonPersonsaContacte"])
     || empty($_POST["relacioContacte"])
     )  
@@ -23,7 +23,7 @@ if(!empty($_POST)){
         $cognom = $_POST["cognom"];
         $DNI = $_POST["DNI"];
         $nHc = $_POST["nHc"];
-        $dataNaixement = $_POST["dataNaixement"];
+        $dataNaixament = $_POST["dataNaixament"];
         $sexe = $_POST["sexe"];
         $telefon = $_POST["telefon"];
         $mail = $_POST["mail"];
@@ -42,7 +42,7 @@ if(!empty($_POST)){
         }else{
 
             $query_insertar = mysqli_query($conexion, "INSERT INTO tdades (nom,cognom,DNI,nHc,dataNaixament,sexe,telefon,mail,direccio,personaContacte,telefonPersonsaContacte,relacioContacte)
-            VALUES ('$nom', '$cognom','$DNI', '$nHc', '$dataNaixement', '$sexe','$telefon', '$mail', '$direccio', '$personaContacte', '$telefonPersonsaContacte', '$relacioContacte')");
+            VALUES ('$nom', '$cognom','$DNI', '$nHc', '$dataNaixament', '$sexe','$telefon', '$mail', '$direccio', '$personaContacte', '$telefonPersonsaContacte', '$relacioContacte')");
 
 // INSERT INTO `tdades` (`nom`, `cognom`, `DNI`, `nHc`, `dataNaixament`, `sexe`, `telefon`, `mail`, `direccio`, `personaContacte`, `telefonPersonsaContacte`, `s`) 
 // VALUES ('aaaaaaaaa', 'aaaaa', '3946798S', 'aaadeww2112', '1', 'a', '111', 'sa', 'wwww', 'wwww', '23321', 'wwq');
@@ -102,12 +102,11 @@ if(!empty($_POST)){
                     </label>
                 </fieldset>
 
-                    <label for="DNI">DNI:</label>
-                    <input type="text" name="DNI" id="DNI" ><br>
+
 
                 <fieldset>
                     <label for="nHc ">Num. HC:
-                        <input type="text" id="nHc " name="nHc ">
+                        <input type="text" id="nHc" name="nHc">
                     </label>
                     <label for="dataNaixament">Data de naixement:
                         <input type="date" id="dataNaixament" name="dataNaixament">
@@ -127,25 +126,35 @@ if(!empty($_POST)){
                     </label>
                 </fieldset>
                     
-                    <label for="telefon">Teléfono:</label>
-                    <input type="text" name="telefon" id="telefon"><br>
+                <fieldset>
+                    <label for="telefon">Telèfon:
+                        <input type="tel" id="telefon" name="telefon">
+                    </label>
+                    <label for="mail">Correu electrònic:
+                        <input type="email" id="mail" name="mail">
+                    </label>
+                </fieldset>
 
-                    <label for="mail">Correo Electrónico:</label>
-                    <input type="email" name="mail" id="mail" ><br>
+                <fieldset>
+                    <label for="direccio">Direcció:
+                        <input type="text" id="direccio" name="direccio">
+                    </label>
+                    <label for="personaContacte">Persona de contacte:
+                        <input type="text" id="personaContacte" name="personaContacte">
+                    </label>
+                </fieldset>
 
-                    <label for="direccio">Dirección:</label>
-                    <input type="text" name="direccio" id="direccio" ><br>
+                <fieldset>
+                    <label for="telefonPersonsaContacte">Telèfon de persona de contacte:
+                        <input type="tel" id="telefonPersonsaContacte" name="telefonPersonsaContacte">
+                    </label>
+                    <label for="relacioContacte">Relació amb la persona de contacte:
+                        <input type="text" id="relacioContacte" name="relacioContacte">
+                    </label>
+                </fieldset>
 
-                    <label for="personaContacte">Persona de Contacto:</label>
-                    <input type="text" name="personaContacte" id="personaContacte"><br>
+                <input type="submit" value="Submit" class="submitForm">
 
-                    <label for="telefonPersonsaContacte">Teléfono de Contacto:</label>
-                    <input type="tel" name="telefonPersonsaContacte" id="telefonPersonsaContacte" ><br>
-
-                    <label for="relacioContacte">Relación con la Persona de Contacto:</label>
-                    <input type="text" name="relacioContacte" id="relacioContacte" ><br>
-
-                    <input type="submit" value="Enviar" >
                 </form>
             </div>
         </div>
