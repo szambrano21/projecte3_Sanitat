@@ -50,7 +50,7 @@ if(!empty($_SESSION['activo'])){
                     $alert="<p class='msg_correcto'>El paciente ha sido ingresado correctamente</p>";
                     
                 }else{
-                    $alert="<p class='msg_error'>Error al ingresar al paciente</p>";
+                    $alert="<p class='msg_error'>El paciente ya esta ingresado</p>";
                 }
             
             
@@ -77,19 +77,6 @@ if(!empty($_SESSION['activo'])){
 ?>
 
 
-<style>
-    body{
-        display: flex;
-    }
-
-    @media screen and (max-width: 700px) {
-        body{
-        display: initial;
-    }
-
-}
-
-</style>
 </head>
 
 <body>
@@ -114,43 +101,51 @@ if(!empty($_SESSION['activo'])){
                 <form action="" id="validate" method="post">
                 <div>
                     <h2>Dades generals</h2>
-                        
-                        <label for="dataIngres">Data d'ingres:</label><br>
-                        <input type="date" id="dataIngres" name="dataIngres">
-                       
-                        <label for="procedencia">Procedencia:</label>
-                        <input type="text" name="procedencia" id="procedencia" ><br>
+                        <fieldset>
+                            <label for="dataIngres">Data d'ingres:
+                                <input type="date" id="dataIngres" name="dataIngres">
+                            </label>
+                            <label for="procedencia">Procedencia:
+                                <input type="text" name="procedencia" id="procedencia" >
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="assignacioLlit">Asignació de Cama:
+                                <input type="text" name="assignacioLlit" id="assignacioLlit">
+                            </label>
+                            <label for="assignacioSala">Asignació de Sala:
+                                <input type="text" name="assignacioSala" id="assignacioSala" >
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="motiuIngres">Motiu de Ingreso:
+                                <input type="text" name="motiuIngres" id="motiuIngres" >
+                            </label>
+                            <label for="tractamentDomiciliari">Tratamiento Domiciliario:
+                                <input type="text" name="tractamentDomiciliari" id="tractamentDomiciliari">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="allergies">Alergias:
+                                <input type="text" name="allergies" id="allergies">
+                            </label>
 
-                        <label for="assignacioLlit">Asignació de Cama:</label>
-                        <input type="text" name="assignacioLlit" id="assignacioLlit" ><br>
-
-                        <label for="assignacioSala">Asignació de Sala:</label>
-                        <input type="text" name="assignacioSala" id="assignacioSala" ><br>
-
-                        <label for="motiuIngres">Motiu de Ingreso:</label>
-                        <input type="text" name="motiuIngres" id="motiuIngres" ><br>
-
-                        <!-- <label for="dataIngres">Fecha de Ingreso:</label>
-                        <input type="date" name="dataIngres" id="dataIngres"><br> -->
-
-                        <label for="tractamentDomiciliari">Tratamiento Domiciliario:</label>
-                        <input type="text" name="tractamentDomiciliari" id="tractamentDomiciliari" ><br>
-
-                        <label for="allergies">Alergias:</label>
-                        <input type="text" name="allergies" id="allergies" ><br>
-
-                        <label for="habitsToxics">Hábitos Tóxicos:</label>
-                        <input type="text" name="habitsToxics" id="habitsToxics" ><br>
-
-                        <label for="antecendentsPatologics">Antecedentes Patológicos:</label>
-                        <input type="text" name="antecendentsPatologics" id="antecendentsPatologics" ><br>
-
-                        <label for="entornFamiliar">Entorno Familiar:</label>
-                        <input type="text" name="entornFamiliar" id="entornFamiliar" ><br>
-
+                            <label for="habitsToxics">Hábitos Tóxicos:
+                                <input type="text" name="habitsToxics" id="habitsToxics">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="antecendentsPatologics">Antecedentes Patológicos:
+                                <input type="text" name="antecendentsPatologics" id="antecendentsPatologics" >
+                            </label>
+                            <label for="entornFamiliar">Entorno Familiar:
+                                <input type="text" name="entornFamiliar" id="entornFamiliar" >
+                            </label>
+                        </fieldset>
                         <!-- <label for="ID">ID:</label>
                         <input type="text" name="ID" id="ID" ><br> -->
-                        <label for="nHc">nHc:</label>
+                        <fieldset>
+                        <label for="nHc">nHc:
                         <?php 
 
                         // $DNI = $_POST['dni'];
@@ -173,14 +168,16 @@ if(!empty($_SESSION['activo'])){
                         } else {
                             echo 'No se encontraron números de historial.';
                         }
-
+                        
                         ?>
+                        </label>
+                        </fieldset>
 
 <!--                         
                         <input type="text" name="nHc" id="nHc" > -->
                    
                         <!-- <input type="hidden" id="ID" name="ID" value="1"> -->
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" class="submitForm">
                 </div>
             </form>
         </div>
