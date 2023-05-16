@@ -1,11 +1,7 @@
-<?php include_once("scripts.php"); ?>
-<?php
+<?php include_once("scripts.php"); 
 include_once('connexiobbddsanitat.php');
 ?>
-<?php
-include_once('connexiobbddsanitat.php');
 
-?>
 <link rel="stylesheet" href="css/infoStyles.css">
 </head>
 
@@ -42,11 +38,13 @@ include_once('connexiobbddsanitat.php');
             </div>
           </div>
           <?php
-            $sql = mysqli_query($conexion, "SELECT * FROM tingres");
-            $resultado = mysqli_num_rows($sql);
+             $nHc = $_GET['nHc'];
+            $ $nHc = $_GET['nHc'];
+
+            $sql = mysqli_query($conexion, "SELECT * FROM tdades WHERE nHc = '$nHc'");
 
 
-            if($resultado > 0){
+            
 
                 $row = mysqli_fetch_assoc($sql);
                     $fecha = $row["dataIngres"];
@@ -97,16 +95,11 @@ include_once('connexiobbddsanitat.php');
                             <?php echo $tractamentDomiciliari;?>
                         </p>
                     </div>
-                    <div class="body">
-                        <h2>Al·lèrgies:</h2>
-                        <p>
-                            <?php echo $allergies;?>
-                        </p>
-                    </div>
+
 
                     <?php
 
-                }
+                
 
         ?>
           <div class="footer">
@@ -122,18 +115,42 @@ include_once('connexiobbddsanitat.php');
         <div class="card">
           <div class="head">
             <span class="icon">
-              <i class="icon ion-code-working"></i>
+            <i class="fa-solid fa-person-dots-from-line" style="line-height: 3;"></i>
             </span>
             <span class="stat">
-              Status tractament etc
+              Historial
             </span>
             <div class="status">
             </div>
           </div>
           <div class="body">
-            <h2>Cheat is currently $_status</h2>
+              <h2>Al·lèrgies:</h2>
+              <p>
+                  <?php echo $allergies;?>
+              </p>
+          </div>
+          <div class="body">
+            <h2>Habits toxics</h2>
             <p>
-              The server is running normally and no issues have recently been detected. If you notice an outage, please report it to the administrator.
+            <?php echo $habitsToxics;?>
+            </p>
+          </div>
+          <div class="body">
+            <h2>Antecedents patologics</h2>
+            <p>
+            <?php echo $antecendentsPatologics;?>
+            </p>
+          </div>
+          <div class="body">
+            <h2>Entorn Familiar</h2>
+            <p>
+            <?php echo $entornFamiliar;?>
+            </p>
+          </div>
+          <div class="body">
+            <h2>Procedencia del Pacient</h2>
+            <p>
+            <?php echo $procedencia;?>
             </p>
           </div>
           <div class="footer">

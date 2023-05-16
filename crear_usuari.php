@@ -28,7 +28,7 @@ if(!empty($_POST)){
             VALUES('$dni','$tipo','$nombre',' $cognom ',' $telefono ','$pass')");
 
             if($query_insertar){
-                $alert="<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
+                $alert="<p class='msg_correcto'>L'usuari ha sigut creat correctament</p>";
             }else{
                 $alert="<p class='msg_error'>Error al crear el usuario</p>";
             }
@@ -44,62 +44,61 @@ if(!empty($_POST)){
 <?php include_once("scripts.php"); ?>
 <script src="js/validate_user.js"></script>
 <link rel="stylesheet" href="css/validate.css">
-<style>
-    body{
-        display: flex;
-    }
 
-    @media screen and (max-width: 700px) {
-        body{
-        display: initial;
-    }
-
-}
-
-    
-</style>
 </head>
 <body>
-    <?php 
-    include_once("header.php");
-    if($_SESSION['tipo'] != 'admin'){
-        header("location: inicial.php");
-    }
+<?php 
+        include_once("header.php");
+        // if (empty($_SESSION['nHc']))
+        // {
+        // echo "no hay";
+        // } 
+
+        if($_SESSION['tipo'] != 'admin'){
+            header("location: inicial.php");
+        }
+
     
     ?>
 
 
-<div class="container_general">
-    <div class="espacio_arriba"></div>
-    <div class="container_registrar">
+    <div class="container_general">
+            <div class="container_paciente">
+                <div class="form_dades_container">
         <h1>CREAR USUARIO</h1>
-        <hr>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
+        <hr>
         <form action="" id="validate" method="post">
-            <label for="nombre">Nom</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-
-            <label for="cognomUsuari">Cognom Usuari</label>
-            <input type="text" name="cognomUsuari" id="cognomUsuari" placeholder="cognomUsuari" minlength="9" maxlength="9">
-
-            <label for="dni">DNI</label>
-            <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9">
-
-            <label for="telefono">telefono</label>
-            <input type="text" name="telefono" id="telefono" placeholder="telefono" minlength="9" maxlength="9">
-
-            <label for="password">Contrasenya</label>
-            <input type="password" name="password" id="password" placeholder="Contrasenya">
-
-
-            <label for="tipo">Tipus Usuari:</label>
-
-            <select name="tipo" id="tipo">
-                <option value="admin">admin</option>
-                <option value="usuario">usuari</option>
-            </select>
-
-            <input class="btn_guardar" type="submit" value="Crear usuario">
+            <fieldset>
+                <label for="nombre">Nom
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                </label>
+            
+                <label for="cognomUsuari">Cognom Usuari
+                    <input type="text" name="cognomUsuari" id="cognomUsuari" placeholder="cognomUsuari" >
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="dni">DNI
+                <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9">
+                </label>
+                <label for="telefono">telefono
+                    <input type="text" name="telefono" id="telefono" placeholder="telefono" minlength="9" maxlength="9">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="password">Contrasenya
+                    <input type="password" name="password" id="password" placeholder="Contrasenya">
+                </label>    
+                <label for="tipo">Tipus Usuari:
+                    <select name="tipo" id="tipo">
+                        <option value="admin">admin</option>
+                        <option value="usuario">usuari</option>
+                    </select>
+                </label>
+            </fieldset>
+            
+            <input type="submit" value="Crear Usuari" class="submitForm">
 
         </form>
 
