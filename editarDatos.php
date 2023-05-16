@@ -125,7 +125,7 @@ while($row = mysqli_fetch_assoc($sql)){
 <body>
     <?php include_once("header.php") ?>
     <div class="container_general">
-        <div class="container_paciente">
+        <div class="second_container">
             <div class="form_dades_container">
                 <h1>Edita datos del paciente</h1>
                 <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>

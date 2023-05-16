@@ -63,7 +63,7 @@ if(!empty($_POST)){
 
 
     <div class="container_general">
-            <div class="container_paciente">
+            <div class="second_container">
                 <div class="form_dades_container">
         <h1>CREAR USUARIO</h1>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
