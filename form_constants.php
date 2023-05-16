@@ -1,12 +1,12 @@
 <?php
 
 include_once('connexiobbddsanitat.php');
-
+$ID = $_GET['ID'];
 if (!empty($_POST)) {
     $alert = "";
     if (
         empty($_POST["temperatura"]) || empty($_POST["presioArterial"]) || empty($_POST["pols"]) || empty($_POST["glucemia"]) || empty($_POST["saturacioO2"])
-        || empty($_POST["EVN"]) || empty($_POST["reavaluacioDolor"]) || empty($_POST["hemoglobina"]) || empty($_POST["disfagiaLiquida"]) || empty($_POST["disfagiaSolids"]) || empty($_POST["ID_ingreso "])
+        || empty($_POST["EVN"]) || empty($_POST["reavaluacioDolor"]) || empty($_POST["hemoglobina"]) || empty($_POST["disfagiaLiquida"]) || empty($_POST["disfagiaSolids"]) || empty($_POST["ID_ingreso"])
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
@@ -23,26 +23,27 @@ if (!empty($_POST)) {
         $disfagiaLiquida = $_POST["disfagiaLiquida"];
         $disfagiaSolids = $_POST["disfagiaSolids"];
         $ID_ingreso = $_POST["ID_ingreso"];
-        $ID_const  = $_POST["ID_const"];
+        // $ID_const  = $_POST["ID_const"];
+
+        //recogemos id
 
 
-        $query = mysqli_query($conexion, "SELECT * FROM tconstants WHERE ID_ingreso = '$ID_ingreso'");
-        $resultado = mysqli_fetch_assoc($query);
-        echo $ID_ingreso;
+        
+        // $query = mysqli_query($conexion, "SELECT * FROM tconstants WHERE ID_ingreso = '$ID_ingreso'");
+        // $resultado = mysqli_fetch_assoc($query);
 
-        if ($resultado > 0) {
-            $alert = "<p class='msg_error'>El usuario ya existe</p>";
-        } else {
-
+        // if ($resultado > 0) {
+        //     $alert = "<p class='msg_error'>El usuario ya existe</p>";
+        // } else {
             $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
-            VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$ID_ingreso')");
+            VALUES('$temperatura','$presioArterial','$pols','$glucemia','$saturacioO2','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$ID_ingreso')");
 
             if ($query_insertar) {
                 $alert = "<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
             } else {
                 $alert = "<p class='msg_error'>Error al crear el usuario</p>";
             }
-        }
+        // }
 
         // $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
         // VALUES('$temperatura','$presioArterial','$pols',' $glucemia ',' $saturacioO2 ','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$idIngreso')");
@@ -78,23 +79,23 @@ include_once("header.php");
                 <label for="pols"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pols" name="pols" type="number" /></label>
             </fieldset>
             <fieldset>
-                <label for="presioArterial"><i class="fa-sharp fa-solid fa-heart-pulse"></i> Pressió arterial (mm Hg):<input id="presio_arterial" name="presio_arterial" type="text" /></label>
+                <label for="presioArterial"><i class="fa-sharp fa-solid fa-heart-pulse"></i> Pressió arterial (mm Hg):<input id="presioArterial" name="presioArterial" type="text" /></label>
                 <label for="glucemia"><i class="fa-solid fa-eye-dropper"></i> Glucemia (mg/dL): <input id="glucemia" name="glucemia" type="number" /></label>
             </fieldset>
             <fieldset>
-                <label for="saturacioO2"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacio" name="saturacio" type="number" /></label>
+                <label for="saturacioO2"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacioO2" name="saturacioO2" type="number" /></label>
             </fieldset>
             <fieldset class="radio_input_section">
                 <div class="input_conjunto">
                     EVN: <br>
-                    <label for="evn"><input id="evn-1" type="radio" name="EVN" class="inline" value="1" /> Si</label>
-                    <label for="evn"><input id="evn-0" type="radio" name="EVN" class="inline" value="0" /> No</label>
+                    <label for="EVN"><input id="evn-1" type="radio" name="EVN" class="inline" value="1" /> Si</label>
+                    <label for="EVN"><input id="evn-0" type="radio" name="EVN" class="inline" value="0" /> No</label>
                 </div>
                 <div class="input_conjunto">
                     Reavaluacio dolor: <br>
-                    <label for="reavaluacio-dolor"><input id="reavaluacio-dolor-total" type="radio" name="reavaluacioDolor" class="inline" value="total" /> Total</label>
-                    <label for="business-account"><input id="reavaluacio-dolor-parcial" type="radio" name="reavaluacioDolor" class="inline" value="parcial" /> Parcial</label>
-                    <label for="business-account"><input id="reavaluacio-dolor-independent" type="radio" name="reavaluacioDolor" class="inline" value="independent" /> Independent</label>
+                    <label for="reavaluacioDolor"><input id="reavaluacio-dolor-total" type="radio" name="reavaluacioDolor" class="inline" value="total" /> Total</label>
+                    <label for="reavaluacioDolor"><input id="reavaluacio-dolor-parcial" type="radio" name="reavaluacioDolor" class="inline" value="parcial" /> Parcial</label>
+                    <label for="reavaluacioDolor"><input id="reavaluacio-dolor-independent" type="radio" name="reavaluacioDolor" class="inline" value="independent" /> Independent</label>
                 </div>
                 <div class="input_conjunto">
                     Hemoglobina: <br>
@@ -103,8 +104,8 @@ include_once("header.php");
                 </div>
             </fieldset>
             <fieldset>
-                <label for="disfagia-liquida"> Disfagia líquida: <textarea name="disfagiaLiquida" id="disfagia-liquida"></textarea></label>
-                <label for="disfagia-solida"> Disfagia sòlida: <textarea name="disfagiaSolids" id="disfagia-solida"></textarea></label>
+                <label for="disfagiaLiquida"> Disfagia líquida: <textarea name="disfagiaLiquida" id="disfagiaLiquida"></textarea></label>
+                <label for="disfagiaSolids"> Disfagia sòlida: <textarea name="disfagiaSolids" id="disfagiaSolids"></textarea></label>
             </fieldset>
 
             <div class="hora_dia">
@@ -116,7 +117,7 @@ include_once("header.php");
                 <label for="nit">nit</label>
             </div>
 
-            <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $_SESSION['ID_ingreso']; ?>"/>
+            <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
             <input type="submit" value="Submit" class="submitForm">
         </form>
     </div>
