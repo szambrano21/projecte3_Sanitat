@@ -4,7 +4,39 @@ include_once('connexiobbddsanitat.php');
 
 <link rel="stylesheet" href="css/infoStyles.css">
 </head>
+<style>
+  .target, .target-2{
+    background-color: #1F354A;
+    width: 350px;
+    padding: 0 20px 20px 0px;
+    margin: 20px;
+    border-radius: 5px;
+    height: 500px;
+  }
+  .target-2{
+    height: 400px;
+  }
+  .container_target{
+    display: flex;
+    align-self: flex-start;
+  }
+  .iconn{
+    display: inline-block;
+    background-color: #cee1f5;
+    height: 40px;
+    width: 40px;
+    color: black;
+  }
+  .grid{
+    display: flex;
+    margin: 10px 0px 3px 42px;
+  }
 
+  .col{
+    padding: 10px;
+  }
+
+</style>
 
 <body>
 <?php   
@@ -14,22 +46,185 @@ include_once('connexiobbddsanitat.php');
       header("location: inicial.php");
     }
      ?>
+<?php
+          
+$nHc = $_GET['nHc'];
 
+$sql = mysqli_query($conexion, "SELECT *
+FROM tingres
+INNER JOIN tdades ON tingres.nHc = tdades.nHc
+WHERE tingres.nHc = '$nHc'
+");
 
-<div class="container container_general " >
-  
-  <div class="content">
+$row = mysqli_fetch_assoc($sql);
+//TDADES
+$nom = $row['nom'];
+$cognom = $row['cognom'];
+$DNI = $row['DNI'];
+$dataNaixament = $row['dataNaixament'];
+$sexe = $row['sexe'];
+$direccio = $row['direccio'];
+$personaContacte = $row['personaContacte'];
+$telefonPersonsaContacte = $row['telefonPersonsaContacte'];
+$relacioContacte = $row['relacioContacte'];
+
+//TINGRES
+$fecha = $row["dataIngres"];
+$assignacioLlit  = $row["assignacioLlit"];
+$assignacioSala = $row["assignacioSala"];
+$motiuIngres = $row["motiuIngres"];
+$tractamentDomiciliari = $row["tractamentDomiciliari"];
+$allergies = $row["allergies"];
+$habitsToxics = $row["habitsToxics"];
+$antecendentsPatologics = $row["antecendentsPatologics"];
+$entornFamiliar = $row["entornFamiliar"];
+$procedencia = $row["procedencia"];
+?>
+
+<div class="container container_general" >
+
+    <div class="container_target">
+      
+      <div class="target">
+        <span class="iconn">
+         <i class="fa-solid fa-bed" style="padding:10px"></i>
+        </span>
+        <h2 style="float:right"><?php echo $nHc;?></h2>
+        <hr style="margin: 0px 0px 10px;">
+        <div class="grid">
+            <div class="col">
+              <h3>Nombre</h3>
+              <p><?php echo $nom;?></p>
+            </div>
+            <div class="col">
+              <h3>Cognom</h3>
+              <p><?php echo $cognom;?></p>
+            </div>
+            <div class="col">
+              <h3>DNI</h3>
+              <p><?php echo $DNI;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Data de naixement</h3>
+              <p><?php echo $dataNaixament;?></p>
+            </div>
+            <div class="col">
+              <h3>Sexe</h3>
+              <p><?php echo $sexe;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>direccio</h3>
+              <p><?php echo $direccio;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Persona contacte</h3>
+              <p><?php echo $personaContacte;?></p>
+            </div>
+            <div class="col">
+              <h3>Telefon de la persona </h3>
+              <p><?php echo $telefonPersonsaContacte;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Relacio amb el pacient</h3>
+              <p><?php echo $relacioContacte;?></p>
+            </div>
+        </div>
+      </div>
+      <div class="target">
+        <span class="iconn">
+         <i class="fa-solid fa-bed" style="padding:10px"></i>
+        </span>
+        <h2 style="float:right">Ingresado</h2>
+        <hr style="margin: 0px 0px 10px;">
+        <div class="grid">
+            <div class="col">
+              <h3>Procedencia del pacient</h3>
+              <p><?php echo $procedencia  ;?></p>
+            </div>
+            <div class="col">
+              <h3>Motiu de l'ingres</h3>
+              <p><?php echo $motiuIngres;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Data de ingres</h3>
+              <p><?php echo $fecha;?></p>
+            </div>
+            <div class="col">
+              <h3>Tractament domiciliari</h3>
+              <p><?php echo $tractamentDomiciliari;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>al·lèrgies</h3>
+              <p><?php echo $allergies;?></p>
+            </div>
+            <div class="col">
+              <h3>Habits toxics del pacient</h3>
+              <p><?php echo $habitsToxics;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Antecedents patologics</h3>
+              <p><?php echo $antecendentsPatologics;?></p>
+            </div>
+            <div class="col">
+              <h3>Entorn familiar </h3>
+              <p><?php echo $entornFamiliar;?></p>
+            </div>
+        </div>
+      </div>
+      <div class="target-2">
+        <span class="iconn">
+         <i class="fa-solid fa-bed" style="padding:10px"></i>
+        </span>
+        <h2 style="float:right">Sala i cama</h2>
+        <hr style="margin: 0px 0px 10px;">
+        <div class="grid">
+            <div class="col">
+              <h3>Nº sala assignada</h3>
+              <p><?php echo $assignacioSala;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Nº d'habitació assignada</h3>
+              <p><?php echo $assignacioLlit;?></p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Editar datos de ingreso</h3>
+              <br>
+              <p><a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a></p>
+            </div>
+        </div>
+        <!-- <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a> -->
+      </div>
+    </div>
+  <!-- <div class="content">
     <div class="page active" data-page="dashboard">
       <!-- <div class="header">
         <div class="title">
           <h2>Dades Pacient</h2>
         </div>
-      </div> -->
+      </div> 
       <div class="grid">
         <div class="card">
           <div class="head">
             <span class="icon">
-              <i class="icon ion-pound"></i>
+              <i class="fa-solid fa-bed"></i>
             </span>
             <span class="stat">
               Ingres del pacient?
@@ -38,15 +233,12 @@ include_once('connexiobbddsanitat.php');
             </div>
           </div>
           <?php
+          /*
              $nHc = $_GET['nHc'];
-            $ $nHc = $_GET['nHc'];
 
-            $sql = mysqli_query($conexion, "SELECT * FROM tdades WHERE nHc = '$nHc'");
+            $sql = mysqli_query($conexion, "SELECT * FROM tingres WHERE nHc = '$nHc'");
 
-
-            
-
-                $row = mysqli_fetch_assoc($sql);
+                    $row = mysqli_fetch_assoc($sql);
                     $fecha = $row["dataIngres"];
                     $assignacioLlit  = $row["assignacioLlit"];
                     $assignacioSala = $row["assignacioSala"];
@@ -62,7 +254,7 @@ include_once('connexiobbddsanitat.php');
                     <div class="body">
                         <h2>Data/Hora d'ingres</h2>
                         <p>
-                        <?php $fecha;?>
+                          <?php $fecha;?>
                         </p>
                     </div>
                     <div class="body">
@@ -99,7 +291,7 @@ include_once('connexiobbddsanitat.php');
 
                     <?php
 
-                
+                */
 
         ?>
           <div class="footer">
@@ -321,5 +513,5 @@ include_once('connexiobbddsanitat.php');
       </div>
     </div>
   </div>
-</div>
+</div> -->
 </body>
