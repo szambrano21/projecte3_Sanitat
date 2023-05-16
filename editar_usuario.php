@@ -92,7 +92,7 @@ if($resultado_sql == 0){
     
 
 <div class="container_general">
-    <div class="container_paciente">
+    <div class="second_container">
         <div class="form_dades_container">
         <h1>ACTUALIZAR USUARIO</h1>
         <hr>
