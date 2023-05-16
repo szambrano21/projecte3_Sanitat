@@ -90,47 +90,42 @@ if($resultado_sql == 0){
     }
     ?>
     
-<br>
-<br>
-<br>
 
+<div class="container_general">
+    <div class="container_paciente">
+        <div class="form_dades_container">
+        <h1>ACTUALIZAR USUARIO</h1>
+        <hr>
+        <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
+        <form action="" id="validate" method="post" class="commom_form" enctype="multipart/form-data">
+            <!-- <input type="hidden" name="dni_usuario" value="<?php echo $dni_usuario; ?>"> -->
+            <fieldset>
+                <label for="nombre">Nombre
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php echo $nombre;?>">
+                </label>
+                <label for="dni">DNI
+                    <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9" value="<?php echo $dni;?>">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="password">Contraseña
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                </label>
+                <label for="tipo">Tipo Usuario
+                    <select name="tipo" id="tipo" class="noPrimerItem">
+                        <?php echo "$option";?>
+                        <option value="admin">admin</option>
+                        <option value="editor">editor</option>
+                    </select>
+                </label>
+            </fieldset>
+            <input class="btn_guardar" type="submit" value="Actualizar usuario">
+            </form>
 
-
-<div class="container_registrar">
-
-
-<h1>ACTUALIZAR USUARIO</h1>
-<hr>
-<div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
-
-<form action="" id="validate" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="dni_usuario" value="<?php echo $dni_usuario; ?>">
-    <label for="nombre">Nombre</label>
-    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php echo $nombre;?>">
-
-    <label for="dni">DNI</label>
-    <input type="text" name="dni" id="dni" placeholder="DNI" minlength="9" maxlength="9" value="<?php echo $dni;?>">
-
-    <label for="password">Contraseña</label>
-    <input type="password" name="password" id="password" placeholder="Contraseña">
-
-
-    <label for="tipo">Tipo Usuario</label>
-
-    <select name="tipo" id="tipo" class="noPrimerItem">
-        <?php echo "$option";?>
-        <option value="admin">admin</option>
-        <option value="editor">editor</option>
-
-    </select>
-
-    <input class="btn_guardar" type="submit" value="Actualizar usuario">
-
-
-
-</form>
-
+        </div>
+    </div>
 </div>
+
 
 </body>
 </html>
