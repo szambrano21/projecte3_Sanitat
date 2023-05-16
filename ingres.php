@@ -157,9 +157,14 @@ if(!empty($_SESSION['activo'])){
                         <?php 
 
                         // $DNI = $_POST['dni'];
-                        $query2 = mysqli_query($conexion, "SELECT nHc FROM tdades");
+                        $query2 = mysqli_query($conexion, "SELECT tdades.nHc
+                        FROM tdades
+                        LEFT JOIN tingres ON tdades.nHc = tingres.nHc
+                        WHERE tingres.nHc IS NULL;");
+                        //esta consulta solo muestra los numeros de historiales clinicos de las personas que no estan ingresadas. 
                         // $sql = mysqli_query($conexion, "SELECT * FROM tusuaris ORDER BY nomUsuari ASC LIMIT $desde,$por_pagina");
                         $resultado = mysqli_num_rows($query2);
+
                         if($resultado > 0){
 
                             // Crear el elemento select
