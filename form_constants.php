@@ -1,6 +1,7 @@
 <?php
 
 include_once('connexiobbddsanitat.php');
+ //recogemos id
 $ID = $_GET['ID'];
 if (!empty($_POST)) {
     $alert = "";
@@ -25,7 +26,7 @@ if (!empty($_POST)) {
         $ID_ingreso = $_POST["ID_ingreso"];
         // $ID_const  = $_POST["ID_const"];
 
-        //recogemos id
+       
 
 
         
