@@ -41,82 +41,108 @@ include_once('connexiobbddsanitat.php');
 
             <br><br>
             <div id="info_paciente">
-                <h4><?php echo $nom .' '. $cognom  ?></h4>
-                <p><b>Num. HC: </b><?php echo $nHc?></p>
+                <h4><?php echo $nom . ' ' . $cognom  ?></h4>
+                <p><b>Num. HC: </b><?php echo $nHc ?></p>
             </div>
             <div class="container_paciente">
-                <button class="btn" id="info_usuari" onclick="window.location.href='infoDades.php?nHc=<?php echo $nHc;?>'">
+
+                <a class="btn" id="info_usuari" href="infoDades.php?nHc=<?php echo $nHc; ?>"> <span>
+                        <i class="fa-solid fa-user"></i>
+                        <h2>Informació</h2>
+                    </span>
+                </a>
+
+                <!-- <button onclick="window.location.href='infoDades.php?nHc=<?php echo $nHc; ?>'">
                     <span>
                         <i class="fa-solid fa-user"></i>
                         <h2>Informació</h2>
                     </span>
-                </button>
-                <button class="btn" id="dades" onclick="window.location.href='pacientes.php'">
-                    <span>
-                        <i class="fa-solid fa-file-medical"></i>
-                        <h2>dades</h2>
+                </button> -->
+
+
+                <a class="btn" id="dades" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                 <i class="fa-solid fa-file-medical"></i>
+                        <h2>Dades</h2>
                     </span>
-                </button>
-                <button class="btn" id="constants">
-                    <span>
-                        <i class="fa-solid fa-heart-pulse"></i>
+                </a>
+
+                <a class="btn" id="constants" href="form_constants.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-heart-pulse"></i>
                         <h2>Constants</h2>
                     </span>
-                </button>
-                <button class="btn" id="respiratori">
-                    <span>
-                        <i class="fa-solid fa-lungs"></i>
+                </a>
+
+                <a class="btn" id="respiratori" href="form_respiracio.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-lungs"></i>
                         <h2>Respiratòries</h2>
                     </span>
-                </button>
-                <button class="btn" id="menjars">
-                    <span>
-                        <i class="fa-solid fa-utensils"></i>
+                </a>
+
+                <a class="btn" id="menjars" href="form_menjars.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-utensils"></i>
                         <h2>Menjars</h2>
                     </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
                         <h2>Prototipo</h2>
                     </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
-                        <h2>prototipo</h2>
-                    </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
-                        <h2>prototipo</h2>
-                    </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
                         <h2>Prototipo</h2>
                     </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
                         <h2>Prototipo</h2>
                     </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
                         <h2>Prototipo</h2>
                     </span>
-                </button>
-                <button class="btn" id="prototipo">
-                    <span>
-                        <i class="fa-solid fa-file"></i>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
                         <h2>Prototipo</h2>
                     </span>
-                </button>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
+                        <h2>Prototipo</h2>
+                    </span>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
+                        <h2>Prototipo</h2>
+                    </span>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
+                        <h2>Prototipo</h2>
+                    </span>
+                </a>
+                
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
+                        <h2>Prototipo</h2>
+                    </span>
+                </a>
+
+                <a class="btn prototipo" class="prototipo" href="pacientes.php?nHc=<?php echo $nHc; ?>"> <span>
+                <i class="fa-solid fa-file"></i>
+                        <h2>Prototipo</h2>
+                    </span>
+                </a>
             </div>
         </div>
         <div class="espacio_arriba"></div>
