@@ -1069,6 +1069,11 @@ hr {
     background: #C12222;
 }
 
+.prototipo{
+    background-color: #F0F0F0;
+    color: black;
+}
+
 .btn i {
     font-size: 75px;
     color: #ffffff;
