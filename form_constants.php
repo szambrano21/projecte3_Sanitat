@@ -28,7 +28,7 @@ if (!empty($_POST)) {
 
         $query = mysqli_query($conexion, "SELECT * FROM tconstants WHERE ID_ingreso = '$ID_ingreso'");
         $resultado = mysqli_fetch_assoc($query);
-
+        echo $ID_ingreso;
 
         if ($resultado > 0) {
             $alert = "<p class='msg_error'>El usuario ya existe</p>";
