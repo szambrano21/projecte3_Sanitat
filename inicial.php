@@ -28,7 +28,7 @@
     <div class="container_general">
 
         <div class="second_container">
-            <h1>BIENVENIDO</h1>
+            <h1 class="titulos">BIENVENIDO</h1>
             <div class="navegacion">
                 <a href="inicial.php">Home ></a>&nbsp<p>DASHBOARD</p>
             </div>

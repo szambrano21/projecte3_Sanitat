@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,7 +8,7 @@
   include_once('connexiobbddsanitat.php');
 
   ?>
-  <title>Pacientes</title>
+    <title>Lista de ingresados</title>
 
 </head>
 
@@ -24,25 +25,29 @@
   <div class="container_general">
     <div class="second_container">
 
-      <h1 class="titulos">LISTA DE PACIENTES</h1>
 
+    <h1 class="titulos">LISTA DE INGRESOS</h1>
+
+
+
+      <!-- ESPACIO -->
       <div class="anadir_busca">
-        <a href="form_nuevo_paciente.php">AÑADIR NUEVO PACIENTE</a>
+                    <a href="ingres.php">AÑADIR NUEVO INGRESO</a>
 
-        <form action="buscadorPacientes.php" class="form_container" method="get" name="formu">
-          <div class="field" id="searchform">
-            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
-            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-          </div>
-        </form>
-      </div><br>
+                    <form action="buscadorIngresos.php" class="form_container" method="get" name="formu">
+                        <div class="field" id="searchform">
+                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                        </div>
+                    </form>
+                </div><br>
 
 
       <?php
 
       /* PAGINADOR */
 
-      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades");
+      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tingres");
 
       $resultado_registro = mysqli_fetch_assoc($sql_registro);
       $total_registro = $resultado_registro['total_registro'];
@@ -58,7 +63,7 @@
       $desde = ($pagina - 1) * $por_pagina;
       $total_paginas = ceil($total_registro / $por_pagina);
 
-      $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC LIMIT $desde,$por_pagina
+      $sql = mysqli_query($conexion, "SELECT * FROM tingres JOIN tdades ON tingres.nHc = tdades.nHc ORDER BY nom ASC LIMIT $desde,$por_pagina
 ");
 
       $resultado = mysqli_num_rows($sql);
@@ -82,8 +87,8 @@
 
         while ($row = mysqli_fetch_assoc($sql)) {
 
-          $nomPaciente = $row["nom"];
-          $cognomPaciente = $row["cognom"];
+          $nomIngreso = $row["nom"];
+          $cognomIngreso = $row["cognom"];
           $dni = $row["DNI"];
           $telefono = $row["telefon"];
 
@@ -92,8 +97,8 @@
           echo "
 
     <tr>
-        <td titulo='NOMBRE:'>$nomPaciente</td>
-        <td titulo='APELLIDOS:'>$cognomPaciente</td>
+        <td titulo='NOMBRE:'>$nomIngreso</td>
+        <td titulo='APELLIDOS:'>$cognomIngreso</td>
         <td titulo='DNI:'>$dni</td>
         <td titulo='TELEFONO:'>$telefono</td>
         <td titulo='ACCIONES:'>
@@ -116,35 +121,35 @@
       </table>
 
 
-      <div class="paginationUser">
-        <?php
-        if ($pagina > 1) {
-          echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
-        }
-
-        for ($i = 1; $i <= $total_paginas; $i++) {
-          if ($i == $pagina) {
-            echo "<li><a class='pagina-actual'>$i</a></li>";
-          } else {
-            echo "<li><a href='?pagina=$i'>$i</a></li>";
-          }
-        }
-
-        if ($pagina < $total_paginas) {
-          echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
-        }
-        ?>
-      </div>
-
+    <div class="paginationUser">
       <?php
+      if ($pagina > 1) {
+        echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
+      }
 
-      mysqli_close($conexion); //cierra la BBDD
+      for ($i = 1; $i <= $total_paginas; $i++) {
+        if ($i == $pagina) {
+          echo "<li><a class='pagina-actual'>$i</a></li>";
+        } else {
+          echo "<li><a href='?pagina=$i'>$i</a></li>";
+        }
+      }
 
+      if ($pagina < $total_paginas) {
+        echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
+      }
       ?>
-
-
-
     </div>
+
+    <?php
+
+    mysqli_close($conexion); //cierra la BBDD
+
+    ?>
+
+
+
+  </div>
   </div>
 
 </body>
