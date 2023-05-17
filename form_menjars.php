@@ -7,7 +7,7 @@ if (!empty($_POST)) {
     $alert = "";
     if (
         empty($_POST["alimentsNoGrassos"]) || empty($_POST["necessitatsAjudes"]) || empty($_POST["inapetenciaAnorexia"]) || empty($_POST["mida"]) || empty($_POST["pes"])
-        || empty($_POST["protesisDental"]) || empty($_POST["intolerancia"]) || empty($_POST["dietaHabitual"]) || empty($_POST["expectoracio"]) || empty($_POST["ID_ingreso"]) 
+        || empty($_POST["protesisDental"]) || empty($_POST["intolerancia"]) || empty($_POST["dietaHabitual"]) ||  empty($_POST["ID_ingreso"]) 
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
@@ -22,7 +22,6 @@ if (!empty($_POST)) {
         $protesisDental = $_POST["protesisDental"];
         $intolerancia = $_POST["intolerancia"];
         $dietaHabitual = $_POST["dietaHabitual"];
-        $expectoracio = $_POST["expectoracio"];
         $ID_ingreso = $_POST["ID_ingreso"];
         // $ID_const  = $_POST["ID_const"];
 
@@ -36,8 +35,8 @@ if (!empty($_POST)) {
         // if ($resultado > 0) {
         //     $alert = "<p class='msg_error'>El usuario ya existe</p>";
         // } else {
-            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (alimentsNoGrassos, necessitatsAjudes, inapetenciaAnorexia, mida, pes, protesisDental,intolerancia,dietaHabitual,expectoracio,ID_ingreso)
-            VALUES('$alimentsNoGrassos','$necessitatsAjudes','$inapetenciaAnorexia','$mida','$pes','$protesisDental','$intolerancia','$dietaHabitual','$expectoracio','$ID_ingreso')");
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (alimentsNoGrassos, necessitatsAjudes, inapetenciaAnorexia, mida, pes, protesisDental,intolerancia,dietaHabitual,ID_ingreso)
+            VALUES('$alimentsNoGrassos','$necessitatsAjudes','$inapetenciaAnorexia','$mida','$pes','$protesisDental','$intolerancia','$dietaHabitual','$ID_ingreso')");
 
             if ($query_insertar) {
                 $alert = "<p class='msg_correcto'> Dades insertades correctament</p>";
