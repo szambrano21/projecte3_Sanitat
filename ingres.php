@@ -173,7 +173,7 @@ if(!empty($_SESSION['activo'])){
                             // Recorrer los resultados y mostrar cada número de historial como una opción del select
                             while ($row = mysqli_fetch_assoc($query2)){
                                 
-                                echo '<option value="' . $row['nHc'] . '">' . $row['nHc'] . '</option>';
+                                echo '<option value="' . $row['nHc'] . '">'. $row['nom']. " - " . $row['nHc'] . '</option>';
                                 
                             }
                         
