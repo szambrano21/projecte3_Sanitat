@@ -208,46 +208,136 @@ if($resultado > 0) {
             <div class="chart-container">
                 <canvas id="temperatura-chart"></canvas>
             </div>
-            <script>
+          <?php
+ 
 
-            $(document).ready(function() {
-            var ctx = $('#temperatura-chart');
-            var temperaturaChart = new Chart(ctx, {
-                type: 'line',
-                data: {
+// ID del paciente específico
+$pacienteId = $_GET['ID']; // Reemplaza con el ID del paciente que deseas mostrar
+
+// Consulta para obtener las temperaturas y presiones arteriales del paciente específico
+$query = "SELECT temperatura, presioArterial FROM tconstants WHERE ID_ingreso IN (SELECT ID_ingreso FROM tingres WHERE ID_ingreso = $pacienteId)";
+$result = mysqli_query($conexion, $query);
+
+// Arreglos para almacenar las temperaturas y presiones arteriales
+$temperaturas = [];
+$presionesArteriales = [];
+
+// Obtener los datos de temperaturas y presiones arteriales
+while ($row = mysqli_fetch_assoc($result)) {
+  $temperaturas[] = $row['temperatura'];
+  $presionesArteriales[] = $row['presioArterial'];
+}
+
+
+?>
+
+<!-- Código HTML para mostrar el gráfico -->
+<div>
+    <canvas id="temperatura-chart"></canvas>
+</div>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    
+  }
+
+  th {
+    background-color: #f2f2f2;
+    border: 1px solid black;
+  }
+  td{
+    color: black;
+  }
+</style>
+<table>
+  <thead>
+    <tr>
+      <th>Mati</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25°C</td>
+      <td>120/80</td>
+      <td>120/80</td>
+      <td>120/80</td>
+    </tr>
+    <thead>
+    <tr>
+      <th>Tarda</th>
+    </tr>
+    </thead>
+      <td>25°C</td>
+      <td>120/80</td>
+      <td>120/80</td>
+      <td>120/80</td>
+    </tr>
+    <thead>
+    <tr>
+      <th>Nit</th>
+    </tr>
+    </thead>
+      <td>25°C</td>
+      <td>120/80</td>
+      <td>120/80</td>
+      <td>120/80</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Código JavaScript para generar el gráfico -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var ctx = document.getElementById("temperatura-chart").getContext("2d");
+        var temperaturaChart = new Chart(ctx, {
+            type: "line",
+            data: {
                 labels: <?php echo json_encode(range(1, count($temperaturas))); ?>,
-                datasets: 
-                [
-                    {
-                        label: 'Temperatura',
+                datasets: [{
+                        label: "Temperatura",
                         data: <?php echo json_encode($temperaturas); ?>,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(69, 140, 248, 0.8)',
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgba(69, 140, 248, 0.8)",
                         borderWidth: 1
                     },
                     {
-                        label: 'Presio Arterial',
-                        data: <?php echo json_encode($presioArterial); ?>,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
+                        label: "Presión Arterial",
+                        data: <?php echo json_encode($presionesArteriales); ?>,
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgba(255, 99, 132, 1)",
                         borderWidth: 1
                     }
-                ],
-
-                },
-                options: {
+                ]
+            },
+            options: {
                 scales: {
                     yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                  },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Gráfica de Temperatura y Presión Arterial',
+                    font: {
+                        size: 18
                     }
-                    }],
                 }
-                }
-            });
-            });
-    
-            </script>
+            }
+        }
+    });
+});
+</script>
+
             <!-- <canvas id="chart"></canvas>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
             <script src="js/chart.js"></script> -->
@@ -261,6 +351,7 @@ if($resultado > 0) {
                     <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
                 </p>
             </div>
+            <br>
             <div class="body">
                 <p>
                     <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>
