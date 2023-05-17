@@ -119,7 +119,7 @@ if($resultado_sql == 0){
                     </select>
                 </label>
             </fieldset>
-            <input class="btn_guardar" type="submit" value="Actualizar usuario">
+            <input class="submitForm" type="submit" value="Actualizar usuario">
             </form>
 
         </div>
