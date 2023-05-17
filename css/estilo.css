@@ -319,6 +319,7 @@ table td:last-child {
 input[type="submit"]:hover {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
     cursor: pointer;
+    background-color: rgb(219, 212, 212);
 }
 
 /* Estilos base para los radios del momentos del dia*/
@@ -373,7 +374,7 @@ input[type="submit"]:hover {
 }
 
 .form_dades_container .radio_input_section {
-    margin: 2em;
+    margin: 1em;
 }
 
 .form_dades_container input[type="file"] {
@@ -434,6 +435,10 @@ input[type="submit"]:hover {
 
     .input_conjunto {
         margin: 0 0 2em 0;
+    }
+
+    .form_dades_container .textarea_section label {
+        width: 80%;
     }
 
 }
