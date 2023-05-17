@@ -25,7 +25,7 @@ if (!empty($_POST)) {
         $ID_ingreso = $_POST["ID_ingreso"];
         // $ID_const  = $_POST["ID_const"];
 
-        
+        // print_r($_POST);
         
 
 
