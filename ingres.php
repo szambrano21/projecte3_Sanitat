@@ -157,7 +157,7 @@ if(!empty($_SESSION['activo'])){
                         <?php 
 
                         // $DNI = $_POST['dni'];
-                        $query2 = mysqli_query($conexion, "SELECT tdades.nHc
+                        $query2 = mysqli_query($conexion, "SELECT tdades.nHc, tdades.nom
                         FROM tdades
                         LEFT JOIN tingres ON tdades.nHc = tingres.nHc
                         WHERE tingres.nHc IS NULL;");
@@ -172,8 +172,9 @@ if(!empty($_SESSION['activo'])){
                         
                             // Recorrer los resultados y mostrar cada número de historial como una opción del select
                             while ($row = mysqli_fetch_assoc($query2)){
-                                
-                                echo '<option value="' . $row['nHc'] . '">' . $row['nHc'] . '</option>';
+                                $nom = $row['nom'];
+
+                                echo '<option value="' . $row['nHc'] . '">' .$nom."-".$row['nHc']. '</option>';
                                 
                             }
                         

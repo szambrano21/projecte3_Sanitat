@@ -7,7 +7,7 @@ if (!empty($_POST)) {
     $alert = "";
     if (
         empty($_POST["alimentsNoGrassos"]) || empty($_POST["necessitatsAjudes"]) || empty($_POST["inapetenciaAnorexia"]) || empty($_POST["mida"]) || empty($_POST["pes"])
-        || empty($_POST["protesisDental"]) || empty($_POST["intolerancia"]) || empty($_POST["dietaHabitual"]) ||  empty($_POST["ID_ingreso"]) 
+        || empty($_POST["protesisDental"]) || empty($_POST["intolerancia"]) || empty($_POST["dietaHabitual"]) ||  empty($_POST["ID_ingreso"]) ||  empty($_POST["hora"]) || empty($_POST["dia"])
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
@@ -70,7 +70,9 @@ if (!empty($_POST)) {
     include_once("header.php");
 
     ?>
-    <div class="form_dades_container">
+    <div class="container_general">
+    <div class="second_container">
+        <div class="form_dades_container">
         <h1>MENJAR I BEURE</h1>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
         <form action="" id="validate" method="post" class="commom_form">
@@ -84,6 +86,7 @@ if (!empty($_POST)) {
             </fieldset>
             <fieldset>
                 <label for="intolerancia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Intolerancia:<input id="intolerancia" name="intolerancia" type="text" /></label>
+                <label for="dia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Dia:<input id="intolerancia" name="dia" type="text" /></label>
             </fieldset>
             <fieldset class="radio_input_section">
                 <div><i class="fa-solid fa-handshake-angle"></i>
@@ -103,10 +106,19 @@ if (!empty($_POST)) {
                     <label for="protesisDental"><input id="protesisDental-0" type="radio" name="protesisDental" class="inline" value="0"/> No</label>
                 </div>
             </fieldset>
+            <div class="hora_dia">
+                <input type="radio" name="hora" id="dia" value="dia">
+                <label for="hora">dia</label>
+                <input type="radio" name="hora" id="tarda">
+                <label for="hora">tarda</label>
+                <input type="radio" name="hora" id="nit">
+                <label for="hora">nit</label>
+            </div>
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
             <input type="submit" value="Submit" class="submitForm"/>
         </form>
-    </div>
+        </div>
+        </div>
 </body>
 
 </html>

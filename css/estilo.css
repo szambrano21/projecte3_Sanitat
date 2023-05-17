@@ -106,10 +106,11 @@ table td:last-child {
     margin: 0 2px;
     height: 100%;
     padding: 10px;
-    width: 100%;
+    width: 100% !important;
     background-color: #0876DC;
     border: 1px solid #2980D0;
 }
+
 
 .link_eliminar {
     color: white;
@@ -635,7 +636,7 @@ input[type="submit"]:hover {
     position: fixed;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 220px;
     background-color: #FFF;
     height: 100vh;
     overflow: auto;
@@ -829,7 +830,7 @@ input[type="submit"]:hover {
 }
 
 .container_activo {
-    padding: 0 0 0 200px;
+    padding: 0 0 0 220px;
     background: white;
     width: 100%;
 }
@@ -1251,6 +1252,7 @@ div.pagination button:hover:not(.pagina-actual) {
     margin: 15px;
 }
 
+
 /*
 .hero {
     width: 100%;
@@ -1327,3 +1329,11 @@ div.pagination button:hover:not(.pagina-actual) {
     flex-basis: 48%;
   }
 */
+
+/* TITULILLOS */
+
+.second_container .titulos{
+    border-bottom: 2px solid black;
+    padding: 5px 0;
+    margin: 20px 0;
+}

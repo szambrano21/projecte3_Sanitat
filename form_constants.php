@@ -69,6 +69,9 @@ include_once("header.php");
 </head>
 
 <body>
+<div class="container_general">
+
+<div class="second_container">
 
     <div class="form_dades_container">
         <h1>CONSTANTS</h1>
@@ -122,6 +125,8 @@ include_once("header.php");
             <input type="submit" value="Submit" class="submitForm">
         </form>
     </div>
+</div>
+</div>
 </body>
 
 </html>

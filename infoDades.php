@@ -81,8 +81,9 @@ $entornFamiliar = $row["entornFamiliar"];
 $procedencia = $row["procedencia"];
 ?>
 
-<div class="container container_general" >
 
+<div class="container_general">
+    <div class="second_container">
     <div class="container_target">
       
       <div class="target">
@@ -216,10 +217,17 @@ $procedencia = $row["procedencia"];
               <p><a class='link_editar' href='editar_ingres.php?nHc=<?php echo $nHc?>'>EDITAR</a></p>
             </div>
         </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Imprimir información completa</h3>
+              <br>
+              <p><a class='link_editar' id="link_imprimir" href="info_paciente.php?nHc=<?php echo $nHc; ?>">IMPRIMIR</a></p>
+            </div>
+        </div>
         <!-- <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a> -->
       </div>
      
-
+    </div>
     </div>
     </div>
     
@@ -400,8 +408,13 @@ $procedencia = $row["procedencia"];
               Modificación de datos
             </span>
             <div class="body">
+              <p>
+                <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
+              </p>
+            </div>
+            <div class="body">
                 <p>
-                    <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
+                    <a class='link_editar' href='info_paciente.php?DNI=$dni'>IMPRIMIR</a>
                 </p>
             </div>
             <div class="body">

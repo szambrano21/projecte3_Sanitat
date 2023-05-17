@@ -70,7 +70,9 @@ if (!empty($_POST)) {
     include_once("header.php");
 
     ?>
-    <div class="form_dades_container">
+<div class="container_general">
+    <div class="second_container">
+        <div class="form_dades_container">
         <h1>Respiració</h1>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
         <form action="" id="validate" method="post" class="commom_form">
@@ -115,6 +117,8 @@ if (!empty($_POST)) {
             <input class="submitForm" type="submit" value="Submit" />
         </form>
     </div>
+    </div>
+
 </body>
 
 </html>
