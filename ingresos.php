@@ -61,10 +61,10 @@ include_once('connexiobbddsanitat.php');
         <div class="container_general">
             <div class="second_container">
 
-      <h1 class="titulos">SALAS</h1>
+      <h1 class="titulos">SALES</h1>
 
                 <div class="anadir_busca">
-                    <a href="ingres.php">AÑADIR NUEVO INGRESO</a>
+                    <a href="ingres.php">AFEGIR NOU INGRÉS</a>
 
                     <form action="proba_buscador_paciente.php" class="form_container" method="get" name="formu">
                         <div class="field" id="searchform">

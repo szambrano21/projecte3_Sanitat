@@ -28,34 +28,34 @@
     <div class="container_general">
 
         <div class="second_container">
-            <h1 class="titulos">BIENVENIDO</h1>
+            <h1 class="titulos">BENVINGUT</h1>
             <div class="navegacion">
                 <a href="inicial.php">Home ></a>&nbsp<p>DASHBOARD</p>
             </div>
             <div class="containerPanelControl">
                 <div>
-                    <h1>PANEL DE CONTROL</h1>
+                    <h1>PANELL DE CONTROL</h1>
                 </div>
                 <div class="panel">
 
                     <a href="listado_usuarios.php">
                         <i class="fa-solid fa-users"></i>
                         <p>
-                            <b>USUARIOS</b><br>
+                            <b>USUARIS</b><br>
                             <span><?php echo $conteos['tusuaris']; ?></span>
                         </p>
                     </a>
                     <a href="#.php">
                         <i class="fa-solid fa-dna"></i>
                         <p>
-                            <b>PACIENTES (DATOS)</b><br>
+                            <b>PACIENTS (DADES)</b><br>
                             <span><?php echo $conteos['tdades']; ?></span>
                         </p>
                     </a>
                     <a href="#.php">
                         <i class="fa-solid fa-dna"></i>
                         <p>
-                            <b>INGRESADOS</b><br>
+                            <b>INGRESSATS</b><br>
                             <span><?php echo $conteos['tingres']; ?></span>
                         </p>
                     </a>

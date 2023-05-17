@@ -24,14 +24,14 @@
   <div class="container_general">
     <div class="second_container">
 
-      <h1 class="titulos">LISTA DE PACIENTES</h1>
+      <h1 class="titulos">LLISTA DE PACIENTS</h1>
 
       <div class="anadir_busca">
-        <a href="form_nuevo_paciente.php">AÑADIR NUEVO PACIENTE</a>
+        <a href="form_nuevo_paciente.php">AFEGIR NOU PACIENT</a>
 
         <form action="buscadorPacientes.php" class="form_container" method="get" name="formu">
           <div class="field" id="searchform">
-            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Col·loca DNI o nom" />
             <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
           </div>
         </form>
@@ -70,11 +70,11 @@
   <table class='tablas_usuarios'>
     <thead>
       <tr>
-          <th>NOMBRE</th>
-          <th>APELLIDOS</th>
+          <th>NOM</th>
+          <th>COGNOMS</th>
           <th>DNI</th>
-          <th>TELEFONO</th>
-          <th>ACCIONES</th>
+          <th>TELÈFON</th>
+          <th>ACCIONS</th>
       </tr>
     </thead>
 
