@@ -3,6 +3,7 @@
 include_once('connexiobbddsanitat.php');
  //recogemos id
 $ID = $_GET['ID'];
+$nHc = $_GET['nHc'];
 
 if (!empty($_POST)) {
     $alert = "";
@@ -27,7 +28,6 @@ if (!empty($_POST)) {
         $dia = $_POST["dia"];
         $hora = $_POST["hora"];
         // $ID_const  = $_POST["ID_const"];
-        $ID_ingreso = $_POST['ID_ingreso'];
        
 
 
@@ -56,7 +56,7 @@ if (!empty($_POST)) {
         // }else{
         //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
         // }
-        
+        print_r($_POST);
     }
 }
 
@@ -105,22 +105,22 @@ if (!empty($_POST)) {
                 </div>
                 <div><i class="fa-sharp fa-solid fa-teeth-open"></i>
                     Protesis dental: <br>
-                    <label for="protesisDental"><input id="protesisDental-1" type="radio" name="protesisDental" class="inline" value="1"/> Si</label>
-                    <label for="protesisDental"><input id="protesisDental-0" type="radio" name="protesisDental" class="inline" value="0"/> No</label>
+                    <label for="protesisDental"><input id="protesisDental-1" type="radio" name="protesisDental" class="inline" value="si"/> Si</label>
+                    <label for="protesisDental"><input id="protesisDental-0" type="radio" name="protesisDental" class="inline" value="no"/> No</label>
                 </div>
             </fieldset>
             <div class="hora_dia">
                 <input type="radio" name="hora" id="dia" value="dia">
                 <label for="dia">dia</label>
-                <input type="radio" name="hora" id="tarda">
+                <input type="radio" name="hora" id="tarda" value="tarda">
                 <label for="tarda">tarda</label>
-                <input type="radio" name="hora" id="nit">
+                <input type="radio" name="hora" id="nit" value="nit">
                 <label for="nit">nit</label>
             </div>
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
             <fieldset>
                 <input type="submit" value="Submit" class="submitForm"/>
-                <a href="infoMenjars.php?ID=<?php echo $ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Menjars</a>
+                <a href="infoMenjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Menjars</a>
             </fieldset>
         </form>
         </div>

@@ -1,5 +1,6 @@
 <?php include_once("scripts.php");
 include_once('connexiobbddsanitat.php');
+$nHc = $_GET['nHc'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -184,6 +185,7 @@ include_once('connexiobbddsanitat.php');
         </thead>
         <thead>
           <tr>
+
             <th>
               <h1>Dia</h1>
             </th>
@@ -208,6 +210,12 @@ include_once('connexiobbddsanitat.php');
             <th>
               <h1>dietaHabitual</h1>
             </th>
+            <th>
+              <h1>Editar</h1>
+            </th>
+            <th>
+              <h1>Eliminar</h1>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -223,6 +231,8 @@ include_once('connexiobbddsanitat.php');
             $dietaHabitual = $row["dietaHabitual"];
             $protesisDental = $row["protesisDental"];
             $dia = $row["dia"];
+            $ID_menjar = $row["ID_menjar"];
+            $ID_ingreso = $row["ID_ingreso"];
           ?>
           <tr>
             <td><?php echo $dia ?></td>
@@ -233,6 +243,8 @@ include_once('connexiobbddsanitat.php');
             <td><?php echo $protesisDental ?></td>
             <td><?php echo $intolerancia ?></td>
             <td><?php echo $dietaHabitual ?></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php??nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
         </tbody>
@@ -250,7 +262,7 @@ include_once('connexiobbddsanitat.php');
               </thead>
               <tbody>
                 <tr>
-                  <th><a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                  <th><a href="form_menjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
                 </tr>
               </tbody>
             </table>
@@ -265,7 +277,7 @@ include_once('connexiobbddsanitat.php');
 
             $sql = mysqli_query($conexion, "SELECT *
             FROM tmenjars
-            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'tarde'
+            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'tarda'
             ");
 
 
@@ -281,6 +293,7 @@ include_once('connexiobbddsanitat.php');
         </thead>
         <thead>
           <tr>
+            
             <th>
               <h1>DIA</h1>
             </th>
@@ -305,6 +318,12 @@ include_once('connexiobbddsanitat.php');
             <th>
               <h1>dietaHabitual</h1>
             </th>
+            <th>
+              <h1>Editar</h1>
+            </th>
+            <th>
+              <h1>Eliminar</h1>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -320,6 +339,7 @@ include_once('connexiobbddsanitat.php');
             $dietaHabitual = $row["dietaHabitual"];
             $protesisDental = $row["protesisDental"];
             $dia = $row["dia"];
+            $ID_menjar = $row["ID_menjar"];
           ?>
           <tr>
             <td><?php echo $dia ?></td>
@@ -330,8 +350,13 @@ include_once('connexiobbddsanitat.php');
             <td><?php echo $protesisDental ?></td>
             <td><?php echo $intolerancia ?></td>
             <td><?php echo $dietaHabitual ?></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php??nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
+
           </tr>
-          <?php } ?>
+          <?php 
+          } 
+          ?>
         </tbody>
       </table>
       <?php
@@ -347,7 +372,7 @@ include_once('connexiobbddsanitat.php');
               </thead>
               <tbody>
                 <tr>
-                  <th><a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                <th><a href="form_menjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
                 </tr>
               </tbody>
             </table>
@@ -361,7 +386,7 @@ include_once('connexiobbddsanitat.php');
 
             $sql = mysqli_query($conexion, "SELECT *
             FROM tmenjars
-            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'noche'
+            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'nit'
             ");
 
 
@@ -381,6 +406,7 @@ if (mysqli_num_rows($sql) > 0) {
         </thead>
         <thead>
           <tr>
+
             <th>
               <h1>DIA</h1>
             </th>
@@ -405,6 +431,9 @@ if (mysqli_num_rows($sql) > 0) {
             <th>
               <h1>dietaHabitual</h1>
             </th>
+            <th>
+              <h1>Editar</h1>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -420,8 +449,10 @@ if (mysqli_num_rows($sql) > 0) {
             $dietaHabitual = $row["dietaHabitual"];
             $protesisDental = $row["protesisDental"];
             $dia = $row["dia"];
+            $ID_menjar = $row["ID_menjar"];
           ?>
           <tr>
+            
             <td><?php echo $dia ?></td>
             <td><?php echo $mida ?></td>
             <td><?php echo $pes ?></td>
@@ -430,6 +461,8 @@ if (mysqli_num_rows($sql) > 0) {
             <td><?php echo $protesisDental ?></td>
             <td><?php echo $intolerancia ?></td>
             <td><?php echo $dietaHabitual ?></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php??nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
         </tbody>
@@ -447,13 +480,14 @@ if (mysqli_num_rows($sql) > 0) {
               </thead>
               <tbody>
                 <tr>
-                  <th><a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                <th><a href="form_menjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
                 </tr>
               </tbody>
             </table>
             
             <?php
           }
+          
               ?>
     </div>
   </div>
