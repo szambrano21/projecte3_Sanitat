@@ -324,6 +324,12 @@ input[type="submit"]:hover {
     background-color: rgb(219, 212, 212);
 }
 
+.login a:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    background-color: rgb(219, 212, 212);
+}
+
 /* Estilos base para los radios del momentos del dia*/
 .hora_dia {
     padding: 2em 0 1em;
