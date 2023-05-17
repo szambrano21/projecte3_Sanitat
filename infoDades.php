@@ -210,6 +210,13 @@ $procedencia = $row["procedencia"];
               <p><a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a></p>
             </div>
         </div>
+        <div class="grid">
+            <div class="col">
+              <h3>Imprimir información completa</h3>
+              <br>
+              <p><a class='link_editar' id="link_imprimir" href='info_paciente.php?DNI=$dni'>IMPRIMIR</a></p>
+            </div>
+        </div>
         <!-- <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a> -->
       </div>
     </div>
