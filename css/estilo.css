@@ -177,13 +177,12 @@ table td:last-child {
     background-color: #F2F0F8;
 }
 
-
 /* BUSCADOR */
-
+/* 
 .form_container {
     width: 100%;
     max-width: 500px;
-}
+} */
 
 .form_busqueda {
     display: flex;
@@ -216,8 +215,7 @@ table td:last-child {
     width: 300px;
 }
 
-/* FORMULARIO*/
-/* FORMULARIO */
+/* FORMULARIOS DE DATOS DEL PACIENTE*/
 .form_dades_container {
     border-radius: 30px;
     margin: 0 auto 30px auto;
@@ -271,24 +269,24 @@ table td:last-child {
     font-size: 1.2rem;
 }
 
-.form_dades_container .hora_dia input,
-.form_dades_container .hora_dia fieldset textarea,
-.form_dades_container .hora_dia fieldset select {
+/* .form_dades_container .hora_dia input,
+.form_dades_container .hora_dia textarea,
+.form_dades_container .hora_dia select {
     margin: 10px 0 0 0;
     width: 10%;
     min-height: 2em;
     font-size: 1.2rem;
-}
+} */
 
-.form_dades_container input,
-.form_dades_container textarea {
+.form_dades_container fieldset input,
+.form_dades_container fieldset textarea {
     background-color: #0a0a23;
     border: 1px solid #0a0a23;
     color: #ffffff;
     padding: 0.5rem;
 }
 
-.form_dades_container input[type="radio"] {
+.form_dades_container fieldset input[type="radio"] {
     height: 3em;
 }
 
@@ -439,6 +437,7 @@ input[type="submit"]:hover {
     }
 
 }
+
 /* BARRA DE BUSQUEDA */
 
 .field {
@@ -949,7 +948,7 @@ hr {
     border: 0;
     background-color: #ccc;
     height: 1px;
-    margin: 10px 0;
+    margin: 10px 0 30px;
 }
 
 .container_registrar form {
@@ -1069,7 +1068,7 @@ hr {
     background: #C12222;
 }
 
-.prototipo{
+.prototipo {
     background-color: #F0F0F0;
     color: black;
 }
