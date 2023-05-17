@@ -12,7 +12,7 @@ include_once('connexiobbddsanitat.php');
     ?>
     <script src="js/ingresos.js"></script>
 
-    <title>Ingresos</title>
+    <title>Salas</title>
 </head>
 
 <body>
@@ -61,9 +61,10 @@ include_once('connexiobbddsanitat.php');
         <div class="container_general">
             <div class="second_container">
 
-                <div class="espacio_arriba"></div>
+      <h1 class="titulos">SALES</h1>
+
                 <div class="anadir_busca">
-                    <a href="ingres.php">AÑADIR NUEVO</a>
+                    <a href="ingres.php">AFEGIR NOU INGRÉS</a>
 
                     <form action="proba_buscador_paciente.php" class="form_container" method="get" name="formu">
                         <div class="field" id="searchform">

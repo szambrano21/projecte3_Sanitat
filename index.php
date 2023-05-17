@@ -11,7 +11,33 @@ if(!empty($_SESSION['activo'])){
 if(!empty($_POST)){
     if(empty($_POST["username"]) || empty($_POST["password"]) ) {
         $alert = "INGRESA TU USUARIO Y CONTRASEÑA";
-    }else{
+    }else if($_POST["clau_temporal"]){
+
+        include_once('connexiobbddsanitat.php');
+
+        $clau = $_POST["clau_temporal"];
+
+        $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE codi = '$clau' ");
+        $resultado = mysqli_num_rows($query);
+
+        if($resultado > 0){
+
+            while ($row = mysqli_fetch_assoc($query)) {
+
+                $codi = $row["codi"];
+      
+                if ($clau == $codi) {
+                    header("location: registrar_usuario_nuevo.php");
+
+                }
+
+              }
+        }else{
+            $alert = "LA CLAU ÉS INCORRECTA";
+        }
+
+    }
+    else{
         include_once('connexiobbddsanitat.php');
         $user = mysqli_real_escape_string($conexion, $_POST["username"]);
         $pass = mysqli_real_escape_string($conexion, $_POST["password"]);
@@ -69,14 +95,12 @@ if(!empty($_POST)){
         <span>admin</span>
         </label>
         <div class="alert"><?php echo isset($alert) ? $alert : ''; ?> </div>
+        
+        <label>
+            <p>clave temporal</p>
+            <input placeholder="clau_temporal" type="clau_temporal" name="clau_temporal" id="clau_temporal">
+        </label>
 
-        <div class="container_link">
-            <div class="check_remember">
-                <input type="checkbox" name="guardar" id="guardar">
-                <a href="" class="link">Remember me</a>
-            </div>
-            <a href="" class="link">Forgot your password?</a>
-        </div>
         <br>
         <input type="submit" value="LOGIN" class="button">
     </form>

@@ -1,6 +1,3 @@
-<?php
-include_once('connexiobbddsanitat.php');
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,24 +24,65 @@ include_once('connexiobbddsanitat.php');
     <div class="second_container">
 
 
-      <!-- BARRA DE NAVEGACION -->
-
+      <h1 class="titulos">LLISTA D'USUARIOS</h1>
 
 
       <!-- ESPACIO -->
       <div class="anadir_busca">
-                    <a href="crear_usuari.php">AÑADIR NUEVO</a>
+        <a href="crear_usuari.php">AFEGIR NOU USUARI</a>
 
-                    <form action="buscadorUsuari.php" class="form_container" method="get" name="formu">
-                        <div class="field" id="searchform">
-                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
-                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-                        </div>
-                    </form>
-                </div><br>
+        <form action="buscadorUsuari.php" class="form_container" method="get" name="formu">
+          <div class="field" id="searchform">
+            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Col·loca DNI o nom" />
+            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+          </div>
+        </form>
+      </div>
+
+      <h3 style="padding: 10px 4px 0 4px">Col·loca clau login</h3>
+      <form action="#" method="post" name="clau" class="form_container" style="margin: 10px 4px">
+
+        <div class="field" id="searchform">
+
+        <input class="inputs" id="codi" name="codi" type="text" placeholder="Col·loca la clau" style="flex:initial"/>
+        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+        </div>
+
+      </form>
+      <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
 
 
       <?php
+
+      /* CLAVE LOGIN */
+
+      
+      if($_POST){
+        $nom = $_SESSION['nombre'];
+
+      $codi = $_POST["codi"];
+
+      $query = mysqli_query($conexion,"SELECT * FROM tusuaris WHERE nomUsuari = '$nom'");
+      $resultado = mysqli_fetch_assoc($query);
+
+      if ($resultado) {
+        // El usuario existe, actualizar el campo 'codi'
+        $query_actualizar = mysqli_query($conexion, "UPDATE tusuaris SET codi = '$codi' WHERE nomUsuari = '$nom'");
+      
+        if ($query_actualizar) {
+          $alert = "<p class='msg_correcto'>El código ha sido insertado correctamente en el usuario.</p>";
+        } else {
+          $alert = "<p class='msg_error'>Error al actualizar el código del usuario.</p>";
+        }
+      } else {
+        $alert = "<p class='msg_error'>El usuario no existe.</p>";
+      }
+
+
+
+      }
+
+
 
       /* PAGINADOR */
 
@@ -76,11 +114,11 @@ include_once('connexiobbddsanitat.php');
   <table class='tablas_usuarios'>
     <thead>
       <tr>
-          <th>NOMBRE</th>
-          <th>APELLIDOS</th>
-          <th>DNI</th>
-          <th>TELEFONO</th>
-          <th>ACCIONES</th>
+        <th>NOM</th>
+        <th>COGNOMS</th>
+        <th>DNI</th>
+        <th>TELÈFON</th>
+        <th>ACCIONS</th>
       </tr>
     </thead>
 
@@ -122,35 +160,35 @@ include_once('connexiobbddsanitat.php');
       </table>
 
 
-    <div class="paginationUser">
-      <?php
-      if ($pagina > 1) {
-        echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
-      }
-
-      for ($i = 1; $i <= $total_paginas; $i++) {
-        if ($i == $pagina) {
-          echo "<li><a class='pagina-actual'>$i</a></li>";
-        } else {
-          echo "<li><a href='?pagina=$i'>$i</a></li>";
+      <div class="paginationUser">
+        <?php
+        if ($pagina > 1) {
+          echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
         }
-      }
 
-      if ($pagina < $total_paginas) {
-        echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
-      }
+        for ($i = 1; $i <= $total_paginas; $i++) {
+          if ($i == $pagina) {
+            echo "<li><a class='pagina-actual'>$i</a></li>";
+          } else {
+            echo "<li><a href='?pagina=$i'>$i</a></li>";
+          }
+        }
+
+        if ($pagina < $total_paginas) {
+          echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
+        }
+        ?>
+      </div>
+
+      <?php
+
+      mysqli_close($conexion); //cierra la BBDD
+
       ?>
+
+
+
     </div>
-
-    <?php
-
-    mysqli_close($conexion); //cierra la BBDD
-
-    ?>
-
-
-
-  </div>
   </div>
 
 </body>

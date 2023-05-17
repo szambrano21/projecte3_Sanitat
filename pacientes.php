@@ -1,6 +1,3 @@
-<?php
-include_once('connexiobbddsanitat.php');
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +7,7 @@ include_once('connexiobbddsanitat.php');
   include_once('connexiobbddsanitat.php');
 
   ?>
-    <title>Pacientes</title>
+  <title>Pacientes</title>
 
 </head>
 
@@ -27,22 +24,18 @@ include_once('connexiobbddsanitat.php');
   <div class="container_general">
     <div class="second_container">
 
+      <h1 class="titulos">LLISTA DE PACIENTS</h1>
 
-      <!-- BARRA DE NAVEGACION -->
-
-
-
-      <!-- ESPACIO -->
       <div class="anadir_busca">
-                    <a href="form_nuevo_paciente.php">AÑADIR NUEVO</a>
+        <a href="form_nuevo_paciente.php">AFEGIR NOU PACIENT</a>
 
-                    <form action="buscadorPacientes.php" class="form_container" method="get" name="formu">
-                        <div class="field" id="searchform">
-                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
-                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-                        </div>
-                    </form>
-                </div><br>
+        <form action="buscadorPacientes.php" class="form_container" method="get" name="formu">
+          <div class="field" id="searchform">
+            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Col·loca DNI o nom" />
+            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+          </div>
+        </form>
+      </div><br>
 
 
       <?php
@@ -77,11 +70,11 @@ include_once('connexiobbddsanitat.php');
   <table class='tablas_usuarios'>
     <thead>
       <tr>
-          <th>NOMBRE</th>
-          <th>APELLIDOS</th>
+          <th>NOM</th>
+          <th>COGNOMS</th>
           <th>DNI</th>
-          <th>TELEFONO</th>
-          <th>ACCIONES</th>
+          <th>TELÈFON</th>
+          <th>ACCIONS</th>
       </tr>
     </thead>
 
@@ -123,35 +116,35 @@ include_once('connexiobbddsanitat.php');
       </table>
 
 
-    <div class="paginationUser">
-      <?php
-      if ($pagina > 1) {
-        echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
-      }
-
-      for ($i = 1; $i <= $total_paginas; $i++) {
-        if ($i == $pagina) {
-          echo "<li><a class='pagina-actual'>$i</a></li>";
-        } else {
-          echo "<li><a href='?pagina=$i'>$i</a></li>";
+      <div class="paginationUser">
+        <?php
+        if ($pagina > 1) {
+          echo "<li><a href='?pagina=" . ($pagina - 1) . "'>Anterior</a></li>";
         }
-      }
 
-      if ($pagina < $total_paginas) {
-        echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
-      }
+        for ($i = 1; $i <= $total_paginas; $i++) {
+          if ($i == $pagina) {
+            echo "<li><a class='pagina-actual'>$i</a></li>";
+          } else {
+            echo "<li><a href='?pagina=$i'>$i</a></li>";
+          }
+        }
+
+        if ($pagina < $total_paginas) {
+          echo "<li><a href='?pagina=" . ($pagina + 1) . "'>Siguiente</a></li>";
+        }
+        ?>
+      </div>
+
+      <?php
+
+      mysqli_close($conexion); //cierra la BBDD
+
       ?>
+
+
+
     </div>
-
-    <?php
-
-    mysqli_close($conexion); //cierra la BBDD
-
-    ?>
-
-
-
-  </div>
   </div>
 
 </body>

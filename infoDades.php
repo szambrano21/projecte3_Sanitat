@@ -5,6 +5,11 @@ include_once('connexiobbddsanitat.php');
 <link rel="stylesheet" href="css/infoStyles.css">
 </head>
 <style>
+
+  h1{
+    color: black;
+  }
+
   .target, .target-2{
     background-color: #1F354A;
     width: 350px;
@@ -80,6 +85,12 @@ $antecendentsPatologics = $row["antecendentsPatologics"];
 $entornFamiliar = $row["entornFamiliar"];
 $procedencia = $row["procedencia"];
 ?>
+
+<div class="container_general">
+<div class="second_container">
+
+
+<h1 class="titulos">TABLA PACIENTE</h1>
 
 <div class="container container_general" >
 
@@ -203,11 +214,17 @@ $procedencia = $row["procedencia"];
               <p><?php echo $assignacioLlit;?></p>
             </div>
         </div>
+        <hr>
         <div class="grid">
-            <div class="col">
-              <h3>Editar datos de ingreso</h3>
+            <!-- <div class="col">
+              <h3>Nou ingres</h3>
               <br>
-              <p><a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a></p>
+              <p><a class='link_editar' href='ingres.php?NHC=<?php echo $nHc?>'>+</a></p>
+            </div> -->
+            <div class="col">
+              <h3>Editar dades d'ingres</h3>
+              <br>
+              <p><a class='link_editar' href='editar_ingres.php?nHc=<?php echo $nHc?>'>EDITAR</a></p>
             </div>
         </div>
         <div class="grid">
@@ -219,7 +236,11 @@ $procedencia = $row["procedencia"];
         </div>
         <!-- <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a> -->
       </div>
+     
+
     </div>
+    </div>
+    
   <!-- <div class="content">
     <div class="page active" data-page="dashboard">
       <!-- <div class="header">
@@ -526,4 +547,6 @@ $procedencia = $row["procedencia"];
     </div>
   </div>
 </div> -->
+</div>
+</div>
 </body>
