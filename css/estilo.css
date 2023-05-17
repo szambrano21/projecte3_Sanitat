@@ -631,7 +631,7 @@ input[type="submit"]:hover {
     position: fixed;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 220px;
     background-color: #FFF;
     height: 100vh;
     overflow: auto;
@@ -825,7 +825,7 @@ input[type="submit"]:hover {
 }
 
 .container_activo {
-    padding: 0 0 0 200px;
+    padding: 0 0 0 220px;
     background: white;
     width: 100%;
 }
@@ -1323,3 +1323,11 @@ div.pagination button:hover:not(.pagina-actual) {
     flex-basis: 48%;
   }
 */
+
+/* TITULILLOS */
+
+.second_container .titulos{
+    border-bottom: 2px solid black;
+    padding: 5px 0;
+    margin: 20px 0;
+}
