@@ -82,7 +82,7 @@ include_once('connexiobbddsanitat.php');
                     </span>
                 </a>
 
-                <a class="btn" id="menjars" href="form_menjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"> <span>
+                <a class="btn" id="menjars" href="infoMenjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"> <span>
                 <i class="fa-solid fa-utensils"></i>
                         <h2>Menjars</h2>
                     </span>

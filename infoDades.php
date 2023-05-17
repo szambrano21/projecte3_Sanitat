@@ -81,8 +81,9 @@ $entornFamiliar = $row["entornFamiliar"];
 $procedencia = $row["procedencia"];
 ?>
 
-<div class="container container_general" >
 
+<div class="container_general">
+    <div class="second_container">
     <div class="container_target">
       
       <div class="target">
@@ -226,7 +227,7 @@ $procedencia = $row["procedencia"];
         <!-- <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a> -->
       </div>
      
-
+    </div>
     </div>
     </div>
     
