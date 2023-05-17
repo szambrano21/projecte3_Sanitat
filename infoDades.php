@@ -181,8 +181,13 @@ include_once('connexiobbddsanitat.php');
               Modificación de datos
             </span>
             <div class="body">
+              <p>
+                <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
+              </p>
+            </div>
+            <div class="body">
                 <p>
-                    <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>
+                    <a class='link_editar' href='info_paciente.php?DNI=$dni'>IMPRIMIR</a>
                 </p>
             </div>
             <div class="body">

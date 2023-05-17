@@ -106,7 +106,7 @@ table td:last-child {
     margin: 0 2px;
     height: 100%;
     padding: 10px;
-    width: 100%;
+    width: 100% !important;
     background-color: #0876DC;
     border: 1px solid #2980D0;
 }
@@ -1019,6 +1019,7 @@ div.pagination button:hover:not(.pagina-actual) {
     font-size: 15px;
     margin: 15px;
 }
+
 
 /*
 .hero {
