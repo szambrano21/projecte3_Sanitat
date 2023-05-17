@@ -216,7 +216,229 @@ table td:last-child {
     width: 300px;
 }
 
+/* FORMULARIO*/
+/* FORMULARIO */
+.form_dades_container {
+    border-radius: 30px;
+    margin: 0 auto 30px auto;
+    width: 96%;
+    max-width: 1000px;
+    height: auto;
+    background-color: #1b1b32;
+    color: #f5f6f7;
+    padding: 20px;
+    font-family: Tahoma;
+    font-size: 18px;
+}
 
+.form_dades_container h1 {
+    margin: 0.5em auto;
+    text-align: center;
+}
+
+.form_dades_container .commom_form {
+    max-width: 800px;
+    min-width: 300px;
+    margin: auto;
+    display: flex;
+    padding-bottom: 2em;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_dades_container fieldset {
+    margin: auto;
+    border: none;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.form_dades_container fieldset label {
+    margin: 0.5rem 0;
+    width: 45%;
+}
+
+.form_dades_container fieldset input,
+.form_dades_container fieldset textarea,
+.form_dades_container fieldset select {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+    font-size: 1.2rem;
+}
+
+.form_dades_container .hora_dia input,
+.form_dades_container .hora_dia fieldset textarea,
+.form_dades_container .hora_dia fieldset select {
+    margin: 10px 0 0 0;
+    width: 10%;
+    min-height: 2em;
+    font-size: 1.2rem;
+}
+
+.form_dades_container input,
+.form_dades_container textarea {
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+    padding: 0.5rem;
+}
+
+.form_dades_container input[type="radio"] {
+    height: 3em;
+}
+
+.form_dades_container .radio_input_section fieldset {
+    display: inline-block;
+    margin: 10px 15px 0 0;
+    width: 30%;
+    margin: 0.5rem 0;
+}
+
+.form_dades_container .inline {
+    width: unset;
+    margin: 0 0 0 0.5em;
+    vertical-align: middle;
+}
+
+.form_dades_container .submitForm {
+    border-radius: 10px;
+    display: flex;
+    width: calc(50% - 0.5vw);
+    margin: 2em auto 0 auto;
+    height: 2.2em;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #3b3b4f;
+    border-color: white;
+}
+
+input[type="submit"]:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+/* Estilos base para los radios del momentos del dia*/
+.hora_dia {
+    padding: 2em 0 1em;
+}
+
+.form_dades_container .hora_dia input[type="radio"] {
+    display: none;
+    /* Ocultar los radios originales */
+}
+
+/* Estilos para las etiquetas de los radios */
+.form_dades_container .hora_dia label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Estilos para el radio seleccionado - Dia */
+.hora_dia input[type="radio"]#dia:checked+label {
+    box-shadow: 0px 0px 8px rgb(126, 186, 214);
+    background-color: rgb(126, 186, 214);
+    color: #333;
+}
+
+/* Estilos para el radio seleccionado - Tarda */
+.hora_dia input[type="radio"]#tarda:checked+label {
+    box-shadow: 0px 0px 8px rgb(222, 166, 61);
+    background-color: rgb(222, 166, 61);
+    color: #fff;
+}
+
+/* Estilos para el radio seleccionado - Nit */
+.hora_dia input[type="radio"]#nit:checked+label {
+    box-shadow: 0px 0px 8px rgb(118, 62, 192);
+    background-color: rgb(118, 62, 192);
+    color: #fff;
+}
+
+.form_dades_container .radio_input_section label {
+    margin: 0 15px 0 0;
+}
+
+.form_dades_container .radio_label {
+    width: 45%;
+    margin: 0.5em;
+}
+
+.form_dades_container .radio_input_section {
+    margin: 2em;
+}
+
+.form_dades_container input[type="file"] {
+    padding: 1px 2px;
+}
+
+.form_dades_container textarea {
+    resize: none;
+    height: 15vh;
+}
+
+.form_dades_container .textarea_section label {
+    width: 100%;
+}
+
+.input_conjunto {
+    margin: 0.5rem 0 0 0;
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 750px) {
+    .form_dades_container fieldset label {
+        width: 80%;
+        margin: 0 0 2em 0;
+    }
+
+    .form_dades_container .radio_input_section label {
+        margin: 0 15px 0 0;
+    }
+
+    .form_dades_container .radio_input_section {
+        align-content: flex-start;
+    }
+
+    .form_dades_container fieldset {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .form_dades_container .radio_input_section {
+        width: 80%;
+        margin: 0 2em;
+    }
+
+    .form_dades_container .radio_label {
+        width: 80%;
+        display: flex;
+        margin: 0.5em;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-start;
+    }
+
+    .form_dades_container input[type="radio"] {
+        height: 0;
+    }
+
+    .input_conjunto {
+        margin: 0 0 2em 0;
+    }
+
+}
 /* BARRA DE BUSQUEDA */
 
 .field {
@@ -845,6 +1067,11 @@ hr {
 
 #menjars {
     background: #C12222;
+}
+
+.prototipo{
+    background-color: #F0F0F0;
+    color: black;
 }
 
 .btn i {

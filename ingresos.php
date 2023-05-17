@@ -63,7 +63,7 @@ include_once('connexiobbddsanitat.php');
 
                 <div class="espacio_arriba"></div>
                 <div class="anadir_busca">
-                    <a href="">AÑADIR NUEVO</a>
+                    <a href="ingres.php">AÑADIR NUEVO</a>
 
                     <form action="proba_buscador_paciente.php" class="form_container" method="get" name="formu">
                         <div class="field" id="searchform">

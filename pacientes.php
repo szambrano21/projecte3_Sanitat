@@ -33,7 +33,16 @@ include_once('connexiobbddsanitat.php');
 
 
       <!-- ESPACIO -->
+      <div class="anadir_busca">
+                    <a href="form_nuevo_paciente.php">AÑADIR NUEVO</a>
 
+                    <form action="buscadorPacientes.php" class="form_container" method="get" name="formu">
+                        <div class="field" id="searchform">
+                            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+                            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+                        </div>
+                    </form>
+                </div><br>
 
 
       <?php
@@ -95,7 +104,7 @@ include_once('connexiobbddsanitat.php');
         <td titulo='DNI:'>$dni</td>
         <td titulo='TELEFONO:'>$telefono</td>
         <td titulo='ACCIONES:'>
-          <a class='link_editar' href='editar_usuario.php?DNI=$dni'>EDITAR</a>";
+          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>";
 
           if ($dni != $_SESSION['DNI']) {
             echo "

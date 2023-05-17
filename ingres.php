@@ -1,178 +1,231 @@
+<?php
+include_once('connexiobbddsanitat.php');
+
+$alert = '';
+
+
+
+if(!empty($_SESSION['activo'])){
+    header("location: inicial.php");
+
+}else{
+    if(!empty($_POST)){
+        
+        $alert="";
+        if(empty($_POST["procedencia"]) || empty($_POST["assignacioLlit"]) || empty($_POST["assignacioSala"]) || empty($_POST["motiuIngres"]) || empty($_POST["dataIngres"])
+        || empty($_POST["tractamentDomiciliari"]) || empty($_POST["allergies"]) || empty($_POST["habitsToxics"]) || empty($_POST["antecendentsPatologics"]) || empty($_POST["entornFamiliar"])  ){
+
+            $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
+        }else{
+        
+            $procedencia = $_POST["procedencia"];
+            $assignacioLlit = $_POST["assignacioLlit"];
+            $assignacioSala = $_POST["assignacioSala"];
+            $motiuIngres = $_POST["motiuIngres"];
+            $dataIngres = $_POST["dataIngres"];
+            $tractamentDomiciliari = $_POST["tractamentDomiciliari"];
+            $allergies = $_POST["allergies"];
+            $habitsToxics = $_POST["habitsToxics"];
+            $antecendentsPatologics = $_POST["antecendentsPatologics"];
+            $entornFamiliar = $_POST["entornFamiliar"];        
+            // $ID = $_POST["ID"];
+            $nHc = $_POST["nHc"];
+            
+
+            // $query = mysqli_query($conexion,"SELECT * FROM tingres WHERE nHc = '$nHc'");
+            // $resultado = mysqli_fetch_assoc($query);
+
+            
+            // if($resultado > 0){
+                
+                
+            
+                $query_insertar = mysqli_query($conexion, "INSERT INTO tingres (procedencia, assignacioLlit , assignacioSala, motiuIngres,
+                dataIngres, tractamentDomiciliari, allergies, habitsToxics, antecendentsPatologics, entornFamiliar,nHc )
+                VALUES('$procedencia','$assignacioLlit','$assignacioSala','$motiuIngres','$dataIngres', '$tractamentDomiciliari', '$allergies',
+                '$habitsToxics', '$antecendentsPatologics','$entornFamiliar', '$nHc')");
+
+
+                if($query_insertar){
+                    $alert="<p class='msg_correcto'>El paciente ha sido ingresado correctamente</p>";
+                    
+                }else{
+                    $alert="<p class='msg_error'>El paciente ya esta ingresado</p>";
+                }
+            
+            
+            
+            //  $_SESSION['ID_ingreso'] =  $row['ID'];
+            
+            //     $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (procedencia, assignacioLlit, assignacioSala, motiuIngres, dataIngres, tractamentDomiciliari,allergies,habitsToxics,antecendentsPatologics,entornFamiliar,ID)
+            //     VALUES('$procedencia','$assignacioLlit','$assignacioSala',' $motiuIngres ',' $dataIngres ','$tractamentDomiciliari','$allergies','$habitsToxics','$antecendentsPatologics','$entornFamiliar','$ID')");
+                
+            //     if($query_insertar){
+            //         $alert="<p class='msg_correcto'>El codigo de ingreso ha sido creado correctamente</p>";
+            //     }else{
+            //         $alert="<p class='msg_error'>Error al crear el usuario</p>";
+            //     }
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<?php include_once("scripts.php"); ?>
+<?php include_once("scripts.php");
 
-<style>
-    body{
-        display: flex;
-    }
+?>
 
-    @media screen and (max-width: 700px) {
-        body{
-        display: initial;
-    }
 
-}
-
-</style>
 </head>
 
 <body>
     <?php 
         include_once("header.php");
+        // if (empty($_SESSION['nHc']))
+        // {
+        // echo "no hay";
+        // } 
+
         if($_SESSION['tipo'] != 'admin'){
             header("location: inicial.php");
         }
+
     
     ?>
-    <div class="container_general hero" >
-        <div class="container_ingres">
-            <h1>INGRES DEL PACIENT</h1>
-            <hr>
-            <form action="ingres.php">
+    <div class="container_general">
+        <div class="container_paciente">
+            <div class="form_dades_container">
+                <h1>Ingreso de paciente</h1>
+                <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
+                <form action="" id="validate" method="post">
                 <div>
                     <h2>Dades generals</h2>
-                    <div  class="input-group">
-                        <label for="date">Data d'ingres:</label><br>
-                        <input type="date" id="date" name="date">
-                    </div>        
-                    <div>
-                        <label for="asignacioCama">Asignación de cama:</label><br>
-                        <input type="text" id="asignacioCama" name="asignacioCama">
-                    </div>
-                    <div>
-                        <label for="procedencia" class="procedencia">Procedencia</label>
-                        <select class="style_procedencia" name="procedencia" id="procedencia">
-                            <option selected>Selecciona una opcion</option>
-                            <option value="trasllat">Trasllat</option>
-                            <option value="urgencies">Urgencies</option>
-                            <option value="programat">Programat</option>
-                            <option value="altre">Altres</option>
-                        </select>
-                        <span>
-                            <textarea class="altres"></textarea>
-                        </span>
-                    </div>
-                    <div>
-                        <label for="motiuIngres">Motiu d'ingres/ Diagnostic:</label><br>
-                        <input type="text" id="motiuIngres" name="motiuIngres">
-                    </div>
-                    <div>
-                        <label for="tractamentIngres">Tratamiento domiciliario:</label><br>
-                        <input type="text" id="tractamentIngres" name="tractamentIngres">
-                    </div>              
-
-                    <div>
-                        <p>Alergies:</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="">
-                            <label class="form-check-label" for="">
-                                SI
+                        <fieldset>
+                            <label for="dataIngres">Data d'ingres:
+                                <input type="date" id="dataIngres" name="dataIngres">
                             </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
-                            <label class="form-check-label" for="">
-                                NO
+                            <label for="procedencia">Procedencia:
+                                <input type="text" name="procedencia" id="procedencia" >
                             </label>
-                        </div>
-                        <div>
-                            <label for="tipus">Tipus:</label><br>
-                            <input type="text" id="tipus" name="tipus">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="habitsToxics">Hàbits tòxics:</label><br>
-                        <input type="text" id="habitsToxics" name="habitsToxics">
-                    </div>
-                    <div>
-                        <label for="antecedentsPatologics">Hàbits tòxics:</label><br>
-                        <input type="text" id="antecedentsPatologics" name="antecedentsPatologics">
-                    </div>
-                    <div>
-                        <label for="entornFamiliar">Entor Familiar:</label><br>
-                        <input type="text" id="entornFamiliar" name="entornFamiliar">
-                    </div>
+                        </fieldset>
+                        <fieldset>
+                            <label for="assignacioLlit">Asignació de Cama:
+                                <input type="text" name="assignacioLlit" id="assignacioLlit">
+                            </label>
+                            <label for="assignacioSala">Asignació de Sala:
+                                <select name="assignacioSala">
+                                    <option value="">--</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <!-- <input type="text" name="assignacioSala" id="assignacioSala" > -->
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="motiuIngres">Motiu de Ingreso:
+                                <input type="text" name="motiuIngres" id="motiuIngres" >
+                            </label>
+                            <label for="tractamentDomiciliari">Tratamiento Domiciliario:
+                                <input type="text" name="tractamentDomiciliari" id="tractamentDomiciliari">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="allergies">Alergias:
+                                <input type="text" name="allergies" id="allergies">
+                            </label>
 
-                </div>
-                <div>
-                    <h2>Necessitats respiratòries</h2>
-                    <div>
-                        <label for="res/min">Resp/min:</label><br>
-                        <input type="text" id="res/min" name="res/min">
-                    </div>        
-                    <div>
-                        <label for="tos">Tos:</label><br>
-                        <input type="text" id="tos" name="tos">
-                    </div>
-                    <div>
-                        <label for="expectoracio">Espectoriació:</label><br>
-                        <input type="text" id="expectoracio" name="expectoracio">
-                    </div>
-                    <div>
-                        <label for="oxigenoterapia">Oxigenoteràpia:</label><br>
-                        <input type="text" id="oxigenoterapia" name="oxigenoterapia">
-                    </div>
-                    <div>
-                        <label for="colorPell">Coloració a la pell:</label><br>
-                        <input type="text" id="colorPell" name="colorPell">
-                    </div>
-                    <div>
-                        <label for="observacions">Observacions:</label><br>
-                        <textarea id="observacions" name="observacions"> </textarea>
-                    </div>        
-                </div>
-                <div>
-                    <h2>Necessitats de menjar i beguda</h2>
-                    <div>
-                        <label for="pes">Pes:</label><br>
-                        <input type="text" id="pes" name="pes">
-                    </div>        
-                    <div>
-                        <label for="talla">Talla:</label><br>
-                        <input type="text" id="talla" name="talla">
-                    </div>
-                    <div>
-                        <label for="dietaHabitual">dietaHabitual:</label><br>
-                        <input type="text" id="dietaHabitual" name="dietaHabitual">
-                    </div>
-                    <div>
-                        <label for="mida">Talla:</label><br>
-                        <input type="text" id="mida" name="mida">
-                    </div>
-                    <div>
-                        <label for="alimentsNoGrassos">Aliments no grats</label><br>
-                        <input type="text" id="alimentsNoGrassos" name="alimentsNoGrassos">
-                    </div>
-                    <div>
-                        <label for="intolerancia">Intolerancia a:</label><br>
-                        <input type="text" id="intolerancia" name="intolerancia">
-                    </div> 
-                    <div>
-                        <label for="protesisDental">Pròtesi dental</label><br>
-                        <input type="text" id="protesisDental" name="protesisDental">
-                    </div>
-                    <div>
-                        <label for="necessitatsAjudes">Necessitats d'ajuda</label><br>
-                        <input type="text" id="necessitatsAjudes" name="necessitatsAjudes">
-                    </div>
-                    <div>
-                        <label for="inapetenciaAnorexia">Inapetència i/o anorèxia</label><br>
-                        <input type="text" id="inapetenciaAnorexia" name="inapetenciaAnorexia">
-                    </div>
-                    <div>
-                        <label for="observacions">Observacions</label><br>
-                        <textarea id="observacions" name="observacions"> </textarea>
-                    </div> 
-                </div>
-                <input type="submit" value="Submit">
+                            <label for="habitsToxics">Hábitos Tóxicos:
+                                <input type="text" name="habitsToxics" id="habitsToxics">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="antecendentsPatologics">Antecedentes Patológicos:
+                                <input type="text" name="antecendentsPatologics" id="antecendentsPatologics" >
+                            </label>
+                            <label for="entornFamiliar">Entorno Familiar:
+                                <input type="text" name="entornFamiliar" id="entornFamiliar" >
+                            </label>
+                        </fieldset>
+                        <!-- <label for="ID">ID:</label>
+                        <input type="text" name="ID" id="ID" ><br> -->
+                        <fieldset>
+                        <label for="nHc">nHc:
+                        <?php 
 
+                        // $DNI = $_POST['dni'];
+                        $query2 = mysqli_query($conexion, "SELECT tdades.nHc
+                        FROM tdades
+                        LEFT JOIN tingres ON tdades.nHc = tingres.nHc
+                        WHERE tingres.nHc IS NULL;");
+                        //esta consulta solo muestra los numeros de historiales clinicos de las personas que no estan ingresadas. 
+                        // $sql = mysqli_query($conexion, "SELECT * FROM tusuaris ORDER BY nomUsuari ASC LIMIT $desde,$por_pagina");
+                        $resultado = mysqli_num_rows($query2);
+
+                        if($resultado > 0){
+
+                            // Crear el elemento select
+                            echo '<select name="nHc">';
+                        
+                            // Recorrer los resultados y mostrar cada número de historial como una opción del select
+                            while ($row = mysqli_fetch_assoc($query2)){
+                                
+                                echo '<option value="' . $row['nHc'] . '">' . $row['nHc'] . '</option>';
+                                
+                            }
+                        
+                            echo '</select>';
+                        } else {
+                            echo 'No se encontraron números de historial.';
+                        }
+                        
+                        ?>
+                        </label>
+                        </fieldset>
+
+<!--                         
+                        <input type="text" name="nHc" id="nHc" > -->
+                   
+                        <!-- <input type="hidden" id="ID" name="ID" value="1"> -->
+                        <input type="submit" value="Submit" class="submitForm">
+                </div>
             </form>
         </div>
     </div>
 </body>
 </html>
 
+<!-- 
 
-
+<section class="content">
+	<ul class="list">
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox" checked>
+              tabaco
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox">
+            Item 2
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox">
+            Item 3
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          <input type="checkbox" class="checkbox">
+            Item 4
+      </label>
+    </li>
+  </ul>
+</section>
+-->
