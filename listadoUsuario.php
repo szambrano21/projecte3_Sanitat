@@ -1,6 +1,3 @@
-<?php
-include_once('connexiobbddsanitat.php');
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -40,10 +37,52 @@ include_once('connexiobbddsanitat.php');
             <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
           </div>
         </form>
-      </div><br>
+      </div>
+
+      <h3 style="padding: 10px 4px 0 4px">Col·loca clau login</h3>
+      <form action="#" method="post" name="clau" class="form_container" style="margin: 10px 4px">
+
+        <div class="field" id="searchform">
+
+        <input class="inputs" id="codi" name="codi" type="text" placeholder="Col·loca la clau" style="flex:initial"/>
+        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+        </div>
+
+      </form>
+      <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
 
 
       <?php
+
+      /* CLAVE LOGIN */
+
+      
+      if($_POST){
+        $nom = $_SESSION['nombre'];
+
+      $codi = $_POST["codi"];
+
+      $query = mysqli_query($conexion,"SELECT * FROM tusuaris WHERE nomUsuari = '$nom'");
+      $resultado = mysqli_fetch_assoc($query);
+
+      if ($resultado) {
+        // El usuario existe, actualizar el campo 'codi'
+        $query_actualizar = mysqli_query($conexion, "UPDATE tusuaris SET codi = '$codi' WHERE nomUsuari = '$nom'");
+      
+        if ($query_actualizar) {
+          $alert = "<p class='msg_correcto'>El código ha sido insertado correctamente en el usuario.</p>";
+        } else {
+          $alert = "<p class='msg_error'>Error al actualizar el código del usuario.</p>";
+        }
+      } else {
+        $alert = "<p class='msg_error'>El usuario no existe.</p>";
+      }
+
+
+
+      }
+
+
 
       /* PAGINADOR */
 

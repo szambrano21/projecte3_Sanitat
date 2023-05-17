@@ -168,6 +168,7 @@ table td:last-child {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 4px;
 
 }
 
@@ -1337,3 +1338,6 @@ div.pagination button:hover:not(.pagina-actual) {
     padding: 5px 0;
     margin: 20px 0;
 }
+
+/* CONTRASEÑA LOGIN */
+
