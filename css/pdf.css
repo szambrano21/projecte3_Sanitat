@@ -1,0 +1,80 @@
+#print_section {
+    background-color: white;
+    padding: 20px;
+}
+
+.rows-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#left-row,
+#right-row {
+    width: calc(50% - 40px);
+    min-width: 720px;
+    margin: 0 0 0 3px;
+}
+
+.line_section {
+    margin-right: 15px;
+}
+
+label {
+    font-size: 13px;
+}
+
+#print_section .section_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#print_section .subsection {
+    display: inline;
+}
+
+.box_container,
+.checkbox_text_container {
+    /* margin: 50px 0px; */
+    padding: 10px 0px;
+}
+
+#print_section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#print_section input[type="text"],
+#print_section input[type="number"],
+#print_section textarea {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    margin-left: 5px;
+    flex: 1;
+}
+
+#print_section input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#print_section input[type="submit"] {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: auto;
+    resize: none;
+}
+
+.title-3 {
+    margin-top: 30px;
+    border-bottom: 2px solid black;
+}
+
+.short_ip {
+    width: 80px;
+}
