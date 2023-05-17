@@ -239,7 +239,23 @@ include_once('connexiobbddsanitat.php');
       </table>
               <?php
           }else{
-            echo "No tiene datos de la mañana";
+            // echo "No tiene datos de la mañana";
+          
+            ?>
+            <table class="containerInfo" style="width: 30%;">
+              <thead>
+                <tr>
+                  <th>Afegir dades del mati</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                </tr>
+              </tbody>
+            </table>
+            
+            <?php
           }
               ?>
 
@@ -319,11 +335,26 @@ include_once('connexiobbddsanitat.php');
         </tbody>
       </table>
       <?php
-            }else{
-              echo "no tiene datos de la tarde";
-            }
-
-      ?>
+          }else{
+            // echo "No tiene datos de la mañana";
+          
+            ?>
+            <table class="containerInfo" style="width: 30%;">
+              <thead>
+                <tr>
+                  <th>Afegir dades de la tarda</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                </tr>
+              </tbody>
+            </table>
+            
+            <?php
+          }
+              ?>
       <!-- NOCHEEEEEEEEEEEEE -->
       <?php
             $ID = $_GET['ID'];
@@ -404,10 +435,26 @@ if (mysqli_num_rows($sql) > 0) {
         </tbody>
       </table>
       <?php
-            }else{
-              echo "no tiene datos";
-            }
-      ?>
+          }else{
+            // echo "No tiene datos de la mañana";
+          
+            ?>
+            <table class="containerInfo" style="width: 30%;">
+              <thead>
+                <tr>
+                  <th>Afegir dades de la nit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                </tr>
+              </tbody>
+            </table>
+            
+            <?php
+          }
+              ?>
     </div>
   </div>
 

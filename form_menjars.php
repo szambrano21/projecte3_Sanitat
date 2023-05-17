@@ -3,6 +3,7 @@
 include_once('connexiobbddsanitat.php');
  //recogemos id
 $ID = $_GET['ID'];
+
 if (!empty($_POST)) {
     $alert = "";
     if (
@@ -23,8 +24,10 @@ if (!empty($_POST)) {
         $intolerancia = $_POST["intolerancia"];
         $dietaHabitual = $_POST["dietaHabitual"];
         $ID_ingreso = $_POST["ID_ingreso"];
+        $dia = $_POST["dia"];
+        $hora = $_POST["hora"];
         // $ID_const  = $_POST["ID_const"];
-
+        $ID_ingreso = $_POST['ID_ingreso'];
        
 
 
@@ -35,8 +38,8 @@ if (!empty($_POST)) {
         // if ($resultado > 0) {
         //     $alert = "<p class='msg_error'>El usuario ya existe</p>";
         // } else {
-            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (alimentsNoGrassos, necessitatsAjudes, inapetenciaAnorexia, mida, pes, protesisDental,intolerancia,dietaHabitual,ID_ingreso)
-            VALUES('$alimentsNoGrassos','$necessitatsAjudes','$inapetenciaAnorexia','$mida','$pes','$protesisDental','$intolerancia','$dietaHabitual','$ID_ingreso')");
+            $query_insertar = mysqli_query($conexion, "INSERT INTO tmenjars (alimentsNoGrassos, necessitatsAjudes, inapetenciaAnorexia, mida, pes, protesisDental,intolerancia,dietaHabitual,dia,hora,ID_ingreso)
+            VALUES('$alimentsNoGrassos','$necessitatsAjudes','$inapetenciaAnorexia','$mida','$pes','$protesisDental','$intolerancia','$dietaHabitual','$dia','$hora','$ID_ingreso')");
 
             if ($query_insertar) {
                 $alert = "<p class='msg_correcto'> Dades insertades correctament</p>";
@@ -81,7 +84,7 @@ if (!empty($_POST)) {
                 <label for="mida"><i class="fa-solid fa-ruler-horizontal"></i> Mida (cm): <input id="mida" name="mida" type="text" /></label>
             </fieldset>
             <fieldset>
-                <label for="dieta_habitual"><i class="fa-solid fa-bowl-food"></i> Dieta habitual:<input id="dieta_habitual" name="dieta_habitual" type="text" /></label>
+                <label for="dietaHabitual"><i class="fa-solid fa-bowl-food"></i> Dieta habitual:<input id="dietaHabitual" name="dietaHabitual" type="text" /></label>
                 <label for="alimentsNoGrassos"><i class="fa-solid fa-wheat-awn"></i> Aliments no grassos: <input id="alimentsNoGrassos" name="alimentsNoGrassos" type="text" /></label>
             </fieldset>
             <fieldset>
@@ -97,8 +100,8 @@ if (!empty($_POST)) {
                 </div>
                 <div><i class="fa-sharp fa-solid fa-icicles"></i>
                     Inapetència i/o anorèxia: <br>
-                    <label for="inapetenciaAnorexia"><input id="inapetenciaAnorexia-1" type="radio" name="inapetenciaAnorexia" class="inline" value="1"/> Si</label>
-                    <label for="inapetenciaAnorexia"><input id="inapetenciaAnorexia-0" type="radio" name="inapetenciaAnorexia" class="inline" value="0"/> No</label>
+                    <label for="inapetenciaAnorexia"><input id="inapetenciaAnorexia-1" type="radio" name="inapetenciaAnorexia" class="inline" value="si"/> Si</label>
+                    <label for="inapetenciaAnorexia"><input id="inapetenciaAnorexia-0" type="radio" name="inapetenciaAnorexia" class="inline" value="no"/> No</label>
                 </div>
                 <div><i class="fa-sharp fa-solid fa-teeth-open"></i>
                     Protesis dental: <br>
@@ -108,14 +111,17 @@ if (!empty($_POST)) {
             </fieldset>
             <div class="hora_dia">
                 <input type="radio" name="hora" id="dia" value="dia">
-                <label for="hora">dia</label>
+                <label for="dia">dia</label>
                 <input type="radio" name="hora" id="tarda">
-                <label for="hora">tarda</label>
+                <label for="tarda">tarda</label>
                 <input type="radio" name="hora" id="nit">
-                <label for="hora">nit</label>
+                <label for="nit">nit</label>
             </div>
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
-            <input type="submit" value="Submit" class="submitForm"/>
+            <fieldset>
+                <input type="submit" value="Submit" class="submitForm"/>
+                <a href="infoMenjars.php?ID=<?php echo $ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Menjars</a>
+            </fieldset>
         </form>
         </div>
         </div>

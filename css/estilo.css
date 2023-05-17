@@ -317,6 +317,7 @@ table td:last-child {
     border-color: white;
 }
 
+
 input[type="submit"]:hover {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
     cursor: pointer;
