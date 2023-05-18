@@ -1,6 +1,4 @@
-<?php
-include_once('connexiobbddsanitat.php');
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,7 +26,11 @@ include_once('connexiobbddsanitat.php');
     <div class="second_container">
 
 
-      <!-- BARRA DE NAVEGACION -->
+    <h1 class="titulos">LLISTA DE PACIENTS</h1>
+      <div class="navegacion">
+        <a href="inicial.php">Home ></a>&nbsp<p>LLISTA DE PACIENTS</p>
+      </div>
+
 
       <?php
 
@@ -59,7 +61,7 @@ include_once('connexiobbddsanitat.php');
 
       /* PAGINADOR */
 
-      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades");
+      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tdades WHERE DNI LIKE '%$busqueda%'");
 
       $resultado_registro = mysqli_fetch_assoc($sql_registro);
       $total_registro = $resultado_registro['total_registro'];
@@ -107,6 +109,7 @@ include_once('connexiobbddsanitat.php');
           $cognomPaciente = $row["cognom"];
           $dni = $row["DNI"];
           $telefono = $row["telefon"];
+          $nHc = $row["nHc"];
 
 
 
@@ -117,15 +120,12 @@ include_once('connexiobbddsanitat.php');
         <td titulo='APELLIDOS:'>$cognomPaciente</td>
         <td titulo='DNI:'>$dni</td>
         <td titulo='TELEFONO:'>$telefono</td>
-        <td titulo='ACCIONES:'>
-          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>";
+          <td titulo='ACCIONES:'>
+          <a class='link_editar' href='tablaPaciente.php?nHc=$nHc' style='background-color: green; border: 1px solid green'>VER</a>
 
-          if ($dni != $_SESSION['DNI']) {
-            echo "
-              <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-            ";
-          }
-          echo "
+          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>
+
+        </td>
         </td>
       </tr>
         ";

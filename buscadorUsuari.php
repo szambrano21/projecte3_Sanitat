@@ -1,6 +1,4 @@
-<?php
-include_once('connexiobbddsanitat.php');
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +8,7 @@ include_once('connexiobbddsanitat.php');
   include_once('connexiobbddsanitat.php');
 
   ?>
-
+  <title>Llista d'usuaris</title>
 </head>
 
 <body>
@@ -26,38 +24,42 @@ include_once('connexiobbddsanitat.php');
   <div class="container_general">
     <div class="second_container">
 
+      <h1 class="titulos">LLISTA D'USUARIOS</h1>
 
-      <!-- BARRA DE NAVEGACION -->
+      <div class="navegacion">
+        <a href="inicial.php">Home ></a>&nbsp<p>LLISTA D'USUARIS</p>
+      </div>
+
       <?php
 
-        $busqueda = strtolower($_REQUEST['busqueda']);
+      $busqueda = strtolower($_REQUEST['busqueda']);
 
-        if(empty($busqueda)){
-        header("location: pacientes.php");
-        }
+      if (empty($busqueda)) {
+        header("location: listadoUsuario.php");
+      }
 
 
-    ?>
+      ?>
 
 
       <!-- ESPACIO -->
       <div class="anadir_busca">
-            <a href="crear_usuari.php">AÑADIR NUEVO</a>
+      <a href="crear_usuari.php">AFEGIR NOU USUARI</a>
 
-            <form action="buscadorUsuari.php" class="form_container" method="get" name="formu">
-                <div class="field" id="searchform">
-                    <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
-                    <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
-                </div>
-            </form>
-        </div><br>
+        <form action="buscadorUsuari.php" class="form_container" method="get" name="formu">
+          <div class="field" id="searchform">
+            <input class="inputs" id="busqueda" name="busqueda" type="text" placeholder="Coloca DNI o nombre" />
+            <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+          </div>
+        </form>
+      </div><br>
 
 
       <?php
 
       /* PAGINADOR */
 
-      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tusuaris");
+      $sql_registro = mysqli_query($conexion, "SELECT COUNT(*) as total_registro FROM tusuaris WHERE nomUsuari LIKE '%$busqueda%'");
 
       $resultado_registro = mysqli_fetch_assoc($sql_registro);
       $total_registro = $resultado_registro['total_registro'];
@@ -134,35 +136,35 @@ include_once('connexiobbddsanitat.php');
       </table>
 
 
-    <div class="paginationUser">
-      <?php
+      <div class="paginationUser">
+        <?php
         if ($pagina > 1) {
-            echo "<li><a href='?pagina=".($pagina-1)."&busqueda=".$busqueda."'>Anterior</a></li>";
+          echo "<li><a href='?pagina=".($pagina - 1) . "&busqueda=" . $busqueda . "'>Anterior</a></li>";
         }
 
         for ($i = 1; $i <= $total_paginas; $i++) {
-            if ($i == $pagina) {
+          if ($i == $pagina) {
             echo "<li><a class='pagina-actual'>$i</a></li>";
-            } else {
-            echo "<li><a href='?pagina=".$i."&busqueda=".$busqueda."'>$i</a></li>";
-            }
+          } else {
+            echo "<li><a href='?pagina=" . $i . "&busqueda=" . $busqueda . "'>$i</a></li>";
+          }
         }
 
         if ($pagina < $total_paginas) {
-            echo "<li><a href='?pagina=".($pagina+1)."&busqueda=".$busqueda."'>Siguiente</a></li>";
+          echo "<li><a href='?pagina=" . ($pagina + 1) . "&busqueda=" . $busqueda . "'>Siguiente</a></li>";
         }
+        ?>
+      </div>
+
+      <?php
+
+      mysqli_close($conexion); //cierra la BBDD
+
       ?>
+
+
+
     </div>
-
-    <?php
-
-    mysqli_close($conexion); //cierra la BBDD
-
-    ?>
-
-
-
-  </div>
   </div>
 
 </body>

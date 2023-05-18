@@ -30,7 +30,6 @@
         <a href="inicial.php">Home ></a>&nbsp<p>LLISTA D'USUARIS</p>
       </div>
 
-      <!-- ESPACIO -->
       <div class="anadir_busca">
         <a href="crear_usuari.php">AFEGIR NOU USUARI</a>
 
