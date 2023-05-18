@@ -182,7 +182,7 @@ include_once('connexiobbddsanitat.php');
                 </button> -->
 
 
-                <a class="btn" id="dades" href="pacientes.php?nHc=<?php echo $nHc . "&ID=" . $ID; ?>"> <span>
+                <a class="btn" id="dades" href="info_paciente.php?nHc=<?php echo $nHc; ?>"> <span>
                         <i class="fa-solid fa-file-medical"></i>
                         <h2>Dades</h2>
                     </span>

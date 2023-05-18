@@ -1,4 +1,7 @@
 
+<?php
+include_once('connexiobbddsanitat.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,43 @@
 </head>
 
 <body>
+<?php
 
+
+$nHc = $_GET['nHc'];
+
+$sql = mysqli_query($conexion, "SELECT *
+FROM tingres
+INNER JOIN tdades ON tingres.nHc = tdades.nHc
+WHERE tingres.nHc = '$nHc'
+");
+
+$row = mysqli_fetch_assoc($sql);
+//TDADES
+$nom = $row['nom'];
+$cognom = $row['cognom'];
+$DNI = $row['DNI'];
+$telefon = $row['telefon'];
+$dataNaixament = $row['dataNaixament'];
+$sexe = $row['sexe'];
+$direccio = $row['direccio'];
+$personaContacte = $row['personaContacte'];
+$telefonPersonsaContacte = $row['telefonPersonsaContacte'];
+$relacioContacte = $row['relacioContacte'];
+
+//TINGRES
+$fecha = $row["dataIngres"];
+$assignacioLlit  = $row["assignacioLlit"];
+$assignacioSala = $row["assignacioSala"];
+$motiuIngres = $row["motiuIngres"];
+$tractamentDomiciliari = $row["tractamentDomiciliari"];
+$allergies = $row["allergies"];
+$habitsToxics = $row["habitsToxics"];
+$antecendentsPatologics = $row["antecendentsPatologics"];
+$entornFamiliar = $row["entornFamiliar"];
+$procedencia = $row["procedencia"];
+
+?>
     <div id="print_section">
         <h1>Valoració a l'ingrés</h1>
         <div class="rows-container">
@@ -25,99 +64,103 @@
                     <div class="box_container">
                         <div class="section_container">
                             <label for="nom"> NHC:
-                                <input type="text" name="nhc" id="nhc">
+                                <input type="text" name="nhc" id="nhc" value="<?php echo $nHc ?>">
                             </label>
                             <label for="nom"> Nom:
-                                <input type="text" name="nom" id="nom">
+                                <input type="text" name="nom" id="nom" value="<?php echo $nom ?>">
                             </label>
                             <label for="cognoms"> Cognoms:
-                                <input type="text" name="cognoms" id="nom">
+                                <input type="text" name="cognoms" id="nom" value="<?php echo $cognom ?>">
                             </label>
                         </div>
                         <div class="section_container">
                             <label for="dni"> DNI:
-                                <input type="text" name="dni" id="dni">
+                                <input type="text" name="dni" id="dni" value="<?php echo $DNI ?>">
                             </label>
                             <label for="sexe"> Sexe:
-                                <input type="text" name="sexe" id="sexe">
+                                <input type="text" name="sexe" id="sexe" value="<?php echo $sexe ?>">
                             </label>
                             <label for="telefon"> Telefon:
-                                <input type="text" name="telefon" id="telefon">
+                                <input type="text" name="telefon" id="telefon" value="<?php echo $telefon ?>">
                             </label>
                         </div>
                         <div class="section_container">
                             <label>Direcció:</label>
-                            <textarea name="direccio"></textarea>
+                            <textarea name="direccio"> <?php echo $direccio ?></textarea>
                         </div>
                         <div class="section_container">
                             <label>Correo:</label>
-                            <textarea name="mail"></textarea>
+                            <textarea name="mail"><?php echo ".." ?></textarea>
                         </div>
                     </div>
+
                     <h3 class="title-3">Dades generals</h3>
                     <div class="box_container">
                         <div class="section_container">
-                            <label>Procedencia:</label>
-                            <label><input type="checkbox" name="procedencia" value="traslado"> Trasllat</label>
-                            <label><input type="checkbox" name="procedencia" value="urgencias"> Urgències</label>
-                            <label><input type="checkbox" name="procedencia" value="programado"> Programat</label>
-                            <label><input type="checkbox" name="procedencia" value="otro"> Otro</label>
-                            <label for="text_procedencia">
-                                <input type="text" name="text_procedencia" id="text_procedencia">
-                            </label>
+                        <label>Procedencia:</label>
+                        <label><input type="checkbox" name="procedencia[]" value="traslado" <?php if ($procedencia == 'Trasllat') echo 'checked'; ?>> Trasllat</label>
+                        <label><input type="checkbox" name="procedencia[]" value="urgencias" <?php if ($procedencia == 'urgencies') echo 'checked'; ?>> Urgències</label>
+                        <label><input type="checkbox" name="procedencia[]" value="programado" <?php if ($procedencia == 'programado') echo 'checked'; ?>> Programat</label>
+                        <label><input type="checkbox" name="procedencia[]" value="otro" <?php if ($procedencia == 'otro') echo 'checked'; ?>> Otro</label>
+                        <label for="text_procedencia">
+                            <input type="text" name="text_procedencia" id="text_procedencia">
+                        </label>
+
                         </div>
                         <div class="section_container">
                             <label>Motiu d'ingrés:</label>
-                            <textarea name="motivo_ingreso"></textarea>
+                            <textarea name="motivo_ingreso"><?php echo $motiuIngres ?></textarea>
                         </div>
                         <div class="section_container">
                             <label>Tractament domiciliari:</label>
-                            <textarea name="tratamiento_domiciliario"></textarea>
+                            <textarea name="tratamiento_domiciliario"><?php echo $tractamentDomiciliari ?></textarea>
                         </div>
                     </div>
 
                     <div class="section_container">
                         <label>Alergies:</label>
                         <div>
-                            <label><input type="checkbox" name="alergias" value="si"> Sí</label>
-                            <label><input type="checkbox" name="alergias" value="no"> No</label>
+                            <label><input type="checkbox" name="allergies" value="si" <?php if ($allergies == 'si') echo 'checked'; ?>> Sí</label>
+                            <label><input type="checkbox" name="allergies" value="no" <?php if ($allergies == 'no') echo 'checked'; ?>> No</label>
                         </div>
+
                     </div>
 
                     <div class="checkbox_text_container">
                         <label>Hàbitos tòxics:</label>
                         <div>
                             <label for="tabaco">Tabac:</label>
-                            <label><input type="checkbox" name="tabaco" value="si"> Si</label>
-                            <label><input type="checkbox" name="tabaco" value="no"> No</label>
+                            <label><input type="checkbox" name="habitsToxics" value="si" <?php if ($habitsToxics == 'si') echo 'checked'; ?>> Si</label>
+                            <label><input type="checkbox" name="habitsToxics" value="no" <?php if ($habitsToxics == 'no') echo 'checked'; ?>> No</label>
                             <label for="text_tabaco"> Num. cig./dia:
-                                <input type="text" name="text_tabaco" id="text_tabaco">
+                                <input type="text" name="habitsToxics" id="text_tabaco" value="<?php echo $habitsToxics; ?>">
                             </label>
                         </div>
+
                         <div>
                             <label for="alcohol">Alcohol:</label>
-                            <label><input type="checkbox" name="alcohol" value="si"> Si</label>
-                            <label><input type="checkbox" name="alcohol" value="no"> No</label>
+                            <label><input type="checkbox" name="alcohol" value="si" <?php if ($habitsToxics == 'si') echo 'checked'; ?>> Si</label>
+                            <label><input type="checkbox" name="alcohol" value="no" <?php if ($habitsToxics == 'no') echo 'checked'; ?>> No</label>
                             <label for="text_alcohol"> Quantitat:
-                                <input type="text" name="text_alcohol" id="text_alcohol">
+                                <input type="text" name="text_alcohol" id="text_alcohol" value="<?php echo $habitsToxics; ?>">
                             </label>
                         </div>
                         <div>
                             <label for="drogas">Drogues:</label>
-                            <label><input type="checkbox" name="drogas" value="si"> Si</label>
-                            <label><input type="checkbox" name="drogas" value="no"> No</label>
+                            <label><input type="checkbox" name="drogas" value="si" <?php if ($habitsToxics == 'si') echo 'checked'; ?>> Si</label>
+                            <label><input type="checkbox" name="drogas" value="no" <?php if ($habitsToxics == 'no') echo 'checked'; ?>> No</label>
                             <label for="text_drogas"> Tipus:
-                                <input type="text" name="text_drogas" id="text_drogas">
+                                <input type="text" name="text_drogas" id="text_drogas" value="<?php echo $habitsToxics; ?>">
                             </label>
                         </div>
                         <div>
                             <label for="historia_tox">Història toxicològica:</label>
-                            <label><input type="checkbox" name="historia_toxicologica" value="si"> Si</label>
-                            <label><input type="checkbox" name="historia_toxicologica" value="no"> No</label>
+                            <label><input type="checkbox" name="historia_toxicologica" value="si" <?php if ($habitsToxics == 'si') echo 'checked'; ?>> Si</label>
+                            <label><input type="checkbox" name="historia_toxicologica" value="no" <?php if ($habitsToxics == 'no') echo 'checked'; ?>> No</label>
                         </div>
                         <div class="section_container">
                             <label>Antecedents patològics:</label>
-                            <textarea name="antecedentes_patologicos"></textarea>
+                            <textarea name="antecedentes_patologicos"><?php echo $antecendentsPatologics; ?></textarea>
                         </div>
                     </div>
                 </div>
