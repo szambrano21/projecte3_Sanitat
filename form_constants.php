@@ -26,7 +26,7 @@ if (!empty($_POST)) {
         $ID_ingreso = $_POST["ID_ingreso"];
         // $ID_const  = $_POST["ID_const"];
 
-       
+
 
 
         
@@ -40,9 +40,9 @@ if (!empty($_POST)) {
             VALUES('$temperatura','$presioArterial','$pols','$glucemia','$saturacioO2','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$ID_ingreso')");
 
             if ($query_insertar) {
-                $alert = "<p class='msg_correcto'>El usuario ha sido creado correctamente</p>";
+                $alert = "<p class='msg_correcto'>Constants insertades correctament</p>";
             } else {
-                $alert = "<p class='msg_error'>Error al crear el usuario</p>";
+                $alert = "<p class='msg_error'>Error al insertar constants</p>";
             }
         // }
 
@@ -55,6 +55,7 @@ if (!empty($_POST)) {
         //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
         // }
     }
+    print_r($_POST);
 }
 
 ?>
@@ -116,11 +117,11 @@ include_once("header.php");
             </fieldset>
 
             <div class="hora_dia">
-                <input type="radio" name="hora" id="dia">
+                <input type="radio" name="hora" id="dia" value="dia">
                 <label for="dia">dia</label>
-                <input type="radio" name="hora" id="tarda">
+                <input type="radio" name="hora" id="tarda" value="tarda">
                 <label for="tarda">tarda</label>
-                <input type="radio" name="hora" id="nit">
+                <input type="radio" name="hora" id="nit" value="nit">
                 <label for="nit">nit</label>
             </div>
 
