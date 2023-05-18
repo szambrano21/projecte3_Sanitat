@@ -150,7 +150,7 @@ $nHc = $_GET['nHc'];
 
   <div class="container_general">
     <div class="second_container">
-    <h1 class="titulos">TAULA MENJARS</h1>
+    <h1 class="titulos">TAULA DADES RESPIRATORIES</h1>
       <!-- <h1><span class="blue">&lt;</span>Taula Menjars<span class="blue">&gt;</span> <span class="yellow">DIA, TARDA Y NIT</pan> -->
       </h1>
       <br>
@@ -158,8 +158,8 @@ $nHc = $_GET['nHc'];
       <?php
             $ID = $_GET['ID'];
             $sql = mysqli_query($conexion, "SELECT *
-            FROM tmenjars
-            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'dia'
+            FROM trespiratories
+            WHERE trespiratories.ID_ingreso = '$ID' AND trespiratories.hora = 'dia'
             ");
             
             if (mysqli_num_rows($sql) > 0) {
@@ -176,7 +176,7 @@ $nHc = $_GET['nHc'];
         <thead>
           <tr>  
             <th style="background: #85b0fa ">
-              <a href="form_menjars.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a>
+              <a href="form_respiracio.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a>
             </th>
           </tr>
           <tr>
@@ -190,26 +190,26 @@ $nHc = $_GET['nHc'];
               <h1>Dia</h1>
             </th>
             <th>
-              <h1>mida</h1>
+              <h1>Respiracio/min</h1>
             </th>
             <th>
-              <h1>Pes</h1>
+              <h1>Tos</h1>
             </th>
             <th>
-              <h1>alimentsNoGrassos</h1>
+              <h1>Expectoracio</h1>
             </th>
             <th>
-              <h1>inapetenciaAnorexia</h1>
+              <h1>Color Pell</h1>
             </th>
             <th>
-              <h1>protesisDental</h1>
+              <h1>Observacions</h1>
             </th>
             <th>
-              <h1>intolerancia</h1>
+              <h1>Oxigenoterapia</h1>
             </th>
-            <th>
+            <!-- <th>
               <h1>dietaHabitual</h1>
-            </th>
+            </th> -->
             <th>
               <h1>Editar</h1>
             </th>
@@ -222,29 +222,30 @@ $nHc = $_GET['nHc'];
           <?php 
             while ($row = mysqli_fetch_assoc($sql))
           {
-            $alimentsNoGrassos = $row["alimentsNoGrassos"];
-            $necessitatsAjudes  = $row["necessitatsAjudes"];
-            $inapetenciaAnorexia = $row["inapetenciaAnorexia"];
-            $mida = $row["mida"];
-            $pes = $row["pes"];
-            $intolerancia = $row["intolerancia"];
-            $dietaHabitual = $row["dietaHabitual"];
-            $protesisDental = $row["protesisDental"];
+            $respMin = $row["respMin"];
+            $tos  = $row["tos"];
+            $expectoracio = $row["expectoracio"];
+            $colorPell = $row["colorPell"];
+            $observacions = $row["observacions"];
+            $oxigenTerapia = $row["oxigenTerapia"];
+            // $dietaHabitual = $row["dietaHabitual"];
+            // $protesisDental = $row["protesisDental"];
             $dia = $row["dia"];
-            $ID_menjar = $row["ID_menjar"];
+            $ID_resp = $row["ID_resp"];
             $ID_ingreso = $row["ID_ingreso"];
           ?>
-          <tr>
-            <td><?php echo $dia ?></td>
-            <td><?php echo $mida ?></td>
-            <td><?php echo $pes ?></td>
-            <td><?php echo $alimentsNoGrassos ?></td>
-            <td><?php echo $inapetenciaAnorexia ?></td>
-            <td><?php echo $protesisDental ?></td>
-            <td><?php echo $intolerancia ?></td>
-            <td><?php echo $dietaHabitual ?></td>
+        <tr>
+            <td><?php echo $dia ?></td> 
+            <td><?php echo $respMin ?></td>
+            <td><?php echo $tos ?></td>
+            <td><?php echo $expectoracio ?></td>
+            <td><?php echo $colorPell ?></td>
+            <td><?php echo $observacions ?></td>
+            <td><?php echo $oxigenTerapia ?></td>
+            <!-- <td><?php echo $intolerancia ?></td>-->
+            
             <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
         </tbody>
@@ -262,7 +263,7 @@ $nHc = $_GET['nHc'];
               </thead>
               <tbody>
                 <tr>
-                  <th><a href="form_menjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                  <th><a href="form_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
                 </tr>
               </tbody>
             </table>
@@ -276,8 +277,8 @@ $nHc = $_GET['nHc'];
             $ID = $_GET['ID'];
 
             $sql = mysqli_query($conexion, "SELECT *
-            FROM tmenjars
-            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'tarda'
+            FROM trespiratories
+            WHERE trespiratories.ID_ingreso = '$ID' AND trespiratories.hora = 'tarda'
             ");
 
 
@@ -293,31 +294,31 @@ $nHc = $_GET['nHc'];
         </thead>
         <thead>
           <tr>
-            
+
             <th>
-              <h1>DIA</h1>
+              <h1>Dia</h1>
             </th>
             <th>
-              <h1>mida</h1>
+              <h1>Respiracio/min</h1>
             </th>
             <th>
-              <h1>Pes</h1>
+              <h1>Tos</h1>
             </th>
             <th>
-              <h1>alimentsNoGrassos</h1>
+              <h1>Expectoracio</h1>
             </th>
             <th>
-              <h1>inapetenciaAnorexia</h1>
+              <h1>Color Pell</h1>
             </th>
             <th>
-              <h1>protesisDental</h1>
+              <h1>Observacions</h1>
             </th>
             <th>
-              <h1>intolerancia</h1>
+              <h1>Oxigenoterapia</h1>
             </th>
-            <th>
+            <!-- <th>
               <h1>dietaHabitual</h1>
-            </th>
+            </th> -->
             <th>
               <h1>Editar</h1>
             </th>
@@ -330,29 +331,30 @@ $nHc = $_GET['nHc'];
           <?php 
             while ($row = mysqli_fetch_assoc($sql))
           {
-            $alimentsNoGrassos = $row["alimentsNoGrassos"];
-            $necessitatsAjudes  = $row["necessitatsAjudes"];
-            $inapetenciaAnorexia = $row["inapetenciaAnorexia"];
-            $mida = $row["mida"];
-            $pes = $row["pes"];
-            $intolerancia = $row["intolerancia"];
-            $dietaHabitual = $row["dietaHabitual"];
-            $protesisDental = $row["protesisDental"];
+            $respMin = $row["respMin"];
+            $tos  = $row["tos"];
+            $expectoracio = $row["expectoracio"];
+            $colorPell = $row["colorPell"];
+            $observacions = $row["observacions"];
+            $oxigenTerapia = $row["oxigenTerapia"];
+            // $dietaHabitual = $row["dietaHabitual"];
+            // $protesisDental = $row["protesisDental"];
             $dia = $row["dia"];
-            $ID_menjar = $row["ID_menjar"];
+            $ID_resp = $row["ID_resp"];
+            $ID_ingreso = $row["ID_ingreso"];
           ?>
-          <tr>
-            <td><?php echo $dia ?></td>
-            <td><?php echo $mida ?></td>
-            <td><?php echo $pes ?></td>
-            <td><?php echo $alimentsNoGrassos ?></td>
-            <td><?php echo $inapetenciaAnorexia ?></td>
-            <td><?php echo $protesisDental ?></td>
-            <td><?php echo $intolerancia ?></td>
-            <td><?php echo $dietaHabitual ?></td>
+            <tr>
+            <td><?php echo $dia ?></td> 
+            <td><?php echo $respMin ?></td>
+            <td><?php echo $tos ?></td>
+            <td><?php echo $expectoracio ?></td>
+            <td><?php echo $colorPell ?></td>
+            <td><?php echo $observacions ?></td>
+            <td><?php echo $oxigenTerapia ?></td>
+            <!-- <td><?php echo $intolerancia ?></td>-->
+            
             <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
-
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php 
           } 
@@ -385,12 +387,12 @@ $nHc = $_GET['nHc'];
             $ID = $_GET['ID'];
 
             $sql = mysqli_query($conexion, "SELECT *
-            FROM tmenjars
-            WHERE tmenjars.ID_ingreso = '$ID' AND tmenjars.hora = 'nit'
+            FROM trespiratories
+            WHERE trespiratories.ID_ingreso = '$ID' AND trespiratories.hora = 'nit'
             ");
 
 
-if (mysqli_num_rows($sql) > 0) {
+            if (mysqli_num_rows($sql) > 0) {
 
            
             // $id = $row["id"];
@@ -408,31 +410,34 @@ if (mysqli_num_rows($sql) > 0) {
           <tr>
 
             <th>
-              <h1>DIA</h1>
+              <h1>Dia</h1>
             </th>
             <th>
-              <h1>mida</h1>
+              <h1>Respiracio/min</h1>
             </th>
             <th>
-              <h1>Pes</h1>
+              <h1>Tos</h1>
             </th>
             <th>
-              <h1>alimentsNoGrassos</h1>
+              <h1>Expectoracio</h1>
             </th>
             <th>
-              <h1>inapetenciaAnorexia</h1>
+              <h1>Color Pell</h1>
             </th>
             <th>
-              <h1>protesisDental</h1>
+              <h1>Observacions</h1>
             </th>
             <th>
-              <h1>intolerancia</h1>
+              <h1>Oxigenoterapia</h1>
             </th>
-            <th>
+            <!-- <th>
               <h1>dietaHabitual</h1>
-            </th>
+            </th> -->
             <th>
               <h1>Editar</h1>
+            </th>
+            <th>
+              <h1>Eliminar</h1>
             </th>
           </tr>
         </thead>
@@ -440,29 +445,30 @@ if (mysqli_num_rows($sql) > 0) {
           <?php 
             while ($row = mysqli_fetch_assoc($sql))
           {
-            $alimentsNoGrassos = $row["alimentsNoGrassos"];
-            $necessitatsAjudes  = $row["necessitatsAjudes"];
-            $inapetenciaAnorexia = $row["inapetenciaAnorexia"];
-            $mida = $row["mida"];
-            $pes = $row["pes"];
-            $intolerancia = $row["intolerancia"];
-            $dietaHabitual = $row["dietaHabitual"];
-            $protesisDental = $row["protesisDental"];
+            $respMin = $row["respMin"];
+            $tos  = $row["tos"];
+            $expectoracio = $row["expectoracio"];
+            $colorPell = $row["colorPell"];
+            $observacions = $row["observacions"];
+            $oxigenTerapia = $row["oxigenTerapia"];
+            // $dietaHabitual = $row["dietaHabitual"];
+            // $protesisDental = $row["protesisDental"];
             $dia = $row["dia"];
-            $ID_menjar = $row["ID_menjar"];
+            $ID_resp = $row["ID_resp"];
+            $ID_ingreso = $row["ID_ingreso"];
           ?>
-          <tr>
+            <tr>
+            <td><?php echo $dia ?></td> 
+            <td><?php echo $respMin ?></td>
+            <td><?php echo $tos ?></td>
+            <td><?php echo $expectoracio ?></td>
+            <td><?php echo $colorPell ?></td>
+            <td><?php echo $observacions ?></td>
+            <td><?php echo $oxigenTerapia ?></td>
+            <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td><?php echo $dia ?></td>
-            <td><?php echo $mida ?></td>
-            <td><?php echo $pes ?></td>
-            <td><?php echo $alimentsNoGrassos ?></td>
-            <td><?php echo $inapetenciaAnorexia ?></td>
-            <td><?php echo $protesisDental ?></td>
-            <td><?php echo $intolerancia ?></td>
-            <td><?php echo $dietaHabitual ?></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
         </tbody>
@@ -480,7 +486,7 @@ if (mysqli_num_rows($sql) > 0) {
               </thead>
               <tbody>
                 <tr>
-                <th><a href="form_menjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
+                <th><a href="form_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a></th>
                 </tr>
               </tbody>
             </table>

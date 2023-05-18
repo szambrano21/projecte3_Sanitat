@@ -4,11 +4,12 @@
 include_once('connexiobbddsanitat.php');
  //recogemos id
 $ID = $_GET['ID'];
+$nHc = $_GET['nHc'];
 if (!empty($_POST)) {
     $alert = "";
     if (
         empty($_POST["respMin"]) || empty($_POST["tos"]) || empty($_POST["expectoracio"]) || empty($_POST["colorPell"]) || empty($_POST["observacions"])
-        ||  empty($_POST["oxigenTerapia"]) ||  empty($_POST["ID_ingreso"]) 
+        ||  empty($_POST["oxigenTerapia"]) ||  empty($_POST["ID_ingreso"]) || empty($_POST["hora"]) || empty($_POST["dia"])
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
@@ -21,7 +22,8 @@ if (!empty($_POST)) {
         $colorPell = $_POST["colorPell"];
         $observacions = $_POST["observacions"];
         $oxigenTerapia = $_POST["oxigenTerapia"];
-
+        $dia = $_POST["dia"];
+        $hora = $_POST["hora"];
         $ID_ingreso = $_POST["ID_ingreso"];
         // $ID_const  = $_POST["ID_const"];
 
@@ -36,8 +38,8 @@ if (!empty($_POST)) {
         // if ($resultado > 0) {
         //     $alert = "<p class='msg_error'>El usuario ya existe</p>";
         // } else {
-            $query_insertar = mysqli_query($conexion, "INSERT INTO trespiratories (respMin, tos, expectoracio, colorPell, observacions, oxigenTerapia, ID_ingreso)
-            VALUES ('$respMin', '$tos', '$expectoracio', '$colorPell', '$observacions', '$oxigenTerapia', '$ID_ingreso')");
+            $query_insertar = mysqli_query($conexion, "INSERT INTO trespiratories (respMin, tos, expectoracio, colorPell, observacions, oxigenTerapia,dia,hora, ID_ingreso)
+            VALUES ('$respMin', '$tos', '$expectoracio', '$colorPell', '$observacions', '$oxigenTerapia','$dia','$hora', '$ID_ingreso')");
 
             if ($query_insertar) {
                 $alert = "<p class='msg_correcto'> Dades insertades correctament</p>";
@@ -82,19 +84,12 @@ if (!empty($_POST)) {
         <form action="" id="validate" method="post" class="commom_form">
             <fieldset>
                 <label for="respMin"><i class="fa-sharp fa-solid fa-lungs"></i> Resp / min: <input id="respMin" name="respMin" type="text" /></label>
-                <div class="input_conjunto"><i class="fa-solid fa-child"></i>
-                    Coloració pell i mucoses: <br>
-                    <label for="colorPell"><input id="personal-account" type="radio" name="colorPell" id="colorPell" class="inline" value="rosada" /> Rosada</label>
-                    <label for="colorPell"><input id="business-account" type="radio" name="colorPell" id="colorPell" class="inline" value="palidesa" /> Pal.lidessa</label>
-                    <label for="colorPell"><input id="business-account" type="radio" name="colorPell" id="colorPell" class="inline" value="cianosi" /> Cianosi</label>
-                </div>
+                <label for="dia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Dia:<input id="intolerancia" name="dia" type="text" /></label>
+
             </fieldset>
+
             <fieldset class="radio_input_section">
-                <div class="input_conjunto"><i class="fa-solid fa-head-side-cough"></i>
-                    Tos: <br>
-                    <label for="tos"><input id="personal-account" type="radio" name="tos" value="no" class="inline" /> Si</label>
-                    <label for="tos"><input id="business-account" type="radio" name="tos" value="si" class="inline" /> No</label>
-                </div>
+                
                 <div class="input_conjunto"><i class="fa-solid fa-box-tissue"></i>
                     Expectoració: <br>
                     <label for="expectoracio"><input id="personal-account" type="radio" name="expectoracio" value="no" class="inline" /> Si</label>
@@ -106,19 +101,39 @@ if (!empty($_POST)) {
                     <label for="oxigenTerapia"><input id="business-account" type="radio" name="oxigenTerapia" value="no" class="inline" /> No</label>
                 </div>
             </fieldset>
+            <fieldset>
+                <div class="input_conjunto"><i class="fa-solid fa-head-side-cough"></i>
+                    Tos: <br>
+                    <label for="tos"><input id="personal-account" type="radio" name="tos" value="no" class="inline" /> Si</label>
+                    <label for="tos"><input id="business-account" type="radio" name="tos" value="si" class="inline" /> No</label>
+                </div>
+                <div class="input_conjunto"><i class="fa-solid fa-child"></i>
+                    Coloració pell i mucoses: <br>
+                    <label for="colorPell"><input id="personal-account" type="radio" name="colorPell" id="colorPell" class="inline" value="rosada" /> Rosada</label>
+                    <label for="colorPell"><input id="business-account" type="radio" name="colorPell" id="colorPell" class="inline" value="palidesa" /> Pal.lidessa</label>
+                    <label for="colorPell"><input id="business-account" type="radio" name="colorPell" id="colorPell" class="inline" value="cianosi" /> Cianosi</label>
+                </div>
+            </fieldset>
             <fieldset class="textarea_section">
+                
                 <label for="observacions"> Observacions: <textarea name="observacions"></textarea></label>
             </fieldset>
-            <div class="hora_dia">
-                <input type="radio" name="hora" id="dia">
-                <label for="dia">dia</label>
-                <input type="radio" name="hora" id="tarda">
-                <label for="tarda">tarda</label>
-                <input type="radio" name="hora" id="nit">
-                <label for="nit">nit</label>
-            </div>
+            
+                
+                <div class="hora_dia">
+                    <input type="radio" name="hora" id="dia" value="dia">
+                    <label for="dia">dia</label>
+                    <input type="radio" name="hora" id="tarda" value="tarda">
+                    <label for="tarda">tarda</label>
+                    <input type="radio" name="hora" id="nit" value="nit">
+                    <label for="nit">nit</label>
+                </div>
+            
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
-            <input class="submitForm" type="submit" value="Submit" />
+            <fieldset>
+                <input type="submit" value="Submit" class="submitForm"/>
+                <a href="infoRespiracio.php?nHc=<?php echo $nHc."&ID=".$ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Respiracions</a>
+            </fieldset>
         </form>
     </div>
     </div>

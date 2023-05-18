@@ -55,7 +55,7 @@ if (!empty($_POST)) {
         //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
         // }
     }
-    print_r($_POST);
+    // print_r($_POST);
 }
 
 ?>
