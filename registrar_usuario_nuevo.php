@@ -5,7 +5,6 @@ include_once('connexiobbddsanitat.php');
 if (!empty($_POST)) {
     $alert = "";
     if (empty($_POST["nombre"]) || empty($_POST["dni"]) || empty($_POST["password"]) || empty($_POST["tipo"]) || empty($_POST["clau_temporal"])) {
-
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
     } else {
         $nombre = $_POST["nombre"];
@@ -17,45 +16,33 @@ if (!empty($_POST)) {
         $tipo = $_POST["tipo"];
         $clau_temporal = $_POST["clau_temporal"];
 
-
         $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE DNI = '$dni'");
-        $resultado = mysqli_fetch_assoc($query);
+        $resultado = mysqli_num_rows($query);
 
         if ($resultado > 0) {
             $alert = "<p class='msg_error'>El usuario ya existe</p>";
         } else {
-
             $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE codi = '$clau_temporal' ");
             $resultado = mysqli_num_rows($query);
 
             if ($resultado > 0) {
+                $query_insertar = mysqli_query($conexion, "INSERT INTO tusuaris (DNI, tipo, nomUsuari, cognomUsuari, telefono, Password)
+                VALUES('$dni','$tipo','$nombre',' $cognom ',' $telefono ','$pass')");
 
-                while ($row = mysqli_fetch_assoc($query)) {
-
-                    $codi = $row["codi"];
-
-                    if ($clau_temporal == $codi) {
-
-                        $query_insertar = mysqli_query($conexion, "INSERT INTO tusuaris (DNI, tipo, nomUsuari, cognomUsuari, telefono, Password)
-                        VALUES('$dni','$tipo','$nombre',' $cognom ',' $telefono ','$pass')");
-
-                        if ($query_insertar) {
-                            $alert = "<p class='msg_correcto'>L'usuari ha sigut creat correctament</p>";
-                        } else {
-                            $alert = "<p class='msg_error'>Error al crear el usuario</p>";
-                        }
-                    } else {
-                        $alert = "<p class='msg_error'>La clau es incorrecta</p>";
-                    }
+                if ($query_insertar) {
+                    $alert = "<p class='msg_correcto'>L'usuari ha sigut creat correctament</p>";
+                } else {
+                    $alert = "<p class='msg_error'>Error al crear el usuario</p>";
                 }
             } else {
-                $alert = "<p class='msg_error'>Error al crear el usuario</p>";
+                $alert = "<p class='msg_error'>La clau es incorrecta</p>";
             }
         }
     }
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -127,7 +114,7 @@ if (!empty($_POST)) {
 
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
         <hr>
-        <form class="login" action="#" id="registro" method="post" style="max-width: 450px">
+        <form class="login" action="registrar_usuario_nuevo.php" id="registro" method="post" style="max-width: 450px">
             <label for="nombre">Nom
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre">
             </label>

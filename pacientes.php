@@ -15,9 +15,7 @@
   <?php
   include_once("header.php");
 
-  if ($_SESSION['tipo'] != 'admin') {
-    header("location: inicial.php");
-  }
+
   ?>
 
   <!-- container_general - no tocar -->
