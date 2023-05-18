@@ -38,21 +38,21 @@
                 </div>
                 <div class="panel">
 
-                    <a href="listado_usuarios.php">
+                    <a href="listadoUsuario.php">
                         <i class="fa-solid fa-users"></i>
                         <p>
                             <b>USUARIS</b><br>
                             <span><?php echo $conteos['tusuaris']; ?></span>
                         </p>
                     </a>
-                    <a href="#.php">
+                    <a href="pacientes.php">
                         <i class="fa-solid fa-dna"></i>
                         <p>
                             <b>PACIENTS (DADES)</b><br>
                             <span><?php echo $conteos['tdades']; ?></span>
                         </p>
                     </a>
-                    <a href="#.php">
+                    <a href="lista_ingresos.php">
                         <i class="fa-solid fa-dna"></i>
                         <p>
                             <b>INGRESSATS</b><br>

@@ -1,6 +1,10 @@
 <?php include_once("scripts.php"); ?>
 <?php
 include_once('connexiobbddsanitat.php');
+
+$nHc = $_GET['nHc'];
+
+
 ?>
 <link rel="stylesheet" href="css/infoStyles.css">
 </head>
@@ -31,6 +35,13 @@ if($resultado > 0) {
 
 
 <div class="container container_general " >
+  <div class="second_container">
+
+  <h1 class="titulos">TAULA DADES CONSTANTS</h1>
+
+<div class="navegacion">
+  <a href="inicial.php">Home ></a>&nbsp<a href="ingresos.php">SALES ></a>&nbsp<a href="tablaPaciente.php?nHc=<?php echo $nHc; ?>">TAULA PACIENT ></a> &nbsp <p>TAULA DADES CONSTANTS</p>
+</div>
   
   <div class="content">
     <div class="page active" data-page="dashboard">
@@ -472,4 +483,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     </div>
   </div>
 </div>
+</div>
+
 </body>

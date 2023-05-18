@@ -73,13 +73,13 @@ include_once('connexiobbddsanitat.php');
                     </span>
                 </a>
 
-                <a class="btn" id="constants" href="form_constants.php?nHc=<?php echo $nHc . "&ID=" . $ID; ?>"> <span>
+                <a class="btn" id="constants" href="infoConstants.php?nHc=<?php echo $nHc . "&ID=" . $ID; ?>"> <span>
                         <i class="fa-solid fa-heart-pulse"></i>
                         <h2>Constants</h2>
                     </span>
                 </a>
 
-                <a class="btn" id="respiratori" href="form_respiracio.php?nHc=<?php echo $nHc . "&ID=" . $ID; ?>"> <span>
+                <a class="btn" id="respiratori" href="infoRespiracio.php?nHc=<?php echo $nHc . "&ID=" . $ID; ?>"> <span>
                         <i class="fa-solid fa-lungs"></i>
                         <h2>Respiratòries</h2>
                     </span>
