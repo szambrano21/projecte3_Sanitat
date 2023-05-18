@@ -66,26 +66,29 @@ include_once('connexiobbddsanitat.php');
     if ($total_registro <= $por_pagina) {
         // Si no hay suficientes registros para requerir paginación, muestra todos los registros
         // $sql = mysqli_query($conexion, "SELECT * FROM tdades ORDER BY nom ASC");
-        $sql = mysqli_query($conexion, "SELECT * FROM tdades
-        WHERE DNI 
-        LIKE '%$busqueda%' OR nom LIKE '%$busqueda%' 
-        ORDER BY DNI, nom
-        ASC 
-        ");
+        $sql = mysqli_query($conexion,"SELECT *
+        FROM tingres
+        INNER JOIN tdades ON tingres.nHc = tdades.nHc
+        WHERE tingres.nHc =  tdades.nHc AND tdades.DNI 
+        LIKE '%$busqueda%' OR tdades.nom LIKE '%$busqueda%' 
+        ORDER BY tdades.DNI, tdades.nom
+        ASC LIMIT $desde,$por_pagina"
+        );
         
     } else {
         $total_paginas = ceil($total_registro / $por_pagina);
         // Establece la cantidad de páginas en 5, aunque estén vacías
         $total_paginas = 5;
-
+        // FROM tingres
+        // INNER JOIN tdades ON tingres.nHc = tdades.nHc
+        // WHERE tingres.nHc = '$nHc'
 
         $sql = mysqli_query($conexion,"SELECT *
-        FROM tdades
-        INNER JOIN tingres
-        ON tdades.nHc = tingres.nHc;
-        WHERE tdades.DNI 
+        FROM tingres
+        INNER JOIN tdades ON tingres.nHc = tdades.nHc
+        WHERE tingres.nHc = tdades.nHc AND tdades.DNI 
         LIKE '%$busqueda%' OR tdades.nom LIKE '%$busqueda%' 
-        ORDER BY tdades.DNI, tdades.nom, tingres.assignacioLlit
+        ORDER BY tdades.DNI, tdades.nom
         ASC LIMIT $desde,$por_pagina"
         );
 
@@ -115,7 +118,6 @@ include_once('connexiobbddsanitat.php');
         <?php
 
     while ($row = mysqli_fetch_assoc($sql)) {
-      
       $nom = $row['nom'];
       $nHc = $row['nHc'];
       $DNI = $row['DNI'];
