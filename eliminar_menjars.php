@@ -52,6 +52,7 @@ if(!empty($_POST)){
 <html lang="es">
 <head>
     <?php include_once("scripts.php")?>
+    <link rel="stylesheet" href="css/infoStyles.css">
 </head>
 <body>
     <?php include_once("header.php")?>
@@ -64,7 +65,8 @@ if(!empty($_POST)){
 
     <div style="margin-top: 100px"></div>
 <br>
-
+<div class="container_general">
+    <div class="second_container">
 <div class="eliminar_Usuario">
     <h2>¿Estás seguro de eliminar esta proteína?</h2>
 
@@ -78,9 +80,9 @@ if(!empty($_POST)){
         <input type="hidden" name="ID_menjar" value="<?php echo $ID_menjar; ?>">
 
     </form>
-
+    </div>
+    </div>
 </div>
-
 
 
 </body>

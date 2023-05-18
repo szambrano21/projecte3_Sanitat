@@ -4,7 +4,7 @@ include_once('connexiobbddsanitat.php');
 //recogemos id
 $ID = $_GET['ID'];
 $nHc = $_GET['nHc'];
-
+$fecha_actual = date("d-m-Y");
 if (!empty($_POST)) {
     $alert = "";
     if (
@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
-        print_r($_POST);
+        // print_r($_POST);
     } else {
 
         $alimentsNoGrassos = $_POST["alimentsNoGrassos"];
@@ -57,7 +57,7 @@ if (!empty($_POST)) {
         // }else{
         //     $alert="<p class='msg_error'>Error al crear el usuario</p>";
         // }
-        print_r($_POST);
+        // print_r($_POST);
     }
 }
 
@@ -67,6 +67,7 @@ if (!empty($_POST)) {
 
 <head>
     <?php include_once("scripts.php"); ?>
+    
 </head>
 
 <body>
@@ -90,7 +91,7 @@ if (!empty($_POST)) {
             </fieldset>
             <fieldset>
                 <label for="intolerancia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Intolerancia:<input id="intolerancia" name="intolerancia" type="text" /></label>
-                <label for="dia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Dia:<input id="intolerancia" name="dia" type="text" /></label>
+                <label for="dia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Dia:<input id="intolerancia" name="dia" type="text"  value="<?php echo $fecha_actual ?>"/></label>
             </fieldset>
             <fieldset class="radio_input_section">
                 <div><i class="fa-solid fa-handshake-angle"></i>

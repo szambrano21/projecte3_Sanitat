@@ -5,7 +5,7 @@ include_once('connexiobbddsanitat.php');
 
 $data = $_GET['data'];
 $ID = $_GET['ID'];
-
+$nHc= $_GET['nHc'];
 if (!empty($_POST)) {
     $alert = "";
     if (
@@ -183,7 +183,7 @@ while($row = mysqli_fetch_assoc($sql)){
            
             <fieldset>
                 <input type="submit" value="Submit" class="submitForm"/>
-                <a href="infoMenjars.php?ID=<?php echo $ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Menjars</a>
+                <a href="infoMenjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Menjars</a>
             </fieldset>
         </form>
         </div>

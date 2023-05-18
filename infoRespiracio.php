@@ -1,6 +1,7 @@
 <?php include_once("scripts.php");
 include_once('connexiobbddsanitat.php');
 $nHc = $_GET['nHc'];
+// $data = $_GET['data'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -175,8 +176,9 @@ $nHc = $_GET['nHc'];
       
         <thead>
           <tr>  
-            <th style="background: #85b0fa ">
-              <a href="form_respiracio.php?ID=<?php echo $ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a>
+            <th style="background: #85b0fa">
+
+            <a href="form_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID; ?>"><i class="fa-sharp fa-solid fa-plus"></i></a>
             </th>
           </tr>
           <tr>
@@ -244,8 +246,8 @@ $nHc = $_GET['nHc'];
             <td><?php echo $oxigenTerapia ?></td>
             <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
         </tbody>
@@ -353,8 +355,8 @@ $nHc = $_GET['nHc'];
             <td><?php echo $oxigenTerapia ?></td>
             <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php 
           } 
@@ -467,8 +469,8 @@ $nHc = $_GET['nHc'];
             <td><?php echo $oxigenTerapia ?></td>
             <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
         </tbody>

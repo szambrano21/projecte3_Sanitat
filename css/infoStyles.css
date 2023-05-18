@@ -836,3 +836,14 @@ html, body {
     background: var(--accent-primary);
   }
 }
+
+
+/*INFOMENJARS INFOCONSTANTS INFORESPIRATORIES*/
+
+.eliminar_Usuario {
+  background: #1F354A;
+  /* width: 50%; */
+  margin: 50px;
+  border-radius: 5px;
+  color: #cff8ff;
+}

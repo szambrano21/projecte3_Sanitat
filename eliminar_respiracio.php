@@ -39,7 +39,7 @@ if(!empty($_POST)){
             $dia = $row["dia"];
         }
     }else{
-        header("location: infoMenjars.php?nHc=$nHc&ID=$ID_ingreso");
+        header("location: infoRespiracio.php?nHc=$nHc&ID=$ID_ingreso");
     }
 
    }
@@ -51,10 +51,14 @@ if(!empty($_POST)){
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    
     <?php include_once("scripts.php")?>
+    <link rel="stylesheet" href="css/infoStyles.css">
+
 </head>
 <body>
     <?php include_once("header.php")?>
+    
 <br>
 <br>
 <br>
@@ -64,7 +68,8 @@ if(!empty($_POST)){
 
     <div style="margin-top: 100px"></div>
 <br>
-
+<div class="container_general">
+    <div class="second_container">
 <div class="eliminar_Usuario">
     <h2>¿Estás seguro de eliminar esta proteína?</h2>
 
@@ -73,12 +78,13 @@ if(!empty($_POST)){
     <p>Data: <?php echo $dia ?></p>
     
     <form method="post" action="">
-        <a href="infoMenjars.php?nHc=<?php echo $nHc."&ID=".$ID_ingreso;?>" class="btn_cancel">Cancelar</a>
+        <a href="infoRespiracio.php?nHc=<?php echo $nHc."&ID=".$ID_ingreso;?>" class="btn_cancel">Cancelar</a>
         <input type="submit" value="Aceptar" class="btn_ok">
         <input type="hidden" name="ID_resp" value="<?php echo $ID_resp; ?>">
 
     </form>
-
+</div>
+    </div>
 </div>
 
 

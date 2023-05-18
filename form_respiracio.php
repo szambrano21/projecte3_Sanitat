@@ -5,6 +5,8 @@ include_once('connexiobbddsanitat.php');
  //recogemos id
 $ID = $_GET['ID'];
 $nHc = $_GET['nHc'];
+$fecha_actual = date("d-m-Y");
+// $fecha_actual = date("d-m-Y h:i:s");
 if (!empty($_POST)) {
     $alert = "";
     if (
@@ -84,7 +86,7 @@ if (!empty($_POST)) {
         <form action="" id="validate" method="post" class="commom_form">
             <fieldset>
                 <label for="respMin"><i class="fa-sharp fa-solid fa-lungs"></i> Resp / min: <input id="respMin" name="respMin" type="text" /></label>
-                <label for="dia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Dia:<input id="intolerancia" name="dia" type="text" /></label>
+                <label for="dia"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Dia:<input id="intolerancia" name="dia" type="text" value="<?php echo $fecha_actual ?>" /></label>
 
             </fieldset>
 
