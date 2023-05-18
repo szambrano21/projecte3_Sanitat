@@ -168,6 +168,7 @@ table td:last-child {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 4px;
 
 }
 
@@ -319,6 +320,12 @@ table td:last-child {
 
 
 input[type="submit"]:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    background-color: rgb(219, 212, 212);
+}
+
+.login a:hover {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
     cursor: pointer;
     background-color: rgb(219, 212, 212);
@@ -1338,3 +1345,6 @@ div.pagination button:hover:not(.pagina-actual) {
     padding: 5px 0;
     margin: 20px 0;
 }
+
+/* CONTRASEÑA LOGIN */
+

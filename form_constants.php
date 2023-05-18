@@ -73,6 +73,9 @@ include_once("header.php");
 
 <div class="second_container">
 
+<h1 class="titulos">FORMULARI CONSTANTS</h1>
+
+
     <div class="form_dades_container">
         <h1>CONSTANTS</h1>
         <hr>

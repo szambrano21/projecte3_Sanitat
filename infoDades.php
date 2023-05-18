@@ -5,6 +5,11 @@ include_once('connexiobbddsanitat.php');
 <link rel="stylesheet" href="css/infoStyles.css">
 </head>
 <style>
+
+  h1{
+    color: black;
+  }
+
   .target, .target-2{
     background-color: #1F354A;
     width: 350px;
@@ -81,6 +86,13 @@ $entornFamiliar = $row["entornFamiliar"];
 $procedencia = $row["procedencia"];
 ?>
 
+<div class="container_general">
+<div class="second_container">
+
+
+<h1 class="titulos">TABLA PACIENTE</h1>
+
+<div class="container container_general" >
 
 <div class="container_general">
     <div class="second_container">
@@ -537,4 +549,6 @@ $procedencia = $row["procedencia"];
     </div>
   </div>
 </div> -->
+</div>
+</div>
 </body>

@@ -1,7 +1,7 @@
 <?php
 
 include_once('connexiobbddsanitat.php');
- //recogemos id
+//recogemos id
 $ID = $_GET['ID'];
 $nHc = $_GET['nHc'];
 
@@ -31,7 +31,8 @@ if (!empty($_POST)) {
        
 
 
-        
+
+
         // $query = mysqli_query($conexion, "SELECT * FROM tconstants WHERE ID_ingreso = '$ID_ingreso'");
         // $resultado = mysqli_fetch_assoc($query);
 
@@ -41,11 +42,11 @@ if (!empty($_POST)) {
             $query_insertar = mysqli_query($conexion, "INSERT INTO tmenjars (alimentsNoGrassos, necessitatsAjudes, inapetenciaAnorexia, mida, pes, protesisDental,intolerancia,dietaHabitual,dia,hora,ID_ingreso)
             VALUES('$alimentsNoGrassos','$necessitatsAjudes','$inapetenciaAnorexia','$mida','$pes','$protesisDental','$intolerancia','$dietaHabitual','$dia','$hora','$ID_ingreso')");
 
-            if ($query_insertar) {
-                $alert = "<p class='msg_correcto'> Dades insertades correctament</p>";
-            } else {
-                $alert = "<p class='msg_error'>Error al insertar les dades</p>";
-            }
+        if ($query_insertar) {
+            $alert = "<p class='msg_correcto'> Dades insertades correctament</p>";
+        } else {
+            $alert = "<p class='msg_error'>Error al insertar les dades</p>";
+        }
         // }
 
         // $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)

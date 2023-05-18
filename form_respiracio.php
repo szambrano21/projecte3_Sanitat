@@ -72,6 +72,10 @@ if (!empty($_POST)) {
     ?>
 <div class="container_general">
     <div class="second_container">
+
+<h1 class="titulos">FORMULARI RESPIRACIÓ</h1>
+
+
         <div class="form_dades_container">
         <h1>Respiració</h1>
         <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
