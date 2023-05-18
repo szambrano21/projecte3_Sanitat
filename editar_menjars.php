@@ -6,11 +6,12 @@ include_once('connexiobbddsanitat.php');
 $data = $_GET['data'];
 $ID = $_GET['ID'];
 $nHc= $_GET['nHc'];
+$ID_menjarURL = $_GET['ID_menjar'];
 if (!empty($_POST)) {
     $alert = "";
     if (
         empty($_POST["alimentsNoGrassos"]) || empty($_POST["necessitatsAjudes"]) || empty($_POST["inapetenciaAnorexia"]) || empty($_POST["mida"]) || empty($_POST["pes"])
-        || empty($_POST["protesisDental"]) || empty($_POST["intolerancia"]) || empty($_POST["dietaHabitual"]) ||  empty($_POST["ID_ingreso"]) ||  empty($_POST["hora"]) || empty($_POST["dia"])
+        || empty($_POST["protesisDental"]) || empty($_POST["intolerancia"]) || empty($_POST["dietaHabitual"]) ||  empty($_POST["ID_ingreso"]) ||  empty($_POST["hora"]) || empty($_POST["dia"]) || empty($_POST["ID_ingreso"])
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
@@ -28,6 +29,7 @@ if (!empty($_POST)) {
         $ID_ingreso = $_POST["ID_ingreso"];
         $dia = $_POST["dia"];
         $hora = $_POST["hora"];
+        $ID_menjar = $_POST['ID_menjar'];
         // $ID_const  = $_POST["ID_const"];
         $ID_ingreso = $_POST['ID_ingreso'];
        
@@ -45,7 +47,7 @@ if (!empty($_POST)) {
 
             $query_update = mysqli_query($conexion, "UPDATE tmenjars 
             SET alimentsNoGrassos = '$alimentsNoGrassos', necessitatsAjudes = '$necessitatsAjudes', inapetenciaAnorexia = '$inapetenciaAnorexia', mida = '$mida', pes = '$pes', protesisDental = '$protesisDental', intolerancia = '$intolerancia', dietaHabitual = '$dietaHabitual', dia = '$dia', hora = '$hora' 
-            WHERE ID_ingreso = '$ID_ingreso' AND dia = '$dia' ");
+            WHERE ID_menjar = '$ID_menjar'");
 
             if ($query_update) {
                 $alert = "<p class='msg_correcto'> Dades actualizades correctament</p>";
@@ -71,7 +73,7 @@ if (!empty($_POST)) {
 
 // $nHc = $_GET['nHc'];    
 $sql = mysqli_query($conexion,"SELECT * FROM tmenjars 
-WHERE dia = '$data' AND ID_ingreso = $ID ");
+WHERE ID_menjar   = '$ID_menjarURL'");
 
 // // echo $nHc;
 
@@ -180,7 +182,8 @@ while($row = mysqli_fetch_assoc($sql)){
 
 
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
-           
+            <input type="hidden" id="ID_menjar" name="ID_menjar" value="<?php echo $ID_menjarURL; ?>"/>
+
             <fieldset>
                 <input type="submit" value="Submit" class="submitForm"/>
                 <a href="infoMenjars.php?nHc=<?php echo $nHc."&ID=".$ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Menjars</a>

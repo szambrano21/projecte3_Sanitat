@@ -5,13 +5,14 @@ include_once('connexiobbddsanitat.php');
 
 $data = $_GET['data'];
 $ID = $_GET['ID'];
+$ID_respURL = $_GET['ID_resp'];
 $nHc = $_GET['nHc'];
 
 if (!empty($_POST)) {
     $alert = "";
     if (
         empty($_POST["respMin"]) || empty($_POST["tos"]) || empty($_POST["expectoracio"]) || empty($_POST["colorPell"]) || empty($_POST["observacions"])
-        ||  empty($_POST["oxigenTerapia"]) ||  empty($_POST["ID_ingreso"]) || empty($_POST["hora"]) || empty($_POST["dia"])
+        ||  empty($_POST["oxigenTerapia"]) ||  empty($_POST["ID_ingreso"]) || empty($_POST["hora"]) || empty($_POST["dia"]) || empty($_POST["ID_ingreso"]) || empty($_POST["ID_resp"])
     ) {
 
         $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
@@ -26,13 +27,13 @@ if (!empty($_POST)) {
         $dia = $_POST["dia"];
         $hora = $_POST["hora"];
         $ID_ingreso = $_POST["ID_ingreso"];
+        $ID_resp=$_POST['ID_resp'];
 
-        $fecha_actual = date("d-m-Y h:i:s");
-
+            // $fecha_actual = date("d-m-Y h:i:s");
 
             $query_update = mysqli_query($conexion, "UPDATE trespiratories 
-            SET respMin = '$respMin', tos = '$tos', expectoracio = '$expectoracio', colorPell = '$colorPell', observacions = '$observacions', oxigenTerapia = '$oxigenTerapia', dia = '$fecha_actual', hora = '$hora' 
-            WHERE ID_ingreso = '$ID_ingreso' AND dia = '$dia' ");
+            SET respMin = '$respMin', tos = '$tos', expectoracio = '$expectoracio', colorPell = '$colorPell', observacions = '$observacions', oxigenTerapia = '$oxigenTerapia', dia = '$dia', hora = '$hora', ID_ingreso = '$ID_ingreso' 
+            WHERE ID_resp = '$ID_resp'");
 
             if ($query_update) {
                 $alert = "<p class='msg_correcto'> Dades actualizades correctament</p>";
@@ -47,7 +48,7 @@ if (!empty($_POST)) {
 
 // $nHc = $_GET['nHc'];    
 $sql = mysqli_query($conexion,"SELECT * FROM trespiratories 
-WHERE dia = '$data' AND ID_ingreso = $ID ");
+WHERE ID_resp  = '$ID_respURL'");
 
 // // echo $nHc;
 
@@ -73,7 +74,7 @@ while($row = mysqli_fetch_assoc($sql)){
     $dia = $row["dia"];
     $hora = $row["hora"];
     $ID_ingreso = $row["ID_ingreso"];
-
+    $ID_resp = $row["ID_resp"];
 }
 
 }
@@ -154,6 +155,7 @@ while($row = mysqli_fetch_assoc($sql)){
             </div>
             
             <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
+            <input type="hidden" id="ID_resp" name="ID_resp" value="<?php echo $ID_respURL; ?>"/>
             <fieldset>
                 <input type="submit" value="Submit" class="submitForm"/>
                 <a href="infoRespiracio.php?nHc=<?php echo $nHc."&ID=".$ID; ?>" class="submitForm" style="    background-color: #3b3b4f; border-color: white; color:white">Taula Respiracions</a>

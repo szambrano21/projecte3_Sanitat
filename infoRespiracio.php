@@ -121,7 +121,7 @@ $nHc = $_GET['nHc'];
             <td><?php echo $oxigenTerapia ?></td>
             <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia."&ID_resp=".$ID_resp;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
@@ -230,7 +230,7 @@ $nHc = $_GET['nHc'];
             <td><?php echo $oxigenTerapia ?></td>
             <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia."&ID_resp=".$ID_resp;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php 
@@ -344,7 +344,7 @@ $nHc = $_GET['nHc'];
             <td><?php echo $oxigenTerapia ?></td>
             <!-- <td><?php echo $intolerancia ?></td>-->
             
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&data=".$dia."&ID=".$ID;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_respiracio.php?nHc=<?php echo $nHc."&ID_resp=".$ID_resp."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>

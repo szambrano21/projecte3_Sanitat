@@ -118,7 +118,7 @@ $nHc = $_GET['nHc'];
             <td><?php echo $protesisDental ?></td>
             <td><?php echo $intolerancia ?></td>
             <td><?php echo $dietaHabitual ?></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&data=".$dia."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
@@ -225,7 +225,7 @@ $nHc = $_GET['nHc'];
             <td><?php echo $protesisDental ?></td>
             <td><?php echo $intolerancia ?></td>
             <td><?php echo $dietaHabitual ?></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&data=".$dia."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
 
           </tr>
@@ -309,6 +309,9 @@ if (mysqli_num_rows($sql) > 0) {
             <th>
               <h1>Editar</h1>
             </th>
+            <th>
+              <h1>Eliminar</h1>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -336,7 +339,7 @@ if (mysqli_num_rows($sql) > 0) {
             <td><?php echo $protesisDental ?></td>
             <td><?php echo $intolerancia ?></td>
             <td><?php echo $dietaHabitual ?></td>
-            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID=".$ID."&data=".$dia;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td style="display:table-cell; width:auto; background:none;"><a href="editar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&data=".$dia."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td style="display:table-cell; width:auto; background:none;"><a href="eliminar_menjars.php?nHc=<?php echo $nHc."&ID_menjar=".$ID_menjar."&ID=".$ID_ingreso;?>" style="color:red;"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php } ?>
