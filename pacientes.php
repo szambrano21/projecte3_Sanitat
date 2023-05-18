@@ -23,7 +23,9 @@
     <div class="second_container">
 
       <h1 class="titulos">LLISTA DE PACIENTS</h1>
-
+      <div class="navegacion">
+        <a href="inicial.php">Home ></a>&nbsp<p>LLISTA DE PACIENTS</p>
+      </div>
       <div class="anadir_busca">
         <a href="form_nuevo_paciente.php">AFEGIR NOU PACIENT</a>
 
@@ -84,7 +86,7 @@
           $cognomPaciente = $row["cognom"];
           $dni = $row["DNI"];
           $telefono = $row["telefon"];
-
+          $nHc = $row["nHc"];
 
 
           echo "
@@ -95,14 +97,10 @@
         <td titulo='DNI:'>$dni</td>
         <td titulo='TELEFONO:'>$telefono</td>
         <td titulo='ACCIONES:'>
-          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>";
+          <a class='link_editar' href='tablaPaciente.php?nHc=$nHc' style='background-color: green; border: 1px solid green'>VER</a>
 
-          if ($dni != $_SESSION['DNI']) {
-            echo "
-              <a class='link_eliminar' href='eliminar_usuario.php?DNI=$dni'>ELIMINAR</a>  
-            ";
-          }
-          echo "
+          <a class='link_editar' href='editarDatos.php?DNI=$dni'>EDITAR</a>
+
         </td>
       </tr>
         ";

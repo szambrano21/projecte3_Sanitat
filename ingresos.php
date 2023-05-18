@@ -62,7 +62,9 @@ include_once('connexiobbddsanitat.php');
             <div class="second_container">
 
       <h1 class="titulos">SALES</h1>
-
+      <div class="navegacion">
+                <a href="inicial.php">Home ></a>&nbsp<p>SALES</p>
+            </div>
                 <div class="anadir_busca">
                     <a href="ingres.php">AFEGIR NOU INGRÉS</a>
 

@@ -1,8 +1,10 @@
 <?php
 
 include_once('connexiobbddsanitat.php');
- //recogemos id
+//recogemos id
 $ID = $_GET['ID'];
+$nHc = $_GET['nHc'];
+
 if (!empty($_POST)) {
     $alert = "";
     if (
@@ -29,21 +31,21 @@ if (!empty($_POST)) {
 
 
 
-        
+
         // $query = mysqli_query($conexion, "SELECT * FROM tconstants WHERE ID_ingreso = '$ID_ingreso'");
         // $resultado = mysqli_fetch_assoc($query);
 
         // if ($resultado > 0) {
         //     $alert = "<p class='msg_error'>El usuario ya existe</p>";
         // } else {
-            $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
+        $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
             VALUES('$temperatura','$presioArterial','$pols','$glucemia','$saturacioO2','$EVN','$reavaluacioDolor','$hemoglobina','$disfagiaLiquida','$disfagiaSolids','$ID_ingreso')");
 
-            if ($query_insertar) {
-                $alert = "<p class='msg_correcto'>Constants insertades correctament</p>";
-            } else {
-                $alert = "<p class='msg_error'>Error al insertar constants</p>";
-            }
+        if ($query_insertar) {
+            $alert = "<p class='msg_correcto'>Constants insertades correctament</p>";
+        } else {
+            $alert = "<p class='msg_error'>Error al insertar constants</p>";
+        }
         // }
 
         // $query_insertar = mysqli_query($conexion, "INSERT INTO tconstants (temperatura, presioArterial, pols, glucemia, saturacioO2, EVN,reavaluacioDolor,hemoglobina,disfagiaLiquida,disfagiaSolids,ID_ingreso)
@@ -70,67 +72,72 @@ include_once("header.php");
 </head>
 
 <body>
-<div class="container_general">
+    <div class="container_general">
 
-<div class="second_container">
+        <div class="second_container">
 
-<h1 class="titulos">FORMULARI CONSTANTS</h1>
+            <h1 class="titulos">FORMULARI CONSTANTS</h1>
 
 
-    <div class="form_dades_container">
-        <h1>CONSTANTS</h1>
-        <hr>
-        <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
-        <form action="" id="validate" method="post" class="commom_form">
-            <fieldset>
-                <label for="temperatura"><i class="fa-solid fa-weight-scale"></i> Temperatura (ºC): <input id="temperatura" name="temperatura" type="number" /></label>
-                <label for="pols"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pols" name="pols" type="number" /></label>
-            </fieldset>
-            <fieldset>
-                <label for="presioArterial"><i class="fa-sharp fa-solid fa-heart-pulse"></i> Pressió arterial (mm Hg):<input id="presioArterial" name="presioArterial" type="text" /></label>
-                <label for="glucemia"><i class="fa-solid fa-eye-dropper"></i> Glucemia (mg/dL): <input id="glucemia" name="glucemia" type="number" /></label>
-            </fieldset>
-            <fieldset>
-                <label for="saturacioO2"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacioO2" name="saturacioO2" type="number" /></label>
-            </fieldset>
-            <fieldset class="radio_input_section">
-                <div class="input_conjunto">
-                    EVN: <br>
-                    <label for="EVN"><input id="evn-1" type="radio" name="EVN" class="inline" value="1" /> Si</label>
-                    <label for="EVN"><input id="evn-0" type="radio" name="EVN" class="inline" value="0" /> No</label>
-                </div>
-                <div class="input_conjunto">
-                    Reavaluacio dolor: <br>
-                    <label for="reavaluacioDolor"><input id="reavaluacio-dolor-total" type="radio" name="reavaluacioDolor" class="inline" value="total" /> Total</label>
-                    <label for="reavaluacioDolor"><input id="reavaluacio-dolor-parcial" type="radio" name="reavaluacioDolor" class="inline" value="parcial" /> Parcial</label>
-                    <label for="reavaluacioDolor"><input id="reavaluacio-dolor-independent" type="radio" name="reavaluacioDolor" class="inline" value="independent" /> Independent</label>
-                </div>
-                <div class="input_conjunto">
-                    Hemoglobina: <br>
-                    <label for="hemoglobina"><input id="hemoglobina-1" type="radio" name="hemoglobina" class="inline" value="1" /> Si</label>
-                    <label for="hemoglobina"><input id="hemoglobina-0" type="radio" name="hemoglobina" class="inline" value="0" /> No</label>
-                </div>
-            </fieldset>
-            <fieldset>
-                <label for="disfagiaLiquida"> Disfagia líquida: <textarea name="disfagiaLiquida" id="disfagiaLiquida"></textarea></label>
-                <label for="disfagiaSolids"> Disfagia sòlida: <textarea name="disfagiaSolids" id="disfagiaSolids"></textarea></label>
-            </fieldset>
-
-            <div class="hora_dia">
-                <input type="radio" name="hora" id="dia" value="dia">
-                <label for="dia">dia</label>
-                <input type="radio" name="hora" id="tarda" value="tarda">
-                <label for="tarda">tarda</label>
-                <input type="radio" name="hora" id="nit" value="nit">
-                <label for="nit">nit</label>
+            <div class="navegacion">
+                <a href="inicial.php">Home ></a>&nbsp<a href="ingresos.php">SALES ></a>&nbsp<a href="tablaPaciente.php?nHc=<?php echo $nHc; ?>">TAULA PACIENT ></a> &nbsp <p>FORMULARI CONSTANTS</p>
             </div>
 
-            <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>"/>
-            <input type="submit" value="Submit" class="submitForm">
-        </form>
+            <div class="form_dades_container">
+                <h1>CONSTANTS</h1>
+
+                <hr>
+                <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
+                <form action="" id="validate" method="post" class="commom_form">
+                    <fieldset>
+                        <label for="temperatura"><i class="fa-solid fa-weight-scale"></i> Temperatura (ºC): <input id="temperatura" name="temperatura" type="number" /></label>
+                        <label for="pols"><i class="fa-solid fa-stethoscope"></i> Pulsacions (ppm): <input id="pols" name="pols" type="number" /></label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="presioArterial"><i class="fa-sharp fa-solid fa-heart-pulse"></i> Pressió arterial (mm Hg):<input id="presioArterial" name="presioArterial" type="text" /></label>
+                        <label for="glucemia"><i class="fa-solid fa-eye-dropper"></i> Glucemia (mg/dL): <input id="glucemia" name="glucemia" type="number" /></label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="saturacioO2"><i class="fa-sharp fa-solid fa-gauge-high"></i> Saturació 02 (%):<input id="saturacioO2" name="saturacioO2" type="number" /></label>
+                    </fieldset>
+                    <fieldset class="radio_input_section">
+                        <div class="input_conjunto">
+                            EVN: <br>
+                            <label for="EVN"><input id="evn-1" type="radio" name="EVN" class="inline" value="1" /> Si</label>
+                            <label for="EVN"><input id="evn-0" type="radio" name="EVN" class="inline" value="0" /> No</label>
+                        </div>
+                        <div class="input_conjunto">
+                            Reavaluacio dolor: <br>
+                            <label for="reavaluacioDolor"><input id="reavaluacio-dolor-total" type="radio" name="reavaluacioDolor" class="inline" value="total" /> Total</label>
+                            <label for="reavaluacioDolor"><input id="reavaluacio-dolor-parcial" type="radio" name="reavaluacioDolor" class="inline" value="parcial" /> Parcial</label>
+                            <label for="reavaluacioDolor"><input id="reavaluacio-dolor-independent" type="radio" name="reavaluacioDolor" class="inline" value="independent" /> Independent</label>
+                        </div>
+                        <div class="input_conjunto">
+                            Hemoglobina: <br>
+                            <label for="hemoglobina"><input id="hemoglobina-1" type="radio" name="hemoglobina" class="inline" value="1" /> Si</label>
+                            <label for="hemoglobina"><input id="hemoglobina-0" type="radio" name="hemoglobina" class="inline" value="0" /> No</label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="disfagiaLiquida"> Disfagia líquida: <textarea name="disfagiaLiquida" id="disfagiaLiquida"></textarea></label>
+                        <label for="disfagiaSolids"> Disfagia sòlida: <textarea name="disfagiaSolids" id="disfagiaSolids"></textarea></label>
+                    </fieldset>
+
+                    <div class="hora_dia">
+                        <input type="radio" name="hora" id="dia" value="dia">
+                        <label for="dia">dia</label>
+                        <input type="radio" name="hora" id="tarda" value="tarda">
+                        <label for="tarda">tarda</label>
+                        <input type="radio" name="hora" id="nit" value="nit">
+                        <label for="nit">nit</label>
+                    </div>
+
+                    <input type="hidden" id="ID_ingreso" name="ID_ingreso" value="<?php echo $ID; ?>" />
+                    <input type="submit" value="Submit" class="submitForm">
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </body>
 
 </html>

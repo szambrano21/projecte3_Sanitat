@@ -26,6 +26,9 @@
 
       <h1 class="titulos">LLISTA D'USUARIOS</h1>
 
+      <div class="navegacion">
+        <a href="inicial.php">Home ></a>&nbsp<p>LLISTA D'USUARIS</p>
+      </div>
 
       <!-- ESPACIO -->
       <div class="anadir_busca">
@@ -44,8 +47,8 @@
 
         <div class="field" id="searchform">
 
-        <input class="inputs" id="codi" name="codi" type="text" placeholder="Col·loca la clau" style="flex:initial"/>
-        <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
+          <input class="inputs" id="codi" name="codi" type="text" placeholder="Col·loca la clau" style="flex:initial" />
+          <button type="submit" value="buscar"><img class="iconSearch" src="https://img.icons8.com/material-outlined/256/search.png"></button>
         </div>
 
       </form>
@@ -56,30 +59,27 @@
 
       /* CLAVE LOGIN */
 
-      
-      if($_POST){
+
+      if ($_POST) {
         $nom = $_SESSION['nombre'];
 
-      $codi = $_POST["codi"];
+        $codi = $_POST["codi"];
 
-      $query = mysqli_query($conexion,"SELECT * FROM tusuaris WHERE nomUsuari = '$nom'");
-      $resultado = mysqli_fetch_assoc($query);
+        $query = mysqli_query($conexion, "SELECT * FROM tusuaris WHERE nomUsuari = '$nom'");
+        $resultado = mysqli_fetch_assoc($query);
 
-      if ($resultado) {
-        // El usuario existe, actualizar el campo 'codi'
-        $query_actualizar = mysqli_query($conexion, "UPDATE tusuaris SET codi = '$codi' WHERE nomUsuari = '$nom'");
-      
-        if ($query_actualizar) {
-          $alert = "<p class='msg_correcto'>El código ha sido insertado correctamente en el usuario.</p>";
+        if ($resultado) {
+          // El usuario existe, actualizar el campo 'codi'
+          $query_actualizar = mysqli_query($conexion, "UPDATE tusuaris SET codi = '$codi' WHERE nomUsuari = '$nom'");
+
+          if ($query_actualizar) {
+            $alert = "<p class='msg_correcto'>El código ha sido insertado correctamente en el usuario.</p>";
+          } else {
+            $alert = "<p class='msg_error'>Error al actualizar el código del usuario.</p>";
+          }
         } else {
-          $alert = "<p class='msg_error'>Error al actualizar el código del usuario.</p>";
+          $alert = "<p class='msg_error'>El usuario no existe.</p>";
         }
-      } else {
-        $alert = "<p class='msg_error'>El usuario no existe.</p>";
-      }
-
-
-
       }
 
 

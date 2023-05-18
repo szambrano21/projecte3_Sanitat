@@ -1,44 +1,43 @@
 <?php
-        include_once('connexiobbddsanitat.php');
+include_once('connexiobbddsanitat.php');
 
 $alert = '';
 
 
-if(!empty($_SESSION['activo'])){
+if (!empty($_SESSION['activo'])) {
     header("location: inicial.php");
+} else {
 
-}else{
+
+    if (!empty($_POST)) {
+        if (
+            empty($_POST["nom"]) || empty($_POST["cognom"]) || empty($_POST["DNI"]) || empty($_POST["nHc"]) || empty($_POST["dataNaixament"]) || empty($_POST["sexe"])  || empty($_POST["telefon"])
+            || empty($_POST["mail"])  || empty($_POST["direccio"]) || empty($_POST["personaContacte"])  || empty($_POST["telefonPersonsaContacte"])
+            || empty($_POST["relacioContacte"])
+        ) {
+            $alert = "<p class='msg_error'>Todos los campos son obligatorios</p>";
+        } else {
+            include_once('connexiobbddsanitat.php');
+            // $nHc = mysqli_real_escape_string($conexion, $_POST["nHc"]);
+            $nom = $_POST["nom"];
+            $cognom = $_POST["cognom"];
+            $DNI = $_POST["DNI"];
+            $nHc = $_POST["nHc"];
+            $dataNaixament = $_POST["dataNaixament"];
+            $sexe = $_POST["sexe"];
+            $telefon = $_POST["telefon"];
+            $mail = $_POST["mail"];
+            $direccio = $_POST["direccio"];
+            $personaContacte = $_POST["personaContacte"];
+            $telefonPersonsaContacte = $_POST["telefonPersonsaContacte"];
+            $relacioContacte = $_POST["relacioContacte"];
+
+            $_SESSION['nHc'] = $nHc;
+
+            $query = mysqli_query($conexion, "SELECT * FROM tdades WHERE nHc = '$nHc'");
+            $resultado = mysqli_num_rows($query);
 
 
-if(!empty($_POST)){
-    if(empty($_POST["nom"]) || empty($_POST["cognom"]) || empty($_POST["DNI"]) || empty($_POST["nHc"]) || empty($_POST["dataNaixament"]) || empty($_POST["sexe"])  || empty($_POST["telefon"]) 
-    || empty($_POST["mail"])  || empty($_POST["direccio"]) || empty($_POST["personaContacte"])  || empty($_POST["telefonPersonsaContacte"])
-    || empty($_POST["relacioContacte"])
-    )  
-    {
-        $alert="<p class='msg_error'>Todos los campos son obligatorios</p>";
-    }else{
-        include_once('connexiobbddsanitat.php');
-        // $nHc = mysqli_real_escape_string($conexion, $_POST["nHc"]);
-        $nom = $_POST["nom"];
-        $cognom = $_POST["cognom"];
-        $DNI = $_POST["DNI"];
-        $nHc = $_POST["nHc"];
-        $dataNaixament = $_POST["dataNaixament"];
-        $sexe = $_POST["sexe"];
-        $telefon = $_POST["telefon"];
-        $mail = $_POST["mail"];
-        $direccio = $_POST["direccio"];
-        $personaContacte = $_POST["personaContacte"];
-        $telefonPersonsaContacte = $_POST["telefonPersonsaContacte"];
-        $relacioContacte = $_POST["relacioContacte"];
-
-        $_SESSION['nHc'] = $nHc;
-
-        $query = mysqli_query($conexion, "SELECT * FROM tdades WHERE nHc = '$nHc'");
-        $resultado = mysqli_num_rows($query);
-        
-        
             // $sql_update = mysqli_query($conexion, "UPDATE tusuaris
             // SET nomUsuari = '$nombre', tipo = '$tipo', DNI = '$dni', Password = '$pass'
             // WHERE DNI = '$dni_usuario'");
@@ -49,17 +48,16 @@ if(!empty($_POST)){
 
             // VALUES ('$DNI', '$nom', '$cognom', '$nHc', '$dataNaixement', '$sexe','$telefon', '$mail', '$direccio', '$personaContacte', '$telefonPersonsaContacte', '$relacioContacte')");
 
-// INSERT INTO `tdades` (`nom`, `cognom`, `DNI`, `nHc`, `dataNaixament`, `sexe`, `telefon`, `mail`, `direccio`, `personaContacte`, `telefonPersonsaContacte`, `s`) 
-// VALUES ('aaaaaaaaa', 'aaaaa', '3946798S', 'aaadeww2112', '1', 'a', '111', 'sa', 'wwww', 'wwww', '23321', 'wwq');
+            // INSERT INTO `tdades` (`nom`, `cognom`, `DNI`, `nHc`, `dataNaixament`, `sexe`, `telefon`, `mail`, `direccio`, `personaContacte`, `telefonPersonsaContacte`, `s`) 
+            // VALUES ('aaaaaaaaa', 'aaaaa', '3946798S', 'aaadeww2112', '1', 'a', '111', 'sa', 'wwww', 'wwww', '23321', 'wwq');
 
 
-            if($query_insertar){
-                $alert="<p class='msg_correcto'>El paciente ha sido actualizado correctamente</p>";
-            }else{
-                $alert="<p class='msg_error'>Error al actualizar el usuario</p>";
+            if ($query_insertar) {
+                $alert = "<p class='msg_correcto'>El paciente ha sido actualizado correctamente</p>";
+            } else {
+                $alert = "<p class='msg_error'>Error al actualizar el usuario</p>";
             }
         }
-
     }
 }
 
@@ -67,32 +65,28 @@ if(!empty($_POST)){
 $DNI = $_GET['DNI'];
 // $IDFarmaco = $_GET['id_farmaco'];
 
-$sql = mysqli_query($conexion,"SELECT * FROM tdades WHERE DNI = '$DNI'");
+$sql = mysqli_query($conexion, "SELECT * FROM tdades WHERE DNI = '$DNI'");
 
 $resultado_sql = mysqli_num_rows($sql);
 
-if($resultado_sql == 0){
-header("location: inici.php");
-}
-else{
-$option = '';
-while($row = mysqli_fetch_assoc($sql)){
-    $DNI = $row['DNI'];
-    $nom = $row['nom'];
-    $cognom = $row['cognom'];
-    $nHc = $row['nHc'];
-    $dataNaixament = $row['dataNaixament'];
-    $sexe = $row['sexe'];
-    $telefon = $row['telefon'];
-    $mail = $row['mail'];
-    $direccio = $row['direccio'];
-    $personaContacte = $row['personaContacte'];
-    $telefonPersonsaContacte = $row['telefonPersonsaContacte'];
-    $relacioContacte = $row['relacioContacte'];
-
-
-}
-
+if ($resultado_sql == 0) {
+    header("location: inici.php");
+} else {
+    $option = '';
+    while ($row = mysqli_fetch_assoc($sql)) {
+        $DNI = $row['DNI'];
+        $nom = $row['nom'];
+        $cognom = $row['cognom'];
+        $nHc = $row['nHc'];
+        $dataNaixament = $row['dataNaixament'];
+        $sexe = $row['sexe'];
+        $telefon = $row['telefon'];
+        $mail = $row['mail'];
+        $direccio = $row['direccio'];
+        $personaContacte = $row['personaContacte'];
+        $telefonPersonsaContacte = $row['telefonPersonsaContacte'];
+        $relacioContacte = $row['relacioContacte'];
+    }
 }
 
 
@@ -126,6 +120,15 @@ while($row = mysqli_fetch_assoc($sql)){
     <?php include_once("header.php") ?>
     <div class="container_general">
         <div class="second_container">
+
+
+            <h1 class="titulos">EDITAR PACIENTE</h1>
+
+
+            <div class="navegacion">
+                <a href="inicial.php">Home ></a>&nbsp<a href="pacientes.php">LLISTA DE PACIENTS ></a> &nbsp <p>EDITAR PACIENTE</p>
+            </div>
+
             <div class="form_dades_container">
                 <h1>Edita datos del paciente</h1>
                 <div class="alert"> <?php echo isset($alert) ? $alert : ''; ?> </div>
@@ -139,7 +142,7 @@ while($row = mysqli_fetch_assoc($sql)){
                             <input type="text" name="cognom" id="cognom" value="<?php echo $cognom ?>">
                         </label>
                     </fieldset>
-                    
+
                     <fieldset>
 
                         <label for="nHc">Número de Historia Clínica:
@@ -147,9 +150,9 @@ while($row = mysqli_fetch_assoc($sql)){
                         </label>
                         <label for="dataNaixament">Fecha de Nacimiento:
                             <input type="text" name="dataNaixament" id="dataNaixament" value="<?php echo $dataNaixament ?>">
-                        </label>    
+                        </label>
                     </fieldset>
-                        
+
                     <fieldset>
                         <label for="DNI">DNI:
                             <input type="text" name="DNI" id="DNI" value="<?php echo $DNI ?>">
@@ -187,7 +190,7 @@ while($row = mysqli_fetch_assoc($sql)){
                             <input type="text" name="relacioContacte" id="relacioContacte" value="<?php echo $relacioContacte ?>"><br>
                         </label>
                     </fieldset>
-                    <input type="submit" value="Enviar" >
+                    <input type="submit" value="Enviar">
                 </form>
             </div>
         </div>

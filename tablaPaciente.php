@@ -6,7 +6,7 @@ include_once('connexiobbddsanitat.php');
 
 <head>
     <?php include_once("scripts.php"); ?>
-    <title>Tabla paciente</title>
+    <title>Taula pacient</title>
     <?php
     include_once('connexiobbddsanitat.php');
 
@@ -44,7 +44,9 @@ include_once('connexiobbddsanitat.php');
         <div class="second_container">
 
             <h1 class="titulos">TAULA PACIENT</h1>
-
+            <div class="navegacion">
+                <a href="inicial.php">Home ></a>&nbsp<a href="ingresos.php">SALES ></a>&nbsp<p>TAULA PACIENT</p>
+            </div>
             <div id="info_paciente">
                 <h4><?php echo $nom . ' ' . $cognom  ?></h4>
                 <p><b>Num. HC: </b><?php echo $nHc ?></p>
