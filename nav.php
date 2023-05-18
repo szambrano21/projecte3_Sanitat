@@ -42,7 +42,7 @@
 
         <?php
         if ($_SESSION['tipo'] == 'admin') {
-            echo '                        <li><a href="listadoUsuario.php">Usuaris</a></li>';
+            echo '<li><a href="listadoUsuario.php">Usuaris</a></li>';
         }
         ?>
         <li><a href="ingresos.php">Sales</a></li>
