@@ -1,4 +1,3 @@
-
 <!-- 
 <div class="menu">
         
@@ -7,17 +6,7 @@
            
 
 
-            <?php
-                if($_SESSION['tipo'] == 'admin' ){
-                    
-                    // echo '<li><a href="#"><i class="fa-solid fa-users"></i> USUARIOS</a>
-                    // <ul>
-                    //     <li><a href="crear_usuario.php"><i class="fa-solid fa-user-plus"></i> CREAR USUARIO</a>
-                    //     <li><a href="listado_usuarios.php"><i class="fa-solid fa-users"></i> LISTADO DE USUARIOS</a>
-                    // </ul>   
-                    // </li>';
-            }
-            ?>
+
 
             <li><a href="#"><i class="fa-solid fa-dna"></i> PROTEINAS</a>
                 <ul>
@@ -38,26 +27,33 @@
     </div> -->
 
 
-            <div class="menu">
-                <i class="fas fa-bars" id="btn_menu"></i>
-                <div class="container_session">
-            <li class="user_session"><h1><?php echo $_SESSION['nombre'] ,' - ', $_SESSION['tipo']?></h1> </li>
-            <li class="user_session"><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
-        </div>
-                    <ul class="menu_nav">
+<div class="menu">
+    <i class="fas fa-bars" id="btn_menu"></i>
+    <div class="container_session">
+        <li class="user_session">
+            <h1><?php echo $_SESSION['nombre'], ' - ', $_SESSION['tipo'] ?></h1>
+        </li>
+        <li class="user_session"><a class="salir" href="salir.php"><i class="fa-solid fa-power-off"></i></a></li>
+    </div>
+    <ul class="menu_nav">
 
-                        <li><span class="logotipo" href="inicial.php">LOGOTIP</span></li>
-                        <li><a class="active" href="inicial.php">DASHBOARD</a></li>
-                        <li><a href="listadoUsuario.php">Usuaris</a></li>
-                        <li><a href="ingresos.php">Sales</a></li>
-                        <li><a href="lista_ingresos.php">Ingressos</a></li>
-                        <li><a href="pacientes.php">Pacients</a></li>
+        <li><span class="logotipo" href="inicial.php">LOGOTIP</span></li>
+        <li><a class="active" href="inicial.php">DASHBOARD</a></li>
+
+        <?php
+        if ($_SESSION['tipo'] == 'admin') {
+            echo '                        <li><a href="listadoUsuario.php">Usuaris</a></li>';
+        }
+        ?>
+        <li><a href="ingresos.php">Sales</a></li>
+        <li><a href="lista_ingresos.php">Ingressos</a></li>
+        <li><a href="pacientes.php">Pacients</a></li>
 
 
 
-                    </ul>
+    </ul>
 
-            </div>
+</div>
 
 
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
